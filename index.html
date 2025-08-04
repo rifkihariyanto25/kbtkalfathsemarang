@@ -1,0 +1,290 @@
+<!DOCTYPE html>
+<html lang="id">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>TK-KB Al-Fath - Cerdas, Kreatif, Berakhlak Mulia</title>
+
+    <!-- Tailwind CSS -->
+    <script src="https://cdn.tailwindcss.com"></script>
+
+    <!-- Google Fonts: Poppins -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;500;600;700;800&display=swap"
+        rel="stylesheet">
+
+    <style>
+        /* Menggunakan font Poppins yang lebih ramah anak */
+        body {
+            font-family: 'Poppins', sans-serif;
+            overflow-x: hidden;
+            /* Mencegah scroll horizontal */
+        }
+
+        .carousel-container,
+        .facilities-carousel-wrapper,
+        .staff-carousel-wrapper {
+            transition: transform 0.5s ease-in-out;
+        }
+
+        /* Pola latar belakang yang lucu */
+        .pattern-bg {
+            background-color: #fffaf0;
+            background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='28' height='49' viewBox='0 0 28 49'%3E%3Cg fill-rule='evenodd'%3E%3Cg id='hexagons' fill='%23fef3c7' fill-opacity='0.4' fill-rule='nonzero'%3E%3Cpath d='M13.99 9.25l13 7.5v15l-13 7.5L1 31.75v-15l12.99-7.5zM3 17.9v12.7l10.99 6.34 11-6.35V17.9l-11-6.34L3 17.9zM0 15l12.99 7.5V30L0 22.5zM28 15L15 22.5V30l13-7.5z'/%3E%3C/g%3E%3C/g%3E%3C/svg%3E");
+        }
+
+        /* Pola doodle untuk hero section */
+        .hero-doodle-bg {
+            background-color: #ffffff;
+            background-image: url("data:image/svg+xml,%3Csvg width='60' height='60' viewBox='0 0 60 60' xmlns='http://www.w3.org/2000/svg'%3E%3Cg fill='none' fill-rule='evenodd'%3E%3Cg fill='%23fed7aa' fill-opacity='0.4'%3E%3Cpath d='M36 34v-4h-2v4h-4v2h4v4h2v-4h4v-2h-4zm0-30V0h-2v4h-4v2h4v4h2V6h4V4h-4zM6 34v-4H4v4H0v2h4v4h2v-4h4v-2H6zM6 4V0H4v4H0v2h4v4h2V6h4V4H6z'/%3E%3C/g%3E%3C/g%3E%3C/svg%3E");
+        }
+
+        /* Animasi */
+        @keyframes float {
+            0% {
+                transform: translateY(0px);
+            }
+
+            50% {
+                transform: translateY(-10px);
+            }
+
+            100% {
+                transform: translateY(0px);
+            }
+        }
+
+        @keyframes pulse-orange {
+            0% {
+                box-shadow: 0 0 0 0 rgba(249, 115, 22, 0.7);
+            }
+
+            70% {
+                box-shadow: 0 0 0 20px rgba(249, 115, 22, 0);
+            }
+
+            100% {
+                box-shadow: 0 0 0 0 rgba(249, 115, 22, 0);
+            }
+        }
+
+        @keyframes draw-path {
+            from {
+                stroke-dashoffset: 1000;
+            }
+
+            to {
+                stroke-dashoffset: 0;
+            }
+        }
+
+        .wavy-underline {
+            background-image: url("data:image/svg+xml;charset=utf8,%3Csvg id='squiggle-link' xmlns='http://www.w3.org/2000/svg' xmlns:xlink='http://www.w3.org/1999/xlink' xmlns:ev='http://www.w3.org/2001/xml-events' viewBox='0 0 20 4'%3E%3Cstyle type='text/css'%3E.squiggle{animation:shift .3s linear infinite;}@keyframes shift {from {transform:translateX(0);}to {transform:translateX(-20px);}}%3C/style%3E%3Cpath fill='none' stroke='%23f97316' stroke-width='2' class='squiggle' d='M0,3.5 C 5,3.5 5,0 10,0 C 15,0 15,3.5 20,3.5 C 25,3.5 25,0 30,0 C 35,0 35,3.5 40,3.5'/%3E%3C/svg%3E");
+            background-position: 0 100%;
+            background-size: auto 6px;
+            background-repeat: repeat-x;
+            text-decoration: none;
+            padding-bottom: 5px;
+        }
+
+        .adventure-path {
+            stroke-dasharray: 1000;
+            animation: draw-path 5s ease-in-out forwards;
+        }
+    </style>
+</head>
+
+<body class="bg-orange-50/50">
+
+    <!-- HEADER -->
+    <header class="bg-white shadow-lg sticky top-0 z-50">
+        <div class="container mx-auto px-6 py-3 flex justify-between items-center">
+            <a href="#" class="flex items-center space-x-3">
+                <img src="assets/WhatsApp Image 2025-07-30 at 09.47.34_ce7ed10a 1.png" alt="Logo Al-Fath"
+                    class="h-12 w-12 rounded-full transform hover:rotate-12 transition-transform duration-300">
+                <span class="text-xl font-bold text-gray-800">KB TK Al-Fath</span>
+            </a>
+            <nav class="hidden md:flex space-x-8 items-center">
+                <a href="#beranda"
+                    class="text-gray-600 hover:text-orange-500 font-semibold transition-colors">Beranda</a>
+                <a href="#program" class="text-gray-600 hover:text-orange-500 font-semibold transition-colors">KB</a>
+                <a href="#galeri" class="text-gray-600 hover:text-orange-500 font-semibold transition-colors">TK</a>
+                <a href="#berita" class="text-gray-600 hover:text-orange-500 font-semibold transition-colors">Galeri</a>
+                <a href="#berita" class="text-gray-600 hover:text-orange-500 font-semibold transition-colors">Berita</a>
+                <a href="#kontak"
+                    class="bg-red-500 hover:bg-red-600 text-white font-bold py-2 px-5 rounded-full transition duration-300 transform hover:scale-110">Kontak</a>
+            </nav>
+            <button id="mobile-menu-button" class="md:hidden text-orange-500 focus:outline-none">
+                <svg class="w-8 h-8" fill="none" stroke="currentColor" viewBox="0 0 24 24"
+                    xmlns="http://www.w3.org/2000/svg">
+                    <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M4 6h16M4 12h16m-7 6h7">
+                    </path>
+                </svg>
+            </button>
+        </div>
+        <div id="mobile-menu" class="hidden md:hidden bg-white border-t">
+            <a href="#beranda" class="block py-3 px-6 text-gray-600 hover:bg-orange-50 font-medium">Beranda</a>
+            <a href="#program" class="block py-3 px-6 text-gray-600 hover:bg-orange-50 font-medium">KB</a>
+            <a href="#galeri" class="block py-3 px-6 text-gray-600 hover:bg-orange-50 font-medium">TK</a>
+            <a href="#berita" class="block py-3 px-6 text-gray-600 hover:bg-orange-50 font-medium">Galeri</a>
+            <a href="#kontak" class="block py-3 px-6 text-gray-600 hover:bg-orange-50 font-medium">Berita</a>
+        </div>
+    </header>
+
+    <main>
+        <!-- HERO SECTION BARU -->
+        <section id="beranda"
+            class="relative w-full min-h-[80vh] md:min-h-[70vh] lg:min-h-[85vh] flex items-center hero-doodle-bg overflow-hidden">
+            <div class="container mx-auto px-6">
+                <div class="grid grid-cols-1 md:grid-cols-2 gap-8 items-center">
+                    <div class="relative w-full h-[50vh] md:h-[70vh] order-2 md:order-1">
+                        <img src="https://images.pexels.com/photos/3662843/pexels-photo-3662843.jpeg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=1"
+                            alt="[Anak-anak bermain]"
+                            class="absolute top-0 left-0 w-3/5 h-3/5 object-cover rounded-3xl shadow-2xl transform hover:scale-105 transition-transform duration-300 -rotate-6">
+                        <img src="https://images.pexels.com/photos/8613089/pexels-photo-8613089.jpeg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=1"
+                            alt="[Anak-anak belajar]"
+                            class="absolute bottom-0 right-0 w-1/2 h-1/2 object-cover rounded-3xl shadow-2xl transform hover:scale-105 transition-transform duration-300 rotate-6 border-4 border-white">
+                        <img src="/assets/image 7.png" alt="[Anak-anak membaca]"
+                            class="absolute bottom-1/4 left-1/4 w-2/5 h-2/5 object-cover rounded-full shadow-2xl transform hover:scale-105 transition-transform duration-300 border-4 border-white">
+                    </div>
+                    <div class="text-center md:text-left order-1 md:order-2">
+                        <h1 class="text-4xl lg:text-6xl font-extrabold text-orange-500 leading-tight">TK-KB Al-Fath</h1>
+                        <h2 class="text-2xl lg:text-4xl font-bold text-red-500 mt-2 mb-4"
+                            style="text-shadow: 1px 1px 2px rgba(0,0,0,0.1);">Tempat Terbaik Untuk Tumbuh & Bermain</h2>
+                        <p class="text-gray-600 text-lg mb-8 max-w-lg mx-auto md:mx-0">Membentuk generasi cerdas,
+                            kreatif, dan berakhlak mulia melalui pendidikan inovatif berbasis karakter Islami.</p>
+                        <a href="#program"
+                            class="hero-button mt-4 px-8 py-4 bg-orange-500 text-white font-bold rounded-full transition duration-300 text-lg hover:bg-orange-600 transform hover:scale-105 inline-block">Lihat
+                            Program Seru!</a>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+
+
+        <!-- FOOTER -->
+        <footer id="kontak" class="bg-gray-800 text-gray-300 pt-16 pb-8">
+            <div class="container mx-auto px-6">
+                <div class="grid grid-cols-1 md:grid-cols-3 gap-8 text-center md:text-left">
+                    <div>
+                        <h4 class="text-lg font-bold text-white mb-4">Main ke Sekolah Yuk!</h4>
+                        <p>Jl. Pendidikan No. 123, Kel. Cerdas, Kec. Ceria</p>
+                        <p>Kota Inspirasi, 12345</p>
+                    </div>
+                    <div>
+                        <h4 class="text-lg font-bold text-white mb-4">Jam Buka</h4>
+                        <p>Senin - Jumat</p>
+                        <p>07:00 - 15:00 WIB</p>
+                    </div>
+                    <div>
+                        <h4 class="text-lg font-bold text-white mb-4">Ngobrol dengan Kami</h4>
+                        <div class="flex justify-center md:justify-start space-x-6 mt-4"><a href="#"
+                                class="transform hover:scale-125 transition-transform" title="WhatsApp"><img
+                                    src="https://www.svgrepo.com/show/452133/whatsapp.svg" class="h-8 w-8"></a><a
+                                href="#" class="transform hover:scale-125 transition-transform" title="Facebook"><img
+                                    src="https://www.svgrepo.com/show/452195/facebook.svg" class="h-8 w-8"></a><a
+                                href="#" class="transform hover:scale-125 transition-transform" title="Instagram"><img
+                                    src="https://www.svgrepo.com/show/452229/instagram-1.svg" class="h-8 w-8"></a></div>
+                    </div>
+                </div>
+                <div class="border-t border-gray-700 mt-12 pt-6 text-center text-sm">
+                    <p>&copy; 2025 KB TK Islam Al Fath. All rights reserved.</p>
+                </div>
+            </div>
+        </footer>
+
+        <script>
+            // Script untuk menu mobile
+            const mobileMenuButton = document.getElementById('mobile-menu-button');
+            const mobileMenu = document.getElementById('mobile-menu');
+            mobileMenuButton.addEventListener('click', () => {
+                mobileMenu.classList.toggle('hidden');
+            });
+
+            // Script untuk carousel galeri
+            const carouselContainer = document.getElementById('carousel-container');
+            const prevBtn = document.getElementById('prevBtn');
+            const nextBtn = document.getElementById('nextBtn');
+            let currentIndex = 0;
+            const slides = carouselContainer.children;
+            const totalSlides = slides.length;
+            function updateCarousel() {
+                carouselContainer.style.transform = translateX(-${ currentIndex * 100} %);
+            }
+            nextBtn.addEventListener('click', () => {
+                currentIndex = (currentIndex + 1) % totalSlides;
+                updateCarousel();
+            });
+            prevBtn.addEventListener('click', () => {
+                currentIndex = (currentIndex - 1 + totalSlides) % totalSlides;
+                updateCarousel();
+            });
+            setInterval(() => { nextBtn.click(); }, 5000);
+
+            // Fungsi generic untuk carousel
+            function setupCarousel(carouselId, wrapperId, prevBtnId, nextBtnId) {
+                const carouselWrapper = document.getElementById(wrapperId);
+                const prevButton = document.getElementById(prevBtnId);
+                const nextButton = document.getElementById(nextBtnId);
+
+                if (!carouselWrapper || !prevButton || !nextButton) return;
+
+                let currentIndex = 0;
+                const slides = carouselWrapper.children;
+                const totalSlides = slides.length;
+
+                function getVisibleSlides() {
+                    if (window.innerWidth >= 1024) return carouselId === 'staff-carousel' ? 4 : 3;
+                    if (window.innerWidth >= 768) return carouselId === 'staff-carousel' ? 2 : 2;
+                    if (window.innerWidth >= 640) return carouselId === 'staff-carousel' ? 2 : 1;
+                    return 1;
+                }
+
+                function updateCarousel() {
+                    const visibleSlides = getVisibleSlides();
+                    const maxIndex = totalSlides - visibleSlides;
+
+                    if (currentIndex > maxIndex) currentIndex = maxIndex;
+                    if (currentIndex < 0) currentIndex = 0;
+
+                    const slideWidth = slides[0].offsetWidth;
+                    const gap = parseInt(window.getComputedStyle(carouselWrapper).gap) || 16; // 1rem = 16px
+                    const totalSlideWidth = slideWidth + gap;
+
+                    const newTransform = -currentIndex * totalSlideWidth;
+                    carouselWrapper.style.transform = translateX(${ newTransform }px);
+                }
+
+                nextButton.addEventListener('click', () => {
+                    const visibleSlides = getVisibleSlides();
+                    if (currentIndex < totalSlides - visibleSlides) {
+                        currentIndex++;
+                        updateCarousel();
+                    }
+                });
+
+                prevButton.addEventListener('click', () => {
+                    if (currentIndex > 0) {
+                        currentIndex--;
+                        updateCarousel();
+                    }
+                });
+
+                window.addEventListener('resize', updateCarousel);
+                // Initial call
+                setTimeout(updateCarousel, 100);
+            }
+
+            // Inisialisasi carousel fasilitas
+            setupCarousel('facilities-carousel', 'facilities-carousel-wrapper', 'facilityPrevBtn', 'facilityNextBtn');
+
+            // Inisialisasi carousel guru & staff
+            setupCarousel('staff-carousel', 'staff-carousel-wrapper', 'staffPrevBtn', 'staffNextBtn');
+
+        </script>
+</body>
+
+</html>
