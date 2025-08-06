@@ -1,0 +1,177 @@
+<!DOCTYPE html>
+<html lang="id">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>KB Al-Fath - Kelompok Bermain Islami</title>
+
+    <!-- Tailwind CSS -->
+    <script src="https://cdn.tailwindcss.com"></script>
+
+    <!-- Google Fonts: Poppins -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;500;600;700;800&display=swap"
+        rel="stylesheet">
+
+    <!-- Font Awesome -->
+    <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css" rel="stylesheet">
+
+    <!-- Navbar.js Script -->
+    <script src="navbar.js" defer></script>
+    
+    <!-- Footer.js Script -->
+    <script src="footer.js" defer></script>
+
+    <style>
+        body {
+            font-family: 'Poppins', sans-serif;
+            overflow-x: hidden;
+        }
+
+        /* Pola latar belakang yang lucu */
+        .pattern-bg {
+            background-color: #fffaf0;
+            background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='28' height='49' viewBox='0 0 28 49'%3E%3Cg fill-rule='evenodd'%3E%3Cg id='hexagons' fill='%23fef3c7' fill-opacity='0.4' fill-rule='nonzero'%3E%3Cpath d='M13.99 9.25l13 7.5v15l-13 7.5L1 31.75v-15l12.99-7.5zM3 17.9v12.7l10.99 6.34 11-6.35V17.9l-11-6.34L3 17.9zM0 15l12.99 7.5V30L0 22.5zM28 15L15 22.5V30l13-7.5z'/%3E%3C/g%3E%3C/g%3E%3C/svg%3E");
+        }
+
+        .wavy-underline {
+            background-image: url("data:image/svg+xml;charset=utf8,%3Csvg id='squiggle-link' xmlns='http://www.w3.org/2000/svg' xmlns:xlink='http://www.w3.org/1999/xlink' xmlns:ev='http://www.w3.org/2001/xml-events' viewBox='0 0 20 4'%3E%3Cstyle type='text/css'%3E.squiggle{animation:shift .3s linear infinite;}@keyframes shift {from {transform:translateX(0);}to {transform:translateX(-20px);}}%3C/style%3E%3Cpath fill='none' stroke='%23f97316' stroke-width='2' class='squiggle' d='M0,3.5 C 5,3.5 5,0 10,0 C 15,0 15,3.5 20,3.5 C 25,3.5 25,0 30,0 C 35,0 35,3.5 40,3.5'/%3E%3C/svg%3E");
+            background-position: 0 100%;
+            background-size: auto 6px;
+            background-repeat: repeat-x;
+            text-decoration: none;
+            padding-bottom: 5px;
+        }
+    </style>
+</head>
+
+<body class="bg-orange-50/50">
+    <!-- Navbar akan dimasukkan oleh navbar.js -->
+
+    <main class="py-20">
+        <div class="container mx-auto px-6">
+            <!-- <div class="text-center mb-12">
+            <h1 class="inline-block text-4xl md:text-5xl font-extrabold text-orange-500 mb-4"><span class="wavy-underline">Kelompok Bermain Al-Fath</span></h1>
+            <p class="text-gray-600 mt-4 text-lg">Tempat terbaik untuk anak-anak belajar dan bermain dengan nilai-nilai Islami</p>
+        </div> -->
+
+            <div
+                class="max-w-6xl mx-auto bg-white rounded-2xl shadow-xl overflow-hidden border-t-4 border-orange-500 pattern-bg">
+                <div class="flex">
+                    <!-- Left Section - Profil Sekolah -->
+                    <section class="w-2/5 p-8 bg-white">
+                        <h2 class="text-3xl font-bold text-orange-600 mb-6">Profil KB Al-Fath</h2>
+                        <p class="text-gray-600 leading-relaxed mb-8">
+                            Kami menciptakan suasana hangat dan menyenangkan yang mendorong rasa ingin tahu anak sejak
+                            dini.
+                            Dengan pendekatan belajar sambil bermain, setiap anak diajak menjelajahi dan belajar dengan
+                            cara
+                            yang seru dan penuh kasih.
+                        </p>
+
+                        <!-- Accreditation Badge -->
+                        <div class="flex items-center bg-orange-50 p-4 rounded-xl shadow-sm">
+                            <div class="relative">
+                                <div
+                                    class="w-20 h-20 bg-orange-500 rounded-full flex items-center justify-center text-white text-4xl font-bold shadow-lg">
+                                    B
+                                </div>
+                                <i class="fas fa-star text-yellow-500 text-xl absolute -top-1 -left-1"></i>
+                                <i class="fas fa-star text-yellow-500 text-xl absolute -bottom-1 -right-1"></i>
+                            </div>
+                            <div class="ml-4">
+                                <p class="text-sm text-orange-500 font-medium uppercase">BADAN AKREDITASI NASIONAL (BAN
+                                    S/M)</p>
+                                <h3 class="text-lg font-bold text-gray-800">Terakreditasi "B" (Baik)</h3>
+                                <p class="text-sm text-gray-600 mt-1">
+                                    Berdasarkan penilaian BAN-PDM, KB Al-Fath telah memenuhi standar pendidikan nasional
+                                    dengan
+                                    predikat baik, menunjukkan komitmen kami dalam menyediakan pendidikan berkualitas
+                                </p>
+                            </div>
+                        </div>
+                    </section>
+
+                    <!-- Right Section - Features Grid -->
+                    <section class="w-3/5 p-8 bg-orange-50/50">
+                        <h3 class="text-2xl font-bold text-red-500 mb-6">Program Unggulan KB</h3>
+                        <div class="grid grid-cols-2 gap-6">
+                            <!-- Hafalan doa-doa harian -->
+                            <div
+                                class="bg-white p-6 rounded-xl shadow-md hover:shadow-lg transition-all duration-300 transform hover:-translate-y-1">
+                                <div
+                                    class="w-14 h-14 bg-orange-100 rounded-full flex items-center justify-center mb-4 shadow-sm">
+                                    <i class="fas fa-hands-praying text-orange-500 text-xl"></i>
+                                </div>
+                                <h3 class="font-bold text-orange-600 mb-2">Hafalan Doa-doa Harian</h3>
+                                <p class="text-gray-600">
+                                    Mengajarkan doa-doa sehari-hari agar anak terbiasa berdoa dalam berbagai aktivitas.
+                                </p>
+                            </div>
+
+                            <!-- Mengaji dengan Metode Yanbu'a -->
+                            <div
+                                class="bg-white p-6 rounded-xl shadow-md hover:shadow-lg transition-all duration-300 transform hover:-translate-y-1">
+                                <div
+                                    class="w-14 h-14 bg-yellow-100 rounded-full flex items-center justify-center mb-4 shadow-sm">
+                                    <i class="fas fa-book-quran text-yellow-600 text-xl"></i>
+                                </div>
+                                <h3 class="font-bold text-orange-600 mb-2">Mengaji dengan Metode Yanbu'a</h3>
+                                <p class="text-gray-600">
+                                    Belajar membaca Al-Qur'an dengan metode yanbu'a yang terstruktur dan mudah dipahami.
+                                </p>
+                            </div>
+
+                            <!-- Indoor Outdoor Activity -->
+                            <div
+                                class="bg-white p-6 rounded-xl shadow-md hover:shadow-lg transition-all duration-300 transform hover:-translate-y-1">
+                                <div
+                                    class="w-14 h-14 bg-green-100 rounded-full flex items-center justify-center mb-4 shadow-sm">
+                                    <i class="fas fa-child text-green-500 text-xl"></i>
+                                </div>
+                                <h3 class="font-bold text-orange-600 mb-2">Indoor Outdoor Activity</h3>
+                                <p class="text-gray-600">
+                                    Permainan stimulasi motorik kasar dan halus di dalam maupun luar kelas.
+                                </p>
+                            </div>
+
+                            <!-- Pembiasaan Praktik Shalat -->
+                            <div
+                                class="bg-white p-6 rounded-xl shadow-md hover:shadow-lg transition-all duration-300 transform hover:-translate-y-1">
+                                <div
+                                    class="w-14 h-14 bg-orange-100 rounded-full flex items-center justify-center mb-4 shadow-sm">
+                                    <i class="fas fa-pray text-orange-500 text-xl"></i>
+                                </div>
+                                <h3 class="font-bold text-orange-600 mb-2">Pembiasaan Praktik Shalat</h3>
+                                <p class="text-gray-600">
+                                    Mengenalkan gerakan dan bacaan shalat secara bertahap hingga anak melaksanakan
+                                    shalat dengan
+                                    benar.
+                                </p>
+                            </div>
+                        </div>
+                    </section>
+                </div>
+            </div>
+
+            <!-- Informasi Pendaftaran -->
+            <div class="mt-16 bg-orange-100 rounded-2xl p-8 shadow-lg">
+                <div class="flex flex-col md:flex-row items-center justify-between">
+                    <div class="mb-6 md:mb-0">
+                        <h3 class="text-2xl font-bold text-orange-600 mb-2">Daftarkan Buah Hati Anda Sekarang!</h3>
+                        <p class="text-gray-700">Pendaftaran untuk tahun ajaran baru telah dibuka. Segera daftarkan
+                            putra-putri Anda untuk mendapatkan pendidikan terbaik.</p>
+                    </div>
+                    <a href="#kontak"
+                        class="bg-red-500 hover:bg-red-600 text-white font-bold py-3 px-8 rounded-full transition duration-300 transform hover:scale-105 shadow-md">Hubungi
+                        Kami</a>
+                </div>
+            </div>
+        </div>
+    </main>
+    <!-- Footer akan dimasukkan oleh footer.js -->
+</body>
+
+</html>
