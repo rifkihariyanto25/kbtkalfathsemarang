@@ -2,53 +2,91 @@
 <html lang="id">
 
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Galeri Ceria - TK-KB Al-Fath</title>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Galeri - KB-TK Islam Al Fath</title>
 
     <!-- Tailwind CSS -->
     <script src="https://cdn.tailwindcss.com"></script>
 
     <!-- Google Fonts: Poppins -->
-    <link rel="preconnect" href="https://fonts.googleapis.com">
-    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
     <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;500;600;700;800&display=swap"
-        rel="stylesheet">
+        rel="stylesheet" />
 
+    <!-- Animate On Scroll (AOS) Library -->
+    <link href="https://unpkg.com/aos@2.3.1/dist/aos.css" rel="stylesheet" />
+    <script src="https://unpkg.com/aos@2.3.1/dist/aos.js"></script>
+    
     <!-- Navbar.js Script -->
     <script src="navbar.js" defer></script>
     
     <!-- Footer.js Script -->
     <script src="footer.js" defer></script>
 
+    <!-- Custom Styles -->
     <style>
         body {
-            font-family: 'Poppins', sans-serif;
-            background-color: #FFF7ED;
+            font-family: "Poppins", sans-serif;
+            background-color: #ffffff;
         }
 
-        /* Style untuk Masonry Grid */
-        .gallery-grid {
-            display: grid;
-            grid-template-columns: repeat(auto-fill, minmax(250px, 1fr));
-            grid-auto-rows: 200px;
-            grid-auto-flow: dense;
-            gap: 1rem;
+        .brand-orange {
+            color: #f26622;
         }
 
+        .bg-brand-orange {
+            background-color: #f26622;
+        }
+
+        .border-brand-orange {
+            border-color: #f26622;
+        }
+
+        .bg-brand-red {
+            background-color: #9a3b1b;
+        }
+
+        .text-dark-gray {
+            color: #4f4f4f;
+        }
+
+        .filter-btn.active {
+            background-color: #f26622;
+            color: white;
+            border-color: #f26622;
+        }
+
+        .date-separator {
+            display: flex;
+            align-items: center;
+            text-align: center;
+            color: #828282;
+            margin: 3rem 0;
+        }
+
+        .date-separator::before,
+        .date-separator::after {
+            content: "";
+            flex: 1;
+            border-bottom: 1px solid #e0e0e0;
+        }
+
+        .date-separator:not(:empty)::before {
+            margin-right: 0.5em;
+        }
+
+        .date-separator:not(:empty)::after {
+            margin-left: 0.5em;
+        }
+
+        /* Hover effect */
         .gallery-item {
             position: relative;
-            /* Penting untuk overlay */
             overflow: hidden;
-            border-radius: 1.5rem;
-            box-shadow: 0 10px 15px -3px rgb(0 0 0 / 0.1), 0 4px 6px -4px rgb(0 0 0 / 0.1);
-            transition: transform 0.3s ease, box-shadow 0.3s ease;
+            border-radius: 1rem;
             cursor: pointer;
-        }
-
-        .gallery-item:hover {
-            transform: scale(1.03);
-            box-shadow: 0 20px 25px -5px rgb(0 0 0 / 0.1), 0 8px 10px -6px rgb(0 0 0 / 0.1);
         }
 
         .gallery-item img {
@@ -62,262 +100,180 @@
             transform: scale(1.1);
         }
 
-        /* Style untuk overlay tanggal */
-        .item-overlay {
+        .gallery-caption {
             position: absolute;
             bottom: 0;
             left: 0;
             right: 0;
-            padding: 1.5rem 1rem 0.75rem;
-            /* Padding atas lebih besar untuk gradien */
             background: linear-gradient(to top, rgba(0, 0, 0, 0.7), transparent);
             color: white;
+            padding: 1rem;
             opacity: 0;
-            transition: opacity 0.3s ease;
-            pointer-events: none;
-            /* Agar tidak mengganggu klik */
+            transform: translateY(30px);
+            transition: opacity 0.3s ease, transform 0.3s ease;
         }
 
-        .gallery-item:hover .item-overlay {
+        .gallery-item:hover .gallery-caption {
             opacity: 1;
+            transform: translateY(0);
         }
 
-        .item-date {
-            font-size: 0.8rem;
-            font-weight: 500;
+        /* Animasi muncul */
+        .gallery-item {
+            transition: transform 0.3s ease, opacity 0.3s ease;
+            animation: fadeIn 0.5s;
         }
 
-        /* Membuat beberapa item lebih tinggi atau lebih lebar */
-        .item-tall {
-            grid-row: span 2;
-        }
-
-        .item-wide {
-            grid-column: span 2;
-        }
-
-        /* Style untuk Lightbox */
-        #lightbox {
-            transition: opacity 0.3s ease-in-out;
-        }
-
-        .lightbox-img {
-            transition: transform 0.3s ease-in-out;
-            max-width: 90vw;
-            max-height: 80vh;
-        }
-
-        /* Animasi untuk item galeri saat muncul */
         @keyframes fadeIn {
             from {
                 opacity: 0;
-                transform: translateY(20px);
+                transform: scale(0.95);
             }
 
             to {
                 opacity: 1;
-                transform: translateY(0);
+                transform: scale(1);
             }
-        }
-
-        .fade-in {
-            animation: fadeIn 0.5s ease-out forwards;
         }
     </style>
 </head>
 
-<body class="text-gray-800">
-
+<body class="text-dark-gray">
     <!-- Navbar akan dimasukkan oleh navbar.js -->
 
-    <!-- MAIN CONTENT -->
-    <main class="container mx-auto px-6 py-12">
-        <!-- Judul dan Filter -->
-        <div class="text-center mb-12">
-            <h1 class="text-4xl md:text-5xl font-extrabold text-orange-500 mb-4">Momen Tak Terlupakan</h1>
-            <p class="text-gray-600 text-lg">Lihat keseruan dan petualangan kami di Al-Fath!</p>
-            <div id="filter-buttons" class="mt-8 flex flex-wrap justify-center gap-3">
-                <button data-filter="all"
-                    class="filter-btn bg-red-500 text-white font-semibold py-2 px-5 rounded-full">Semua</button>
-                <button data-filter="belajar"
-                    class="filter-btn bg-white text-gray-700 font-semibold py-2 px-5 rounded-full hover:bg-orange-100">Kegiatan
-                    Belajar</button>
-                <button data-filter="bermain"
-                    class="filter-btn bg-white text-gray-700 font-semibold py-2 px-5 rounded-full hover:bg-orange-100">Bermain</button>
-                <button data-filter="ekskul"
-                    class="filter-btn bg-white text-gray-700 font-semibold py-2 px-5 rounded-full hover:bg-orange-100">Ekskul</button>
-                <button data-filter="acara"
-                    class="filter-btn bg-white text-gray-700 font-semibold py-2 px-5 rounded-full hover:bg-orange-100">Acara
-                    Spesial</button>
-            </div>
-        </div>
+    <main class="container mx-auto px-6 py-16">
+        <!-- ===== PAGE HEADER ===== -->
+        <section class="text-center mb-12" data-aos="fade-up">
+            <h1 class="text-4xl md:text-5xl font-extrabold text-gray-900">
+                Momen Tak Terlupakan di <span class="brand-orange">Al Fath</span>
+            </h1>
+            <p class="mt-4 text-lg text-dark-gray">
+                Lihat keseruan dan petualangan kami di Al-Fath!
+            </p>
+        </section>
 
-        <!-- Galeri Masonry -->
-        <div id="gallery-grid" class="gallery-grid">
-            <div class="gallery-item item-tall" data-category="belajar" data-date="3 Agustus 2025"><img
-                    src="https://images.pexels.com/photos/8471801/pexels-photo-8471801.jpeg?auto=compress&cs=tinysrgb&w=600"
-                    alt="[Anak-anak belajar di kelas]">
-                <div class="item-overlay"><span class="item-date">3 Agustus 2025</span></div>
+        <!-- ===== FILTER BUTTONS ===== -->
+        <section class="flex justify-center items-center space-x-2 md:space-x-4 mb-12" data-aos="fade-up"
+            data-aos-delay="100">
+            <button class="filter-btn active font-semibold py-2 px-6 rounded-full border-2 border-transparent"
+                onclick="filterSelection(event, 'all')">
+                Semua
+            </button>
+            <button class="filter-btn font-semibold py-2 px-6 rounded-full border-2 border-gray-300 text-gray-500"
+                onclick="filterSelection(event, 'kb')">
+                KB
+            </button>
+            <button class="filter-btn font-semibold py-2 px-6 rounded-full border-2 border-gray-300 text-gray-500"
+                onclick="filterSelection(event, 'tk')">
+                TK
+            </button>
+            <button class="filter-btn font-semibold py-2 px-6 rounded-full border-2 border-gray-300 text-gray-500"
+                onclick="filterSelection(event, 'spesial')">
+                Acara Spesial
+            </button>
+        </section>
+
+        <!-- ===== GALLERY ===== -->
+        <section id="gallery-grid">
+            <div data-aos="fade-up">
+                <div class="date-separator">4 Agustus 2025</div>
+                <div class="grid grid-cols-2 md:grid-cols-4 gap-4">
+                    <div class="gallery-item col-span-2 row-span-2" data-category="tk">
+                        <img src="https://images.pexels.com/photos/8471801/pexels-photo-8471801.jpeg?auto=compress&cs=tinysrgb&w=600"
+                            alt="Anak belajar di kelas" />
+                        <div class="gallery-caption">
+                            <p>Belajar di Kelas</p>
+                        </div>
+                    </div>
+                    <div class="gallery-item" data-category="kb">
+                        <img src="https://images.pexels.com/photos/3662823/pexels-photo-3662823.jpeg?auto=compress&cs=tinysrgb&w=600"
+                            alt="Anak bermain balok" />
+                        <div class="gallery-caption">
+                            <p>Bermain Balok</p>
+                        </div>
+                    </div>
+                    <div class="gallery-item" data-category="spesial">
+                        <img src="https://images.pexels.com/photos/7939106/pexels-photo-7939106.jpeg?auto=compress&cs=tinysrgb&w=600"
+                            alt="Perayaan Hari Kemerdekaan" />
+                        <div class="gallery-caption">
+                            <p>Perayaan Kemerdekaan</p>
+                        </div>
+                    </div>
+                    <div class="gallery-item" data-category="spesial">
+                        <img src="https://images.pexels.com/photos/6095460/pexels-photo-6095460.jpeg?auto=compress&cs=tinysrgb&w=600"
+                            alt="Acara Wisuda" />
+                        <div class="gallery-caption">
+                            <p>Wisuda</p>
+                        </div>
+                    </div>
+                </div>
             </div>
-            <div class="gallery-item" data-category="bermain" data-date="3 Agustus 2025"><img
-                    src="https://images.pexels.com/photos/3662823/pexels-photo-3662823.jpeg?auto=compress&cs=tinysrgb&w=600"
-                    alt="[Anak bermain balok]">
-                <div class="item-overlay"><span class="item-date">3 Agustus 2025</span></div>
+
+            <div data-aos="fade-up">
+                <div class="date-separator">1 Agustus 2025</div>
+                <div class="grid grid-cols-2 md:grid-cols-4 gap-4">
+                    <div class="gallery-item" data-category="kb">
+                        <img src="https://images.pexels.com/photos/3933250/pexels-photo-3933250.jpeg?auto=compress&cs=tinysrgb&w=600"
+                            alt="Anak bermain luar ruangan" />
+                        <div class="gallery-caption">
+                            <p>Bermain di Luar</p>
+                        </div>
+                    </div>
+                    <div class="gallery-item col-span-2 row-span-2" data-category="tk">
+                        <img src="https://images.pexels.com/photos/8613089/pexels-photo-8613089.jpeg?auto=compress&cs=tinysrgb&w=600"
+                            alt="Guru membacakan cerita" />
+                        <div class="gallery-caption">
+                            <p>Membaca Cerita</p>
+                        </div>
+                    </div>
+                    <div class="gallery-item" data-category="tk">
+                        <img src="https://images.pexels.com/photos/7149165/pexels-photo-7149165.jpeg?auto=compress&cs=tinysrgb&w=600"
+                            alt="Anak belajar mengaji" />
+                        <div class="gallery-caption">
+                            <p>Mengaji</p>
+                        </div>
+                    </div>
+                    <div class="gallery-item" data-category="spesial">
+                        <img src="https://images.pexels.com/photos/764681/pexels-photo-764681.jpeg?auto=compress&cs=tinysrgb&w=600"
+                            alt="Anak bermain musik" />
+                        <div class="gallery-caption">
+                            <p>Ekskul Musik</p>
+                        </div>
+                    </div>
+                </div>
             </div>
-            <div class="gallery-item item-wide" data-category="acara" data-date="2 Agustus 2025"><img
-                    src="https://images.pexels.com/photos/7939106/pexels-photo-7939106.jpeg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=1"
-                    alt="[Perayaan hari kemerdekaan]">
-                <div class="item-overlay"><span class="item-date">2 Agustus 2025</span></div>
-            </div>
-            <div class="gallery-item" data-category="ekskul" data-date="2 Agustus 2025"><img
-                    src="https://images.pexels.com/photos/4145354/pexels-photo-4145354.jpeg?auto=compress&cs=tinysrgb&w=600"
-                    alt="[Anak melukis]">
-                <div class="item-overlay"><span class="item-date">2 Agustus 2025</span></div>
-            </div>
-            <div class="gallery-item" data-category="bermain" data-date="1 Agustus 2025"><img
-                    src="https://images.pexels.com/photos/3933250/pexels-photo-3933250.jpeg?auto=compress&cs=tinysrgb&w=600"
-                    alt="[Anak bermain di luar ruangan]">
-                <div class="item-overlay"><span class="item-date">1 Agustus 2025</span></div>
-            </div>
-            <div class="gallery-item item-tall" data-category="belajar" data-date="1 Agustus 2025"><img
-                    src="https://images.pexels.com/photos/8613089/pexels-photo-8613089.jpeg?auto=compress&cs=tinysrgb&w=600"
-                    alt="[Guru membacakan cerita]">
-                <div class="item-overlay"><span class="item-date">1 Agustus 2025</span></div>
-            </div>
-            <div class="gallery-item" data-category="acara" data-date="31 Juli 2025"><img
-                    src="https://images.pexels.com/photos/6095460/pexels-photo-6095460.jpeg?auto=compress&cs=tinysrgb&w=600"
-                    alt="[Acara wisuda]">
-                <div class="item-overlay"><span class="item-date">31 Juli 2025</span></div>
-            </div>
-            <div class="gallery-item" data-category="ekskul" data-date="30 Juli 2025"><img
-                    src="https://images.pexels.com/photos/764681/pexels-photo-764681.jpeg?auto=compress&cs=tinysrgb&w=600"
-                    alt="[Anak bermain musik]">
-                <div class="item-overlay"><span class="item-date">30 Juli 2025</span></div>
-            </div>
-            <div class="gallery-item item-wide" data-category="bermain" data-date="29 Juli 2025"><img
-                    src="https://images.pexels.com/photos/5905780/pexels-photo-5905780.jpeg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=1"
-                    alt="[Anak-anak bermain bersama]">
-                <div class="item-overlay"><span class="item-date">29 Juli 2025</span></div>
-            </div>
-            <div class="gallery-item" data-category="belajar" data-date="28 Juli 2025"><img
-                    src="https://images.pexels.com/photos/7149165/pexels-photo-7149165.jpeg?auto=compress&cs=tinysrgb&w=600"
-                    alt="[Anak belajar mengaji]">
-                <div class="item-overlay"><span class="item-date">28 Juli 2025</span></div>
-            </div>
-        </div>
+        </section>
     </main>
 
-    <!-- Lightbox Modal -->
-    <div id="lightbox"
-        class="fixed inset-0 bg-black/80 z-[99] flex items-center justify-center opacity-0 pointer-events-none">
-        <button id="close-lightbox" class="absolute top-6 right-6 text-white text-5xl">&times;</button>
-        <button id="prev-lightbox"
-            class="absolute left-6 text-white text-4xl p-2 bg-white/20 rounded-full">&#10094;</button>
-        <button id="next-lightbox"
-            class="absolute right-6 text-white text-4xl p-2 bg-white/20 rounded-full">&#10095;</button>
-        <img id="lightbox-img" src="" alt="[Tampilan gambar diperbesar]" class="lightbox-img rounded-lg">
-        <div id="lightbox-caption" class="absolute bottom-10 text-white text-lg font-semibold"></div>
-    </div>
-
     <script>
-        document.addEventListener('DOMContentLoaded', () => {
-            const filterButtons = document.querySelectorAll('.filter-btn');
-            const galleryItems = document.querySelectorAll('.gallery-item');
-            const lightbox = document.getElementById('lightbox');
-            const lightboxImg = document.getElementById('lightbox-img');
-            const lightboxCaption = document.getElementById('lightbox-caption');
-            const closeLightbox = document.getElementById('close-lightbox');
-            const prevLightbox = document.getElementById('prev-lightbox');
-            const nextLightbox = document.getElementById('next-lightbox');
+        AOS.init({ duration: 800, once: true });
 
-            let currentImageIndex;
-            let visibleImages = [];
-
-            // Filter Logic
-            filterButtons.forEach(button => {
-                button.addEventListener('click', () => {
-                    // Update button styles
-                    filterButtons.forEach(btn => {
-                        btn.classList.remove('bg-red-500', 'text-white');
-                        btn.classList.add('bg-white', 'text-gray-700');
-                    });
-                    button.classList.add('bg-red-500', 'text-white');
-                    button.classList.remove('bg-white', 'text-gray-700');
-
-                    const filter = button.getAttribute('data-filter');
-
-                    galleryItems.forEach(item => {
-                        item.style.display = 'none'; // Hide all items first
-                        if (filter === 'all' || item.getAttribute('data-category') === filter) {
-                            item.style.display = 'block';
-                            item.classList.add('fade-in');
-                        }
-                    });
-                });
-            });
-
-            // Lightbox Logic
-            function openLightbox(index) {
-                visibleImages = Array.from(galleryItems).filter(item => item.style.display !== 'none');
-                if (index < 0 || index >= visibleImages.length) return;
-
-                currentImageIndex = index;
-                const currentItem = visibleImages[currentImageIndex];
-                const imgSrc = currentItem.querySelector('img').src;
-                const imgDate = currentItem.getAttribute('data-date');
-
-                lightboxImg.src = imgSrc;
-                lightboxCaption.textContent = Diunggah: ${ imgDate };
-                lightboxImg.style.transform = 'scale(0.8)';
-
-                lightbox.classList.remove('opacity-0', 'pointer-events-none');
-
-                setTimeout(() => {
-                    lightboxImg.style.transform = 'scale(1)';
-                }, 50);
-            }
-
-            function closeLightboxFunc() {
-                lightboxImg.style.transform = 'scale(0.8)';
-                lightbox.classList.add('opacity-0', 'pointer-events-none');
-            }
-
-            function showNextImage() {
-                openLightbox((currentImageIndex + 1) % visibleImages.length);
-            }
-
-            function showPrevImage() {
-                openLightbox((currentImageIndex - 1 + visibleImages.length) % visibleImages.length);
-            }
-
-            galleryItems.forEach((item, index) => {
-                item.addEventListener('click', () => {
-                    // Find the index among currently visible items
-                    visibleImages = Array.from(galleryItems).filter(i => i.style.display !== 'none');
-                    const visibleIndex = visibleImages.indexOf(item);
-                    openLightbox(visibleIndex);
-                });
-            });
-
-            closeLightbox.addEventListener('click', closeLightboxFunc);
-            lightbox.addEventListener('click', (e) => {
-                if (e.target === lightbox) {
-                    closeLightboxFunc();
+        function filterSelection(event, category) {
+            const galleryItems = document.querySelectorAll(".gallery-item");
+            galleryItems.forEach((item) => {
+                if (category === "all" || item.dataset.category === category) {
+                    item.style.display = "block";
+                } else {
+                    item.style.display = "none";
                 }
             });
-            nextLightbox.addEventListener('click', showNextImage);
-            prevLightbox.addEventListener('click', showPrevImage);
 
-            // Keyboard navigation
-            document.addEventListener('keydown', (e) => {
-                if (!lightbox.classList.contains('pointer-events-none')) {
-                    if (e.key === 'ArrowRight') showNextImage();
-                    if (e.key === 'ArrowLeft') showPrevImage();
-                    if (e.key === 'Escape') closeLightboxFunc();
-                }
-            });
-        });
+            const filterButtons = document.querySelectorAll(".filter-btn");
+            filterButtons.forEach((btn) => btn.classList.remove("active"));
+            if (event) {
+                event.currentTarget.classList.add("active");
+            } else {
+                document.querySelector(".filter-btn").classList.add("active");
+            }
+        }
+
+        window.onload = function () {
+            filterSelection(null, "all");
+        };
     </script>
+    
+    <!-- Footer akan dimasukkan oleh footer.js -->
+    <div id="kontak"></div>
 </body>
 
 </html>
