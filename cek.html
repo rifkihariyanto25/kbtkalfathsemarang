@@ -1,0 +1,869 @@
+<!DOCTYPE html>
+<html lang="id">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>TK-KB Al-Fath - Cerdas, Kreatif, Berakhlak Mulia</title>
+
+    <!-- Tailwind CSS -->
+    <script src="https://cdn.tailwindcss.com"></script>
+
+    <!-- Google Fonts: Poppins -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;500;600;700;800&display=swap"
+        rel="stylesheet">
+
+    <!-- Navbar.js Script -->
+    <script src="navbar.js" defer></script>
+
+    <style>
+        /* Menggunakan font Poppins yang lebih ramah anak */
+        body {
+            font-family: 'Poppins', sans-serif;
+            overflow-x: hidden;
+            /* Mencegah scroll horizontal */
+        }
+
+        .carousel-container,
+        .facilities-carousel-wrapper,
+        .staff-carousel-wrapper {
+            transition: transform 0.5s ease-in-out;
+        }
+
+        /* Pola latar belakang yang lucu */
+        .pattern-bg {
+            background-color: #fffaf0;
+            background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='28' height='49' viewBox='0 0 28 49'%3E%3Cg fill-rule='evenodd'%3E%3Cg id='hexagons' fill='%23fef3c7' fill-opacity='0.4' fill-rule='nonzero'%3E%3Cpath d='M13.99 9.25l13 7.5v15l-13 7.5L1 31.75v-15l12.99-7.5zM3 17.9v12.7l10.99 6.34 11-6.35V17.9l-11-6.34L3 17.9zM0 15l12.99 7.5V30L0 22.5zM28 15L15 22.5V30l13-7.5z'/%3E%3C/g%3E%3C/g%3E%3C/svg%3E");
+        }
+
+        /* Pola doodle untuk hero section */
+        .hero-doodle-bg {
+            background-color: #ffffff;
+            background-image: url("data:image/svg+xml,%3Csvg width='60' height='60' viewBox='0 0 60 60' xmlns='http://www.w3.org/2000/svg'%3E%3Cg fill='none' fill-rule='evenodd'%3E%3Cg fill='%23fed7aa' fill-opacity='0.4'%3E%3Cpath d='M36 34v-4h-2v4h-4v2h4v4h2v-4h4v-2h-4zm0-30V0h-2v4h-4v2h4v4h2V6h4V4h-4zM6 34v-4H4v4H0v2h4v4h2v-4h4v-2H6zM6 4V0H4v4H0v2h4v4h2V6h4V4H6z'/%3E%3C/g%3E%3C/g%3E%3C/svg%3E");
+        }
+
+        /* Animasi */
+        @keyframes float {
+            0% {
+                transform: translateY(0px);
+            }
+
+            50% {
+                transform: translateY(-10px);
+            }
+
+            100% {
+                transform: translateY(0px);
+            }
+        }
+
+        @keyframes pulse-orange {
+            0% {
+                box-shadow: 0 0 0 0 rgba(249, 115, 22, 0.7);
+            }
+
+            70% {
+                box-shadow: 0 0 0 20px rgba(249, 115, 22, 0);
+            }
+
+            100% {
+                box-shadow: 0 0 0 0 rgba(249, 115, 22, 0);
+            }
+        }
+
+        @keyframes draw-path {
+            from {
+                stroke-dashoffset: 1000;
+            }
+
+            to {
+                stroke-dashoffset: 0;
+            }
+        }
+
+        .wavy-underline {
+            background-image: url("data:image/svg+xml;charset=utf8,%3Csvg id='squiggle-link' xmlns='http://www.w3.org/2000/svg' xmlns:xlink='http://www.w3.org/1999/xlink' xmlns:ev='http://www.w3.org/2001/xml-events' viewBox='0 0 20 4'%3E%3Cstyle type='text/css'%3E.squiggle{animation:shift .3s linear infinite;}@keyframes shift {from {transform:translateX(0);}to {transform:translateX(-20px);}}%3C/style%3E%3Cpath fill='none' stroke='%23f97316' stroke-width='2' class='squiggle' d='M0,3.5 C 5,3.5 5,0 10,0 C 15,0 15,3.5 20,3.5 C 25,3.5 25,0 30,0 C 35,0 35,3.5 40,3.5'/%3E%3C/svg%3E");
+            background-position: 0 100%;
+            background-size: auto 6px;
+            background-repeat: repeat-x;
+            text-decoration: none;
+            padding-bottom: 5px;
+        }
+
+        .adventure-path {
+            stroke-dasharray: 1000;
+            animation: draw-path 5s ease-in-out forwards;
+        }
+    </style>
+</head>
+
+<body class="bg-orange-50/50">
+
+    <!-- Navbar akan dimasukkan oleh navbar.js -->
+
+    <main>
+        <!-- HERO SECTION BARU -->
+        <section id="beranda"
+            class="relative w-full min-h-[80vh] md:min-h-[70vh] lg:min-h-[85vh] flex items-center hero-doodle-bg overflow-hidden">
+            <div class="container mx-auto px-6">
+                <div class="grid grid-cols-1 md:grid-cols-2 gap-8 items-center">
+                    <div class="relative w-full h-[50vh] md:h-[70vh] order-2 md:order-1">
+                        <img src="https://images.pexels.com/photos/3662843/pexels-photo-3662843.jpeg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=1"
+                            alt="[Anak-anak bermain]"
+                            class="absolute top-0 left-0 w-3/5 h-3/5 object-cover rounded-3xl shadow-2xl transform hover:scale-105 transition-transform duration-300 -rotate-6">
+                        <img src="https://images.pexels.com/photos/8613089/pexels-photo-8613089.jpeg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=1"
+                            alt="[Anak-anak belajar]"
+                            class="absolute bottom-0 right-0 w-1/2 h-1/2 object-cover rounded-3xl shadow-2xl transform hover:scale-105 transition-transform duration-300 rotate-6 border-4 border-white">
+                        <img src="https://images.pexels.com/photos/7149165/pexels-photo-7149165.jpeg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=1"
+                            alt="[Anak-anak membaca]"
+                            class="absolute bottom-1/4 left-1/4 w-2/5 h-2/5 object-cover rounded-full shadow-2xl transform hover:scale-105 transition-transform duration-300 border-4 border-white">
+                    </div>
+                    <div class="text-center md:text-left order-1 md:order-2">
+                        <h1 class="text-4xl lg:text-6xl font-extrabold text-orange-500 leading-tight">TK-KB Al-Fath</h1>
+                        <h2 class="text-2xl lg:text-4xl font-bold text-red-500 mt-2 mb-4"
+                            style="text-shadow: 1px 1px 2px rgba(0,0,0,0.1);">Tempat Terbaik Untuk Tumbuh & Bermain</h2>
+                        <p class="text-gray-600 text-lg mb-8 max-w-lg mx-auto md:mx-0">Membentuk generasi cerdas,
+                            kreatif, dan berakhlak mulia melalui pendidikan inovatif berbasis karakter Islami.</p>
+                        <a href="#program"
+                            class="hero-button mt-4 px-8 py-4 bg-orange-500 text-white font-bold rounded-full transition duration-300 text-lg hover:bg-orange-600 transform hover:scale-105 inline-block">Lihat
+                            Program Seru!</a>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- VISI MISI SECTION -->
+        <section id="visimisi" class="py-20 bg-white">
+            <div class="container mx-auto px-6">
+                <div class="text-center mb-16">
+                    <h2 class="inline-block text-4xl md:text-5xl font-extrabold text-gray-800"><span
+                            class="wavy-underline">Visi & Misi Kami</span></h2>
+                    <p class="text-gray-600 mt-4 text-lg">Cita-cita besar kami untuk setiap anak hebat di Al-Fath.</p>
+                </div>
+                <div class="bg-orange-100/50 border-l-8 border-orange-500 rounded-2xl p-8 mb-12 shadow-lg">
+                    <h3 class="text-3xl font-bold text-orange-600 mb-3">Visi</h3>
+                    <p class="text-xl text-gray-700 italic">"Menjadi lembaga pendidikan anak usia dini yang unggul dalam
+                        membentuk generasi cerdas, kreatif, mandiri, dan berakhlak mulia berdasarkan nilai-nilai luhur
+                        Islam."</p>
+                </div>
+                <div>
+                    <h3 class="text-3xl font-bold text-red-600 mb-8 text-center">Misi</h3>
+                    <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
+                        <div class="flex items-start space-x-4">
+                            <div class="flex-shrink-0">
+                                <div
+                                    class="w-12 h-12 bg-red-100 text-red-500 rounded-full flex items-center justify-center font-bold text-xl">
+                                    1</div>
+                            </div>
+                            <p class="text-gray-600 pt-3">Menyelenggarakan pembelajaran yang aktif, inovatif, dan
+                                menyenangkan.</p>
+                        </div>
+                        <div class="flex items-start space-x-4">
+                            <div class="flex-shrink-0">
+                                <div
+                                    class="w-12 h-12 bg-orange-100 text-orange-500 rounded-full flex items-center justify-center font-bold text-xl">
+                                    2</div>
+                            </div>
+                            <p class="text-gray-600 pt-3">Mengembangkan potensi kecerdasan majemuk setiap anak secara
+                                optimal.</p>
+                        </div>
+                        <div class="flex items-start space-x-4">
+                            <div class="flex-shrink-0">
+                                <div
+                                    class="w-12 h-12 bg-red-100 text-red-500 rounded-full flex items-center justify-center font-bold text-xl">
+                                    3</div>
+                            </div>
+                            <p class="text-gray-600 pt-3">Menanamkan nilai-nilai keimanan dan ketakwaan sejak dini.</p>
+                        </div>
+                        <div class="flex items-start space-x-4">
+                            <div class="flex-shrink-0">
+                                <div
+                                    class="w-12 h-12 bg-orange-100 text-orange-500 rounded-full flex items-center justify-center font-bold text-xl">
+                                    4</div>
+                            </div>
+                            <p class="text-gray-600 pt-3">Membentuk karakter pribadi yang santun, jujur, dan bertanggung
+                                jawab.</p>
+                        </div>
+                        <div class="flex items-start space-x-4">
+                            <div class="flex-shrink-0">
+                                <div
+                                    class="w-12 h-12 bg-red-100 text-red-500 rounded-full flex items-center justify-center font-bold text-xl">
+                                    5</div>
+                            </div>
+                            <p class="text-gray-600 pt-3">Membiasakan anak untuk berpikir kritis dan kreatif dalam
+                                memecahkan masalah.</p>
+                        </div>
+                        <div class="flex items-start space-x-4">
+                            <div class="flex-shrink-0">
+                                <div
+                                    class="w-12 h-12 bg-orange-100 text-orange-500 rounded-full flex items-center justify-center font-bold text-xl">
+                                    6</div>
+                            </div>
+                            <p class="text-gray-600 pt-3">Mengajarkan kemandirian dan rasa percaya diri kepada setiap
+                                anak.</p>
+                        </div>
+                        <div class="flex items-start space-x-4">
+                            <div class="flex-shrink-0">
+                                <div
+                                    class="w-12 h-12 bg-red-100 text-red-500 rounded-full flex items-center justify-center font-bold text-xl">
+                                    7</div>
+                            </div>
+                            <p class="text-gray-600 pt-3">Membangun lingkungan belajar yang aman, nyaman, dan mendukung
+                                perkembangan.</p>
+                        </div>
+                        <div class="flex items-start space-x-4">
+                            <div class="flex-shrink-0">
+                                <div
+                                    class="w-12 h-12 bg-orange-100 text-orange-500 rounded-full flex items-center justify-center font-bold text-xl">
+                                    8</div>
+                            </div>
+                            <p class="text-gray-600 pt-3">Mengintegrasikan teknologi secara bijak dalam proses
+                                pembelajaran.</p>
+                        </div>
+                        <div class="flex items-start space-x-4">
+                            <div class="flex-shrink-0">
+                                <div
+                                    class="w-12 h-12 bg-red-100 text-red-500 rounded-full flex items-center justify-center font-bold text-xl">
+                                    9</div>
+                            </div>
+                            <p class="text-gray-600 pt-3">Menjalin kemitraan yang harmonis dengan orang tua dan
+                                masyarakat.</p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- TUJUAN SEKOLAH SECTION BARU -->
+        <section id="tujuan" class="py-20 bg-white relative overflow-hidden">
+            <div class="container mx-auto px-6 relative z-10">
+                <div class="text-center mb-16">
+                    <h2 class="inline-block text-4xl md:text-5xl font-extrabold text-gray-800"><span
+                            class="wavy-underline">Jalur Petualangan Al-Fath</span></h2>
+                    <p class="text-gray-600 mt-4 text-lg">Empat perhentian seru dalam perjalanan tumbuh kembang anak
+                        hebat.</p>
+                </div>
+
+                <div class="relative w-full max-w-5xl mx-auto mt-12 h-[600px] md:h-[300px]">
+                    <!-- Path SVG for Desktop -->
+                    <svg class="absolute top-1/2 left-0 w-full h-auto -translate-y-1/2 hidden md:block"
+                        viewBox="0 0 1000 100" preserveAspectRatio="none">
+                        <path d="M 50 50 C 250 10, 250 90, 450 50 S 750 10, 950 50" stroke="#fdbf6f" stroke-width="8"
+                            fill="none" stroke-linecap="round" stroke-dasharray="20 20" class="adventure-path" />
+                    </svg>
+
+                    <!-- Container for Goals -->
+                    <div
+                        class="relative md:absolute inset-0 flex flex-col md:flex-row justify-between items-center h-full">
+                        <!-- Goal 1 -->
+                        <div
+                            class="flex-1 flex flex-col items-center text-center md:w-1/4 transform hover:scale-110 transition-transform duration-300">
+                            <div
+                                class="w-40 h-40 bg-orange-100 border-4 border-orange-300 rounded-full flex items-center justify-center shadow-lg p-4">
+                                <img src="https://www.svgrepo.com/show/533039/praying.svg"
+                                    class="h-20 w-20 text-orange-500" alt="Ikon Akhlak Mulia">
+                            </div>
+                            <h3 class="font-bold text-xl text-orange-700 mt-4">Pribadi Berakhlak Mulia</h3>
+                            <p class="text-sm text-gray-600 mt-1 px-2">Menanamkan nilai Islami, sopan santun, dan kasih
+                                sayang.</p>
+                        </div>
+                        <!-- Path for Mobile -->
+                        <div class="w-1 h-16 bg-orange-300/70 border-l-4 border-dashed border-orange-400 md:hidden">
+                        </div>
+                        <!-- Goal 2 -->
+                        <div
+                            class="flex-1 flex flex-col items-center text-center md:w-1/4 md:self-end transform hover:scale-110 transition-transform duration-300">
+                            <div
+                                class="w-40 h-40 bg-red-100 border-4 border-red-300 rounded-full flex items-center justify-center shadow-lg p-4">
+                                <img src="https://www.svgrepo.com/show/494936/atom.svg" class="h-20 w-20 text-red-500"
+                                    alt="Ikon Potensi Anak">
+                            </div>
+                            <h3 class="font-bold text-xl text-red-700 mt-4">Potensi Anak Optimal</h3>
+                            <p class="text-sm text-gray-600 mt-1 px-2">Mengembangkan seluruh aspek kecerdasan anak
+                                secara maksimal.</p>
+                        </div>
+                        <!-- Path for Mobile -->
+                        <div class="w-1 h-16 bg-orange-300/70 border-l-4 border-dashed border-orange-400 md:hidden">
+                        </div>
+                        <!-- Goal 3 -->
+                        <div
+                            class="flex-1 flex flex-col items-center text-center md:w-1/4 md:self-start transform hover:scale-110 transition-transform duration-300">
+                            <div
+                                class="w-40 h-40 bg-orange-100 border-4 border-orange-300 rounded-full flex items-center justify-center shadow-lg p-4">
+                                <img src="https://www.svgrepo.com/show/485942/book-closed.svg"
+                                    class="h-20 w-20 text-orange-500" alt="Ikon Minat Belajar">
+                            </div>
+                            <h3 class="font-bold text-xl text-orange-700 mt-4">Minat Belajar Tinggi</h3>
+                            <p class="text-sm text-gray-600 mt-1 px-2">Menciptakan suasana belajar seru agar anak jadi
+                                pembelajar sejati.</p>
+                        </div>
+                        <!-- Path for Mobile -->
+                        <div class="w-1 h-16 bg-orange-300/70 border-l-4 border-dashed border-orange-400 md:hidden">
+                        </div>
+                        <!-- Goal 4 -->
+                        <div
+                            class="flex-1 flex flex-col items-center text-center md:w-1/4 md:self-end transform hover:scale-110 transition-transform duration-300">
+                            <div
+                                class="w-40 h-40 bg-red-100 border-4 border-red-300 rounded-full flex items-center justify-center shadow-lg p-4">
+                                <img src="https://www.svgrepo.com/show/509375/shield-star.svg"
+                                    class="h-20 w-20 text-red-500" alt="Ikon Generasi Tangguh">
+                            </div>
+                            <h3 class="font-bold text-xl text-red-700 mt-4">Generasi Tangguh</h3>
+                            <p class="text-sm text-gray-600 mt-1 px-2">Membekali anak dengan kemandirian dan kepercayaan
+                                diri.</p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- AKREDITASI SECTION -->
+        <section id="akreditasi" class="py-20 pattern-bg relative overflow-hidden">
+            <div class="absolute top-0 left-0 -translate-x-1/4 -translate-y-1/4 w-64 h-64 bg-red-200/50 rounded-full">
+            </div>
+            <div
+                class="absolute bottom-0 right-0 translate-x-1/4 translate-y-1/4 w-80 h-80 bg-orange-200/50 rounded-full">
+            </div>
+            <div class="container mx-auto px-6 relative z-10">
+                <div class="text-center mb-16">
+                    <h2 class="inline-block text-4xl md:text-5xl font-extrabold text-gray-800"><span
+                            class="wavy-underline">Akreditasi Sekolah</span></h2>
+                    <p class="text-gray-600 mt-4 text-lg">Komitmen kami terhadap kualitas pendidikan terbaik.</p>
+                </div>
+                <div
+                    class="max-w-4xl mx-auto bg-white/70 backdrop-blur-lg rounded-3xl shadow-2xl p-8 md:p-12 flex flex-col md:flex-row items-center gap-8 border-2 border-white">
+                    <div class="flex-shrink-0">
+                        <div class="relative w-48 h-48">
+                            <svg class="absolute -top-4 -left-4 w-12 h-12 text-orange-400 animate-pulse"
+                                fill="currentColor" viewBox="0 0 20 20">
+                                <path
+                                    d="M10 15l-5.878 3.09 1.123-6.545L.489 6.91l6.572-.955L10 0l2.939 5.955 6.572.955-4.756 4.635 1.123 6.545z" />
+                            </svg>
+                            <svg class="absolute -bottom-4 -right-4 w-8 h-8 text-red-400 animate-pulse"
+                                style="animation-delay: 0.5s;" fill="currentColor" viewBox="0 0 20 20">
+                                <path
+                                    d="M10 15l-5.878 3.09 1.123-6.545L.489 6.91l6.572-.955L10 0l2.939 5.955 6.572.955-4.756 4.635 1.123 6.545z" />
+                            </svg>
+                            <div
+                                class="w-full h-full bg-gradient-to-br from-orange-400 to-red-500 text-white rounded-full flex items-center justify-center shadow-xl transform hover:scale-110 transition-transform duration-300">
+                                <span class="text-8xl font-extrabold"
+                                    style="text-shadow: 2px 2px 4px rgba(0,0,0,0.2)">A</span>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="text-center md:text-left">
+                        <p class="text-sm font-bold text-orange-600">BADAN AKREDITASI NASIONAL (BAN S/M)</p>
+                        <h3 class="text-3xl font-bold text-gray-800 mt-2">Terakreditasi "A" (Unggul)</h3>
+                        <p class="text-gray-600 mt-3">Berdasarkan penilaian BAN S/M, TK-KB Al-Fath telah memenuhi
+                            standar pendidikan nasional dengan predikat tertinggi, menunjukkan komitmen kami dalam
+                            menyediakan pendidikan berkualitas.</p>
+                        <p class="text-sm text-gray-500 mt-4">No. Sertifikat: 123/BAN-SM/SK/2024</p>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- KURIKULUM SECTION -->
+        <section id="kurikulum" class="py-20 bg-white">
+            <div class="container mx-auto px-6">
+                <div class="text-center mb-16">
+                    <h2 class="inline-block text-4xl md:text-5xl font-extrabold text-gray-800"><span
+                            class="wavy-underline">Kurikulum Khas Al-Fath</span></h2>
+                    <p class="text-gray-600 mt-4 text-lg">Memadukan Kurikulum Merdeka dengan nilai-nilai Islami yang
+                        luhur.</p>
+                </div>
+                <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-8">
+                    <div class="text-center p-6 bg-orange-50 rounded-2xl shadow-md hover:shadow-lg transition-shadow">
+                        <img src="https://www.svgrepo.com/show/533039/praying.svg"
+                            class="h-20 w-20 mx-auto mb-4 text-orange-500" alt="Ikon Aqidah & Akhlak">
+                        <h3 class="text-xl font-bold text-orange-600 mb-2">Aqidah & Akhlak</h3>
+                        <p class="text-gray-600 text-sm">Pengenalan dasar-dasar keimanan dan pembentukan karakter mulia.
+                        </p>
+                    </div>
+                    <div class="text-center p-6 bg-red-50 rounded-2xl shadow-md hover:shadow-lg transition-shadow"><img
+                            src="https://www.svgrepo.com/show/509943/quran.svg"
+                            class="h-20 w-20 mx-auto mb-4 text-red-500" alt="Ikon Baca Al-Qur'an">
+                        <h3 class="text-xl font-bold text-red-600 mb-2">Cinta Al-Qur'an</h3>
+                        <p class="text-gray-600 text-sm">Belajar membaca Al-Qur'an dengan metode yang mudah dan
+                            menyenangkan.</p>
+                    </div>
+                    <div class="text-center p-6 bg-orange-50 rounded-2xl shadow-md hover:shadow-lg transition-shadow">
+                        <img src="https://www.svgrepo.com/show/493721/hands-wash.svg"
+                            class="h-20 w-20 mx-auto mb-4 text-orange-500" alt="Ikon Ibadah Praktis">
+                        <h3 class="text-xl font-bold text-orange-600 mb-2">Ibadah Praktis</h3>
+                        <p class="text-gray-600 text-sm">Praktik ibadah harian seperti sholat dan doa melalui simulasi
+                            dan cerita.</p>
+                    </div>
+                    <div class="text-center p-6 bg-red-50 rounded-2xl shadow-md hover:shadow-lg transition-shadow"><img
+                            src="https://www.svgrepo.com/show/494936/atom.svg"
+                            class="h-20 w-20 mx-auto mb-4 text-red-500" alt="Ikon Keterampilan">
+                        <h3 class="text-xl font-bold text-red-600 mb-2">Keterampilan Abad 21</h3>
+                        <p class="text-gray-600 text-sm">Mengasah kreativitas, berpikir kritis, dan kolaborasi melalui
+                            proyek seru.</p>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- PROGRAM UNGGULAN -->
+        <section id="program" class="py-20 pattern-bg">
+            <div class="container mx-auto px-6">
+                <div class="text-center mb-16">
+                    <h2 class="inline-block text-4xl md:text-5xl font-extrabold text-gray-800"><span
+                            class="wavy-underline">Program Unggulan</span></h2>
+                    <p class="text-gray-600 mt-4 text-lg">Kegiatan spesial yang membuat belajar di Al-Fath tak
+                        terlupakan.</p>
+                </div>
+                <div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-8">
+                    <div
+                        class="bg-white p-8 rounded-3xl shadow-lg hover:shadow-2xl transition-all duration-300 text-center border-t-8 border-orange-400 group">
+                        <img src="https://www.svgrepo.com/show/493753/brain-head-ai.svg"
+                            class="h-24 w-24 mx-auto mb-4 transition-transform duration-500 group-hover:scale-110 group-hover:rotate-6 animate-float"
+                            alt="[Ikon Otak AI]">
+                        <h3 class="text-2xl font-bold text-gray-800 mb-2">Asah Otak (AI)</h3>
+                        <p class="text-gray-600">Main tebak-tebakan dan puzzle seru untuk jadi makin pintar!</p>
+                    </div>
+                    <div
+                        class="bg-white p-8 rounded-3xl shadow-lg hover:shadow-2xl transition-all duration-300 text-center border-t-8 border-red-400 group">
+                        <img src="https://www.svgrepo.com/show/452103/robot.svg"
+                            class="h-24 w-24 mx-auto mb-4 transition-transform duration-500 group-hover:scale-110 group-hover:rotate-6 animate-float"
+                            style="animation-delay: 0.2s;" alt="[Ikon Robot]">
+                        <h3 class="text-2xl font-bold text-gray-800 mb-2">Jagoan Robotik</h3>
+                        <p class="text-gray-600">Rakit robot kerenmu sendiri dan buat dia bergerak. Seru banget!</p>
+                    </div>
+                    <div
+                        class="bg-white p-8 rounded-3xl shadow-lg hover:shadow-2xl transition-all duration-300 text-center border-t-8 border-orange-400 group">
+                        <img src="https://www.svgrepo.com/show/509943/quran.svg"
+                            class="h-24 w-24 mx-auto mb-4 transition-transform duration-500 group-hover:scale-110 group-hover:rotate-6 animate-float"
+                            style="animation-delay: 0.4s;" alt="[Ikon Al-Quran]">
+                        <h3 class="text-2xl font-bold text-gray-800 mb-2">Sobat Qur'an</h3>
+                        <p class="text-gray-600">Menghafal ayat-ayat pendek sambil bermain dan bernyanyi. Asyik!</p>
+                    </div>
+                    <div
+                        class="bg-white p-8 rounded-3xl shadow-lg hover:shadow-2xl transition-all duration-300 text-center border-t-8 border-red-400 group">
+                        <img src="https://www.svgrepo.com/show/493708/family.svg"
+                            class="h-24 w-24 mx-auto mb-4 transition-transform duration-500 group-hover:scale-110 group-hover:rotate-6 animate-float"
+                            style="animation-delay: 0.6s;" alt="[Ikon Keluarga]">
+                        <h3 class="text-2xl font-bold text-gray-800 mb-2">Ayah Bunda Hebat</h3>
+                        <p class="text-gray-600">Acara spesial untuk Ayah dan Bunda biar makin kompak mendidik kita.</p>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- GALERI TERBARU -->
+        <section id="galeri" class="py-20 bg-orange-50/70">
+            <div class="container mx-auto px-6">
+                <div class="text-center mb-12">
+                    <h2 class="inline-block text-4xl md:text-5xl font-extrabold text-gray-800"><span
+                            class="wavy-underline">Album Ceria Al-Fath</span></h2>
+                    <p class="text-gray-600 mt-4 text-lg">Intip keseruan kami setiap hari!</p>
+                </div>
+                <div class="relative overflow-hidden rounded-3xl shadow-xl border-8 border-white">
+                    <div id="carousel-container" class="flex transition-transform duration-500 ease-in-out">
+                        <div class="min-w-full"><img
+                                src="https://images.pexels.com/photos/8471801/pexels-photo-8471801.jpeg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=1"
+                                class="w-full h-64 md:h-96 object-cover" alt="[Gambar kegiatan belajar di kelas]"></div>
+                        <div class="min-w-full"><img
+                                src="https://images.pexels.com/photos/5905780/pexels-photo-5905780.jpeg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=1"
+                                class="w-full h-64 md:h-96 object-cover"
+                                alt="[Gambar anak-anak bermain di luar ruangan]"></div>
+                        <div class="min-w-full"><img
+                                src="https://images.pexels.com/photos/8613089/pexels-photo-8613089.jpeg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=1"
+                                class="w-full h-64 md:h-96 object-cover" alt="[Gambar kegiatan robotik]"></div>
+                        <div class="min-w-full"><img
+                                src="https://images.pexels.com/photos/7149165/pexels-photo-7149165.jpeg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=1"
+                                class="w-full h-64 md:h-96 object-cover" alt="[Gambar kegiatan membaca Al-Quran]"></div>
+                    </div>
+                    <button id="prevBtn"
+                        class="absolute top-1/2 left-4 transform -translate-y-1/2 bg-white/80 hover:bg-white rounded-full p-3 transition shadow-md hover:scale-110"><svg
+                            class="w-6 h-6 text-orange-500" fill="none" stroke="currentColor" viewBox="0 0 24 24"
+                            xmlns="http://www.w3.org/2000/svg">
+                            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="3" d="M15 19l-7-7 7-7">
+                            </path>
+                        </svg></button>
+                    <button id="nextBtn"
+                        class="absolute top-1/2 right-4 transform -translate-y-1/2 bg-white/80 hover:bg-white rounded-full p-3 transition shadow-md hover:scale-110"><svg
+                            class="w-6 h-6 text-orange-500" fill="none" stroke="currentColor" viewBox="0 0 24 24"
+                            xmlns="http://www.w3.org/2000/svg">
+                            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="3" d="M9 5l7 7-7 7">
+                            </path>
+                        </svg></button>
+                </div>
+            </div>
+        </section>
+
+        <!-- FASILITAS SECTION -->
+        <section id="fasilitas" class="relative py-20 bg-center bg-cover"
+            style="background-image: url('https://images.pexels.com/photos/3992933/pexels-photo-3992933.jpeg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=1');">
+            <div class="absolute inset-0 bg-red-500/80"></div>
+            <div class="container mx-auto px-6 relative z-10">
+                <div class="text-center mb-12">
+                    <h2 class="text-4xl md:text-5xl font-extrabold text-white">Fasilitas Sekolah Kami</h2>
+                    <p class="text-white/90 mt-4 text-lg">Lingkungan belajar yang aman, nyaman, dan modern untuk si
+                        kecil.</p>
+                </div>
+                <div class="relative">
+                    <div id="facilities-carousel" class="overflow-hidden">
+                        <div id="facilities-carousel-wrapper" class="flex -ml-4">
+                            <div class="min-w-full md:min-w-1/2 lg:min-w-1/3 px-4">
+                                <div class="bg-white rounded-2xl shadow-lg overflow-hidden"><img
+                                        src="https://placehold.co/600x400/ffffff/ef4444?text=Ruang+Kelas"
+                                        alt="[Ruang Kelas Ceria]" class="w-full h-56 object-cover">
+                                    <div class="p-5">
+                                        <h3 class="font-bold text-xl text-gray-800">Ruang Kelas Ceria</h3>
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="min-w-full md:min-w-1/2 lg:min-w-1/3 px-4">
+                                <div class="bg-white rounded-2xl shadow-lg overflow-hidden"><img
+                                        src="https://placehold.co/600x400/ffffff/f97316?text=Playground"
+                                        alt="[Area Bermain Indoor]" class="w-full h-56 object-cover">
+                                    <div class="p-5">
+                                        <h3 class="font-bold text-xl text-gray-800">Area Bermain Indoor</h3>
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="min-w-full md:min-w-1/2 lg:min-w-1/3 px-4">
+                                <div class="bg-white rounded-2xl shadow-lg overflow-hidden"><img
+                                        src="https://placehold.co/600x400/ffffff/ef4444?text=Perpustakaan"
+                                        alt="[Perpustakaan Mini]" class="w-full h-56 object-cover">
+                                    <div class="p-5">
+                                        <h3 class="font-bold text-xl text-gray-800">Perpustakaan Mini</h3>
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="min-w-full md:min-w-1/2 lg:min-w-1/3 px-4">
+                                <div class="bg-white rounded-2xl shadow-lg overflow-hidden"><img
+                                        src="https://placehold.co/600x400/ffffff/f97316?text=Outdoor"
+                                        alt="[Halaman Bermain Outdoor]" class="w-full h-56 object-cover">
+                                    <div class="p-5">
+                                        <h3 class="font-bold text-xl text-gray-800">Halaman Bermain Outdoor</h3>
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="min-w-full md:min-w-1/2 lg:min-w-1/3 px-4">
+                                <div class="bg-white rounded-2xl shadow-lg overflow-hidden"><img
+                                        src="https://placehold.co/600x400/ffffff/ef4444?text=UKS" alt="[Ruang UKS]"
+                                        class="w-full h-56 object-cover">
+                                    <div class="p-5">
+                                        <h3 class="font-bold text-xl text-gray-800">Ruang UKS</h3>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    <button id="facilityPrevBtn"
+                        class="absolute top-1/2 -left-4 transform -translate-y-1/2 bg-white/90 hover:bg-white rounded-full p-3 transition shadow-md"><svg
+                            class="w-6 h-6 text-red-500" fill="none" stroke="currentColor" viewBox="0 0 24 24"
+                            xmlns="http://www.w3.org/2000/svg">
+                            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="3" d="M15 19l-7-7 7-7">
+                            </path>
+                        </svg></button>
+                    <button id="facilityNextBtn"
+                        class="absolute top-1/2 -right-4 transform -translate-y-1/2 bg-white/90 hover:bg-white rounded-full p-3 transition shadow-md"><svg
+                            class="w-6 h-6 text-red-500" fill="none" stroke="currentColor" viewBox="0 0 24 24"
+                            xmlns="http://www.w3.org/2000/svg">
+                            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="3" d="M9 5l7 7-7 7">
+                            </path>
+                        </svg></button>
+                </div>
+            </div>
+        </section>
+
+        <!-- EKSTRAKURIKULER SECTION -->
+        <section id="ekstrakurikuler" class="py-20 bg-white">
+            <div class="container mx-auto px-6">
+                <div class="text-center mb-16">
+                    <h2 class="inline-block text-4xl md:text-5xl font-extrabold text-gray-800"><span
+                            class="wavy-underline">Kegiatan Ekstrakurikuler</span></h2>
+                    <p class="text-gray-600 mt-4 text-lg">Mengasah bakat dan kreativitas si kecil di luar jam belajar!
+                    </p>
+                </div>
+                <div class="max-w-4xl mx-auto grid grid-cols-1 md:grid-cols-2 gap-10">
+                    <div
+                        class="bg-gradient-to-br from-orange-100 to-red-100 p-8 rounded-3xl shadow-lg hover:shadow-2xl transition-all duration-300 text-center group transform hover:-translate-y-2">
+                        <img src="https://www.svgrepo.com/show/458969/trumpet.svg"
+                            class="h-28 w-28 mx-auto mb-4 transition-transform duration-500 group-hover:scale-110"
+                            alt="Ikon Terompet">
+                        <h3 class="text-2xl font-bold text-gray-800 mb-2">Marching Band</h3>
+                        <p class="text-gray-600">Belajar memainkan alat musik, kekompakan tim, dan disiplin sambil
+                            berbaris mengikuti irama yang semangat.</p>
+                    </div>
+                    <div
+                        class="bg-gradient-to-br from-orange-100 to-red-100 p-8 rounded-3xl shadow-lg hover:shadow-2xl transition-all duration-300 text-center group transform hover:-translate-y-2">
+                        <img src="https://www.svgrepo.com/show/493335/abacus.svg"
+                            class="h-28 w-28 mx-auto mb-4 transition-transform duration-500 group-hover:scale-110"
+                            alt="Ikon Sempoa">
+                        <h3 class="text-2xl font-bold text-gray-800 mb-2">Sempoa</h3>
+                        <p class="text-gray-600">Metode berhitung cepat yang seru untuk melatih konsentrasi, daya ingat,
+                            dan kecerdasan otak kanan dan kiri.</p>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- GURU & STAFF SECTION -->
+        <section id="guru-staff" class="py-20 pattern-bg">
+            <div class="container mx-auto px-6">
+                <div class="text-center mb-12">
+                    <h2 class="inline-block text-4xl md:text-5xl font-extrabold text-gray-800"><span
+                            class="wavy-underline">Guru & Staff Hebat Kami</span></h2>
+                    <p class="text-gray-600 mt-4 text-lg">Tim pendidik yang berdedikasi, penyayang, dan profesional.</p>
+                </div>
+                <div class="relative">
+                    <div id="staff-carousel" class="overflow-hidden">
+                        <div id="staff-carousel-wrapper" class="flex -ml-4">
+                            <div class="min-w-full sm:min-w-1/2 md:min-w-1/3 lg:min-w-1/4 px-4">
+                                <div
+                                    class="bg-white text-center rounded-2xl shadow-lg overflow-hidden p-6 transform hover:-translate-y-2 transition-transform duration-300">
+                                    <img class="w-32 h-32 rounded-full mx-auto mb-4 border-4 border-orange-200"
+                                        src="https://placehold.co/200x200/FFEDD5/F97316?text=Foto"
+                                        alt="[Foto Ibu Kepala Sekolah]">
+                                    <h3 class="font-bold text-xl text-gray-800">Dra. Hj. Siti Aminah</h3>
+                                    <p class="text-orange-600 font-semibold">Kepala Sekolah</p>
+                                </div>
+                            </div>
+                            <div class="min-w-full sm:min-w-1/2 md:min-w-1/3 lg:min-w-1/4 px-4">
+                                <div
+                                    class="bg-white text-center rounded-2xl shadow-lg overflow-hidden p-6 transform hover:-translate-y-2 transition-transform duration-300">
+                                    <img class="w-32 h-32 rounded-full mx-auto mb-4 border-4 border-red-200"
+                                        src="https://placehold.co/200x200/FEE2E2/EF4444?text=Foto"
+                                        alt="[Foto Guru Kelas A]">
+                                    <h3 class="font-bold text-xl text-gray-800">Rina Wulandari, S.Pd.</h3>
+                                    <p class="text-red-500 font-semibold">Guru Kelas A</p>
+                                </div>
+                            </div>
+                            <div class="min-w-full sm:min-w-1/2 md:min-w-1/3 lg:min-w-1/4 px-4">
+                                <div
+                                    class="bg-white text-center rounded-2xl shadow-lg overflow-hidden p-6 transform hover:-translate-y-2 transition-transform duration-300">
+                                    <img class="w-32 h-32 rounded-full mx-auto mb-4 border-4 border-orange-200"
+                                        src="https://placehold.co/200x200/FFEDD5/F97316?text=Foto"
+                                        alt="[Foto Guru Kelas B]">
+                                    <h3 class="font-bold text-xl text-gray-800">Budi Santoso, S.Pd.</h3>
+                                    <p class="text-orange-600 font-semibold">Guru Kelas B</p>
+                                </div>
+                            </div>
+                            <div class="min-w-full sm:min-w-1/2 md:min-w-1/3 lg:min-w-1/4 px-4">
+                                <div
+                                    class="bg-white text-center rounded-2xl shadow-lg overflow-hidden p-6 transform hover:-translate-y-2 transition-transform duration-300">
+                                    <img class="w-32 h-32 rounded-full mx-auto mb-4 border-4 border-red-200"
+                                        src="https://placehold.co/200x200/FEE2E2/EF4444?text=Foto"
+                                        alt="[Foto Guru Tahfidz]">
+                                    <h3 class="font-bold text-xl text-gray-800">Muhammad Iqbal, S.Ag.</h3>
+                                    <p class="text-red-500 font-semibold">Guru Tahfidz</p>
+                                </div>
+                            </div>
+                            <div class="min-w-full sm:min-w-1/2 md:min-w-1/3 lg:min-w-1/4 px-4">
+                                <div
+                                    class="bg-white text-center rounded-2xl shadow-lg overflow-hidden p-6 transform hover:-translate-y-2 transition-transform duration-300">
+                                    <img class="w-32 h-32 rounded-full mx-auto mb-4 border-4 border-orange-200"
+                                        src="https://placehold.co/200x200/FFEDD5/F97316?text=Foto"
+                                        alt="[Foto Staff Administrasi]">
+                                    <h3 class="font-bold text-xl text-gray-800">Dewi Lestari</h3>
+                                    <p class="text-orange-600 font-semibold">Staff Administrasi</p>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    <button id="staffPrevBtn"
+                        class="absolute top-1/2 -left-4 transform -translate-y-1/2 bg-white/90 hover:bg-white rounded-full p-3 transition shadow-md"><svg
+                            class="w-6 h-6 text-red-500" fill="none" stroke="currentColor" viewBox="0 0 24 24"
+                            xmlns="http://www.w3.org/2000/svg">
+                            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="3" d="M15 19l-7-7 7-7">
+                            </path>
+                        </svg></button>
+                    <button id="staffNextBtn"
+                        class="absolute top-1/2 -right-4 transform -translate-y-1/2 bg-white/90 hover:bg-white rounded-full p-3 transition shadow-md"><svg
+                            class="w-6 h-6 text-red-500" fill="none" stroke="currentColor" viewBox="0 0 24 24"
+                            xmlns="http://www.w3.org/2000/svg">
+                            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="3" d="M9 5l7 7-7 7">
+                            </path>
+                        </svg></button>
+                </div>
+            </div>
+        </section>
+
+        <!-- BERITA/PENGUMUMAN -->
+        <section id="berita" class="py-20 bg-white">
+            <div class="container mx-auto px-6">
+                <div class="text-center mb-12">
+                    <h2 class="inline-block text-4xl md:text-5xl font-extrabold text-gray-800"><span
+                            class="wavy-underline">Papan Pengumuman</span></h2>
+                    <p class="text-gray-600 mt-4 text-lg">Info penting dan berita terbaru dari sekolah kita.</p>
+                </div>
+                <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
+                    <div
+                        class="bg-white rounded-2xl overflow-hidden shadow-lg hover:shadow-xl transition-all duration-300 group transform hover:-translate-y-2">
+                        <div class="overflow-hidden"><img
+                                src="https://placehold.co/600x400/FB923C/FFFFFF?text=Daftar+Yuk!"
+                                alt="[Gambar ilustrasi pendaftaran]"
+                                class="w-full h-48 object-cover transition-transform duration-500 group-hover:scale-110">
+                        </div>
+                        <div class="p-6"><span class="text-sm text-orange-600 font-bold">PENGUMUMAN</span>
+                            <h3 class="text-xl font-bold text-gray-800 mt-2 mb-3">Sekolah Dibuka Lagi! Ayo Daftar!</h3>
+                            <p class="text-gray-600 mb-4">Ajak teman-temanmu untuk sekolah di Al-Fath. Tempatnya
+                                terbatas lho!</p><a href="#"
+                                class="font-bold text-orange-500 group-hover:text-red-500 transition">Lihat Info
+                                &rarr;</a>
+                        </div>
+                    </div>
+                    <div
+                        class="bg-white rounded-2xl overflow-hidden shadow-lg hover:shadow-xl transition-all duration-300 group transform hover:-translate-y-2">
+                        <div class="overflow-hidden"><img src="https://placehold.co/600x400/F87171/FFFFFF?text=Juara+1"
+                                alt="[Gambar ilustrasi lomba]"
+                                class="w-full h-48 object-cover transition-transform duration-500 group-hover:scale-110">
+                        </div>
+                        <div class="p-6"><span class="text-sm text-red-600 font-bold">HORE!</span>
+                            <h3 class="text-xl font-bold text-gray-800 mt-2 mb-3">Kita Menang Lomba Mewarnai!</h3>
+                            <p class="text-gray-600 mb-4">Selamat ya buat Budi, sudah jadi juara 1 dan bikin sekolah
+                                bangga!</p><a href="#"
+                                class="font-bold text-red-500 group-hover:text-orange-500 transition">Lihat Fotonya
+                                &rarr;</a>
+                        </div>
+                    </div>
+                    <div
+                        class="bg-white rounded-2xl overflow-hidden shadow-lg hover:shadow-xl transition-all duration-300 group transform hover:-translate-y-2">
+                        <div class="overflow-hidden"><img
+                                src="https://placehold.co/600x400/FDBA74/FFFFFF?text=Kumpul-kumpul"
+                                alt="[Gambar ilustrasi seminar parenting]"
+                                class="w-full h-48 object-cover transition-transform duration-500 group-hover:scale-110">
+                        </div>
+                        <div class="p-6"><span class="text-sm text-orange-600 font-bold">ACARA SERU</span>
+                            <h3 class="text-xl font-bold text-gray-800 mt-2 mb-3">Kumpul Bareng Ayah & Bunda</h3>
+                            <p class="text-gray-600 mb-4">Terima kasih Ayah dan Bunda semua yang sudah datang dan
+                                bermain bersama.</p><a href="#"
+                                class="font-bold text-orange-500 group-hover:text-red-500 transition">Lihat Keseruannya
+                                &rarr;</a>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+    </main>
+
+    <!-- FOOTER -->
+    <footer id="kontak" class="bg-gray-800 text-gray-300 pt-16 pb-8">
+        <div class="container mx-auto px-6">
+            <div class="grid grid-cols-1 md:grid-cols-3 gap-8 text-center md:text-left">
+                <div>
+                    <h4 class="text-lg font-bold text-white mb-4">Main ke Sekolah Yuk!</h4>
+                    <p>Jl. Pendidikan No. 123, Kel. Cerdas, Kec. Ceria</p>
+                    <p>Kota Inspirasi, 12345</p>
+                </div>
+                <div>
+                    <h4 class="text-lg font-bold text-white mb-4">Jam Buka</h4>
+                    <p>Senin - Jumat</p>
+                    <p>07:00 - 15:00 WIB</p>
+                </div>
+                <div>
+                    <h4 class="text-lg font-bold text-white mb-4">Ngobrol dengan Kami</h4>
+                    <div class="flex justify-center md:justify-start space-x-6 mt-4"><a href="#"
+                            class="transform hover:scale-125 transition-transform" title="WhatsApp"><img
+                                src="https://www.svgrepo.com/show/452133/whatsapp.svg" class="h-8 w-8"></a><a href="#"
+                            class="transform hover:scale-125 transition-transform" title="Facebook"><img
+                                src="https://www.svgrepo.com/show/452195/facebook.svg" class="h-8 w-8"></a><a href="#"
+                            class="transform hover:scale-125 transition-transform" title="Instagram"><img
+                                src="https://www.svgrepo.com/show/452229/instagram-1.svg" class="h-8 w-8"></a></div>
+                </div>
+            </div>
+            <div class="border-t border-gray-700 mt-12 pt-6 text-center text-sm">
+                <p>&copy; 2025 TK-KB Al-Fath. Dibuat dengan ❤ untuk anak hebat Indonesia.</p>
+            </div>
+        </div>
+    </footer>
+
+    <script>
+        // Script untuk menu mobile
+        const mobileMenuButton = document.getElementById('mobile-menu-button');
+        const mobileMenu = document.getElementById('mobile-menu');
+        mobileMenuButton.addEventListener('click', () => {
+            mobileMenu.classList.toggle('hidden');
+        });
+
+        // Script untuk carousel galeri
+        const carouselContainer = document.getElementById('carousel-container');
+        const prevBtn = document.getElementById('prevBtn');
+        const nextBtn = document.getElementById('nextBtn');
+        let currentIndex = 0;
+        const slides = carouselContainer.children;
+        const totalSlides = slides.length;
+        function updateCarousel() {
+            carouselContainer.style.transform = translateX(-${ currentIndex * 100} %);
+        }
+        nextBtn.addEventListener('click', () => {
+            currentIndex = (currentIndex + 1) % totalSlides;
+            updateCarousel();
+        });
+        prevBtn.addEventListener('click', () => {
+            currentIndex = (currentIndex - 1 + totalSlides) % totalSlides;
+            updateCarousel();
+        });
+        setInterval(() => { nextBtn.click(); }, 5000);
+
+        // Fungsi generic untuk carousel
+        function setupCarousel(carouselId, wrapperId, prevBtnId, nextBtnId) {
+            const carouselWrapper = document.getElementById(wrapperId);
+            const prevButton = document.getElementById(prevBtnId);
+            const nextButton = document.getElementById(nextBtnId);
+
+            if (!carouselWrapper || !prevButton || !nextButton) return;
+
+            let currentIndex = 0;
+            const slides = carouselWrapper.children;
+            const totalSlides = slides.length;
+
+            function getVisibleSlides() {
+                if (window.innerWidth >= 1024) return carouselId === 'staff-carousel' ? 4 : 3;
+                if (window.innerWidth >= 768) return carouselId === 'staff-carousel' ? 2 : 2;
+                if (window.innerWidth >= 640) return carouselId === 'staff-carousel' ? 2 : 1;
+                return 1;
+            }
+
+            function updateCarousel() {
+                const visibleSlides = getVisibleSlides();
+                const maxIndex = totalSlides - visibleSlides;
+
+                if (currentIndex > maxIndex) currentIndex = maxIndex;
+                if (currentIndex < 0) currentIndex = 0;
+
+                const slideWidth = slides[0].offsetWidth;
+                const gap = parseInt(window.getComputedStyle(carouselWrapper).gap) || 16; // 1rem = 16px
+                const totalSlideWidth = slideWidth + gap;
+
+                const newTransform = -currentIndex * totalSlideWidth;
+                carouselWrapper.style.transform = translateX(${ newTransform }px);
+            }
+
+            nextButton.addEventListener('click', () => {
+                const visibleSlides = getVisibleSlides();
+                if (currentIndex < totalSlides - visibleSlides) {
+                    currentIndex++;
+                    updateCarousel();
+                }
+            });
+
+            prevButton.addEventListener('click', () => {
+                if (currentIndex > 0) {
+                    currentIndex--;
+                    updateCarousel();
+                }
+            });
+
+            window.addEventListener('resize', updateCarousel);
+            // Initial call
+            setTimeout(updateCarousel, 100);
+        }
+
+        // Inisialisasi carousel fasilitas
+        setupCarousel('facilities-carousel', 'facilities-carousel-wrapper', 'facilityPrevBtn', 'facilityNextBtn');
+
+        // Inisialisasi carousel guru & staff
+        setupCarousel('staff-carousel', 'staff-carousel-wrapper', 'staffPrevBtn', 'staffNextBtn');
+
+    </script>
+</body>
+
+</html>

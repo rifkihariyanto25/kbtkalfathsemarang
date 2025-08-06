@@ -15,6 +15,9 @@
     <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;500;600;700;800&display=swap"
         rel="stylesheet">
 
+    <!-- Navbar.js Script -->
+    <script src="navbar.js" defer></script>
+    
     <style>
         /* Menggunakan font Poppins yang lebih ramah anak */
         body {
@@ -98,41 +101,7 @@
 
 <body class="bg-orange-50/50">
 
-    <!-- HEADER -->
-    <header class="bg-white shadow-lg sticky top-0 z-50">
-        <div class="container mx-auto px-6 py-3 flex justify-between items-center">
-            <a href="#" class="flex items-center space-x-3">
-                <img src="assets/WhatsApp Image 2025-07-30 at 09.47.34_ce7ed10a 1.png" alt="Logo Al-Fath"
-                    class="h-12 w-12 rounded-full transform hover:rotate-12 transition-transform duration-300">
-                <span class="text-xl font-bold text-gray-800">KB TK Al-Fath</span>
-            </a>
-            <nav class="hidden md:flex space-x-8 items-center">
-                <a href="#beranda"
-                    class="text-gray-600 hover:text-orange-500 font-semibold transition-colors">Beranda</a>
-                <a href="#program" class="text-gray-600 hover:text-orange-500 font-semibold transition-colors">KB</a>
-                <a href="#galeri" class="text-gray-600 hover:text-orange-500 font-semibold transition-colors">TK</a>
-                <a href="/galeri.html"
-                    class="text-gray-600 hover:text-orange-500 font-semibold transition-colors">Galeri</a>
-                <a href="#berita" class="text-gray-600 hover:text-orange-500 font-semibold transition-colors">Berita</a>
-                <a href="#kontak"
-                    class="bg-red-500 hover:bg-red-600 text-white font-bold py-2 px-5 rounded-full transition duration-300 transform hover:scale-110">Kontak</a>
-            </nav>
-            <button id="mobile-menu-button" class="md:hidden text-orange-500 focus:outline-none">
-                <svg class="w-8 h-8" fill="none" stroke="currentColor" viewBox="0 0 24 24"
-                    xmlns="http://www.w3.org/2000/svg">
-                    <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M4 6h16M4 12h16m-7 6h7">
-                    </path>
-                </svg>
-            </button>
-        </div>
-        <div id="mobile-menu" class="hidden md:hidden bg-white border-t">
-            <a href="#beranda" class="block py-3 px-6 text-gray-600 hover:bg-orange-50 font-medium">Beranda</a>
-            <a href="#program" class="block py-3 px-6 text-gray-600 hover:bg-orange-50 font-medium">KB</a>
-            <a href="galeri.html" class="block py-3 px-6 text-gray-600 hover:bg-orange-50 font-medium">TK</a>
-            <a href="galeri.html" class="block py-3 px-6 text-gray-600 hover:bg-orange-50 font-medium">Galeri</a>
-            <a href="#kontak" class="block py-3 px-6 text-gray-600 hover:bg-orange-50 font-medium">Berita</a>
-        </div>
-    </header>
+    <!-- Navbar akan dimasukkan oleh navbar.js -->
 
     <main>
         <!-- HERO SECTION BARU -->
@@ -351,165 +320,313 @@
             </div>
         </section>
 
-        <!-- EKSTRAKURIKULER SECTION -->
-        <section id="ekstrakurikuler" class="py-20 bg-white">
+
+        <!-- FASILITAS SECTION -->
+        <section id="fasilitas" class="py-20 bg-orange-50/50 pattern-bg">
             <div class="container mx-auto px-6">
                 <div class="text-center mb-16">
                     <h2 class="inline-block text-4xl md:text-5xl font-extrabold text-gray-800"><span
-                            class="wavy-underline">Ekstrakulikuler Di KB TK ISLAM AL FATH</span></h2>
-                    <p class="text-gray-600 mt-4 text-lg">Mengasah bakat dan kreativitas si kecil di luar jam belajar!
-                    </p>
+                            class="wavy-underline">Fasilitas Sekolah Kami</span></h2>
+                    <p class="text-gray-600 mt-4 text-lg">Lingkungan belajar yang aman, nyaman, dan menyenangkan untuk
+                        si kecil.</p>
                 </div>
-                <div class="max-w-4xl mx-auto grid grid-cols-1 md:grid-cols-2 gap-10">
-                    <div
-                        class="bg-gradient-to-br from-orange-100 to-red-100 p-8 rounded-3xl shadow-lg hover:shadow-2xl transition-all duration-300 text-center group transform hover:-translate-y-2">
-                        <img src="/assets/mb.png"
-                            class="h-28 w-28 mx-auto mb-4 transition-transform duration-500 group-hover:scale-110"
-                            alt="Ikon Terompet">
-                        <h3 class="text-2xl font-bold text-gray-800 mb-2">Marching Band</h3>
-                        <p class="text-gray-600">Belajar memainkan alat musik, kekompakan tim, dan disiplin sambil
-                            berbaris mengikuti irama yang semangat.</p>
+
+                <div class="relative">
+                    <button id="prevFacilityBtn"
+                        class="absolute left-0 top-1/2 -translate-y-1/2 z-10 bg-orange-500 text-white p-3 rounded-full shadow-lg hover:bg-orange-600 transition-colors duration-300">
+                        <svg xmlns="http://www.w3.org/2000/svg" class="h-6 w-6" fill="none" viewBox="0 0 24 24"
+                            stroke="currentColor">
+                            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M15 19l-7-7 7-7" />
+                        </svg>
+                    </button>
+
+                    <div class="facilities-carousel-wrapper overflow-hidden mx-12">
+                        <div class="facilities-carousel flex transition-transform duration-500 ease-in-out gap-6">
+                            <!-- Fasilitas 1: Ruang Kelas -->
+                            <div class="facility-card flex-shrink-0 w-full md:w-1/2 lg:w-1/3 p-2">
+                                <div
+                                    class="bg-white rounded-xl shadow-lg overflow-hidden transform hover:scale-105 transition-transform duration-300">
+                                    <div class="h-48 overflow-hidden">
+                                        <img src="https://images.pexels.com/photos/8471982/pexels-photo-8471982.jpeg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=1"
+                                            alt="Ruang Kelas" class="w-full h-full object-cover">
+                                    </div>
+                                    <div class="p-6">
+                                        <h3 class="text-xl font-bold text-orange-600 mb-2">Ruang Kelas Nyaman</h3>
+                                        <p class="text-gray-600">Ruang kelas yang luas, bersih, dan dilengkapi dengan
+                                            peralatan belajar modern untuk mendukung proses pembelajaran.</p>
+                                    </div>
+                                </div>
+                            </div>
+
+                            <!-- Fasilitas 2: Taman Bermain -->
+                            <div class="facility-card flex-shrink-0 w-full md:w-1/2 lg:w-1/3 p-2">
+                                <div
+                                    class="bg-white rounded-xl shadow-lg overflow-hidden transform hover:scale-105 transition-transform duration-300">
+                                    <div class="h-48 overflow-hidden">
+                                        <img src="https://images.pexels.com/photos/3662667/pexels-photo-3662667.jpeg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=1"
+                                            alt="Taman Bermain" class="w-full h-full object-cover">
+                                    </div>
+                                    <div class="p-6">
+                                        <h3 class="text-xl font-bold text-red-600 mb-2">Taman Bermain</h3>
+                                        <p class="text-gray-600">Area bermain outdoor yang aman dengan berbagai
+                                            permainan edukatif untuk mengembangkan motorik kasar anak.</p>
+                                    </div>
+                                </div>
+                            </div>
+
+                            <!-- Fasilitas 3: Perpustakaan Mini -->
+                            <div class="facility-card flex-shrink-0 w-full md:w-1/2 lg:w-1/3 p-2">
+                                <div
+                                    class="bg-white rounded-xl shadow-lg overflow-hidden transform hover:scale-105 transition-transform duration-300">
+                                    <div class="h-48 overflow-hidden">
+                                        <img src="https://images.pexels.com/photos/8535214/pexels-photo-8535214.jpeg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=1"
+                                            alt="Perpustakaan Mini" class="w-full h-full object-cover">
+                                    </div>
+                                    <div class="p-6">
+                                        <h3 class="text-xl font-bold text-orange-600 mb-2">Perpustakaan Mini</h3>
+                                        <p class="text-gray-600">Koleksi buku cerita dan pengetahuan yang menarik untuk
+                                            menumbuhkan minat baca sejak dini.</p>
+                                    </div>
+                                </div>
+                            </div>
+
+                            <!-- Fasilitas 4: Ruang Seni -->
+                            <div class="facility-card flex-shrink-0 w-full md:w-1/2 lg:w-1/3 p-2">
+                                <div
+                                    class="bg-white rounded-xl shadow-lg overflow-hidden transform hover:scale-105 transition-transform duration-300">
+                                    <div class="h-48 overflow-hidden">
+                                        <img src="https://images.pexels.com/photos/8612000/pexels-photo-8612000.jpeg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=1"
+                                            alt="Ruang Seni" class="w-full h-full object-cover">
+                                    </div>
+                                    <div class="p-6">
+                                        <h3 class="text-xl font-bold text-red-600 mb-2">Ruang Seni & Kreativitas</h3>
+                                        <p class="text-gray-600">Tempat khusus untuk anak mengekspresikan kreativitas
+                                            melalui menggambar, melukis, dan kerajinan tangan.</p>
+                                    </div>
+                                </div>
+                            </div>
+
+                            <!-- Fasilitas 5: Lab Komputer Mini -->
+                            <div class="facility-card flex-shrink-0 w-full md:w-1/2 lg:w-1/3 p-2">
+                                <div
+                                    class="bg-white rounded-xl shadow-lg overflow-hidden transform hover:scale-105 transition-transform duration-300">
+                                    <div class="h-48 overflow-hidden">
+                                        <img src="/assets/sempoa.png" alt="Lab Komputer Mini"
+                                            class="w-full h-full object-cover">
+                                    </div>
+                                    <div class="p-6">
+                                        <h3 class="text-xl font-bold text-orange-600 mb-2">Kelas Sempoa</h3>
+                                        <p class="text-gray-600">Pembelajaran sempoa untuk mengembangkan kemampuan
+                                            berhitung dan konsentrasi anak sejak dini.</p>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
                     </div>
-                    <div
-                        class="bg-gradient-to-br from-orange-100 to-red-100 p-8 rounded-3xl shadow-lg hover:shadow-2xl transition-all duration-300 text-center group transform hover:-translate-y-2">
-                        <img src="/assets/sempoa.png"
-                            class="h-28 w-28 mx-auto mb-4 transition-transform duration-500 group-hover:scale-110"
-                            alt="Ikon Sempoa">
-                        <h3 class="text-2xl font-bold text-gray-800 mb-2">Sempoa</h3>
-                        <p class="text-gray-600">Metode berhitung cepat yang seru untuk melatih konsentrasi, daya ingat,
-                            dan kecerdasan otak kanan dan kiri.</p>
-                    </div>
+
+                    <button id="nextFacilityBtn"
+                        class="absolute right-0 top-1/2 -translate-y-1/2 z-10 bg-orange-500 text-white p-3 rounded-full shadow-lg hover:bg-orange-600 transition-colors duration-300">
+                        <svg xmlns="http://www.w3.org/2000/svg" class="h-6 w-6" fill="none" viewBox="0 0 24 24"
+                            stroke="currentColor">
+                            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 5l7 7-7 7" />
+                        </svg>
+                    </button>
                 </div>
-            </div>
+
+                <div id="dots-container" class="flex justify-center mt-6 space-x-2">
+                    <span
+                        class="dot w-3 h-3 bg-gray-400 rounded-full cursor-pointer transition-colors duration-300"></span>
+                    <span
+                        class="dot w-3 h-3 bg-gray-400 rounded-full cursor-pointer transition-colors duration-300"></span>
+                    <span
+                        class="dot w-3 h-3 bg-gray-400 rounded-full cursor-pointer transition-colors duration-300"></span>
+                    <span
+                        class="dot w-3 h-3 bg-gray-400 rounded-full cursor-pointer transition-colors duration-300"></span>
+                    <span
+                        class="dot w-3 h-3 bg-gray-400 rounded-full cursor-pointer transition-colors duration-300"></span>
+                </div>
         </section>
+    </main>
 
-
-        <section id="berita" class="py-20 bg-white">
-            <div class="container mx-auto px-6">
-                <div class="text-center mb-12">
-                    <h2 class="inline-block text-4xl md:text-5xl font-extrabold text-gray-800"><span
-                            class="wavy-underline">Berita Terbaru Di KB TK ISLAM ALFATH</span></h2>
-                    <p class="text-gray-600 mt-4 text-lg">Info penting dan berita terbaru dari sekolah kita.</p>
+    <!-- EKSTRAKURIKULER SECTION -->
+    <section id="ekstrakurikuler" class="py-20 bg-white">
+        <div class="container mx-auto px-6">
+            <div class="text-center mb-16">
+                <h2 class="inline-block text-4xl md:text-5xl font-extrabold text-gray-800"><span
+                        class="wavy-underline">Ekstrakulikuler Di KB TK ISLAM AL FATH</span></h2>
+                <p class="text-gray-600 mt-4 text-lg">Mengasah bakat dan kreativitas si kecil di luar jam belajar!
+                </p>
+            </div>
+            <div class="max-w-4xl mx-auto grid grid-cols-1 md:grid-cols-2 gap-10">
+                <div
+                    class="bg-gradient-to-br from-orange-100 to-red-100 p-8 rounded-3xl shadow-lg hover:shadow-2xl transition-all duration-300 text-center group transform hover:-translate-y-2">
+                    <img src="/assets/mb.png"
+                        class="h-28 w-28 mx-auto mb-4 transition-transform duration-500 group-hover:scale-110"
+                        alt="Ikon Terompet">
+                    <h3 class="text-2xl font-bold text-gray-800 mb-2">Marching Band</h3>
+                    <p class="text-gray-600">Belajar memainkan alat musik, kekompakan tim, dan disiplin sambil
+                        berbaris mengikuti irama yang semangat.</p>
                 </div>
-                <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
-                    <div
-                        class="bg-white rounded-2xl overflow-hidden shadow-lg hover:shadow-xl transition-all duration-300 group transform hover:-translate-y-2">
-                        <div class="overflow-hidden"><img
-                                src="https://placehold.co/600x400/FB923C/FFFFFF?text=Daftar+Yuk!"
-                                alt="[Gambar ilustrasi pendaftaran]"
-                                class="w-full h-48 object-cover transition-transform duration-500 group-hover:scale-110">
-                        </div>
-                        <div class="p-6"><span class="text-sm text-orange-600 font-bold">PENGUMUMAN</span>
-                            <h3 class="text-xl font-bold text-gray-800 mt-2 mb-3">Sekolah Dibuka Lagi! Ayo Daftar!</h3>
-                            <p class="text-gray-600 mb-4">Ajak teman-temanmu untuk sekolah di Al-Fath. Tempatnya
-                                terbatas lho!</p><a href="#"
-                                class="font-bold text-orange-500 group-hover:text-red-500 transition">Lihat Info
-                                &rarr;</a>
-                        </div>
+                <div
+                    class="bg-gradient-to-br from-orange-100 to-red-100 p-8 rounded-3xl shadow-lg hover:shadow-2xl transition-all duration-300 text-center group transform hover:-translate-y-2">
+                    <img src="/assets/sempoa.png"
+                        class="h-28 w-28 mx-auto mb-4 transition-transform duration-500 group-hover:scale-110"
+                        alt="Ikon Sempoa">
+                    <h3 class="text-2xl font-bold text-gray-800 mb-2">Sempoa</h3>
+                    <p class="text-gray-600">Metode berhitung cepat yang seru untuk melatih konsentrasi, daya ingat,
+                        dan kecerdasan otak kanan dan kiri.</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- berita SECTION -->
+
+    <section id="berita" class="py-20 bg-white">
+        <div class="container mx-auto px-6">
+            <div class="text-center mb-12">
+                <h2 class="inline-block text-4xl md:text-5xl font-extrabold text-gray-800"><span
+                        class="wavy-underline">Berita Terbaru Di KB TK ISLAM ALFATH</span></h2>
+                <p class="text-gray-600 mt-4 text-lg">Info penting dan berita terbaru dari sekolah kita.</p>
+            </div>
+            <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
+                <div
+                    class="bg-white rounded-2xl overflow-hidden shadow-lg hover:shadow-xl transition-all duration-300 group transform hover:-translate-y-2">
+                    <div class="overflow-hidden"><img src="https://placehold.co/600x400/FB923C/FFFFFF?text=Daftar+Yuk!"
+                            alt="[Gambar ilustrasi pendaftaran]"
+                            class="w-full h-48 object-cover transition-transform duration-500 group-hover:scale-110">
                     </div>
-                    <div
-                        class="bg-white rounded-2xl overflow-hidden shadow-lg hover:shadow-xl transition-all duration-300 group transform hover:-translate-y-2">
-                        <div class="overflow-hidden"><img src="https://placehold.co/600x400/F87171/FFFFFF?text=Juara+1"
-                                alt="[Gambar ilustrasi lomba]"
-                                class="w-full h-48 object-cover transition-transform duration-500 group-hover:scale-110">
-                        </div>
-                        <div class="p-6"><span class="text-sm text-red-600 font-bold">HORE!</span>
-                            <h3 class="text-xl font-bold text-gray-800 mt-2 mb-3">Kita Menang Lomba Mewarnai!</h3>
-                            <p class="text-gray-600 mb-4">Selamat ya buat Budi, sudah jadi juara 1 dan bikin sekolah
-                                bangga!</p><a href="#"
-                                class="font-bold text-red-500 group-hover:text-orange-500 transition">Lihat Fotonya
-                                &rarr;</a>
-                        </div>
+                    <div class="p-6"><span class="text-sm text-orange-600 font-bold">PENGUMUMAN</span>
+                        <h3 class="text-xl font-bold text-gray-800 mt-2 mb-3">Sekolah Dibuka Lagi! Ayo Daftar!</h3>
+                        <p class="text-gray-600 mb-4">Ajak teman-temanmu untuk sekolah di Al-Fath. Tempatnya
+                            terbatas lho!</p><a href="#"
+                            class="font-bold text-orange-500 group-hover:text-red-500 transition">Lihat Info
+                            &rarr;</a>
                     </div>
-                    <div
-                        class="bg-white rounded-2xl overflow-hidden shadow-lg hover:shadow-xl transition-all duration-300 group transform hover:-translate-y-2">
-                        <div class="overflow-hidden"><img
-                                src="https://placehold.co/600x400/FDBA74/FFFFFF?text=Kumpul-kumpul"
-                                alt="[Gambar ilustrasi seminar parenting]"
-                                class="w-full h-48 object-cover transition-transform duration-500 group-hover:scale-110">
-                        </div>
-                        <div class="p-6"><span class="text-sm text-orange-600 font-bold">ACARA SERU</span>
-                            <h3 class="text-xl font-bold text-gray-800 mt-2 mb-3">Kumpul Bareng Ayah & Bunda</h3>
-                            <p class="text-gray-600 mb-4">Terima kasih Ayah dan Bunda semua yang sudah datang dan
-                                bermain bersama.</p><a href="#"
-                                class="font-bold text-orange-500 group-hover:text-red-500 transition">Lihat Keseruannya
-                                &rarr;</a>
-                        </div>
+                </div>
+                <div
+                    class="bg-white rounded-2xl overflow-hidden shadow-lg hover:shadow-xl transition-all duration-300 group transform hover:-translate-y-2">
+                    <div class="overflow-hidden"><img src="https://placehold.co/600x400/F87171/FFFFFF?text=Juara+1"
+                            alt="[Gambar ilustrasi lomba]"
+                            class="w-full h-48 object-cover transition-transform duration-500 group-hover:scale-110">
+                    </div>
+                    <div class="p-6"><span class="text-sm text-red-600 font-bold">HORE!</span>
+                        <h3 class="text-xl font-bold text-gray-800 mt-2 mb-3">Kita Menang Lomba Mewarnai!</h3>
+                        <p class="text-gray-600 mb-4">Selamat ya buat Budi, sudah jadi juara 1 dan bikin sekolah
+                            bangga!</p><a href="#"
+                            class="font-bold text-red-500 group-hover:text-orange-500 transition">Lihat Fotonya
+                            &rarr;</a>
+                    </div>
+                </div>
+                <div
+                    class="bg-white rounded-2xl overflow-hidden shadow-lg hover:shadow-xl transition-all duration-300 group transform hover:-translate-y-2">
+                    <div class="overflow-hidden"><img
+                            src="https://placehold.co/600x400/FDBA74/FFFFFF?text=Kumpul-kumpul"
+                            alt="[Gambar ilustrasi seminar parenting]"
+                            class="w-full h-48 object-cover transition-transform duration-500 group-hover:scale-110">
+                    </div>
+                    <div class="p-6"><span class="text-sm text-orange-600 font-bold">ACARA SERU</span>
+                        <h3 class="text-xl font-bold text-gray-800 mt-2 mb-3">Kumpul Bareng Ayah & Bunda</h3>
+                        <p class="text-gray-600 mb-4">Terima kasih Ayah dan Bunda semua yang sudah datang dan
+                            bermain bersama.</p><a href="#"
+                            class="font-bold text-orange-500 group-hover:text-red-500 transition">Lihat Keseruannya
+                            &rarr;</a>
                     </div>
                 </div>
             </div>
-        </section>
+        </div>
+    </section>
 
-        <!-- FOOTER -->
-        <footer id="kontak" class="bg-gray-800 text-gray-300 pt-16 pb-8">
-            <div class="container mx-auto px-6">
-                <div class="grid grid-cols-1 md:grid-cols-3 gap-8 text-center md:text-left">
-                    <div>
-                        <h4 class="text-lg font-bold text-white mb-4">Main ke Sekolah Yuk!</h4>
-                        <p>Jl. Pendidikan No. 123, Kel. Cerdas, Kec. Ceria</p>
-                        <p>Kota Inspirasi, 12345</p>
-                    </div>
-                    <div>
-                        <h4 class="text-lg font-bold text-white mb-4">Jam Buka</h4>
-                        <p>Senin - Jumat</p>
-                        <p>07:00 - 15:00 WIB</p>
-                    </div>
-                    <div>
-                        <h4 class="text-lg font-bold text-white mb-4">Ngobrol dengan Kami</h4>
-                        <div class="flex justify-center md:justify-start space-x-6 mt-4"><a href="#"
-                                class="transform hover:scale-125 transition-transform" title="WhatsApp"><img
-                                    src="https://www.svgrepo.com/show/452133/whatsapp.svg" class="h-8 w-8"></a><a
-                                href="#" class="transform hover:scale-125 transition-transform" title="Facebook"><img
-                                    src="https://www.svgrepo.com/show/452195/facebook.svg" class="h-8 w-8"></a><a
-                                href="#" class="transform hover:scale-125 transition-transform" title="Instagram"><img
-                                    src="https://www.svgrepo.com/show/452229/instagram-1.svg" class="h-8 w-8"></a></div>
-                    </div>
+    <!-- FOOTER -->
+    <footer id="kontak" class="bg-gray-800 text-gray-300 pt-16 pb-8">
+        <div class="container mx-auto px-6">
+            <div class="grid grid-cols-1 md:grid-cols-3 gap-8 text-center md:text-left">
+                <div>
+                    <h4 class="text-lg font-bold text-white mb-4">Main ke Sekolah Yuk!</h4>
+                    <p>Jl. Pendidikan No. 123, Kel. Cerdas, Kec. Ceria</p>
+                    <p>Kota Inspirasi, 12345</p>
                 </div>
-                <div class="border-t border-gray-700 mt-12 pt-6 text-center text-sm">
-                    <p>&copy; 2025 KB TK Islam Al Fath. All rights reserved.</p>
+                <div>
+                    <h4 class="text-lg font-bold text-white mb-4">Jam Buka</h4>
+                    <p>Senin - Jumat</p>
+                    <p>07:00 - 15:00 WIB</p>
+                </div>
+                <div>
+                    <h4 class="text-lg font-bold text-white mb-4">Ngobrol dengan Kami</h4>
+                    <div class="flex justify-center md:justify-start space-x-6 mt-4"><a href="#"
+                            class="transform hover:scale-125 transition-transform" title="WhatsApp"><img
+                                src="https://www.svgrepo.com/show/452133/whatsapp.svg" class="h-8 w-8"></a><a href="#"
+                            class="transform hover:scale-125 transition-transform" title="Facebook"><img
+                                src="https://www.svgrepo.com/show/452195/facebook.svg" class="h-8 w-8"></a><a href="#"
+                            class="transform hover:scale-125 transition-transform" title="Instagram"><img
+                                src="https://www.svgrepo.com/show/452229/instagram-1.svg" class="h-8 w-8"></a></div>
                 </div>
             </div>
-        </footer>
+            <div class="border-t border-gray-700 mt-12 pt-6 text-center text-sm">
+                <p>&copy; 2025 KB TK Islam Al Fath. All rights reserved.</p>
+            </div>
+        </div>
+    </footer>
 
-        <script>
-            // Script untuk menu mobile
-            const mobileMenuButton = document.getElementById('mobile-menu-button');
-            const mobileMenu = document.getElementById('mobile-menu');
-            mobileMenuButton.addEventListener('click', () => {
-                mobileMenu.classList.toggle('hidden');
-            });
+    <script>
+        // Script untuk menu mobile
+        const mobileMenuButton = document.getElementById('mobile-menu-button');
+        const mobileMenu = document.getElementById('mobile-menu');
+        mobileMenuButton.addEventListener('click', () => {
+            mobileMenu.classList.toggle('hidden');
+        });
 
-            // Script untuk carousel galeri
-            const carouselContainer = document.getElementById('carousel-container');
-            const prevBtn = document.getElementById('prevBtn');
-            const nextBtn = document.getElementById('nextBtn');
-            let currentIndex = 0;
-            const slides = carouselContainer.children;
-            const totalSlides = slides.length;
-            function updateCarousel() {
-                carouselContainer.style.transform = translateX(-${ currentIndex * 100} %);
-            }
-            nextBtn.addEventListener('click', () => {
-                currentIndex = (currentIndex + 1) % totalSlides;
-                updateCarousel();
-            });
-            prevBtn.addEventListener('click', () => {
-                currentIndex = (currentIndex - 1 + totalSlides) % totalSlides;
-                updateCarousel();
-            });
-            setInterval(() => { nextBtn.click(); }, 5000);
+        // Script untuk carousel galeri
+        const carouselContainer = document.getElementById('carousel-container');
+        const prevBtn = document.getElementById('prevBtn');
+        const nextBtn = document.getElementById('nextBtn');
+        let currentIndex = 0;
+        const slides = carouselContainer.children;
+        const totalSlides = slides.length;
+        function updateCarousel() {
+            carouselContainer.style.transform = `translateX(-${currentIndex * 100}%)`;
+        }
+        nextBtn.addEventListener('click', () => {
+            currentIndex = (currentIndex + 1) % totalSlides;
+            updateCarousel();
+        });
+        prevBtn.addEventListener('click', () => {
+            currentIndex = (currentIndex - 1 + totalSlides) % totalSlides;
+            updateCarousel();
+        });
+        setInterval(() => { nextBtn.click(); }, 5000);
 
-            // Fungsi generic untuk carousel
-            function setupCarousel(carouselId, wrapperId, prevBtnId, nextBtnId) {
-                const carouselWrapper = document.getElementById(wrapperId);
+        // Fungsi generic untuk carousel
+        function setupCarousel(carouselId, wrapperId, prevBtnId, nextBtnId) {
+            // Fungsi untuk menginisialisasi carousel
+            function initCarousel() {
+                console.log('Initializing carousel:', carouselId, wrapperId, prevBtnId, nextBtnId);
+
+                // Cari elemen carousel wrapper
+                let carouselWrapper = document.querySelector('.' + wrapperId);
+
+                if (!carouselWrapper) {
+                    console.error('Carousel wrapper not found:', wrapperId);
+                    return;
+                }
+
+                console.log('Found carousel wrapper:', carouselWrapper);
                 const prevButton = document.getElementById(prevBtnId);
                 const nextButton = document.getElementById(nextBtnId);
 
-                if (!carouselWrapper || !prevButton || !nextButton) return;
+                console.log('Setup carousel:', carouselId, wrapperId);
+                console.log('Elements:', carouselWrapper, prevButton, nextButton);
+
+                if (!carouselWrapper || !prevButton || !nextButton) {
+                    console.error('Carousel elements not found:', carouselId);
+                    return;
+                }
 
                 let currentIndex = 0;
                 const slides = carouselWrapper.children;
                 const totalSlides = slides.length;
+
+                console.log('Total slides:', totalSlides);
 
                 function getVisibleSlides() {
                     if (window.innerWidth >= 1024) return carouselId === 'staff-carousel' ? 4 : 3;
@@ -519,9 +636,15 @@
                 }
 
                 function updateCarousel() {
+                    if (!carouselWrapper) {
+                        console.error('Carousel wrapper not found:', wrapperId);
+                        return;
+                    }
+
                     const visibleSlides = getVisibleSlides();
                     const maxIndex = totalSlides - visibleSlides;
 
+                    // Ensure currentIndex is within bounds
                     if (currentIndex > maxIndex) currentIndex = maxIndex;
                     if (currentIndex < 0) currentIndex = 0;
 
@@ -530,10 +653,17 @@
                     const totalSlideWidth = slideWidth + gap;
 
                     const newTransform = -currentIndex * totalSlideWidth;
-                    carouselWrapper.style.transform = translateX(${ newTransform }px);
+                    const carousel = carouselWrapper.querySelector('.' + carouselId);
+                    if (carousel) {
+                        carousel.style.transform = 'translateX(' + newTransform + 'px)';
+                    } else {
+                        carouselWrapper.style.transform = 'translateX(' + newTransform + 'px)';
+                    }
+                    console.log('Updated carousel:', carouselId, 'transform:', newTransform);
                 }
 
                 nextButton.addEventListener('click', () => {
+                    console.log('Next button clicked');
                     const visibleSlides = getVisibleSlides();
                     if (currentIndex < totalSlides - visibleSlides) {
                         currentIndex++;
@@ -542,6 +672,7 @@
                 });
 
                 prevButton.addEventListener('click', () => {
+                    console.log('Prev button clicked');
                     if (currentIndex > 0) {
                         currentIndex--;
                         updateCarousel();
@@ -550,16 +681,96 @@
 
                 window.addEventListener('resize', updateCarousel);
                 // Initial call
-                setTimeout(updateCarousel, 100);
+                setTimeout(updateCarousel, 300);
             }
 
+            // Call the initialization function
+            document.addEventListener('DOMContentLoaded', initCarousel);
+        }
+
+        // Pastikan DOM sudah dimuat sebelum menginisialisasi carousel
+        document.addEventListener('DOMContentLoaded', function () {
             // Inisialisasi carousel fasilitas
-            setupCarousel('facilities-carousel', 'facilities-carousel-wrapper', 'facilityPrevBtn', 'facilityNextBtn');
+            setupCarousel('facilities-carousel', 'facilities-carousel-wrapper', 'prevFacilityBtn', 'nextFacilityBtn');
 
-            // Inisialisasi carousel guru & staff
-            setupCarousel('staff-carousel', 'staff-carousel-wrapper', 'staffPrevBtn', 'staffNextBtn');
+            // Tambahkan log untuk debugging
+            console.log('Carousel elements:', {
+                carousel: document.querySelector('.facilities-carousel'),
+                wrapper: document.querySelector('.facilities-carousel-wrapper'),
+                prevBtn: document.getElementById('prevFacilityBtn'),
+                nextBtn: document.getElementById('nextFacilityBtn')
+            });
+        });
 
-        </script>
+        // Auto-slide untuk carousel fasilitas
+        document.addEventListener('DOMContentLoaded', function () {
+            // Delay sedikit untuk memastikan semua elemen sudah dimuat
+            setTimeout(function () {
+                const nextBtn = document.getElementById('nextFacilityBtn');
+                if (nextBtn) {
+                    console.log('Setting up auto-slide for facilities carousel');
+                    // Set interval untuk auto-slide setiap 5 detik
+                    setInterval(function () {
+                        nextBtn.click();
+                        console.log('Auto-slide triggered');
+                    }, 5000);
+                } else {
+                    console.error('Next button not found for auto-slide');
+                }
+            }, 2000);
+        });
+
+        // Inisialisasi carousel guru & staff
+        setupCarousel('staff-carousel', 'staff-carousel-wrapper', 'staffPrevBtn', 'staffNextBtn');
+
+        document.addEventListener('DOMContentLoaded', () => {
+            const slidesWrapper = document.getElementById('slides-wrapper');
+            const slides = document.querySelectorAll('#slides-wrapper > div');
+            const prevBtn = document.getElementById('prevBtn');
+            const nextBtn = document.getElementById('nextBtn');
+            const dotsContainer = document.getElementById('dots-container');
+            const dots = document.querySelectorAll('#dots-container > span');
+
+            let currentIndex = 0;
+            const slidesPerPage = 4;
+            const totalSlides = slides.length;
+
+            function updateSlider() {
+                slidesWrapper.style.transform = `translateX(-${currentIndex * 25}%)`;
+                updateDots();
+            }
+
+            function updateDots() {
+                dots.forEach((dot, index) => {
+                    dot.classList.remove('active');
+                    if (index === currentIndex) {
+                        dot.classList.add('active');
+                    }
+                });
+            }
+
+            prevBtn.addEventListener('click', () => {
+                currentIndex = (currentIndex > 0) ? currentIndex - 1 : 0;
+                updateSlider();
+            });
+
+            nextBtn.addEventListener('click', () => {
+                const maxIndex = totalSlides - slidesPerPage;
+                currentIndex = (currentIndex < maxIndex) ? currentIndex + 1 : maxIndex;
+                updateSlider();
+            });
+
+            dots.forEach((dot, index) => {
+                dot.addEventListener('click', () => {
+                    currentIndex = index;
+                    updateSlider();
+                });
+            });
+
+            // Initial setup
+            updateSlider();
+        });
+    </script>
 </body>
 
 </html>
