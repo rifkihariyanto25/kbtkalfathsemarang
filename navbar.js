@@ -14,7 +14,7 @@ function createNavbar() {
                 <a href="index.html#beranda"
                     class="text-gray-600 hover:text-orange-500 font-semibold transition-colors">Beranda</a>
                 <a href="kb.html" class="text-gray-600 hover:text-orange-500 font-semibold transition-colors">KB</a>
-                <a href="index.html#galeri" class="text-gray-600 hover:text-orange-500 font-semibold transition-colors">TK</a>
+                <a href="tk.html" class="text-gray-600 hover:text-orange-500 font-semibold transition-colors">TK</a>
                 <a href="galeri.html"
                     class="text-gray-600 hover:text-orange-500 font-semibold transition-colors">Galeri</a>
                 <a href="index.html#berita" class="text-gray-600 hover:text-orange-500 font-semibold transition-colors">Berita</a>
@@ -32,7 +32,7 @@ function createNavbar() {
         <div id="mobile-menu" class="hidden md:hidden bg-white border-t">
             <a href="index.html#beranda" class="block py-3 px-6 text-gray-600 hover:bg-orange-50 font-medium">Beranda</a>
             <a href="kb.html" class="block py-3 px-6 text-gray-600 hover:bg-orange-50 font-medium">KB</a>
-            <a href="index.html#galeri" class="block py-3 px-6 text-gray-600 hover:bg-orange-50 font-medium">TK</a>
+            <a href="tk.html" class="block py-3 px-6 text-gray-600 hover:bg-orange-50 font-medium">TK</a>
             <a href="galeri.html" class="block py-3 px-6 text-gray-600 hover:bg-orange-50 font-medium">Galeri</a>
             <a href="index.html#berita" class="block py-3 px-6 text-gray-600 hover:bg-orange-50 font-medium">Berita</a>
             <a href="index.html#kontak" class="block py-3 px-6 text-gray-600 hover:bg-orange-50 font-medium">Kontak</a>
