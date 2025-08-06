@@ -4,37 +4,43 @@ function createFooter() {
     // Create the footer HTML structure
     const footerHTML = `
     <!-- Footer -->
-    <footer class="bg-orange-600 text-white py-12">
+    <footer class="bg-red-700 text-white py-12">
         <div class="container mx-auto px-6">
             <div class="flex flex-col md:flex-row justify-between">
                 <div class="mb-8 md:mb-0">
-                    <h3 class="text-2xl font-bold mb-4">KB-TK Al-Fath</h3>
-                    <p class="max-w-xs">Membentuk generasi cerdas, kreatif, dan berakhlak mulia melalui pendidikan
-                        inovatif berbasis karakter Islami.</p>
+                    <h3 class="text-2xl font-bold mb-4">KB - TK Islam AL Fath</h3>
+                    <p class="max-w-xs">Lahir dari komitmen untuk menghadirkan pendidikan Islam berkualitas sejak usia dini, menjadi fondasi kokoh bagi tumbuh kembang anak-anak di kota Semarang.</p>
                 </div>
 
                 <div class="mb-8 md:mb-0">
-                    <h4 class="text-lg font-semibold mb-4">Kontak Kami</h4>
-                    <p class="flex items-center mb-2">
-                        <i class="fas fa-map-marker-alt mr-3"></i> Jl. Contoh No. 123, Semarang
-                    </p>
-                    <p class="flex items-center mb-2">
-                        <i class="fas fa-phone mr-3"></i> (024) 1234-5678
-                    </p>
-                    <p class="flex items-center">
-                        <i class="fas fa-envelope mr-3"></i> info@tkalkbfath.sch.id
-                    </p>
+                    <h4 class="text-lg font-semibold mb-4">Navigasi</h4>
+                    <ul>
+                        <li class="mb-2"><a href="index.html" class="hover:text-yellow-200 transition-colors">Beranda</a></li>
+                        <li class="mb-2"><a href="kb.html" class="hover:text-yellow-200 transition-colors">KB Al Fath</a></li>
+                        <li class="mb-2"><a href="tk.html" class="hover:text-yellow-200 transition-colors">TK Islam Al-Fath</a></li>
+                        <li class="mb-2"><a href="galeri.html" class="hover:text-yellow-200 transition-colors">Galeri</a></li>
+                        <li class="mb-2"><a href="berita.html" class="hover:text-yellow-200 transition-colors">Berita</a></li>
+                    </ul>
                 </div>
 
                 <div>
-                    <h4 class="text-lg font-semibold mb-4">Jam Operasional</h4>
-                    <p class="mb-2">Senin - Jumat: 07.00 - 12.00 WIB</p>
-                    <p>Sabtu: 07.00 - 11.00 WIB</p>
+                    <h4 class="text-lg font-semibold mb-4">Follow Kami</h4>
+                    <div class="flex space-x-4">
+                        <a href="#" class="text-white hover:text-yellow-200 transition-colors">
+                            <i class="fab fa-facebook-f text-2xl"></i>
+                        </a>
+                        <a href="#" class="text-white hover:text-yellow-200 transition-colors">
+                            <i class="fab fa-instagram text-2xl"></i>
+                        </a>
+                        <a href="#" class="text-white hover:text-yellow-200 transition-colors">
+                            <i class="fab fa-youtube text-2xl"></i>
+                        </a>
+                    </div>
                 </div>
             </div>
 
-            <div class="border-t border-orange-500 mt-8 pt-8 text-center">
-                <p>&copy; 2023 KB-TK Al-Fath. Hak Cipta Dilindungi.</p>
+            <div class="border-t border-red-600 mt-8 pt-8 text-center">
+                <p>&copy; 2025 KB-TK Islam Al-Fath. All rights reserved.</p>
             </div>
         </div>
     </footer>
