@@ -17,7 +17,7 @@ function createNavbar() {
                 <a href="tk.html" class="text-gray-600 hover:text-orange-500 font-semibold transition-colors">TK</a>
                 <a href="galeri.html"
                     class="text-gray-600 hover:text-orange-500 font-semibold transition-colors">Galeri</a>
-                <a href="index.html#berita" class="text-gray-600 hover:text-orange-500 font-semibold transition-colors">Berita</a>
+                <a href="berita.html" class="text-gray-600 hover:text-orange-500 font-semibold transition-colors">Berita</a>
                 <a href="index.html#kontak"
                     class="bg-red-500 hover:bg-red-600 text-white font-bold py-2 px-5 rounded-full transition duration-300 transform hover:scale-110">Kontak</a>
             </nav>
@@ -34,7 +34,7 @@ function createNavbar() {
             <a href="kb.html" class="block py-3 px-6 text-gray-600 hover:bg-orange-50 font-medium">KB</a>
             <a href="tk.html" class="block py-3 px-6 text-gray-600 hover:bg-orange-50 font-medium">TK</a>
             <a href="galeri.html" class="block py-3 px-6 text-gray-600 hover:bg-orange-50 font-medium">Galeri</a>
-            <a href="index.html#berita" class="block py-3 px-6 text-gray-600 hover:bg-orange-50 font-medium">Berita</a>
+            <a href="berita.html" class="block py-3 px-6 text-gray-600 hover:bg-orange-50 font-medium">Berita</a>
             <a href="index.html#kontak" class="block py-3 px-6 text-gray-600 hover:bg-orange-50 font-medium">Kontak</a>
         </div>
     </header>
