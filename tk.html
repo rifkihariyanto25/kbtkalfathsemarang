@@ -544,13 +544,13 @@
 
     <main class="container mx-auto px-4 py-12">
         <!-- Header Section -->
-        <section class="text-center mb-16">
-            <header class="mb-4">
-                <h1 class="text-4xl font-bold text-gray-800">
+        <section class="text-center mb-8 md:mb-16">
+            <header class="mb-3 md:mb-4">
+                <h1 class="text-3xl md:text-4xl font-bold text-gray-800">
                     Kurikulum <span class="text-orange-500">KB AL FATH</span>
                 </h1>
             </header>
-            <p class="text-gray-600 max-w-3xl mx-auto leading-relaxed">
+            <p class="text-gray-600 max-w-3xl mx-auto px-4 md:px-0 text-sm md:text-base leading-relaxed">
                 Kurikulum kami dirancang untuk mengembangkan seluruh aspek perkembangan anak
                 dengan pendekatan yang menyenangkan dan sesuai dengan tahap perkembangan.
             </p>
@@ -558,21 +558,21 @@
 
         <!-- Timeline Section -->
         <section class="relative max-w-4xl mx-auto" aria-label="Timeline Kurikulum">
-            <!-- Vertical Timeline Line -->
-            <div class="absolute left-1/2 transform -translate-x-1/2 w-1 bg-orange-500 h-full" aria-hidden="true"></div>
+            <!-- Vertical Timeline Line - Hidden on mobile, visible on larger screens -->
+            <div class="hidden md:block absolute left-1/2 transform -translate-x-1/2 w-1 bg-orange-500 h-full" aria-hidden="true"></div>
 
             <!-- Timeline Items Container -->
-            <article class="space-y-12">
+            <article class="space-y-8 md:space-y-12">
                 <!-- Cognitive Development Section -->
-                <section class="flex items-center">
-                    <div class="w-1/2 pr-8">
-                        <article class="bg-white rounded-lg shadow-md p-6 relative">
-                            <!-- Arrow pointing right -->
-                            <div class="absolute -right-3 top-1/2 transform -translate-y-1/2 w-0 h-0 border-l-[12px] border-l-white border-t-[12px] border-t-transparent border-b-[12px] border-b-transparent"
+                <section class="flex flex-col md:flex-row md:items-center">
+                    <div class="w-full md:w-1/2 md:pr-8 mb-4 md:mb-0">
+                        <article class="bg-white rounded-lg shadow-md p-4 md:p-6 relative">
+                            <!-- Arrow pointing right - Hidden on mobile, visible on larger screens -->
+                            <div class="hidden md:block absolute -right-3 top-1/2 transform -translate-y-1/2 w-0 h-0 border-l-[12px] border-l-white border-t-[12px] border-t-transparent border-b-[12px] border-b-transparent"
                                 aria-hidden="true"></div>
 
                             <header>
-                                <h3 class="text-xl font-semibold text-orange-500 mb-3">Perkembangan Kognitif</h3>
+                                <h3 class="text-lg md:text-xl font-semibold text-orange-500 mb-2 md:mb-3">Perkembangan Kognitif</h3>
                             </header>
                             <p class="text-gray-600 text-sm leading-relaxed">
                                 Mengembangkan kemampuan berpikir logis, pemecahan masalah, dan kreativitas melalui
@@ -582,29 +582,29 @@
                         </article>
                     </div>
 
-                    <!-- Timeline Dot -->
-                    <div class="w-4 h-4 bg-orange-500 rounded-full border-4 border-white shadow-md z-10"
+                    <!-- Timeline Dot - Hidden on mobile, visible on larger screens -->
+                    <div class="hidden md:block w-4 h-4 bg-orange-500 rounded-full border-4 border-white shadow-md z-10"
                         aria-hidden="true"></div>
 
-                    <div class="w-1/2 pl-8"></div>
+                    <div class="hidden md:block md:w-1/2 md:pl-8"></div>
                 </section>
 
                 <!-- Social-Emotional Development Section -->
-                <section class="flex items-center">
-                    <div class="w-1/2 pr-8"></div>
+                <section class="flex flex-col md:flex-row md:items-center">
+                    <div class="hidden md:block md:w-1/2 md:pr-8"></div>
 
-                    <!-- Timeline Dot -->
-                    <div class="w-4 h-4 bg-orange-500 rounded-full border-4 border-white shadow-md z-10"
+                    <!-- Timeline Dot - Hidden on mobile, visible on larger screens -->
+                    <div class="hidden md:block w-4 h-4 bg-orange-500 rounded-full border-4 border-white shadow-md z-10"
                         aria-hidden="true"></div>
 
-                    <div class="w-1/2 pl-8">
-                        <article class="bg-white rounded-lg shadow-md p-6 relative">
-                            <!-- Arrow pointing left -->
-                            <div class="absolute -left-3 top-1/2 transform -translate-y-1/2 w-0 h-0 border-r-[12px] border-r-white border-t-[12px] border-t-transparent border-b-[12px] border-b-transparent"
+                    <div class="w-full md:w-1/2 md:pl-8">
+                        <article class="bg-white rounded-lg shadow-md p-4 md:p-6 relative">
+                            <!-- Arrow pointing left - Hidden on mobile, visible on larger screens -->
+                            <div class="hidden md:block absolute -left-3 top-1/2 transform -translate-y-1/2 w-0 h-0 border-r-[12px] border-r-white border-t-[12px] border-t-transparent border-b-[12px] border-b-transparent"
                                 aria-hidden="true"></div>
 
                             <header>
-                                <h3 class="text-xl font-semibold text-orange-500 mb-3">Perkembangan Sosial-Emosional
+                                <h3 class="text-lg md:text-xl font-semibold text-orange-500 mb-2 md:mb-3">Perkembangan Sosial-Emosional
                                 </h3>
                             </header>
                             <p class="text-gray-600 text-sm leading-relaxed">
@@ -616,15 +616,15 @@
                 </section>
 
                 <!-- Physical-Motor Development Section -->
-                <section class="flex items-center">
-                    <div class="w-1/2 pr-8">
-                        <article class="bg-white rounded-lg shadow-md p-6 relative">
-                            <!-- Arrow pointing right -->
-                            <div class="absolute -right-3 top-1/2 transform -translate-y-1/2 w-0 h-0 border-l-[12px] border-l-white border-t-[12px] border-t-transparent border-b-[12px] border-b-transparent"
+                <section class="flex flex-col md:flex-row md:items-center">
+                    <div class="w-full md:w-1/2 md:pr-8 mb-4 md:mb-0">
+                        <article class="bg-white rounded-lg shadow-md p-4 md:p-6 relative">
+                            <!-- Arrow pointing right - Hidden on mobile, visible on larger screens -->
+                            <div class="hidden md:block absolute -right-3 top-1/2 transform -translate-y-1/2 w-0 h-0 border-l-[12px] border-l-white border-t-[12px] border-t-transparent border-b-[12px] border-b-transparent"
                                 aria-hidden="true"></div>
 
                             <header>
-                                <h3 class="text-xl font-semibold text-orange-500 mb-3">Perkembangan Fisik-Motorik</h3>
+                                <h3 class="text-lg md:text-xl font-semibold text-orange-500 mb-2 md:mb-3">Perkembangan Fisik-Motorik</h3>
                             </header>
                             <p class="text-gray-600 text-sm leading-relaxed">
                                 Mengoptimalkan perkembangan motorik kasar dan halus melalui berbagai aktivitas fisik,
@@ -633,29 +633,29 @@
                         </article>
                     </div>
 
-                    <!-- Timeline Dot -->
-                    <div class="w-4 h-4 bg-orange-500 rounded-full border-4 border-white shadow-md z-10"
+                    <!-- Timeline Dot - Hidden on mobile, visible on larger screens -->
+                    <div class="hidden md:block w-4 h-4 bg-orange-500 rounded-full border-4 border-white shadow-md z-10"
                         aria-hidden="true"></div>
 
-                    <div class="w-1/2 pl-8"></div>
+                    <div class="hidden md:block md:w-1/2 md:pl-8"></div>
                 </section>
 
                 <!-- Language Development Section -->
-                <section class="flex items-center">
-                    <div class="w-1/2 pr-8"></div>
+                <section class="flex flex-col md:flex-row md:items-center">
+                    <div class="hidden md:block md:w-1/2 md:pr-8"></div>
 
-                    <!-- Timeline Dot -->
-                    <div class="w-4 h-4 bg-orange-500 rounded-full border-4 border-white shadow-md z-10"
+                    <!-- Timeline Dot - Hidden on mobile, visible on larger screens -->
+                    <div class="hidden md:block w-4 h-4 bg-orange-500 rounded-full border-4 border-white shadow-md z-10"
                         aria-hidden="true"></div>
 
-                    <div class="w-1/2 pl-8">
-                        <article class="bg-white rounded-lg shadow-md p-6 relative">
-                            <!-- Arrow pointing left -->
-                            <div class="absolute -left-3 top-1/2 transform -translate-y-1/2 w-0 h-0 border-r-[12px] border-r-white border-t-[12px] border-t-transparent border-b-[12px] border-b-transparent"
+                    <div class="w-full md:w-1/2 md:pl-8">
+                        <article class="bg-white rounded-lg shadow-md p-4 md:p-6 relative">
+                            <!-- Arrow pointing left - Hidden on mobile, visible on larger screens -->
+                            <div class="hidden md:block absolute -left-3 top-1/2 transform -translate-y-1/2 w-0 h-0 border-r-[12px] border-r-white border-t-[12px] border-t-transparent border-b-[12px] border-b-transparent"
                                 aria-hidden="true"></div>
 
                             <header>
-                                <h3 class="text-xl font-semibold text-orange-500 mb-3">Perkembangan Bahasa</h3>
+                                <h3 class="text-lg md:text-xl font-semibold text-orange-500 mb-2 md:mb-3">Perkembangan Bahasa</h3>
                             </header>
                             <p class="text-gray-600 text-sm leading-relaxed">
                                 Mengembangkan kemampuan komunikasi verbal dan non-verbal, memperkaya kosakata,
@@ -666,15 +666,15 @@
                 </section>
 
                 <!-- Religious & Moral Development Section -->
-                <section class="flex items-center">
-                    <div class="w-1/2 pr-8">
-                        <article class="bg-white rounded-lg shadow-md p-6 relative">
-                            <!-- Arrow pointing right -->
-                            <div class="absolute -right-3 top-1/2 transform -translate-y-1/2 w-0 h-0 border-l-[12px] border-l-white border-t-[12px] border-t-transparent border-b-[12px] border-b-transparent"
+                <section class="flex flex-col md:flex-row md:items-center">
+                    <div class="w-full md:w-1/2 md:pr-8 mb-4 md:mb-0">
+                        <article class="bg-white rounded-lg shadow-md p-4 md:p-6 relative">
+                            <!-- Arrow pointing right - Hidden on mobile, visible on larger screens -->
+                            <div class="hidden md:block absolute -right-3 top-1/2 transform -translate-y-1/2 w-0 h-0 border-l-[12px] border-l-white border-t-[12px] border-t-transparent border-b-[12px] border-b-transparent"
                                 aria-hidden="true"></div>
 
                             <header>
-                                <h3 class="text-xl font-semibold text-orange-500 mb-3">Perkembangan Nilai Agama dan
+                                <h3 class="text-lg md:text-xl font-semibold text-orange-500 mb-2 md:mb-3">Perkembangan Nilai Agama dan
                                     Moral</h3>
                             </header>
                             <p class="text-gray-600 text-sm leading-relaxed">
@@ -684,22 +684,22 @@
                         </article>
                     </div>
 
-                    <!-- Timeline Dot -->
-                    <div class="w-4 h-4 bg-orange-500 rounded-full border-4 border-white shadow-md z-10"
+                    <!-- Timeline Dot - Hidden on mobile, visible on larger screens -->
+                    <div class="hidden md:block w-4 h-4 bg-orange-500 rounded-full border-4 border-white shadow-md z-10"
                         aria-hidden="true"></div>
 
-                    <div class="w-1/2 pl-8"></div>
+                    <div class="hidden md:block md:w-1/2 md:pl-8"></div>
                 </section>
             </article>
         </section>
 
         <!-- Commitment Section -->
-        <section class="text-center mt-16">
-            <article class="bg-white rounded-lg shadow-md p-8 max-w-2xl mx-auto">
+        <section class="text-center mt-12 md:mt-16 px-4 md:px-0">
+            <article class="bg-white rounded-lg shadow-md p-6 md:p-8 max-w-2xl mx-auto">
                 <header>
-                    <h3 class="text-2xl font-semibold text-gray-800 mb-4">Komitmen Kami</h3>
+                    <h3 class="text-xl md:text-2xl font-semibold text-gray-800 mb-3 md:mb-4">Komitmen Kami</h3>
                 </header>
-                <p class="text-gray-600 leading-relaxed">
+                <p class="text-gray-600 text-sm md:text-base leading-relaxed">
                     KB AL FATH berkomitmen memberikan pendidikan berkualitas yang holistik,
                     mengembangkan seluruh potensi anak dengan pendekatan yang Islami, kreatif, dan menyenangkan.
                 </p>
