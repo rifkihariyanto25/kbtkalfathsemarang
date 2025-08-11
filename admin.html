@@ -181,10 +181,12 @@
 
             <!-- Main Content -->
             <main class="flex-1 p-6">
-                <div class="mb-8">
-                    <h1 class="text-2xl md:text-3xl font-bold">Kelola Galeri</h1>
-                    <p class="text-gray-600">Upload dan kelola foto-foto kegiatan KB-TK Al Fath</p>
-                </div>
+                <!-- Gallery Section -->
+                <div id="gallery-section">
+                    <div class="mb-8">
+                        <h1 class="text-2xl md:text-3xl font-bold">Kelola Galeri</h1>
+                        <p class="text-gray-600">Upload dan kelola foto-foto kegiatan KB-TK Al Fath</p>
+                    </div>
 
                 <!-- Upload Form -->
                 <div class="bg-white rounded-lg shadow-md p-6 mb-8">
@@ -313,6 +315,152 @@
                                 <i class="fas fa-chevron-right"></i>
                             </button>
                         </nav>
+                    </div>
+                </div>
+                </div>
+                
+                <!-- News Section -->
+                <div id="news-section" class="hidden">
+                    <div class="mb-8">
+                        <h1 class="text-2xl md:text-3xl font-bold">Kelola Berita</h1>
+                        <p class="text-gray-600">Upload dan kelola berita KB-TK Al Fath</p>
+                    </div>
+                    
+                    <!-- Upload News Form -->
+                    <div class="bg-white rounded-lg shadow-md p-6 mb-8">
+                        <h2 class="text-xl font-semibold mb-4">Tambah Berita Baru</h2>
+                        
+                        <form id="news-form" class="space-y-6">
+                            <!-- Thumbnail Upload -->
+                            <div>
+                                <label class="block text-sm font-medium text-gray-700 mb-2">Thumbnail Berita</label>
+                                <div id="news-thumbnail-area" class="drag-area flex flex-col items-center justify-center p-8 cursor-pointer">
+                                    <i class="fas fa-image text-4xl text-gray-400 mb-4"></i>
+                                    <p class="text-gray-500 text-center">Drag & drop thumbnail di sini atau <span class="brand-orange">pilih file</span></p>
+                                    <p class="text-gray-400 text-sm mt-2">Format: JPG, PNG, WEBP (Max: 2MB)</p>
+                                    <input type="file" id="news-thumbnail-input" class="hidden" accept="image/*">
+                                </div>
+                                <div id="news-thumbnail-preview" class="hidden mt-4">
+                                    <div class="relative inline-block">
+                                        <img id="news-thumbnail-img" class="h-40 object-cover rounded-lg" alt="Thumbnail preview">
+                                        <button type="button" id="remove-thumbnail" class="absolute top-2 right-2 bg-white p-1 rounded-full shadow-md hover:bg-gray-100 transition duration-300 ease-in-out">
+                                            <i class="fas fa-times text-red-500"></i>
+                                        </button>
+                                    </div>
+                                </div>
+                            </div>
+                            
+                            <!-- Form Fields -->
+                            <div class="grid grid-cols-1 md:grid-cols-2 gap-6">
+                                <div class="md:col-span-2">
+                                    <label for="news-title" class="block text-sm font-medium text-gray-700 mb-1">Judul Berita</label>
+                                    <input type="text" id="news-title" name="title" class="w-full px-4 py-2 border border-gray-300 rounded-md focus:outline-none focus:ring-2 focus:ring-orange-500 focus:border-transparent" required>
+                                </div>
+                                
+                                <div>
+                                    <label for="news-category" class="block text-sm font-medium text-gray-700 mb-1">Kategori</label>
+                                    <select id="news-category" name="category" class="w-full px-4 py-2 border border-gray-300 rounded-md focus:outline-none focus:ring-2 focus:ring-orange-500 focus:border-transparent" required>
+                                        <option value="">Pilih Kategori</option>
+                                        <option value="pengumuman">Pengumuman</option>
+                                        <option value="kegiatan">Kegiatan</option>
+                                        <option value="prestasi">Prestasi</option>
+                                    </select>
+                                </div>
+                                
+                                <div>
+                                    <label for="news-date" class="block text-sm font-medium text-gray-700 mb-1">Tanggal Publikasi</label>
+                                    <input type="date" id="news-date" name="date" class="w-full px-4 py-2 border border-gray-300 rounded-md focus:outline-none focus:ring-2 focus:ring-orange-500 focus:border-transparent" required>
+                                </div>
+                                
+                                <div class="md:col-span-2">
+                                    <label for="news-content" class="block text-sm font-medium text-gray-700 mb-1">Konten Berita</label>
+                                    <textarea id="news-content" name="content" rows="8" class="w-full px-4 py-2 border border-gray-300 rounded-md focus:outline-none focus:ring-2 focus:ring-orange-500 focus:border-transparent" required></textarea>
+                                </div>
+                            </div>
+                            
+                            <div class="flex justify-end">
+                                <button type="submit" class="bg-brand-orange hover-brand-orange text-white font-medium py-2 px-6 rounded-md transition duration-300 ease-in-out">
+                                    Publikasikan Berita
+                                </button>
+                            </div>
+                        </form>
+                    </div>
+                    
+                    <!-- News Management -->
+                    <div class="bg-white rounded-lg shadow-md p-6">
+                        <div class="flex justify-between items-center mb-6">
+                            <h2 class="text-xl font-semibold">Berita Terbaru</h2>
+                            <div class="flex space-x-2">
+                                <select id="filter-news-category" class="px-3 py-2 border border-gray-300 rounded-md focus:outline-none focus:ring-2 focus:ring-orange-500 focus:border-transparent">
+                                    <option value="all">Semua Kategori</option>
+                                    <option value="pengumuman">Pengumuman</option>
+                                    <option value="kegiatan">Kegiatan</option>
+                                    <option value="prestasi">Prestasi</option>
+                                </select>
+                                <button id="refresh-news" class="bg-gray-100 hover:bg-gray-200 text-gray-700 p-2 rounded-md transition duration-300 ease-in-out">
+                                    <i class="fas fa-sync-alt"></i>
+                                </button>
+                            </div>
+                        </div>
+                        
+                        <!-- News Items -->
+                        <div id="news-items" class="space-y-4">
+                            <!-- Sample News Item (will be populated by JS) -->
+                            <div class="news-admin-item border border-gray-200 rounded-lg overflow-hidden flex flex-col md:flex-row">
+                                <div class="md:w-1/4">
+                                    <img src="https://images.pexels.com/photos/8471801/pexels-photo-8471801.jpeg?auto=compress&cs=tinysrgb&w=600" alt="News Thumbnail" class="w-full h-48 md:h-full object-cover">
+                                </div>
+                                <div class="p-4 md:w-3/4 flex flex-col justify-between">
+                                    <div>
+                                        <div class="flex justify-between items-start">
+                                            <h3 class="font-medium text-lg">Pendaftaran TK Islam Alfath Tahun Dibuka !</h3>
+                                            <div class="flex space-x-1">
+                                                <button class="bg-gray-100 p-2 rounded-full hover:bg-gray-200 transition duration-300 ease-in-out">
+                                                    <i class="fas fa-edit text-blue-500"></i>
+                                                </button>
+                                                <button class="bg-gray-100 p-2 rounded-full hover:bg-gray-200 transition duration-300 ease-in-out">
+                                                    <i class="fas fa-trash text-red-500"></i>
+                                                </button>
+                                            </div>
+                                        </div>
+                                        <p class="text-gray-600 mt-2 line-clamp-3">Pendaftaran untuk tahun ajaran baru di TK Islam Alfath telah dibuka. Orangtua dapat mendaftarkan putra-putrinya mulai tanggal 1 Januari 2023. Kuota terbatas!</p>
+                                    </div>
+                                    <div class="flex justify-between items-center mt-4">
+                                        <span class="text-sm text-gray-500">4 Desember 2022</span>
+                                        <span class="text-xs bg-green-100 text-green-800 px-2 py-1 rounded-full">Pengumuman</span>
+                                    </div>
+                                </div>
+                            </div>
+                            
+                            <!-- More items will be added dynamically -->
+                        </div>
+                        
+                        <!-- Pagination -->
+                        <div class="flex justify-center mt-8">
+                            <nav class="flex items-center space-x-2">
+                                <button class="px-3 py-1 rounded-md border border-gray-300 text-gray-500 hover:bg-gray-50 disabled:opacity-50" disabled>
+                                    <i class="fas fa-chevron-left"></i>
+                                </button>
+                                <button class="px-3 py-1 rounded-md bg-brand-orange text-white">1</button>
+                                <button class="px-3 py-1 rounded-md border border-gray-300 text-gray-700 hover:bg-gray-50">2</button>
+                                <button class="px-3 py-1 rounded-md border border-gray-300 text-gray-500 hover:bg-gray-50">
+                                    <i class="fas fa-chevron-right"></i>
+                                </button>
+                            </nav>
+                        </div>
+                    </div>
+                </div>
+                
+                <!-- Profile Section -->
+                <div id="profile-section" class="hidden">
+                    <div class="mb-8">
+                        <h1 class="text-2xl md:text-3xl font-bold">Profil Sekolah</h1>
+                        <p class="text-gray-600">Kelola informasi profil KB-TK Al Fath</p>
+                    </div>
+                    
+                    <div class="bg-white rounded-lg shadow-md p-6">
+                        <h2 class="text-xl font-semibold mb-4">Informasi Dasar</h2>
+                        <p class="text-gray-600 mb-4">Fitur ini akan segera tersedia.</p>
                     </div>
                 </div>
             </main>
