@@ -1,0 +1,143 @@
+<!DOCTYPE html>
+<html lang="id">
+
+<head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Login Admin - KB-TK Islam Al Fath</title>
+
+    <!-- Tailwind CSS -->
+    <script src="https://cdn.tailwindcss.com"></script>
+
+    <!-- Google Fonts: Poppins -->
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;500;600;700;800&display=swap"
+        rel="stylesheet" />
+
+    <!-- Font Awesome Icons -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css" />
+
+    <!-- Custom Styles -->
+    <style>
+        body {
+            font-family: "Poppins", sans-serif;
+            background-color: #f9fafb;
+            background-image: url('https://images.pexels.com/photos/8471801/pexels-photo-8471801.jpeg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=1');
+            background-size: cover;
+            background-position: center;
+            background-repeat: no-repeat;
+            height: 100vh;
+        }
+
+        .overlay {
+            background-color: rgba(0, 0, 0, 0.6);
+        }
+
+        .brand-orange {
+            color: #f26622;
+        }
+
+        .bg-brand-orange {
+            background-color: #f26622;
+        }
+
+        .hover-brand-orange:hover {
+            background-color: #e55511;
+        }
+    </style>
+
+    <!-- Login Script -->
+    <script>
+        document.addEventListener('DOMContentLoaded', function() {
+            const loginForm = document.getElementById('login-form');
+
+            loginForm.addEventListener('submit', function(e) {
+                e.preventDefault();
+                const username = document.getElementById('username').value;
+                const password = document.getElementById('password').value;
+
+                // Simple authentication (in a real app, this would be server-side)
+                if (username === 'admin' && password === 'admin123') {
+                    // Store login state in session storage
+                    sessionStorage.setItem('isLoggedIn', 'true');
+                    // Redirect to admin dashboard
+                    window.location.href = 'admin.html';
+                } else {
+                    // Show error message
+                    const errorMsg = document.getElementById('error-message');
+                    errorMsg.classList.remove('hidden');
+                    setTimeout(() => {
+                        errorMsg.classList.add('hidden');
+                    }, 3000);
+                }
+            });
+
+            // Check if user is already logged in
+            if (sessionStorage.getItem('isLoggedIn') === 'true') {
+                window.location.href = 'admin.html';
+            }
+        });
+    </script>
+</head>
+
+<body>
+    <div class="overlay min-h-screen flex items-center justify-center p-4">
+        <div class="bg-white rounded-lg shadow-2xl p-8 w-full max-w-md">
+            <div class="text-center mb-8">
+                <h1 class="text-3xl font-bold brand-orange">Admin Panel</h1>
+                <p class="text-gray-600 mt-2">KB-TK Islam Al Fath</p>
+            </div>
+
+            <!-- Error Message -->
+            <div id="error-message" class="hidden bg-red-100 border border-red-400 text-red-700 px-4 py-3 rounded mb-6">
+                <div class="flex items-center">
+                    <i class="fas fa-exclamation-circle mr-2"></i>
+                    <span>Username atau password salah!</span>
+                </div>
+            </div>
+
+            <form id="login-form" class="space-y-6">
+                <div>
+                    <label for="username" class="block text-sm font-medium text-gray-700 mb-1">Username</label>
+                    <div class="relative">
+                        <div class="absolute inset-y-0 left-0 pl-3 flex items-center pointer-events-none">
+                            <i class="fas fa-user text-gray-400"></i>
+                        </div>
+                        <input type="text" id="username" name="username"
+                            class="w-full pl-10 pr-4 py-2 border border-gray-300 rounded-md focus:outline-none focus:ring-2 focus:ring-orange-500 focus:border-transparent"
+                            required>
+                    </div>
+                </div>
+
+                <div>
+                    <label for="password" class="block text-sm font-medium text-gray-700 mb-1">Password</label>
+                    <div class="relative">
+                        <div class="absolute inset-y-0 left-0 pl-3 flex items-center pointer-events-none">
+                            <i class="fas fa-lock text-gray-400"></i>
+                        </div>
+                        <input type="password" id="password" name="password"
+                            class="w-full pl-10 pr-4 py-2 border border-gray-300 rounded-md focus:outline-none focus:ring-2 focus:ring-orange-500 focus:border-transparent"
+                            required>
+                    </div>
+                </div>
+
+                <div>
+                    <button type="submit"
+                        class="w-full bg-brand-orange hover-brand-orange text-white font-medium py-3 px-4 rounded-md transition duration-300 ease-in-out flex items-center justify-center">
+                        <i class="fas fa-sign-in-alt mr-2"></i>
+                        Login
+                    </button>
+                </div>
+            </form>
+
+            <div class="mt-8 text-center">
+                <a href="index.html" class="text-sm text-gray-600 hover:text-orange-500 transition duration-300 ease-in-out">
+                    <i class="fas fa-arrow-left mr-1"></i> Kembali ke Beranda
+                </a>
+            </div>
+        </div>
+    </div>
+</body>
+
+</html>

@@ -1,0 +1,402 @@
+<!DOCTYPE html>
+<html lang="id">
+
+<head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Admin Panel - KB-TK Islam Al Fath</title>
+
+    <!-- Tailwind CSS -->
+    <script src="https://cdn.tailwindcss.com"></script>
+
+    <!-- Google Fonts: Poppins -->
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;500;600;700;800&display=swap"
+        rel="stylesheet" />
+
+    <!-- Font Awesome Icons -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css" />
+
+    <!-- Admin Script -->
+    <script src="admin.js" defer></script>
+
+    <!-- Custom Styles -->
+    <style>
+        body {
+            font-family: "Poppins", sans-serif;
+            background-color: #f9fafb;
+        }
+
+        .brand-orange {
+            color: #f26622;
+        }
+
+        .bg-brand-orange {
+            background-color: #f26622;
+        }
+
+        .border-brand-orange {
+            border-color: #f26622;
+        }
+
+        .hover-brand-orange:hover {
+            background-color: #e55511;
+        }
+
+        .sidebar {
+            transition: all 0.3s ease;
+        }
+
+        .sidebar-link {
+            transition: all 0.2s ease;
+        }
+
+        .sidebar-link:hover {
+            background-color: rgba(242, 102, 34, 0.1);
+        }
+
+        .sidebar-link.active {
+            background-color: #f26622;
+            color: white;
+        }
+
+        .image-preview {
+            width: 100%;
+            height: 200px;
+            object-fit: cover;
+            border-radius: 0.5rem;
+        }
+
+        .drag-area {
+            border: 2px dashed #d1d5db;
+            border-radius: 0.5rem;
+            transition: all 0.3s ease;
+        }
+
+        .drag-area.active {
+            border-color: #f26622;
+            background-color: rgba(242, 102, 34, 0.05);
+        }
+
+        @media (max-width: 768px) {
+            .sidebar {
+                transform: translateX(-100%);
+            }
+
+            .sidebar.open {
+                transform: translateX(0);
+            }
+        }
+    </style>
+</head>
+
+<body class="text-gray-800">
+    <!-- Login Screen (Initially Visible) -->
+    <div id="login-screen" class="min-h-screen flex items-center justify-center p-4">
+        <div class="bg-white rounded-lg shadow-lg p-8 w-full max-w-md">
+            <div class="text-center mb-8">
+                <h1 class="text-3xl font-bold brand-orange">Admin Panel</h1>
+                <p class="text-gray-600 mt-2">KB-TK Islam Al Fath</p>
+            </div>
+
+            <form id="login-form" class="space-y-6">
+                <div>
+                    <label for="username" class="block text-sm font-medium text-gray-700 mb-1">Username</label>
+                    <input type="text" id="username" name="username"
+                        class="w-full px-4 py-2 border border-gray-300 rounded-md focus:outline-none focus:ring-2 focus:ring-orange-500 focus:border-transparent"
+                        required>
+                </div>
+
+                <div>
+                    <label for="password" class="block text-sm font-medium text-gray-700 mb-1">Password</label>
+                    <input type="password" id="password" name="password"
+                        class="w-full px-4 py-2 border border-gray-300 rounded-md focus:outline-none focus:ring-2 focus:ring-orange-500 focus:border-transparent"
+                        required>
+                </div>
+
+                <div>
+                    <button type="submit"
+                        class="w-full bg-brand-orange hover-brand-orange text-white font-medium py-2 px-4 rounded-md transition duration-300 ease-in-out">
+                        Login
+                    </button>
+                </div>
+            </form>
+        </div>
+    </div>
+
+    <!-- Admin Dashboard (Initially Hidden) -->
+    <div id="admin-dashboard" class="hidden min-h-screen bg-gray-100">
+        <!-- Mobile Header -->
+        <header class="md:hidden bg-white shadow-sm p-4 flex justify-between items-center sticky top-0 z-20">
+            <button id="sidebar-toggle" class="text-gray-500 focus:outline-none">
+                <i class="fas fa-bars text-xl"></i>
+            </button>
+            <h1 class="text-xl font-bold brand-orange">Admin Panel</h1>
+            <button id="mobile-logout" class="text-gray-500 focus:outline-none">
+                <i class="fas fa-sign-out-alt text-xl"></i>
+            </button>
+        </header>
+
+        <div class="flex">
+            <!-- Sidebar -->
+            <aside id="sidebar"
+                class="sidebar fixed md:sticky top-0 left-0 h-screen w-64 bg-white shadow-md z-10 md:transform-none">
+                <div class="p-6">
+                    <h2 class="text-2xl font-bold brand-orange">KB-TK Al Fath</h2>
+                    <p class="text-sm text-gray-600">Admin Panel</p>
+                </div>
+
+                <nav class="mt-6">
+                    <ul>
+                        <li>
+                            <a href="#" class="sidebar-link active flex items-center px-6 py-3">
+                                <i class="fas fa-images mr-3"></i>
+                                <span>Galeri</span>
+                            </a>
+                        </li>
+                        <li>
+                            <a href="#" class="sidebar-link flex items-center px-6 py-3">
+                                <i class="fas fa-newspaper mr-3"></i>
+                                <span>Berita</span>
+                            </a>
+                        </li>
+                        <li>
+                            <a href="#" class="sidebar-link flex items-center px-6 py-3">
+                                <i class="fas fa-user-circle mr-3"></i>
+                                <span>Profil</span>
+                            </a>
+                        </li>
+                    </ul>
+                </nav>
+
+                <div class="absolute bottom-0 w-full p-6">
+                    <button id="logout-btn"
+                        class="flex items-center text-gray-700 hover:text-red-500 transition duration-300 ease-in-out">
+                        <i class="fas fa-sign-out-alt mr-3"></i>
+                        <span>Logout</span>
+                    </button>
+                </div>
+            </aside>
+
+            <!-- Main Content -->
+            <main class="flex-1 p-6">
+                <div class="mb-8">
+                    <h1 class="text-2xl md:text-3xl font-bold">Kelola Galeri</h1>
+                    <p class="text-gray-600">Upload dan kelola foto-foto kegiatan KB-TK Al Fath</p>
+                </div>
+
+                <!-- Upload Form -->
+                <div class="bg-white rounded-lg shadow-md p-6 mb-8">
+                    <h2 class="text-xl font-semibold mb-4">Upload Foto Baru</h2>
+
+                    <form id="upload-form" class="space-y-6">
+                        <!-- Drag & Drop Area -->
+                        <div id="drag-area"
+                            class="drag-area flex flex-col items-center justify-center p-8 cursor-pointer">
+                            <i class="fas fa-cloud-upload-alt text-4xl text-gray-400 mb-4"></i>
+                            <p class="text-gray-500 text-center">Drag & drop foto di sini atau <span
+                                    class="brand-orange">pilih file</span></p>
+                            <p class="text-gray-400 text-sm mt-2">Format: JPG, PNG, WEBP (Max: 5MB)</p>
+                            <input type="file" id="file-input" class="hidden" accept="image/*" multiple>
+                        </div>
+
+                        <!-- Preview Area -->
+                        <div id="preview-container" class="hidden">
+                            <h3 class="text-lg font-medium mb-3">Preview</h3>
+                            <div id="image-previews" class="grid grid-cols-1 md:grid-cols-3 gap-4"></div>
+                        </div>
+
+                        <!-- Form Fields -->
+                        <div class="grid grid-cols-1 md:grid-cols-2 gap-6">
+                            <div>
+                                <label for="image-title" class="block text-sm font-medium text-gray-700 mb-1">Judul
+                                    Foto</label>
+                                <input type="text" id="image-title" name="title"
+                                    class="w-full px-4 py-2 border border-gray-300 rounded-md focus:outline-none focus:ring-2 focus:ring-orange-500 focus:border-transparent"
+                                    required>
+                            </div>
+
+                            <div>
+                                <label for="image-category" class="block text-sm font-medium text-gray-700 mb-1">Kategori</label>
+                                <select id="image-category" name="category"
+                                    class="w-full px-4 py-2 border border-gray-300 rounded-md focus:outline-none focus:ring-2 focus:ring-orange-500 focus:border-transparent"
+                                    required>
+                                    <option value="">Pilih Kategori</option>
+                                    <option value="kb">KB</option>
+                                    <option value="tk">TK</option>
+                                    <option value="spesial">Acara Spesial</option>
+                                </select>
+                            </div>
+
+                            <div class="md:col-span-2">
+                                <label for="image-date" class="block text-sm font-medium text-gray-700 mb-1">Tanggal
+                                    Kegiatan</label>
+                                <input type="date" id="image-date" name="date"
+                                    class="w-full px-4 py-2 border border-gray-300 rounded-md focus:outline-none focus:ring-2 focus:ring-orange-500 focus:border-transparent"
+                                    required>
+                            </div>
+                        </div>
+
+                        <div class="flex justify-end">
+                            <button type="submit"
+                                class="bg-brand-orange hover-brand-orange text-white font-medium py-2 px-6 rounded-md transition duration-300 ease-in-out">
+                                Upload Foto
+                            </button>
+                        </div>
+                    </form>
+                </div>
+
+                <!-- Gallery Management -->
+                <div class="bg-white rounded-lg shadow-md p-6">
+                    <div class="flex justify-between items-center mb-6">
+                        <h2 class="text-xl font-semibold">Foto Terbaru</h2>
+                        <div class="flex space-x-2">
+                            <select id="filter-category"
+                                class="px-3 py-2 border border-gray-300 rounded-md focus:outline-none focus:ring-2 focus:ring-orange-500 focus:border-transparent">
+                                <option value="all">Semua Kategori</option>
+                                <option value="kb">KB</option>
+                                <option value="tk">TK</option>
+                                <option value="spesial">Acara Spesial</option>
+                            </select>
+                            <button id="refresh-gallery"
+                                class="bg-gray-100 hover:bg-gray-200 text-gray-700 p-2 rounded-md transition duration-300 ease-in-out">
+                                <i class="fas fa-sync-alt"></i>
+                            </button>
+                        </div>
+                    </div>
+
+                    <!-- Gallery Items -->
+                    <div id="gallery-items" class="grid grid-cols-1 md:grid-cols-3 gap-6">
+                        <!-- Sample Gallery Item (will be populated by JS) -->
+                        <div class="gallery-admin-item border border-gray-200 rounded-lg overflow-hidden">
+                            <div class="relative">
+                                <img src="https://images.pexels.com/photos/8471801/pexels-photo-8471801.jpeg?auto=compress&cs=tinysrgb&w=600"
+                                    alt="Gallery Image" class="w-full h-48 object-cover">
+                                <div
+                                    class="absolute top-2 right-2 flex space-x-1">
+                                    <button
+                                        class="bg-white p-2 rounded-full shadow-md hover:bg-gray-100 transition duration-300 ease-in-out">
+                                        <i class="fas fa-edit text-blue-500"></i>
+                                    </button>
+                                    <button
+                                        class="bg-white p-2 rounded-full shadow-md hover:bg-gray-100 transition duration-300 ease-in-out">
+                                        <i class="fas fa-trash text-red-500"></i>
+                                    </button>
+                                </div>
+                            </div>
+                            <div class="p-4">
+                                <h3 class="font-medium">Belajar di Kelas</h3>
+                                <div class="flex justify-between items-center mt-2">
+                                    <span class="text-sm text-gray-500">4 Agustus 2025</span>
+                                    <span class="text-xs bg-blue-100 text-blue-800 px-2 py-1 rounded-full">TK</span>
+                                </div>
+                            </div>
+                        </div>
+
+                        <!-- More items will be added dynamically -->
+                    </div>
+
+                    <!-- Pagination -->
+                    <div class="flex justify-center mt-8">
+                        <nav class="flex items-center space-x-2">
+                            <button
+                                class="px-3 py-1 rounded-md border border-gray-300 text-gray-500 hover:bg-gray-50 disabled:opacity-50"
+                                disabled>
+                                <i class="fas fa-chevron-left"></i>
+                            </button>
+                            <button class="px-3 py-1 rounded-md bg-brand-orange text-white">1</button>
+                            <button class="px-3 py-1 rounded-md border border-gray-300 text-gray-700 hover:bg-gray-50">2</button>
+                            <button class="px-3 py-1 rounded-md border border-gray-300 text-gray-700 hover:bg-gray-50">3</button>
+                            <button
+                                class="px-3 py-1 rounded-md border border-gray-300 text-gray-500 hover:bg-gray-50">
+                                <i class="fas fa-chevron-right"></i>
+                            </button>
+                        </nav>
+                    </div>
+                </div>
+            </main>
+        </div>
+    </div>
+
+    <!-- Edit Modal (Hidden by default) -->
+    <div id="edit-modal" class="fixed inset-0 bg-black bg-opacity-50 flex items-center justify-center z-50 hidden">
+        <div class="bg-white rounded-lg shadow-xl p-6 w-full max-w-md mx-4">
+            <div class="flex justify-between items-center mb-4">
+                <h3 class="text-xl font-semibold">Edit Foto</h3>
+                <button id="close-modal" class="text-gray-500 hover:text-gray-700">
+                    <i class="fas fa-times"></i>
+                </button>
+            </div>
+
+            <form id="edit-form" class="space-y-4">
+                <input type="hidden" id="edit-id">
+
+                <div>
+                    <img id="edit-preview" src="" alt="Preview" class="w-full h-48 object-cover rounded-lg mb-4">
+                </div>
+
+                <div>
+                    <label for="edit-title" class="block text-sm font-medium text-gray-700 mb-1">Judul Foto</label>
+                    <input type="text" id="edit-title" name="title"
+                        class="w-full px-4 py-2 border border-gray-300 rounded-md focus:outline-none focus:ring-2 focus:ring-orange-500 focus:border-transparent"
+                        required>
+                </div>
+
+                <div>
+                    <label for="edit-category" class="block text-sm font-medium text-gray-700 mb-1">Kategori</label>
+                    <select id="edit-category" name="category"
+                        class="w-full px-4 py-2 border border-gray-300 rounded-md focus:outline-none focus:ring-2 focus:ring-orange-500 focus:border-transparent"
+                        required>
+                        <option value="kb">KB</option>
+                        <option value="tk">TK</option>
+                        <option value="spesial">Acara Spesial</option>
+                    </select>
+                </div>
+
+                <div>
+                    <label for="edit-date" class="block text-sm font-medium text-gray-700 mb-1">Tanggal Kegiatan</label>
+                    <input type="date" id="edit-date" name="date"
+                        class="w-full px-4 py-2 border border-gray-300 rounded-md focus:outline-none focus:ring-2 focus:ring-orange-500 focus:border-transparent"
+                        required>
+                </div>
+
+                <div class="flex justify-end space-x-3 mt-6">
+                    <button type="button" id="cancel-edit"
+                        class="px-4 py-2 border border-gray-300 rounded-md text-gray-700 hover:bg-gray-50 transition duration-300 ease-in-out">
+                        Batal
+                    </button>
+                    <button type="submit"
+                        class="px-4 py-2 bg-brand-orange hover-brand-orange text-white rounded-md transition duration-300 ease-in-out">
+                        Simpan Perubahan
+                    </button>
+                </div>
+            </form>
+        </div>
+    </div>
+
+    <!-- Delete Confirmation Modal -->
+    <div id="delete-modal" class="fixed inset-0 bg-black bg-opacity-50 flex items-center justify-center z-50 hidden">
+        <div class="bg-white rounded-lg shadow-xl p-6 w-full max-w-md mx-4">
+            <div class="text-center mb-6">
+                <i class="fas fa-exclamation-triangle text-4xl text-red-500 mb-4"></i>
+                <h3 class="text-xl font-semibold">Konfirmasi Hapus</h3>
+                <p class="text-gray-600 mt-2">Apakah Anda yakin ingin menghapus foto ini? Tindakan ini tidak dapat
+                    dibatalkan.</p>
+            </div>
+
+            <div class="flex justify-center space-x-4">
+                <button id="cancel-delete"
+                    class="px-4 py-2 border border-gray-300 rounded-md text-gray-700 hover:bg-gray-50 transition duration-300 ease-in-out">
+                    Batal
+                </button>
+                <button id="confirm-delete"
+                    class="px-4 py-2 bg-red-500 hover:bg-red-600 text-white rounded-md transition duration-300 ease-in-out">
+                    Ya, Hapus
+                </button>
+            </div>
+        </div>
+    </div>
+</body>
+
+</html>
