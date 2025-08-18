@@ -1,6 +1,15 @@
 // Footer Component for TK-KB Al-Fath
 
 function createFooter() {
+    // Detect if we're in the root directory or in a subdirectory
+    const isRoot = window.location.pathname.split('/').filter(Boolean).length === 1 || 
+                  window.location.pathname.endsWith('index.html') || 
+                  window.location.pathname.endsWith('/');
+    
+    // Set the correct path prefix based on location
+    const pathPrefix = isRoot ? '' : '../';
+    const pagesPrefix = isRoot ? 'pages/' : '../pages/';
+    
     // Create the footer HTML structure
     const footerHTML = `
     <!-- Footer -->
@@ -15,11 +24,11 @@ function createFooter() {
                 <div class="mb-8 md:mb-0">
                     <h4 class="text-lg font-semibold mb-4">Navigasi</h4>
                     <ul>
-                        <li class="mb-2"><a href="index.html" class="hover:text-yellow-200 transition-colors">Beranda</a></li>
-                        <li class="mb-2"><a href="kb.html" class="hover:text-yellow-200 transition-colors">KB Al Fath</a></li>
-                        <li class="mb-2"><a href="tk.html" class="hover:text-yellow-200 transition-colors">TK Islam Al-Fath</a></li>
-                        <li class="mb-2"><a href="galeri.html" class="hover:text-yellow-200 transition-colors">Galeri</a></li>
-                        <li class="mb-2"><a href="berita.html" class="hover:text-yellow-200 transition-colors">Berita</a></li>
+                        <li class="mb-2"><a href="${pathPrefix}index.html" class="hover:text-yellow-200 transition-colors">Beranda</a></li>
+                        <li class="mb-2"><a href="${pagesPrefix}kb.html" class="hover:text-yellow-200 transition-colors">KB Al Fath</a></li>
+                        <li class="mb-2"><a href="${pagesPrefix}tk.html" class="hover:text-yellow-200 transition-colors">TK Islam Al-Fath</a></li>
+                        <li class="mb-2"><a href="${pagesPrefix}galeri.html" class="hover:text-yellow-200 transition-colors">Galeri</a></li>
+                        <li class="mb-2"><a href="${pagesPrefix}berita.html" class="hover:text-yellow-200 transition-colors">Berita</a></li>
                     </ul>
                 </div>
 

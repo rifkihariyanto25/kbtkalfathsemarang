@@ -14,12 +14,16 @@
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;500;600;700;800&display=swap"
         rel="stylesheet">
+        
+    <!-- Animate On Scroll (AOS) Library -->
+    <link href="https://unpkg.com/aos@2.3.1/dist/aos.css" rel="stylesheet" />
+    <script src="https://unpkg.com/aos@2.3.1/dist/aos.js"></script>
 
     <!-- Navbar.js Script -->
-    <script src="navbar.js" defer></script>
+    <script src="js/navbar.js" defer></script>
     
     <!-- Footer.js Script -->
-    <script src="footer.js" defer></script>
+    <script src="js/footer.js" defer></script>
     
     <style>
         /* Menggunakan font Poppins yang lebih ramah anak */
@@ -112,7 +116,7 @@
             class="relative w-full min-h-[80vh] md:min-h-[70vh] lg:min-h-[85vh] flex items-center hero-doodle-bg overflow-hidden">
             <div class="container mx-auto px-6">
                 <div class="grid grid-cols-1 md:grid-cols-2 gap-8 items-center">
-                    <div class="relative w-full h-[50vh] md:h-[70vh] order-2 md:order-1">
+                    <div class="relative w-full h-[50vh] md:h-[70vh] order-2 md:order-1" data-aos="fade-right" data-aos-duration="1000">
                         <img src="https://images.pexels.com/photos/3662843/pexels-photo-3662843.jpeg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=1"
                             alt="[Anak-anak bermain]"
                             class="absolute top-0 left-0 w-3/5 h-3/5 object-cover rounded-3xl shadow-2xl transform hover:scale-105 transition-transform duration-300 -rotate-6">
@@ -122,7 +126,7 @@
                         <img src="/assets/image 7.png" alt="[Anak-anak membaca]"
                             class="absolute bottom-1/4 left-1/4 w-2/5 h-2/5 object-cover rounded-full shadow-2xl transform hover:scale-105 transition-transform duration-300 border-4 border-white">
                     </div>
-                    <div class="text-center md:text-left order-1 md:order-2">
+                    <div class="text-center md:text-left order-1 md:order-2" data-aos="fade-left" data-aos-duration="1000">
                         <h1 class="text-4xl lg:text-6xl font-extrabold text-orange-500 leading-tight">KB TK Islam Al
                             Fath</h1>
                         <h2 class="text-2xl lg:text-4xl font-bold text-red-500 mt-2 mb-4"
@@ -140,19 +144,19 @@
         <!-- VISI MISI SECTION -->
         <section id="visimisi" class="py-20 bg-white">
             <div class="container mx-auto px-6">
-                <div class="text-center mb-16">
+                <div class="text-center mb-16" data-aos="fade-up">
                     <h2 class="inline-block text-4xl md:text-5xl font-extrabold text-gray-800"><span
                             class="wavy-underline">Visi & Misi Kami</span></h2>
                     <p class="text-gray-600 mt-4 text-lg">Cita-cita besar kami untuk setiap anak hebat di Al-Fath.</p>
                 </div>
-                <div class="bg-orange-100/50 border-l-8 border-orange-500 rounded-2xl p-8 mb-12 shadow-lg">
+                <div class="bg-orange-100/50 border-l-8 border-orange-500 rounded-2xl p-8 mb-12 shadow-lg" data-aos="fade-up" data-aos-delay="100">
                     <h3 class="text-3xl font-bold text-orange-600 mb-3">Visi</h3>
-                    <p class="text-xl text-gray-700 italic">“Membentuk kepribadian anak yang islami, berakhlaq mulia,
-                        berilmu, beriman, bertaqwa, sehat, cerdas dan ceria”</p>
+                    <p class="text-xl text-gray-700 italic">"Membentuk kepribadian anak yang islami, berakhlaq mulia,
+                        berilmu, beriman, bertaqwa, sehat, cerdas dan ceria"</p>
                 </div>
-                <div>
+                <div data-aos="fade-up" data-aos-delay="200">
                     <h3 class="text-3xl font-bold text-red-600 mb-8 text-center">Misi</h3>
-                    <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
+                    <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8" data-aos="fade-up" data-aos-delay="100">
                         <div class="flex items-start space-x-4">
                             <div class="flex-shrink-0">
                                 <div
@@ -244,16 +248,16 @@
             <div class="absolute top-1/3 -right-24 w-72 h-72 bg-red-100/50 rounded-full blur-2xl"></div>
 
             <div class="container mx-auto px-6 relative z-10">
-                <div class="text-center mb-20">
+                <div class="text-center mb-20" data-aos="fade-up" data-aos-duration="800">
                     <h2 class="inline-block text-4xl md:text-5xl font-extrabold text-gray-800"><span
                             class="wavy-underline">Tujuan Sekolah Kami</span></h2>
                     <p class="text-gray-600 mt-4 text-lg">Empat pilar utama yang menjadi target pencapaian kami untuk
                         setiap bintang kecil.</p>
                 </div>
-                <div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-y-16 sm:gap-x-8">
+                <div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-y-16 sm:gap-x-8" data-aos="fade-up" data-aos-delay="100">
                     <!-- Tujuan 1 -->
                     <div
-                        class="relative transform rotate-[-3deg] hover:rotate-0 hover:scale-105 transition-transform duration-300">
+                        class="relative transform rotate-[-3deg] hover:rotate-0 hover:scale-105 transition-transform duration-300" data-aos="fade-up" data-aos-delay="200">
                         <div
                             class="absolute -top-5 left-1/2 -translate-x-1/2 w-10 h-10 bg-yellow-300 rounded-full shadow-md flex items-center justify-center border-2 border-white">
                             <div class="w-4 h-4 bg-yellow-500 rounded-full"></div>
@@ -270,7 +274,7 @@
                     </div>
                     <!-- Tujuan 2 -->
                     <div
-                        class="relative transform rotate-[3deg] hover:rotate-0 hover:scale-105 transition-transform duration-300 mt-8 sm:mt-0">
+                        class="relative transform rotate-[3deg] hover:rotate-0 hover:scale-105 transition-transform duration-300 mt-8 sm:mt-0" data-aos="fade-up" data-aos-delay="300">
                         <div
                             class="absolute -top-5 left-1/2 -translate-x-1/2 w-10 h-10 bg-blue-300 rounded-full shadow-md flex items-center justify-center border-2 border-white">
                             <div class="w-4 h-4 bg-blue-500 rounded-full"></div>
@@ -287,7 +291,7 @@
                     </div>
                     <!-- Tujuan 3 -->
                     <div
-                        class="relative transform rotate-[-3deg] hover:rotate-0 hover:scale-105 transition-transform duration-300 mt-8 lg:mt-0">
+                        class="relative transform rotate-[-3deg] hover:rotate-0 hover:scale-105 transition-transform duration-300 mt-8 lg:mt-0" data-aos="fade-up" data-aos-delay="400">
                         <div
                             class="absolute -top-5 left-1/2 -translate-x-1/2 w-10 h-10 bg-green-300 rounded-full shadow-md flex items-center justify-center border-2 border-white">
                             <div class="w-4 h-4 bg-green-500 rounded-full"></div>
@@ -304,7 +308,7 @@
                     </div>
                     <!-- Tujuan 4 -->
                     <div
-                        class="relative transform rotate-[3deg] hover:rotate-0 hover:scale-105 transition-transform duration-300 mt-8 lg:mt-0">
+                        class="relative transform rotate-[3deg] hover:rotate-0 hover:scale-105 transition-transform duration-300 mt-8 lg:mt-0" data-aos="fade-up" data-aos-delay="500">
                         <div
                             class="absolute -top-5 left-1/2 -translate-x-1/2 w-10 h-10 bg-purple-300 rounded-full shadow-md flex items-center justify-center border-2 border-white">
                             <div class="w-4 h-4 bg-purple-500 rounded-full"></div>
@@ -327,14 +331,14 @@
         <!-- FASILITAS SECTION -->
         <section id="fasilitas" class="py-20 bg-orange-50/50 pattern-bg">
             <div class="container mx-auto px-6">
-                <div class="text-center mb-16">
+                <div class="text-center mb-16" data-aos="fade-up" data-aos-duration="800">
                     <h2 class="inline-block text-4xl md:text-5xl font-extrabold text-gray-800"><span
                             class="wavy-underline">Fasilitas Sekolah Kami</span></h2>
                     <p class="text-gray-600 mt-4 text-lg">Lingkungan belajar yang aman, nyaman, dan menyenangkan untuk
                         si kecil.</p>
                 </div>
 
-                <div class="relative">
+                <div class="relative" data-aos="fade-up" data-aos-delay="100">
                     <button id="prevFacilityBtn"
                         class="absolute left-0 top-1/2 -translate-y-1/2 z-10 bg-orange-500 text-white p-3 rounded-full shadow-lg hover:bg-orange-600 transition-colors duration-300">
                         <svg xmlns="http://www.w3.org/2000/svg" class="h-6 w-6" fill="none" viewBox="0 0 24 24"
@@ -454,15 +458,15 @@
     <!-- EKSTRAKURIKULER SECTION -->
     <section id="ekstrakurikuler" class="py-20 bg-white">
         <div class="container mx-auto px-6">
-            <div class="text-center mb-16">
+            <div class="text-center mb-16" data-aos="fade-up" data-aos-duration="800">
                 <h2 class="inline-block text-4xl md:text-5xl font-extrabold text-gray-800"><span
                         class="wavy-underline">Ekstrakulikuler Di KB TK ISLAM AL FATH</span></h2>
                 <p class="text-gray-600 mt-4 text-lg">Mengasah bakat dan kreativitas si kecil di luar jam belajar!
                 </p>
             </div>
-            <div class="max-w-4xl mx-auto grid grid-cols-1 md:grid-cols-2 gap-10">
+            <div class="max-w-4xl mx-auto grid grid-cols-1 md:grid-cols-2 gap-10" data-aos="fade-up" data-aos-delay="100">
                 <div
-                    class="bg-gradient-to-br from-orange-100 to-red-100 p-8 rounded-3xl shadow-lg hover:shadow-2xl transition-all duration-300 text-center group transform hover:-translate-y-2">
+                    class="bg-gradient-to-br from-orange-100 to-red-100 p-8 rounded-3xl shadow-lg hover:shadow-2xl transition-all duration-300 text-center group transform hover:-translate-y-2" data-aos="fade-right" data-aos-delay="200">
                     <img src="/assets/mb.png"
                         class="h-28 w-28 mx-auto mb-4 transition-transform duration-500 group-hover:scale-110"
                         alt="Ikon Terompet">
@@ -471,7 +475,7 @@
                         berbaris mengikuti irama yang semangat.</p>
                 </div>
                 <div
-                    class="bg-gradient-to-br from-orange-100 to-red-100 p-8 rounded-3xl shadow-lg hover:shadow-2xl transition-all duration-300 text-center group transform hover:-translate-y-2">
+                    class="bg-gradient-to-br from-orange-100 to-red-100 p-8 rounded-3xl shadow-lg hover:shadow-2xl transition-all duration-300 text-center group transform hover:-translate-y-2" data-aos="fade-left" data-aos-delay="300">
                     <img src="/assets/sempoa.png"
                         class="h-28 w-28 mx-auto mb-4 transition-transform duration-500 group-hover:scale-110"
                         alt="Ikon Sempoa">
@@ -487,14 +491,14 @@
 
     <section id="berita" class="py-20 bg-white">
         <div class="container mx-auto px-6">
-            <div class="text-center mb-12">
+            <div class="text-center mb-12" data-aos="fade-up" data-aos-duration="800">
                 <h2 class="inline-block text-4xl md:text-5xl font-extrabold text-gray-800"><span
                         class="wavy-underline">Berita Terbaru Di KB TK ISLAM ALFATH</span></h2>
                 <p class="text-gray-600 mt-4 text-lg">Info penting dan berita terbaru dari sekolah kita.</p>
             </div>
             <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
                 <div
-                    class="bg-white rounded-2xl overflow-hidden shadow-lg hover:shadow-xl transition-all duration-300 group transform hover:-translate-y-2">
+                    class="bg-white rounded-2xl overflow-hidden shadow-lg hover:shadow-xl transition-all duration-300 group transform hover:-translate-y-2" data-aos="fade-up" data-aos-delay="200">
                     <div class="overflow-hidden"><img src="https://placehold.co/600x400/FB923C/FFFFFF?text=Daftar+Yuk!"
                             alt="[Gambar ilustrasi pendaftaran]"
                             class="w-full h-48 object-cover transition-transform duration-500 group-hover:scale-110">
@@ -508,7 +512,7 @@
                     </div>
                 </div>
                 <div
-                    class="bg-white rounded-2xl overflow-hidden shadow-lg hover:shadow-xl transition-all duration-300 group transform hover:-translate-y-2">
+                    class="bg-white rounded-2xl overflow-hidden shadow-lg hover:shadow-xl transition-all duration-300 group transform hover:-translate-y-2" data-aos="fade-up" data-aos-delay="300">
                     <div class="overflow-hidden"><img src="https://placehold.co/600x400/F87171/FFFFFF?text=Juara+1"
                             alt="[Gambar ilustrasi lomba]"
                             class="w-full h-48 object-cover transition-transform duration-500 group-hover:scale-110">
@@ -522,7 +526,7 @@
                     </div>
                 </div>
                 <div
-                    class="bg-white rounded-2xl overflow-hidden shadow-lg hover:shadow-xl transition-all duration-300 group transform hover:-translate-y-2">
+                    class="bg-white rounded-2xl overflow-hidden shadow-lg hover:shadow-xl transition-all duration-300 group transform hover:-translate-y-2" data-aos="fade-up" data-aos-delay="400">
                     <div class="overflow-hidden"><img
                             src="https://placehold.co/600x400/FDBA74/FFFFFF?text=Kumpul-kumpul"
                             alt="[Gambar ilustrasi seminar parenting]"
@@ -544,32 +548,49 @@
     <div id="kontak"></div>
 
     <script>
-        // Script untuk menu mobile
-        const mobileMenuButton = document.getElementById('mobile-menu-button');
-        const mobileMenu = document.getElementById('mobile-menu');
-        mobileMenuButton.addEventListener('click', () => {
-            mobileMenu.classList.toggle('hidden');
+        // Inisialisasi AOS (Animate On Scroll)
+        AOS.init({
+            duration: 800,
+            once: true,
+            offset: 100
         });
+        
+        // Script untuk menu mobile sudah diimplementasikan di navbar.js
 
         // Script untuk carousel galeri
         const carouselContainer = document.getElementById('carousel-container');
         const prevBtn = document.getElementById('prevBtn');
         const nextBtn = document.getElementById('nextBtn');
         let currentIndex = 0;
-        const slides = carouselContainer.children;
-        const totalSlides = slides.length;
-        function updateCarousel() {
-            carouselContainer.style.transform = `translateX(-${currentIndex * 100}%)`;
+        let slides = [];
+        let totalSlides = 0;
+        
+        // Pastikan carouselContainer ada sebelum mengakses children
+        if (carouselContainer) {
+            slides = carouselContainer.children;
+            totalSlides = slides.length;
         }
-        nextBtn.addEventListener('click', () => {
-            currentIndex = (currentIndex + 1) % totalSlides;
-            updateCarousel();
-        });
-        prevBtn.addEventListener('click', () => {
-            currentIndex = (currentIndex - 1 + totalSlides) % totalSlides;
-            updateCarousel();
-        });
-        setInterval(() => { nextBtn.click(); }, 5000);
+        function updateCarousel() {
+            if (carouselContainer) {
+                carouselContainer.style.transform = `translateX(-${currentIndex * 100}%)`;
+            }
+        }
+        if (nextBtn) {
+            nextBtn.addEventListener('click', () => {
+                currentIndex = (currentIndex + 1) % totalSlides;
+                updateCarousel();
+            });
+        }
+        if (prevBtn) {
+            prevBtn.addEventListener('click', () => {
+                currentIndex = (currentIndex - 1 + totalSlides) % totalSlides;
+                updateCarousel();
+            });
+        }
+        // Auto-slide carousel jika nextBtn ada
+        if (nextBtn) {
+            setInterval(() => { nextBtn.click(); }, 5000);
+        }
 
         // Fungsi generic untuk carousel
         function setupCarousel(carouselId, wrapperId, prevBtnId, nextBtnId) {
@@ -711,36 +732,46 @@
             const totalSlides = slides.length;
 
             function updateSlider() {
-                slidesWrapper.style.transform = `translateX(-${currentIndex * 25}%)`;
-                updateDots();
+                if (slidesWrapper) {
+                    slidesWrapper.style.transform = `translateX(-${currentIndex * 25}%)`;
+                    updateDots();
+                }
             }
 
             function updateDots() {
-                dots.forEach((dot, index) => {
-                    dot.classList.remove('active');
-                    if (index === currentIndex) {
-                        dot.classList.add('active');
-                    }
+                if (dots && dots.length > 0) {
+                    dots.forEach((dot, index) => {
+                        dot.classList.remove('active');
+                        if (index === currentIndex) {
+                            dot.classList.add('active');
+                        }
+                    });
+                }
+            }
+
+            if (prevBtn) {
+                prevBtn.addEventListener('click', () => {
+                    currentIndex = (currentIndex > 0) ? currentIndex - 1 : 0;
+                    updateSlider();
                 });
             }
 
-            prevBtn.addEventListener('click', () => {
-                currentIndex = (currentIndex > 0) ? currentIndex - 1 : 0;
-                updateSlider();
-            });
-
-            nextBtn.addEventListener('click', () => {
-                const maxIndex = totalSlides - slidesPerPage;
-                currentIndex = (currentIndex < maxIndex) ? currentIndex + 1 : maxIndex;
-                updateSlider();
-            });
-
-            dots.forEach((dot, index) => {
-                dot.addEventListener('click', () => {
-                    currentIndex = index;
+            if (nextBtn) {
+                nextBtn.addEventListener('click', () => {
+                    const maxIndex = totalSlides - slidesPerPage;
+                    currentIndex = (currentIndex < maxIndex) ? currentIndex + 1 : maxIndex;
                     updateSlider();
                 });
-            });
+            }
+
+            if (dots && dots.length > 0) {
+                dots.forEach((dot, index) => {
+                    dot.addEventListener('click', () => {
+                        currentIndex = index;
+                        updateSlider();
+                    });
+                });
+            }
 
             // Initial setup
             updateSlider();
