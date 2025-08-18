@@ -2,7 +2,7 @@
 // Coba beberapa kemungkinan lokasi file config.php
 $config_paths = [
     '../admin/config.php',
-    '../config.php', 
+    '../config.php',
     '../../admin/config.php',
     dirname(__DIR__) . '/admin/config.php',
     dirname(__DIR__) . '/config.php'
@@ -160,196 +160,196 @@ $featured_news = !empty($berita_items) ? array_shift($berita_items) : null;
 
         <?php if (!empty($berita_items) || $featured_news): ?>
 
-        <!-- Berita Baru Section -->
-        <section class="mb-16" data-aos="fade-up">
-            <header class="flex justify-between items-center mb-8">
-                <h2 class="text-3xl font-bold text-gray-800" data-aos="fade-right" data-aos-delay="200">Berita Baru</h2>
-            </header>
+            <!-- Berita Baru Section -->
+            <section class="mb-16" data-aos="fade-up">
+                <header class="flex justify-between items-center mb-8">
+                    <h2 class="text-3xl font-bold text-gray-800" data-aos="fade-right" data-aos-delay="200">Berita Baru</h2>
+                </header>
 
-            <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-6">
-                <?php 
-                // Ambil 4 berita pertama untuk section "Berita Baru"
-                $news_baru = array_slice($berita_items, 0, 4);
-                foreach ($news_baru as $index => $item): 
-                    // Path gambar
-                    $image_path = '../uploads/berita/' . $item['thumbnail'];
-                    $image_path_check = dirname(__DIR__) . '/uploads/berita/' . $item['thumbnail'];
-                    $default_image = 'https://images.unsplash.com/photo-1503676260728-1c00da094a0b?ixlib=rb-4.0.3&auto=format&fit=crop&w=500&q=60';
-                    $img_src = file_exists($image_path_check) ? $image_path : $default_image;
-                ?>
-                <article class="bg-white rounded-xl shadow-lg overflow-hidden hover:shadow-xl transition-shadow duration-300" data-aos="fade-up" data-aos-delay="<?php echo 400 + ($index * 100); ?>">
-                    <div class="h-48 overflow-hidden">
-                        <img src="<?php echo $img_src; ?>"
-                            alt="<?php echo htmlspecialchars($item['judul']); ?>"
-                            class="w-full h-full object-cover hover:scale-105 transition-transform duration-300">
-                    </div>
-                    <div class="p-4">
-                        <header>
-                            <h3 class="font-bold text-gray-800 mb-2 line-clamp-2">
-                                <?php echo htmlspecialchars($item['judul']); ?>
-                            </h3>
-                        </header>
-                        <p class="text-sm text-gray-600 mb-3">
-                            <?php echo htmlspecialchars(substr($item['excerpt'], 0, 100)) . '...'; ?>
-                        </p>
-                        <div class="text-xs text-orange-500 flex items-center">
-                            <i class="far fa-calendar-alt mr-1"></i>
-                            <time datetime="<?php echo $item['tanggal']; ?>"><?php echo date('d F Y', strtotime($item['tanggal'])); ?></time>
-                        </div>
-                        <div class="mt-2">
-                            <a href="berita-detail.php?id=<?php echo $item['id']; ?>" class="text-xs text-white bg-red-500 hover:bg-red-600 font-medium px-3 py-1 rounded-md transition duration-300 ease-in-out flex items-center inline-flex">
-                                Baca Selengkapnya
-                                <svg xmlns="http://www.w3.org/2000/svg" class="h-3 w-3 ml-1" fill="none" viewBox="0 0 24 24" stroke="currentColor">
-                                    <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 5l7 7-7 7" />
-                                </svg>
-                            </a>
-                        </div>
-                    </div>
-                </article>
-                <?php endforeach; ?>
-            </div>
-        </section>
-
-        <!-- Featured Article Section -->
-        <?php if ($featured_news): ?>
-        <section class="mb-16" data-aos="fade-up">
-            <article class="bg-white rounded-2xl shadow-lg overflow-hidden">
-                <div class="grid grid-cols-1 lg:grid-cols-2 gap-8">
-                    <div class="p-8 lg:p-12 flex flex-col justify-center" data-aos="fade-right" data-aos-delay="200">
-                        <header class="mb-6">
-                            <h2 class="text-4xl font-bold text-gray-800 mb-4 leading-tight">
-                                <?php echo htmlspecialchars($featured_news['judul']); ?>
-                            </h2>
-                        </header>
-                        <p class="text-gray-600 leading-relaxed mb-6 text-lg">
-                            <?php echo htmlspecialchars($featured_news['excerpt']); ?>
-                        </p>
-                        <div class="mb-6">
-                            <a href="berita-detail.php?id=<?php echo $featured_news['id']; ?>" class="inline-block bg-orange-500 text-white px-4 py-2 rounded-full text-sm font-medium hover:bg-orange-600 transition duration-300">
-                                Baca selengkapnya
-                            </a>
-                        </div>
-                    </div>
-                    <div class="h-64 lg:h-auto" data-aos="fade-left" data-aos-delay="400">
-                        <?php 
-                        $featured_image_path = '../uploads/berita/' . $featured_news['thumbnail'];
-                        $featured_image_path_check = dirname(__DIR__) . '/uploads/berita/' . $featured_news['thumbnail'];
-                        $featured_default_image = 'https://images.unsplash.com/photo-1503676260728-1c00da094a0b?ixlib=rb-4.0.3&auto=format&fit=crop&w=800&q=80';
-                        $featured_img_src = file_exists($featured_image_path_check) ? $featured_image_path : $featured_default_image;
-                        ?>
-                        <img src="<?php echo $featured_img_src; ?>"
-                            alt="<?php echo htmlspecialchars($featured_news['judul']); ?>" class="w-full h-full object-cover">
-                    </div>
+                <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-6">
+                    <?php
+                    // Ambil 4 berita pertama untuk section "Berita Baru"
+                    $news_baru = array_slice($berita_items, 0, 4);
+                    foreach ($news_baru as $index => $item):
+                        // Path gambar
+                        $image_path = '../uploads/berita/' . $item['thumbnail'];
+                        $image_path_check = dirname(__DIR__) . '/uploads/berita/' . $item['thumbnail'];
+                        $default_image = 'https://images.unsplash.com/photo-1503676260728-1c00da094a0b?ixlib=rb-4.0.3&auto=format&fit=crop&w=500&q=60';
+                        $img_src = file_exists($image_path_check) ? $image_path : $default_image;
+                    ?>
+                        <article class="bg-white rounded-xl shadow-lg overflow-hidden hover:shadow-xl transition-shadow duration-300" data-aos="fade-up" data-aos-delay="<?php echo 400 + ($index * 100); ?>">
+                            <div class="h-48 overflow-hidden">
+                                <img src="<?php echo $img_src; ?>"
+                                    alt="<?php echo htmlspecialchars($item['judul']); ?>"
+                                    class="w-full h-full object-cover hover:scale-105 transition-transform duration-300">
+                            </div>
+                            <div class="p-4">
+                                <header>
+                                    <h3 class="font-bold text-gray-800 mb-2 line-clamp-2">
+                                        <?php echo htmlspecialchars($item['judul']); ?>
+                                    </h3>
+                                </header>
+                                <p class="text-sm text-gray-600 mb-3">
+                                    <?php echo htmlspecialchars(substr($item['excerpt'], 0, 100)) . '...'; ?>
+                                </p>
+                                <div class="text-xs text-orange-500 flex items-center">
+                                    <i class="far fa-calendar-alt mr-1"></i>
+                                    <time datetime="<?php echo $item['tanggal']; ?>"><?php echo date('d F Y', strtotime($item['tanggal'])); ?></time>
+                                </div>
+                                <div class="mt-2">
+                                    <a href="berita-detail.php?id=<?php echo $item['id']; ?>" class="text-xs text-white bg-red-500 hover:bg-red-600 font-medium px-3 py-1 rounded-md transition duration-300 ease-in-out flex items-center inline-flex">
+                                        Baca Selengkapnya
+                                        <svg xmlns="http://www.w3.org/2000/svg" class="h-3 w-3 ml-1" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                                            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 5l7 7-7 7" />
+                                        </svg>
+                                    </a>
+                                </div>
+                            </div>
+                        </article>
+                    <?php endforeach; ?>
                 </div>
-            </article>
-        </section>
-        <?php endif; ?>
+            </section>
 
-        <!-- More News Grid Section -->
-        <?php if (count($berita_items) > 4): ?>
-        <section class="mb-16" data-aos="fade-up">
-            <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-6">
-                <?php 
-                // Ambil sisa berita untuk grid section
-                $more_news = array_slice($berita_items, 4, 8);
-                foreach ($more_news as $index => $item): 
-                    $image_path = '../uploads/berita/' . $item['thumbnail'];
-                    $image_path_check = dirname(__DIR__) . '/uploads/berita/' . $item['thumbnail'];
-                    $default_image = 'https://images.unsplash.com/photo-1503676260728-1c00da094a0b?ixlib=rb-4.0.3&auto=format&fit=crop&w=500&q=60';
-                    $img_src = file_exists($image_path_check) ? $image_path : $default_image;
-                ?>
-                <article class="bg-white rounded-xl shadow-lg overflow-hidden hover:shadow-xl transition-shadow duration-300" data-aos="fade-up" data-aos-delay="<?php echo 200 + ($index * 100); ?>">
-                    <div class="h-48 overflow-hidden">
-                        <img src="<?php echo $img_src; ?>"
-                            alt="<?php echo htmlspecialchars($item['judul']); ?>"
-                            class="w-full h-full object-cover hover:scale-105 transition-transform duration-300">
-                    </div>
-                    <div class="p-4">
-                        <header>
-                            <h3 class="font-bold text-gray-800 mb-2 line-clamp-2">
-                                <?php echo htmlspecialchars($item['judul']); ?>
-                            </h3>
-                        </header>
-                        <p class="text-sm text-gray-600 mb-3">
-                            <?php echo htmlspecialchars(substr($item['excerpt'], 0, 100)) . '...'; ?>
-                        </p>
-                        <div class="text-xs text-orange-500 flex items-center">
-                            <i class="far fa-calendar-alt mr-1"></i>
-                            <time datetime="<?php echo $item['tanggal']; ?>"><?php echo date('d F Y', strtotime($item['tanggal'])); ?></time>
+            <!-- Featured Article Section -->
+            <?php if ($featured_news): ?>
+                <section class="mb-16" data-aos="fade-up">
+                    <article class="bg-white rounded-2xl shadow-lg overflow-hidden">
+                        <div class="grid grid-cols-1 lg:grid-cols-2 gap-8">
+                            <div class="p-8 lg:p-12 flex flex-col justify-center" data-aos="fade-right" data-aos-delay="200">
+                                <header class="mb-6">
+                                    <h2 class="text-4xl font-bold text-gray-800 mb-4 leading-tight">
+                                        <?php echo htmlspecialchars($featured_news['judul']); ?>
+                                    </h2>
+                                </header>
+                                <p class="text-gray-600 leading-relaxed mb-6 text-lg">
+                                    <?php echo htmlspecialchars($featured_news['excerpt']); ?>
+                                </p>
+                                <div class="mb-6">
+                                    <a href="berita-detail.php?id=<?php echo $featured_news['id']; ?>" class="inline-block bg-orange-500 text-white px-4 py-2 rounded-full text-sm font-medium hover:bg-orange-600 transition duration-300">
+                                        Baca selengkapnya
+                                    </a>
+                                </div>
+                            </div>
+                            <div class="h-64 lg:h-auto" data-aos="fade-left" data-aos-delay="400">
+                                <?php
+                                $featured_image_path = '../uploads/berita/' . $featured_news['thumbnail'];
+                                $featured_image_path_check = dirname(__DIR__) . '/uploads/berita/' . $featured_news['thumbnail'];
+                                $featured_default_image = 'https://images.unsplash.com/photo-1503676260728-1c00da094a0b?ixlib=rb-4.0.3&auto=format&fit=crop&w=800&q=80';
+                                $featured_img_src = file_exists($featured_image_path_check) ? $featured_image_path : $featured_default_image;
+                                ?>
+                                <img src="<?php echo $featured_img_src; ?>"
+                                    alt="<?php echo htmlspecialchars($featured_news['judul']); ?>" class="w-full h-full object-cover">
+                            </div>
                         </div>
-                        <div class="mt-2">
-                            <a href="berita-detail.php?id=<?php echo $item['id']; ?>" class="text-xs text-white bg-red-500 hover:bg-red-600 font-medium px-3 py-1 rounded-md transition duration-300 ease-in-out flex items-center inline-flex">
-                                Baca Selengkapnya
-                                <svg xmlns="http://www.w3.org/2000/svg" class="h-3 w-3 ml-1" fill="none" viewBox="0 0 24 24" stroke="currentColor">
-                                    <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 5l7 7-7 7" />
-                                </svg>
+                    </article>
+                </section>
+            <?php endif; ?>
+
+            <!-- More News Grid Section -->
+            <?php if (count($berita_items) > 4): ?>
+                <section class="mb-16" data-aos="fade-up">
+                    <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-6">
+                        <?php
+                        // Ambil sisa berita untuk grid section
+                        $more_news = array_slice($berita_items, 4, 8);
+                        foreach ($more_news as $index => $item):
+                            $image_path = '../uploads/berita/' . $item['thumbnail'];
+                            $image_path_check = dirname(__DIR__) . '/uploads/berita/' . $item['thumbnail'];
+                            $default_image = 'https://images.unsplash.com/photo-1503676260728-1c00da094a0b?ixlib=rb-4.0.3&auto=format&fit=crop&w=500&q=60';
+                            $img_src = file_exists($image_path_check) ? $image_path : $default_image;
+                        ?>
+                            <article class="bg-white rounded-xl shadow-lg overflow-hidden hover:shadow-xl transition-shadow duration-300" data-aos="fade-up" data-aos-delay="<?php echo 200 + ($index * 100); ?>">
+                                <div class="h-48 overflow-hidden">
+                                    <img src="<?php echo $img_src; ?>"
+                                        alt="<?php echo htmlspecialchars($item['judul']); ?>"
+                                        class="w-full h-full object-cover hover:scale-105 transition-transform duration-300">
+                                </div>
+                                <div class="p-4">
+                                    <header>
+                                        <h3 class="font-bold text-gray-800 mb-2 line-clamp-2">
+                                            <?php echo htmlspecialchars($item['judul']); ?>
+                                        </h3>
+                                    </header>
+                                    <p class="text-sm text-gray-600 mb-3">
+                                        <?php echo htmlspecialchars(substr($item['excerpt'], 0, 100)) . '...'; ?>
+                                    </p>
+                                    <div class="text-xs text-orange-500 flex items-center">
+                                        <i class="far fa-calendar-alt mr-1"></i>
+                                        <time datetime="<?php echo $item['tanggal']; ?>"><?php echo date('d F Y', strtotime($item['tanggal'])); ?></time>
+                                    </div>
+                                    <div class="mt-2">
+                                        <a href="berita-detail.php?id=<?php echo $item['id']; ?>" class="text-xs text-white bg-red-500 hover:bg-red-600 font-medium px-3 py-1 rounded-md transition duration-300 ease-in-out flex items-center inline-flex">
+                                            Baca Selengkapnya
+                                            <svg xmlns="http://www.w3.org/2000/svg" class="h-3 w-3 ml-1" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                                                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 5l7 7-7 7" />
+                                            </svg>
+                                        </a>
+                                    </div>
+                                </div>
+                            </article>
+                        <?php endforeach; ?>
+                    </div>
+                </section>
+            <?php endif; ?>
+
+            <!-- Filter Buttons (jika diperlukan) -->
+            <section class="mb-8" data-aos="fade-up">
+                <div class="flex flex-wrap justify-center gap-4">
+                    <a href="?page=1" class="filter-button px-6 py-2 rounded-full border-2 border-gray-300 font-medium text-gray-700 hover:border-orange-500 hover:text-orange-500 <?php echo empty($kategori) ? 'active' : ''; ?>">
+                        Semua
+                    </a>
+                    <a href="?kategori=pengumuman&page=1" class="filter-button px-6 py-2 rounded-full border-2 border-gray-300 font-medium text-gray-700 hover:border-orange-500 hover:text-orange-500 <?php echo $kategori === 'pengumuman' ? 'active' : ''; ?>">
+                        Pengumuman
+                    </a>
+                    <a href="?kategori=kegiatan&page=1" class="filter-button px-6 py-2 rounded-full border-2 border-gray-300 font-medium text-gray-700 hover:border-orange-500 hover:text-orange-500 <?php echo $kategori === 'kegiatan' ? 'active' : ''; ?>">
+                        Kegiatan
+                    </a>
+                    <a href="?kategori=prestasi&page=1" class="filter-button px-6 py-2 rounded-full border-2 border-gray-300 font-medium text-gray-700 hover:border-orange-500 hover:text-orange-500 <?php echo $kategori === 'prestasi' ? 'active' : ''; ?>">
+                        Prestasi
+                    </a>
+                </div>
+            </section>
+
+            <!-- Pagination -->
+            <?php if ($total_pages > 1): ?>
+                <section class="mt-12 flex justify-center" data-aos="fade-up">
+                    <div class="flex space-x-2">
+                        <?php if ($page > 1): ?>
+                            <a href="?<?php echo !empty($kategori) ? 'kategori=' . $kategori . '&' : ''; ?>page=<?php echo $page - 1; ?>" class="px-4 py-2 bg-gray-200 text-gray-700 rounded-md hover:bg-gray-300 transition duration-300">
+                                &laquo; Sebelumnya
                             </a>
-                        </div>
+                        <?php endif; ?>
+
+                        <?php
+                        $start_page = max(1, $page - 2);
+                        $end_page = min($total_pages, $start_page + 4);
+
+                        if ($end_page - $start_page < 4 && $start_page > 1) {
+                            $start_page = max(1, $end_page - 4);
+                        }
+
+                        for ($i = $start_page; $i <= $end_page; $i++):
+                        ?>
+                            <a href="?<?php echo !empty($kategori) ? 'kategori=' . $kategori . '&' : ''; ?>page=<?php echo $i; ?>" class="px-4 py-2 <?php echo $i === $page ? 'bg-orange-500 text-white' : 'bg-gray-200 text-gray-700 hover:bg-gray-300'; ?> rounded-md transition duration-300">
+                                <?php echo $i; ?>
+                            </a>
+                        <?php endfor; ?>
+
+                        <?php if ($page < $total_pages): ?>
+                            <a href="?<?php echo !empty($kategori) ? 'kategori=' . $kategori . '&' : ''; ?>page=<?php echo $page + 1; ?>" class="px-4 py-2 bg-gray-200 text-gray-700 rounded-md hover:bg-gray-300 transition duration-300">
+                                Selanjutnya &raquo;
+                            </a>
+                        <?php endif; ?>
                     </div>
-                </article>
-                <?php endforeach; ?>
-            </div>
-        </section>
-        <?php endif; ?>
-
-        <!-- Filter Buttons (jika diperlukan) -->
-        <section class="mb-8" data-aos="fade-up">
-            <div class="flex flex-wrap justify-center gap-4">
-                <a href="?page=1" class="filter-button px-6 py-2 rounded-full border-2 border-gray-300 font-medium text-gray-700 hover:border-orange-500 hover:text-orange-500 <?php echo empty($kategori) ? 'active' : ''; ?>">
-                    Semua
-                </a>
-                <a href="?kategori=pengumuman&page=1" class="filter-button px-6 py-2 rounded-full border-2 border-gray-300 font-medium text-gray-700 hover:border-orange-500 hover:text-orange-500 <?php echo $kategori === 'pengumuman' ? 'active' : ''; ?>">
-                    Pengumuman
-                </a>
-                <a href="?kategori=kegiatan&page=1" class="filter-button px-6 py-2 rounded-full border-2 border-gray-300 font-medium text-gray-700 hover:border-orange-500 hover:text-orange-500 <?php echo $kategori === 'kegiatan' ? 'active' : ''; ?>">
-                    Kegiatan
-                </a>
-                <a href="?kategori=prestasi&page=1" class="filter-button px-6 py-2 rounded-full border-2 border-gray-300 font-medium text-gray-700 hover:border-orange-500 hover:text-orange-500 <?php echo $kategori === 'prestasi' ? 'active' : ''; ?>">
-                    Prestasi
-                </a>
-            </div>
-        </section>
-
-        <!-- Pagination -->
-        <?php if ($total_pages > 1): ?>
-        <section class="mt-12 flex justify-center" data-aos="fade-up">
-            <div class="flex space-x-2">
-                <?php if ($page > 1): ?>
-                <a href="?<?php echo !empty($kategori) ? 'kategori=' . $kategori . '&' : ''; ?>page=<?php echo $page - 1; ?>" class="px-4 py-2 bg-gray-200 text-gray-700 rounded-md hover:bg-gray-300 transition duration-300">
-                    &laquo; Sebelumnya
-                </a>
-                <?php endif; ?>
-                
-                <?php 
-                $start_page = max(1, $page - 2);
-                $end_page = min($total_pages, $start_page + 4);
-                
-                if ($end_page - $start_page < 4 && $start_page > 1) {
-                    $start_page = max(1, $end_page - 4);
-                }
-                
-                for ($i = $start_page; $i <= $end_page; $i++): 
-                ?>
-                <a href="?<?php echo !empty($kategori) ? 'kategori=' . $kategori . '&' : ''; ?>page=<?php echo $i; ?>" class="px-4 py-2 <?php echo $i === $page ? 'bg-orange-500 text-white' : 'bg-gray-200 text-gray-700 hover:bg-gray-300'; ?> rounded-md transition duration-300">
-                    <?php echo $i; ?>
-                </a>
-                <?php endfor; ?>
-                
-                <?php if ($page < $total_pages): ?>
-                <a href="?<?php echo !empty($kategori) ? 'kategori=' . $kategori . '&' : ''; ?>page=<?php echo $page + 1; ?>" class="px-4 py-2 bg-gray-200 text-gray-700 rounded-md hover:bg-gray-300 transition duration-300">
-                    Selanjutnya &raquo;
-                </a>
-                <?php endif; ?>
-            </div>
-        </section>
-        <?php endif; ?>
+                </section>
+            <?php endif; ?>
 
         <?php else: ?>
-        <!-- No News Available -->
-        <section class="text-center py-16" data-aos="fade-up">
-            <h3 class="text-2xl font-semibold text-gray-600">Belum ada berita untuk ditampilkan</h3>
-            <p class="mt-2 text-gray-500">Silakan kembali lagi nanti</p>
-        </section>
+            <!-- No News Available -->
+            <section class="text-center py-16" data-aos="fade-up">
+                <h3 class="text-2xl font-semibold text-gray-600">Belum ada berita untuk ditampilkan</h3>
+                <p class="mt-2 text-gray-500">Silakan kembali lagi nanti</p>
+            </section>
         <?php endif; ?>
 
     </main>
@@ -357,7 +357,7 @@ $featured_news = !empty($berita_items) ? array_shift($berita_items) : null;
     <script>
         // Add click interaction to articles
         document.querySelectorAll('article').forEach(article => {
-            article.addEventListener('click', function () {
+            article.addEventListener('click', function() {
                 // Add click animation
                 this.style.transform = 'scale(0.98)';
                 setTimeout(() => {
