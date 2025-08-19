@@ -4,12 +4,12 @@ document.addEventListener('DOMContentLoaded', function() {
         {
             id: 1,
             thumbnail: 'https://images.unsplash.com/photo-1503676260728-1c00da094a0b?ixlib=rb-4.0.3&auto=format&fit=crop&w=1470&q=80',
-            title: 'Pendaftaran KB Islam Alfath Tahun Dibuka !',
-            content: `<p>KB-TK Islam Al Fath dengan bangga mengumumkan pembukaan pendaftaran untuk tahun ajaran baru 2023/2024. Kami mengundang para orangtua untuk mendaftarkan putra-putri mereka di lembaga pendidikan yang mengutamakan nilai-nilai Islam dan pendidikan karakter.</p>
+            title: 'Pendaftaran KB ISLAM AL FATH Tahun Dibuka !',
+            content: `<p>KB-TK ISLAM AL FATH dengan bangga mengumumkan pembukaan pendaftaran untuk tahun ajaran baru 2023/2024. Kami mengundang para orangtua untuk mendaftarkan putra-putri mereka di lembaga pendidikan yang mengutamakan nilai-nilai Islam dan pendidikan karakter.</p>
 
 <p>Pendaftaran dibuka mulai tanggal 15 Januari 2023 dan akan berlangsung hingga kuota terpenuhi. Tahun ini, kami menyediakan kuota terbatas untuk memastikan kualitas pendidikan yang optimal bagi setiap anak.</p>
 
-<p>KB-TK Islam Al Fath menawarkan:</p>
+<p>KB-TK ISLAM AL FATH menawarkan:</p>
 <ul class="list-disc pl-6 my-4">
     <li>Kurikulum terintegrasi yang memadukan pendidikan nasional dan nilai-nilai Islam</li>
     <li>Tenaga pengajar yang profesional dan berpengalaman</li>
@@ -20,19 +20,19 @@ document.addEventListener('DOMContentLoaded', function() {
 
 <p>Untuk informasi lebih lanjut tentang prosedur pendaftaran, biaya, dan persyaratan, orangtua dapat menghubungi kantor sekolah di nomor (024) 1234567 atau mengunjungi sekolah pada jam kerja.</p>
 
-<p>Jadilah bagian dari keluarga besar KB-TK Islam Al Fath dan berikan anak Anda pendidikan terbaik untuk masa depan yang cerah!</p>`,
+<p>Jadilah bagian dari keluarga besar KB-TK ISLAM AL FATH dan berikan anak Anda pendidikan terbaik untuk masa depan yang cerah!</p>`,
             date: '2023-01-15',
             category: 'pengumuman'
         },
         {
             id: 2,
             thumbnail: 'https://images.unsplash.com/photo-1544717297-fa95b6ee9643?ixlib=rb-4.0.3&auto=format&fit=crop&w=1470&q=80',
-            title: 'Pendaftaran TK Islam Alfath Tahun Dibuka !',
-            content: `<p>TK Islam Al Fath dengan bangga mengumumkan pembukaan pendaftaran untuk tahun ajaran baru 2023/2024. Kami mengundang para orangtua untuk mendaftarkan putra-putri mereka di lembaga pendidikan yang mengutamakan nilai-nilai Islam dan pendidikan karakter.</p>
+            title: 'Pendaftaran TK ISLAM AL FATH Tahun Dibuka !',
+            content: `<p>TK ISLAM AL FATH dengan bangga mengumumkan pembukaan pendaftaran untuk tahun ajaran baru 2023/2024. Kami mengundang para orangtua untuk mendaftarkan putra-putri mereka di lembaga pendidikan yang mengutamakan nilai-nilai Islam dan pendidikan karakter.</p>
 
 <p>Pendaftaran dibuka mulai tanggal 15 Januari 2023 dan akan berlangsung hingga kuota terpenuhi. Tahun ini, kami menyediakan kuota terbatas untuk memastikan kualitas pendidikan yang optimal bagi setiap anak.</p>
 
-<p>TK Islam Al Fath menawarkan:</p>
+<p>TK ISLAM AL FATH menawarkan:</p>
 <ul class="list-disc pl-6 my-4">
     <li>Kurikulum terintegrasi yang memadukan pendidikan nasional dan nilai-nilai Islam</li>
     <li>Tenaga pengajar yang profesional dan berpengalaman</li>
@@ -43,15 +43,15 @@ document.addEventListener('DOMContentLoaded', function() {
 
 <p>Untuk informasi lebih lanjut tentang prosedur pendaftaran, biaya, dan persyaratan, orangtua dapat menghubungi kantor sekolah di nomor (024) 1234567 atau mengunjungi sekolah pada jam kerja.</p>
 
-<p>Jadilah bagian dari keluarga besar TK Islam Al Fath dan berikan anak Anda pendidikan terbaik untuk masa depan yang cerah!</p>`,
+<p>Jadilah bagian dari keluarga besar TK ISLAM AL FATH dan berikan anak Anda pendidikan terbaik untuk masa depan yang cerah!</p>`,
             date: '2023-01-15',
             category: 'pengumuman'
         },
         {
             id: 3,
             thumbnail: 'https://images.unsplash.com/photo-1580582932707-520aed937b7b?ixlib=rb-4.0.3&auto=format&fit=crop&w=1470&q=80',
-            title: 'Peringatan Memperingati 17 Agustus di KB TK Islam Alfath !',
-            content: `<p>Dalam rangka memperingati hari kemerdekaan Republik Indonesia yang ke-78, KB-TK Islam Al Fath menyelenggarakan berbagai kegiatan menarik yang melibatkan seluruh siswa, guru, dan staf sekolah.</p>
+            title: 'Peringatan Memperingati 17 Agustus di KB TK ISLAM AL FATH !',
+            content: `<p>Dalam rangka memperingati hari kemerdekaan Republik Indonesia yang ke-78, KB-TK ISLAM AL FATH menyelenggarakan berbagai kegiatan menarik yang melibatkan seluruh siswa, guru, dan staf sekolah.</p>
 
 <p>Perayaan dimulai dengan upacara bendera yang khidmat, di mana anak-anak berpartisipasi dengan penuh semangat. Mereka mengenakan seragam merah putih dan dengan bangga menyanyikan lagu Indonesia Raya.</p>
 
@@ -75,14 +75,14 @@ document.addEventListener('DOMContentLoaded', function() {
         {
             id: 4,
             thumbnail: 'https://images.unsplash.com/photo-1535572290543-960a8046f5af?ixlib=rb-4.0.3&auto=format&fit=crop&w=1470&q=80',
-            title: 'Siswa TK Islam Alfath Juara Lomba Mewarnai Tingkat Kota',
-            content: `<p>Dengan bangga kami mengumumkan bahwa Ananda Zahra, siswa TK B Islam Al Fath, telah berhasil meraih juara 1 dalam Lomba Mewarnai Tingkat Kota yang diselenggarakan oleh Dinas Pendidikan Kota Semarang pada tanggal 8 September 2023.</p>
+            title: 'Siswa TK ISLAM AL FATH Juara Lomba Mewarnai Tingkat Kota',
+            content: `<p>Dengan bangga kami mengumumkan bahwa Ananda Zahra, siswa TK B ISLAM AL FATH, telah berhasil meraih juara 1 dalam Lomba Mewarnai Tingkat Kota yang diselenggarakan oleh Dinas Pendidikan Kota Semarang pada tanggal 8 September 2023.</p>
 
 <p>Lomba ini diikuti oleh lebih dari 200 peserta dari berbagai TK di seluruh kota. Ananda Zahra berhasil mengungguli peserta lainnya dengan karya mewarnai yang kreatif, rapi, dan penuh makna. Tema lomba kali ini adalah "Lingkungan Hidup" dan Zahra mampu menuangkan idenya dengan sangat baik.</p>
 
-<p>Keberhasilan ini tidak lepas dari bimbingan intensif dari guru seni, Ibu Fatimah, serta dukungan penuh dari orangtua. Di TK Islam Al Fath, kami selalu mendorong anak-anak untuk mengembangkan bakat dan minat mereka di berbagai bidang, termasuk seni.</p>
+<p>Keberhasilan ini tidak lepas dari bimbingan intensif dari guru seni, Ibu Fatimah, serta dukungan penuh dari orangtua. Di TK ISLAM AL FATH, kami selalu mendorong anak-anak untuk mengembangkan bakat dan minat mereka di berbagai bidang, termasuk seni.</p>
 
-<p>Prestasi Ananda Zahra ini menambah daftar pencapaian siswa-siswi TK Islam Al Fath dalam berbagai kompetisi. Hal ini membuktikan bahwa pendekatan pendidikan yang kami terapkan, yang menyeimbangkan aspek akademik, karakter, dan pengembangan bakat, memberikan hasil yang membanggakan.</p>
+<p>Prestasi Ananda Zahra ini menambah daftar pencapaian siswa-siswi TK ISLAM AL FATH dalam berbagai kompetisi. Hal ini membuktikan bahwa pendekatan pendidikan yang kami terapkan, yang menyeimbangkan aspek akademik, karakter, dan pengembangan bakat, memberikan hasil yang membanggakan.</p>
 
 <p>Kami mengucapkan selamat kepada Ananda Zahra dan berharap prestasi ini dapat menginspirasi teman-teman lainnya untuk terus berkarya dan berprestasi di bidang yang mereka minati.</p>`,
             date: '2023-09-10',

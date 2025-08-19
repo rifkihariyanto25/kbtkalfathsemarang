@@ -1,4 +1,4 @@
-// Navbar Component for TK-KB Al-Fath
+// Navbar Component for TK-KB ISLAM AL FATH
 
 function createNavbar() {
   // Create the navbar HTML structure
@@ -19,7 +19,7 @@ function createNavbar() {
             <a href="${pathPrefix}index.html" class="flex items-center space-x-3">
                 <img src="${assetsPrefix}WhatsApp Image 2025-07-30 at 09.47.34_ce7ed10a 1.png" alt="Logo Al-Fath"
                     class="h-12 w-12 rounded-full transform hover:rotate-12 transition-transform duration-300">
-                <span class="text-xl font-bold text-gray-800">KB TK Al-Fath</span>
+                <span class="text-xl font-bold text-gray-800">KB TK ISLAM AL FATH</span>
             </a>
             <nav class="hidden md:flex space-x-8 items-center">
                 <a href="${pathPrefix}index.html#beranda"

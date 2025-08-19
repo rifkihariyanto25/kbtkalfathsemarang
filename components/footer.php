@@ -4,9 +4,9 @@
             <!-- About -->
             <div>
                 <div class="flex items-center mb-4">
-                    <img src="/kbtkalfathsemarang/assets/images/logo.png" alt="KB-TK Islam Al Fath" class="h-12">
+                    <img src="/kbtkalfathsemarang/assets/images/logo.png" alt="KB TK ISLAM AL FATH" class="h-12">
                     <div class="ml-3">
-                        <h3 class="text-lg font-bold brand-orange">KB-TK Islam Al Fath</h3>
+                        <h3 class="text-lg font-bold brand-orange">KB TK ISLAM AL FATH</h3>
                         <p class="text-xs text-gray-400">Semarang</p>
                     </div>
                 </div>
@@ -61,7 +61,7 @@
         </div>
 
         <div class="border-t border-gray-800 mt-8 pt-6 text-center">
-            <p class="text-gray-500 text-sm">&copy; <?php echo date('Y'); ?> KB-TK Islam Al Fath Semarang. All rights reserved.</p>
+            <p class="text-gray-500 text-sm">&copy; <?php echo date('Y'); ?> KB TK ISLAM AL FATH Semarang. All rights reserved.</p>
         </div>
     </div>
 </footer>

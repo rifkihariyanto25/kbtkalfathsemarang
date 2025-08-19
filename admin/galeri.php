@@ -40,10 +40,11 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
                 $target_file = $target_dir . $new_filename;
                 
                 // Cek tipe file
-                $allowed_types = array('jpg', 'jpeg', 'png', 'webp');
+                $allowed_types = array('jpg', 'jpeg', 'png', 'webp', 'mp4');
                 if (in_array($file_extension, $allowed_types)) {
-                    // Cek ukuran file (max 5MB)
-                    if ($_FILES["gambar"]["size"] <= 5000000) {
+                    // Cek ukuran file (max 50MB untuk video, 5MB untuk gambar)
+                    $max_size = ($file_extension === 'mp4') ? 50000000 : 5000000; // 50MB untuk video, 5MB untuk gambar
+                    if ($_FILES["gambar"]["size"] <= $max_size) {
                         if (move_uploaded_file($_FILES["gambar"]["tmp_name"], $target_file)) {
                             $gambar = $new_filename;
                             $upload_success = true;
@@ -51,10 +52,10 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
                             $error = "Gagal mengupload file.";
                         }
                     } else {
-                        $error = "File terlalu besar. Maksimal 5MB.";
+                        $error = ($file_extension === 'mp4') ? "File terlalu besar. Maksimal 50MB untuk video." : "File terlalu besar. Maksimal 5MB untuk gambar.";
                     }
                 } else {
-                    $error = "Format file tidak didukung. Gunakan JPG, PNG, atau WEBP.";
+                    $error = "Format file tidak didukung. Gunakan JPG, PNG, WEBP, atau MP4.";
                 }
             }
             
@@ -68,14 +69,14 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
                         $stmt->bind_param("ssss", $judul, $kategori, $tanggal, $gambar);
                         
                         if ($stmt->execute()) {
-                            $message = "Foto berhasil ditambahkan";
+                            $message = "Media berhasil ditambahkan";
                             header("Location: galeri.php?message=" . urlencode($message));
                             exit;
                         } else {
                             $error = "Gagal menyimpan data: " . $conn->error;
                         }
                     } else {
-                        $error = "Gambar harus diupload";
+                        $error = "Media harus diupload";
                     }
                 } elseif ($action === 'edit' && $id > 0) {
                     // Edit data yang ada
@@ -108,7 +109,7 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
                     }
                     
                     if ($stmt->execute()) {
-                        $message = "Foto berhasil diperbarui";
+                        $message = "Media berhasil diperbarui";
                         header("Location: galeri.php?message=" . urlencode($message));
                         exit;
                     } else {
@@ -144,7 +145,7 @@ if ($action === 'delete' && $id > 0) {
         $stmt->bind_param("i", $id);
         
         if ($stmt->execute()) {
-            $message = "Foto berhasil dihapus";
+            $message = "Media berhasil dihapus";
             header("Location: galeri.php?message=" . urlencode($message));
             exit;
         } else {
@@ -342,12 +343,12 @@ if (isset($_GET['message'])) {
                 <div class="mb-8 flex justify-between items-center">
                     <div>
                         <h1 class="text-2xl md:text-3xl font-bold">Kelola Galeri</h1>
-                        <p class="text-gray-600">Upload dan kelola foto-foto kegiatan KB-TK Al Fath</p>
+                    <p class="text-gray-600">Upload dan kelola foto dan video kegiatan KB-TK Al Fath</p>
                     </div>
                     
                     <?php if ($action === 'list'): ?>
                     <a href="?action=add" class="bg-brand-orange hover-brand-orange text-white font-medium py-2 px-4 rounded-md transition duration-300 ease-in-out">
-                        <i class="fas fa-plus mr-2"></i> Tambah Foto
+                        <i class="fas fa-plus mr-2"></i> Tambah Media
                     </a>
                     <?php else: ?>
                     <a href="galeri.php" class="bg-gray-500 hover:bg-gray-600 text-white font-medium py-2 px-4 rounded-md transition duration-300 ease-in-out">
@@ -373,28 +374,40 @@ if (isset($_GET['message'])) {
                 <?php if ($action === 'add' || $action === 'edit'): ?>
                 <div class="bg-white rounded-lg shadow-md p-6 mb-8">
                     <h2 class="text-xl font-semibold mb-4">
-                        <?php echo $action === 'add' ? 'Upload Foto Baru' : 'Edit Foto'; ?>
+                        <?php echo $action === 'add' ? 'Upload Media Baru' : 'Edit Media'; ?>
                     </h2>
 
                     <form method="POST" enctype="multipart/form-data" class="space-y-6">
                         <!-- Image Upload -->
                         <div>
-                            <label class="block text-sm font-medium text-gray-700 mb-2">Foto</label>
+                            <label class="block text-sm font-medium text-gray-700 mb-2">Media (Foto/Video)</label>
                             <?php if ($action === 'edit' && !empty($edit_data['gambar'])): ?>
                             <div class="mb-3">
-                                <p class="text-sm text-gray-500 mb-2">Foto saat ini:</p>
-                                <img src="../uploads/galeri/<?php echo $edit_data['gambar']; ?>" alt="Current Image" class="h-40 object-cover rounded-lg">
+                                <p class="text-sm text-gray-500 mb-2">Media saat ini:</p>
+                                <?php
+                                $file_extension = strtolower(pathinfo($edit_data['gambar'], PATHINFO_EXTENSION));
+                                if ($file_extension === 'mp4') {
+                                    // Tampilkan video
+                                    echo '<video class="h-40 object-cover rounded-lg" controls>
+                                        <source src="../uploads/galeri/' . $edit_data['gambar'] . '" type="video/mp4">
+                                        Browser Anda tidak mendukung tag video.
+                                    </video>';
+                                } else {
+                                    // Tampilkan gambar
+                                    echo '<img src="../uploads/galeri/' . $edit_data['gambar'] . '" alt="Current Image" class="h-40 object-cover rounded-lg">';
+                                }
+                                ?>
                             </div>
                             <?php endif; ?>
                             
                             <input type="file" name="gambar" id="gambar" class="w-full px-4 py-2 border border-gray-300 rounded-md focus:outline-none focus:ring-2 focus:ring-orange-500 focus:border-transparent" <?php echo $action === 'add' ? 'required' : ''; ?>>
-                            <p class="text-xs text-gray-500 mt-1">Format: JPG, PNG, WEBP (Max: 5MB)</p>
+                            <p class="text-xs text-gray-500 mt-1">Format: JPG, PNG, WEBP (Max: 5MB), MP4 (Max: 50MB)</p>
                         </div>
 
                         <!-- Form Fields -->
                         <div class="grid grid-cols-1 md:grid-cols-2 gap-6">
                             <div>
-                                <label for="judul" class="block text-sm font-medium text-gray-700 mb-1">Judul Foto</label>
+                                <label for="judul" class="block text-sm font-medium text-gray-700 mb-1">Judul Media</label>
                                 <input type="text" id="judul" name="judul" value="<?php echo $action === 'edit' ? htmlspecialchars($edit_data['judul']) : ''; ?>" class="w-full px-4 py-2 border border-gray-300 rounded-md focus:outline-none focus:ring-2 focus:ring-orange-500 focus:border-transparent" required>
                             </div>
 
@@ -416,7 +429,7 @@ if (isset($_GET['message'])) {
 
                         <div class="flex justify-end">
                             <button type="submit" name="submit_galeri" class="bg-brand-orange hover-brand-orange text-white font-medium py-2 px-6 rounded-md transition duration-300 ease-in-out">
-                                <?php echo $action === 'add' ? 'Upload Foto' : 'Simpan Perubahan'; ?>
+                                <?php echo $action === 'add' ? 'Upload Media' : 'Simpan Perubahan'; ?>
                             </button>
                         </div>
                     </form>
@@ -427,13 +440,13 @@ if (isset($_GET['message'])) {
                 <?php if ($action === 'list'): ?>
                 <div class="bg-white rounded-lg shadow-md p-6">
                     <div class="flex justify-between items-center mb-6">
-                        <h2 class="text-xl font-semibold">Daftar Foto</h2>
+                        <h2 class="text-xl font-semibold">Daftar Media</h2>
                     </div>
 
                     <?php if (empty($galeri_data)): ?>
                     <div class="text-center py-8">
-                        <p class="text-gray-500">Belum ada foto yang diupload</p>
-                        <a href="?action=add" class="text-orange-500 hover:text-orange-600 mt-2 inline-block">Upload foto pertama</a>
+                        <p class="text-gray-500">Belum ada media yang diupload</p>
+                        <a href="?action=add" class="text-orange-500 hover:text-orange-600 mt-2 inline-block">Upload media pertama</a>
                     </div>
                     <?php else: ?>
                     <!-- Gallery Items -->
@@ -441,12 +454,24 @@ if (isset($_GET['message'])) {
                         <?php foreach ($galeri_data as $item): ?>
                         <div class="border border-gray-200 rounded-lg overflow-hidden">
                             <div class="relative">
-                                <img src="../uploads/galeri/<?php echo $item['gambar']; ?>" alt="<?php echo htmlspecialchars($item['judul']); ?>" class="w-full h-48 object-cover">
+                                <?php
+                                $file_extension = strtolower(pathinfo($item['gambar'], PATHINFO_EXTENSION));
+                                if ($file_extension === 'mp4') {
+                                    // Tampilkan video
+                                    echo '<video class="w-full h-48 object-cover" controls>
+                                        <source src="../uploads/galeri/' . $item['gambar'] . '" type="video/mp4">
+                                        Browser Anda tidak mendukung tag video.
+                                    </video>';
+                                } else {
+                                    // Tampilkan gambar
+                                    echo '<img src="../uploads/galeri/' . $item['gambar'] . '" alt="' . htmlspecialchars($item['judul']) . '" class="w-full h-48 object-cover">';
+                                }
+                                ?>
                                 <div class="absolute top-2 right-2 flex space-x-1">
                                     <a href="?action=edit&id=<?php echo $item['id']; ?>" class="bg-white p-2 rounded-full shadow-md hover:bg-gray-100 transition duration-300 ease-in-out">
                                         <i class="fas fa-edit text-blue-500"></i>
                                     </a>
-                                    <a href="?action=delete&id=<?php echo $item['id']; ?>" onclick="return confirm('Apakah Anda yakin ingin menghapus foto ini?')" class="bg-white p-2 rounded-full shadow-md hover:bg-gray-100 transition duration-300 ease-in-out">
+                                    <a href="?action=delete&id=<?php echo $item['id']; ?>" onclick="return confirm('Apakah Anda yakin ingin menghapus media ini?')" class="bg-white p-2 rounded-full shadow-md hover:bg-gray-100 transition duration-300 ease-in-out">
                                         <i class="fas fa-trash text-red-500"></i>
                                     </a>
                                 </div>

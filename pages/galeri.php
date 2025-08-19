@@ -109,6 +109,9 @@ foreach ($galeri_items as $item) {
     <link href="https://unpkg.com/aos@2.3.1/dist/aos.css" rel="stylesheet" />
     <script src="https://unpkg.com/aos@2.3.1/dist/aos.js"></script>
     
+    <!-- Font Awesome -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
+    
     <!-- Navbar.js Script -->
     <script src="../js/navbar.js" defer></script>
     
@@ -179,7 +182,8 @@ foreach ($galeri_items as $item) {
             cursor: pointer;
         }
 
-        .gallery-item img {
+        .gallery-item img,
+        .gallery-item video {
             width: 100%;
             height: 100%;
             object-fit: cover;
@@ -188,6 +192,11 @@ foreach ($galeri_items as $item) {
 
         .gallery-item:hover img {
             transform: scale(1.1);
+        }
+        
+        /* Video tidak perlu efek zoom saat hover karena sudah bisa diputar */
+        .gallery-item video {
+            display: block;
         }
 
         .gallery-caption {
@@ -321,14 +330,23 @@ foreach ($galeri_items as $item) {
                                 $col_span = 'col-span-2';
                             }
                             
-                            // Cek file gambar
-                            $image_path = '../uploads/galeri/' . $item['gambar'];
-                            $image_path_check = dirname(__DIR__) . '/uploads/galeri/' . $item['gambar'];
+                            // Cek file media (gambar atau video)
+                            $media_path = '../uploads/galeri/' . $item['gambar'];
+                            $media_path_check = dirname(__DIR__) . '/uploads/galeri/' . $item['gambar'];
                             $default_image = 'https://via.placeholder.com/400x300/f26622/ffffff?text=No+Image';
-                            $img_src = file_exists($image_path_check) ? $image_path : $default_image;
+                            $file_extension = strtolower(pathinfo($item['gambar'], PATHINFO_EXTENSION));
+                            $is_video = ($file_extension === 'mp4');
+                            $media_src = file_exists($media_path_check) ? $media_path : $default_image;
                         ?>
                         <div class="gallery-item <?php echo $col_span . ' ' . $row_span; ?>" data-category="<?php echo $item['kategori']; ?>">
-                            <img src="<?php echo $img_src; ?>" alt="<?php echo htmlspecialchars($item['judul']); ?>" />
+                            <?php if ($is_video): ?>
+                            <video class="w-full h-full object-cover" controls autoplay muted loop>
+                                <source src="<?php echo $media_src; ?>" type="video/mp4">
+                                Browser Anda tidak mendukung tag video.
+                            </video>
+                            <?php else: ?>
+                            <img src="<?php echo $media_src; ?>" alt="<?php echo htmlspecialchars($item['judul']); ?>" />
+                            <?php endif; ?>
                             <div class="gallery-caption">
                                 <p><?php echo htmlspecialchars($item['judul']); ?></p>
                                 <?php if (!empty($item['deskripsi'])): ?>
@@ -384,13 +402,23 @@ foreach ($galeri_items as $item) {
         // Optional: Add click handler for gallery items to open in lightbox
         document.querySelectorAll('.gallery-item').forEach(item => {
             item.addEventListener('click', function() {
-                const img = this.querySelector('img');
-                const imgSrc = img.src;
-                const imgAlt = img.alt;
+                // Cek apakah item berisi video
+                const video = this.querySelector('video');
+                if (video) {
+                    // Jika video, jangan lakukan apa-apa karena video sudah bisa diputar langsung
+                    return;
+                }
                 
-                // You can integrate with a lightbox library here
-                // For now, just open in new tab
-                window.open(imgSrc, '_blank');
+                // Jika gambar, buka di tab baru
+                const img = this.querySelector('img');
+                if (img) {
+                    const imgSrc = img.src;
+                    const imgAlt = img.alt;
+                    
+                    // You can integrate with a lightbox library here
+                    // For now, just open in new tab
+                    window.open(imgSrc, '_blank');
+                }
             });
         });
     </script>
