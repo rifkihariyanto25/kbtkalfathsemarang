@@ -1,23 +1,27 @@
 <!DOCTYPE html>
 <html lang="id">
-
-<head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>TK ISLAM AL FATH - Taman Kanak-kanak Islami</title>
 
     <!-- Tailwind CSS -->
     <script src="https://cdn.tailwindcss.com"></script>
 
     <!-- Google Fonts: Poppins -->
-    <link rel="preconnect" href="https://fonts.googleapis.com">
-    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;500;600;700;800&display=swap"
-        rel="stylesheet">
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;500;600;700;800&display=swap"
+      rel="stylesheet"
+    />
 
     <!-- Font Awesome -->
-    <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css" rel="stylesheet">
-    
+    <link
+      href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css"
+      rel="stylesheet"
+    />
+
     <!-- Animate On Scroll (AOS) Library -->
     <link href="https://unpkg.com/aos@2.3.1/dist/aos.css" rel="stylesheet" />
     <script src="https://unpkg.com/aos@2.3.1/dist/aos.js"></script>
@@ -29,763 +33,1144 @@
     <script src="../js/footer.js" defer></script>
 
     <style>
-        body {
-            font-family: 'Poppins', sans-serif;
-            overflow-x: hidden;
+      body {
+        font-family: "Poppins", sans-serif;
+        overflow-x: hidden;
+      }
+
+      /* Pola latar belakang yang lucu */
+      .pattern-bg {
+        background-color: #fffaf0;
+        background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='28' height='49' viewBox='0 0 28 49'%3E%3Cg fill-rule='evenodd'%3E%3Cg id='hexagons' fill='%23fef3c7' fill-opacity='0.4' fill-rule='nonzero'%3E%3Cpath d='M13.99 9.25l13 7.5v15l-13 7.5L1 31.75v-15l12.99-7.5zM3 17.9v12.7l10.99 6.34 11-6.35V17.9l-11-6.34L3 17.9zM0 15l12.99 7.5V30L0 22.5zM28 15L15 22.5V30l13-7.5z'/%3E%3C/g%3E%3C/g%3E%3C/svg%3E");
+        position: relative;
+        overflow: hidden;
+      }
+
+      .pattern-bg::before {
+        content: "";
+        position: absolute;
+        top: 0;
+        left: 0;
+        width: 100%;
+        height: 100%;
+        background-image: radial-gradient(
+          rgba(249, 115, 22, 0.1) 2px,
+          transparent 2px
+        );
+        background-size: 30px 30px;
+        z-index: -1;
+      }
+
+      .wavy-underline {
+        background-image: url("data:image/svg+xml;charset=utf8,%3Csvg id='squiggle-link' xmlns='http://www.w3.org/2000/svg' xmlns:xlink='http://www.w3.org/1999/xlink' xmlns:ev='http://www.w3.org/2001/xml-events' viewBox='0 0 20 4'%3E%3Cstyle type='text/css'%3E.squiggle{animation:shift .3s linear infinite;}@keyframes shift {from {transform:translateX(0);}to {transform:translateX(-20px);}}%3E%3C/style%3E%3Cpath fill='none' stroke='%23f97316' stroke-width='2' class='squiggle' d='M0,3.5 C 5,3.5 5,0 10,0 C 15,0 15,3.5 20,3.5 C 25,3.5 25,0 30,0 C 35,0 35,3.5 40,3.5'/%3E%3C/svg%3E");
+        background-position: 0 100%;
+        background-size: auto 6px;
+        background-repeat: repeat-x;
+        text-decoration: none;
+        padding-bottom: 5px;
+        position: relative;
+        display: inline-block;
+      }
+
+      .wavy-underline::after {
+        content: "";
+        position: absolute;
+        left: 0;
+        bottom: -5px;
+        width: 100%;
+        height: 4px;
+        background: linear-gradient(45deg, #f97316, #fb923c, #f97316, #fb923c);
+        background-size: 200% 200%;
+        animation: gradient 2s ease infinite;
+        border-radius: 2px;
+      }
+
+      @keyframes gradient {
+        0% {
+          background-position: 0% 50%;
         }
 
-        /* Pola latar belakang yang lucu */
-        .pattern-bg {
-            background-color: #fffaf0;
-            background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='28' height='49' viewBox='0 0 28 49'%3E%3Cg fill-rule='evenodd'%3E%3Cg id='hexagons' fill='%23fef3c7' fill-opacity='0.4' fill-rule='nonzero'%3E%3Cpath d='M13.99 9.25l13 7.5v15l-13 7.5L1 31.75v-15l12.99-7.5zM3 17.9v12.7l10.99 6.34 11-6.35V17.9l-11-6.34L3 17.9zM0 15l12.99 7.5V30L0 22.5zM28 15L15 22.5V30l13-7.5z'/%3E%3C/g%3E%3C/g%3E%3C/svg%3E");
-            position: relative;
-            overflow: hidden;
+        50% {
+          background-position: 100% 50%;
         }
 
-        .pattern-bg::before {
-            content: '';
-            position: absolute;
-            top: 0;
-            left: 0;
-            width: 100%;
-            height: 100%;
-            background-image: radial-gradient(rgba(249, 115, 22, 0.1) 2px, transparent 2px);
-            background-size: 30px 30px;
-            z-index: -1;
+        100% {
+          background-position: 0% 50%;
         }
+      }
 
-        .wavy-underline {
-            background-image: url("data:image/svg+xml;charset=utf8,%3Csvg id='squiggle-link' xmlns='http://www.w3.org/2000/svg' xmlns:xlink='http://www.w3.org/1999/xlink' xmlns:ev='http://www.w3.org/2001/xml-events' viewBox='0 0 20 4'%3E%3Cstyle type='text/css'%3E.squiggle{animation:shift .3s linear infinite;}@keyframes shift {from {transform:translateX(0);}to {transform:translateX(-20px);}}%3E%3C/style%3E%3Cpath fill='none' stroke='%23f97316' stroke-width='2' class='squiggle' d='M0,3.5 C 5,3.5 5,0 10,0 C 15,0 15,3.5 20,3.5 C 25,3.5 25,0 30,0 C 35,0 35,3.5 40,3.5'/%3E%3C/svg%3E");
-            background-position: 0 100%;
-            background-size: auto 6px;
-            background-repeat: repeat-x;
-            text-decoration: none;
-            padding-bottom: 5px;
-            position: relative;
-            display: inline-block;
-        }
+      /* Dot pattern styling */
+      .dot-pattern {
+        position: absolute;
+        top: 20px;
+        right: 20px;
+        z-index: 1;
+      }
 
-        .wavy-underline::after {
-            content: '';
-            position: absolute;
-            left: 0;
-            bottom: -5px;
-            width: 100%;
-            height: 4px;
-            background: linear-gradient(45deg, #f97316, #fb923c, #f97316, #fb923c);
-            background-size: 200% 200%;
-            animation: gradient 2s ease infinite;
-            border-radius: 2px;
-        }
-
-        @keyframes gradient {
-            0% {
-                background-position: 0% 50%;
-            }
-
-            50% {
-                background-position: 100% 50%;
-            }
-
-            100% {
-                background-position: 0% 50%;
-            }
-        }
-
-        /* Dot pattern styling */
-        .dot-pattern {
-            position: absolute;
-            top: 20px;
-            right: 20px;
-            z-index: 1;
-        }
-
-        .dot {
-            background-color: #f97316;
-            opacity: 0.6;
-        }
+      .dot {
+        background-color: #f97316;
+        opacity: 0.6;
+      }
     </style>
-</head>
+  </head>
 
-<body class="bg-orange-50/50">
+  <body class="bg-orange-50/50">
     <!-- Navbar akan dimasukkan oleh navbar.js -->
 
     <main class="py-20">
-        <div class="container mx-auto px-6">
-            <!-- <div class="text-center mb-12">
+      <div class="container mx-auto px-6">
+        <!-- <div class="text-center mb-12">
             <h1 class="inline-block text-4xl md:text-5xl font-extrabold text-orange-500 mb-4"><span class="wavy-underline">Kelompok Bermain Al-Fath</span></h1>
             <p class="text-gray-600 mt-4 text-lg">Tempat terbaik untuk anak-anak belajar dan bermain dengan nilai-nilai Islami</p>
         </div> -->
 
-            <div
-                class="max-w-6xl mx-auto bg-white rounded-2xl shadow-xl overflow-hidden border-t-4 border-orange-500 pattern-bg" data-aos="fade-up" data-aos-duration="1000">
-                <div class="flex flex-col md:flex-row">
-                    <!-- Left Section - Profil Sekolah -->
-                    <section class="w-full md:w-2/5 p-4 md:p-8 bg-white" data-aos="fade-right" data-aos-delay="200">
-                        <h2 class="text-3xl font-bold text-orange-600 mb-6" data-aos="fade-up" data-aos-delay="300">Profil TK ISLAM AL FATH</h2>
-                        <p class="text-gray-600 leading-relaxed mb-8" data-aos="fade-up" data-aos-delay="400">
-                            Kami menciptakan suasana hangat dan menyenangkan yang mendorong rasa ingin tahu anak sejak
-                            dini.
-                            Dengan pendekatan belajar sambil bermain, setiap anak diajak menjelajahi dan belajar dengan
-                            cara
-                            yang seru dan penuh kasih.
-                        </p>
+        <div
+          class="max-w-6xl mx-auto bg-white rounded-2xl shadow-xl overflow-hidden border-t-4 border-orange-500 pattern-bg"
+          data-aos="fade-up"
+          data-aos-duration="1000"
+        >
+          <div class="flex flex-col md:flex-row">
+            <!-- Left Section - Profil Sekolah -->
+            <section
+              class="w-full md:w-2/5 p-4 md:p-8 bg-white"
+              data-aos="fade-right"
+              data-aos-delay="200"
+            >
+              <h2
+                class="text-3xl font-bold text-orange-600 mb-6"
+                data-aos="fade-up"
+                data-aos-delay="300"
+              >
+                Profil TK ISLAM AL FATH
+              </h2>
+              <p
+                class="text-gray-600 leading-relaxed mb-8"
+                data-aos="fade-up"
+                data-aos-delay="400"
+              >
+                Kami menciptakan suasana hangat dan menyenangkan yang mendorong
+                rasa ingin tahu anak sejak dini. Dengan pendekatan belajar
+                sambil bermain, setiap anak diajak menjelajahi dan belajar
+                dengan cara yang seru dan penuh kasih.
+              </p>
 
-                        <!-- Accreditation Badge -->
-                        <div class="flex items-center bg-orange-50 p-4 rounded-xl shadow-sm" data-aos="fade-up" data-aos-delay="500">
-                            <div class="relative">
-                                <div
-                                    class="w-20 h-20 bg-orange-500 rounded-full flex items-center justify-center text-white text-4xl font-bold shadow-lg">
-                                    B
-                                </div>
-                                <i class="fas fa-star text-yellow-500 text-xl absolute -top-1 -left-1"></i>
-                                <i class="fas fa-star text-yellow-500 text-xl absolute -bottom-1 -right-1"></i>
-                            </div>
-                            <div class="ml-4">
-                                <p class="text-sm text-orange-500 font-medium uppercase">BADAN AKREDITASI NASIONAL (BAN
-                                    S/M)</p>
-                                <h3 class="text-lg font-bold text-gray-800">Terakreditasi "B" (Baik)</h3>
-                                <p class="text-sm text-gray-600 mt-1">
-                                    Berdasarkan penilaian BAN-PDM, TK ISLAM AL FATH telah memenuhi standar pendidikan nasional
-                                    dengan
-                                    predikat baik, menunjukkan komitmen kami dalam menyediakan pendidikan berkualitas
-                                </p>
-                            </div>
-                        </div>
-                    </section>
-
-                    <!-- Right Section - Features Grid -->
-                    <section class="w-full md:w-3/5 p-4 md:p-8 bg-orange-50/50" data-aos="fade-left" data-aos-delay="200">
-                        <h3 class="text-xl md:text-2xl font-bold text-red-500 mb-4 md:mb-6" data-aos="fade-up" data-aos-delay="300">Program Unggulan KB</h3>
-                        <div class="grid grid-cols-1 sm:grid-cols-2 gap-4 md:gap-6">
-                            <!-- Hafalan doa-doa harian -->
-                            <div
-                                class="bg-white p-6 rounded-xl shadow-md hover:shadow-lg transition-all duration-300 transform hover:-translate-y-1" data-aos="fade-up" data-aos-delay="400">
-                                <div
-                                    class="w-14 h-14 bg-orange-100 rounded-full flex items-center justify-center mb-4 shadow-sm">
-                                    <i class="fas fa-hands-praying text-orange-500 text-xl"></i>
-                                </div>
-                                <h3 class="font-bold text-orange-600 mb-2">Hafalan Doa-doa Harian</h3>
-                                <p class="text-gray-600">
-                                    Mengajarkan doa-doa sehari-hari agar anak terbiasa berdoa dalam berbagai aktivitas.
-                                </p>
-                            </div>
-
-                            <!-- Mengaji dengan Metode Yanbu'a -->
-                            <div
-                                class="bg-white p-6 rounded-xl shadow-md hover:shadow-lg transition-all duration-300 transform hover:-translate-y-1" data-aos="fade-up" data-aos-delay="500">
-                                <div
-                                    class="w-14 h-14 bg-yellow-100 rounded-full flex items-center justify-center mb-4 shadow-sm">
-                                    <i class="fas fa-book-quran text-yellow-600 text-xl"></i>
-                                </div>
-                                <h3 class="font-bold text-orange-600 mb-2">Mengaji dengan Metode Yanbu'a</h3>
-                                <p class="text-gray-600">
-                                    Belajar membaca Al-Qur'an dengan metode yanbu'a yang terstruktur dan mudah dipahami.
-                                </p>
-                            </div>
-
-                            <!-- Indoor Outdoor Activity -->
-                            <div
-                                class="bg-white p-6 rounded-xl shadow-md hover:shadow-lg transition-all duration-300 transform hover:-translate-y-1" data-aos="fade-up" data-aos-delay="600">
-                                <div
-                                    class="w-14 h-14 bg-green-100 rounded-full flex items-center justify-center mb-4 shadow-sm">
-                                    <i class="fas fa-child text-green-500 text-xl"></i>
-                                </div>
-                                <h3 class="font-bold text-orange-600 mb-2">Indoor Outdoor Activity</h3>
-                                <p class="text-gray-600">
-                                    Permainan stimulasi motorik kasar dan halus di dalam maupun luar kelas.
-                                </p>
-                            </div>
-
-                            <!-- Pembiasaan Praktik Shalat -->
-                            <div
-                                class="bg-white p-6 rounded-xl shadow-md hover:shadow-lg transition-all duration-300 transform hover:-translate-y-1" data-aos="fade-up" data-aos-delay="700">
-                                <div
-                                    class="w-14 h-14 bg-orange-100 rounded-full flex items-center justify-center mb-4 shadow-sm">
-                                    <i class="fas fa-pray text-orange-500 text-xl"></i>
-                                </div>
-                                <h3 class="font-bold text-orange-600 mb-2">Pembiasaan Praktik Shalat</h3>
-                                <p class="text-gray-600">
-                                    Mengenalkan gerakan dan bacaan shalat secara bertahap hingga anak melaksanakan
-                                    shalat dengan
-                                    benar.
-                                </p>
-                            </div>
-                        </div>
-                    </section>
+              <!-- Accreditation Badge -->
+              <div
+                class="flex items-center bg-orange-50 p-4 rounded-xl shadow-sm"
+                data-aos="fade-up"
+                data-aos-delay="500"
+              >
+                <div class="relative">
+                  <div
+                    class="w-20 h-20 bg-orange-500 rounded-full flex items-center justify-center text-white text-4xl font-bold shadow-lg"
+                  >
+                    B
+                  </div>
+                  <i
+                    class="fas fa-star text-yellow-500 text-xl absolute -top-1 -left-1"
+                  ></i>
+                  <i
+                    class="fas fa-star text-yellow-500 text-xl absolute -bottom-1 -right-1"
+                  ></i>
                 </div>
-            </div>
+                <div class="ml-4">
+                  <p class="text-sm text-orange-500 font-medium uppercase">
+                    BADAN AKREDITASI NASIONAL (BAN S/M)
+                  </p>
+                  <h3 class="text-lg font-bold text-gray-800">
+                    Terakreditasi "B" (Baik)
+                  </h3>
+                  <p class="text-sm text-gray-600 mt-1">
+                    Berdasarkan penilaian BAN-PDM, TK ISLAM AL FATH telah
+                    memenuhi standar pendidikan nasional dengan predikat baik,
+                    menunjukkan komitmen kami dalam menyediakan pendidikan
+                    berkualitas
+                  </p>
+                </div>
+              </div>
+            </section>
+
+            <!-- Right Section - Features Grid -->
+            <section
+              class="w-full md:w-3/5 p-4 md:p-8 bg-orange-50/50"
+              data-aos="fade-left"
+              data-aos-delay="200"
+            >
+              <h3
+                class="text-xl md:text-2xl font-bold text-red-500 mb-4 md:mb-6"
+                data-aos="fade-up"
+                data-aos-delay="300"
+              >
+                Program Unggulan TK ISLAM AL FATH
+              </h3>
+              <div class="grid grid-cols-1 sm:grid-cols-2 gap-4 md:gap-6">
+                <!-- Hafalan doa-doa harian -->
+                <div
+                  class="bg-white p-6 rounded-xl shadow-md hover:shadow-lg transition-all duration-300 transform hover:-translate-y-1"
+                  data-aos="fade-up"
+                  data-aos-delay="400"
+                >
+                  <div
+                    class="w-14 h-14 bg-orange-100 rounded-full flex items-center justify-center mb-4 shadow-sm"
+                  >
+                    <i class="fas fa-hands-praying text-orange-500 text-xl"></i>
+                  </div>
+                  <h3 class="font-bold text-orange-600 mb-2">
+                    Hafalan Doa-doa Harian
+                  </h3>
+                  <p class="text-gray-600">
+                    Mengajarkan doa-doa sehari-hari agar anak terbiasa berdoa
+                    dalam berbagai aktivitas.
+                  </p>
+                </div>
+
+                <!-- Mengaji dengan Metode Yanbu'a -->
+                <div
+                  class="bg-white p-6 rounded-xl shadow-md hover:shadow-lg transition-all duration-300 transform hover:-translate-y-1"
+                  data-aos="fade-up"
+                  data-aos-delay="500"
+                >
+                  <div
+                    class="w-14 h-14 bg-yellow-100 rounded-full flex items-center justify-center mb-4 shadow-sm"
+                  >
+                    <i class="fas fa-book-quran text-yellow-600 text-xl"></i>
+                  </div>
+                  <h3 class="font-bold text-orange-600 mb-2">
+                    Mengaji dengan Metode Yanbu'a
+                  </h3>
+                  <p class="text-gray-600">
+                    Belajar membaca Al-Qur'an dengan metode yanbu'a yang
+                    terstruktur dan mudah dipahami.
+                  </p>
+                </div>
+
+                <!-- Indoor Outdoor Activity -->
+                <div
+                  class="bg-white p-6 rounded-xl shadow-md hover:shadow-lg transition-all duration-300 transform hover:-translate-y-1"
+                  data-aos="fade-up"
+                  data-aos-delay="600"
+                >
+                  <div
+                    class="w-14 h-14 bg-green-100 rounded-full flex items-center justify-center mb-4 shadow-sm"
+                  >
+                    <i class="fas fa-child text-green-500 text-xl"></i>
+                  </div>
+                  <h3 class="font-bold text-orange-600 mb-2">
+                    Indoor Outdoor Activity
+                  </h3>
+                  <p class="text-gray-600">
+                    Permainan stimulasi motorik kasar dan halus di dalam maupun
+                    luar kelas.
+                  </p>
+                </div>
+
+                <!-- Pembiasaan Praktik Shalat -->
+                <div
+                  class="bg-white p-6 rounded-xl shadow-md hover:shadow-lg transition-all duration-300 transform hover:-translate-y-1"
+                  data-aos="fade-up"
+                  data-aos-delay="700"
+                >
+                  <div
+                    class="w-14 h-14 bg-orange-100 rounded-full flex items-center justify-center mb-4 shadow-sm"
+                  >
+                    <i class="fas fa-pray text-orange-500 text-xl"></i>
+                  </div>
+                  <h3 class="font-bold text-orange-600 mb-2">
+                    Pembiasaan Praktik Shalat
+                  </h3>
+                  <p class="text-gray-600">
+                    Mengenalkan gerakan dan bacaan shalat secara bertahap hingga
+                    anak melaksanakan shalat dengan benar.
+                  </p>
+                </div>
+              </div>
+            </section>
+          </div>
         </div>
+      </div>
     </main>
 
     <section
-        class="w-full max-w-5xl mx-auto my-8 md:my-16 flex flex-col md:flex-row items-center bg-white rounded-lg shadow-xl p-4 md:p-8 relative" data-aos="fade-up">
-        <div class="dot-pattern hidden md:block" data-aos="fade-right" data-aos-delay="200">
-            <div class="flex space-x-2 mb-2">
-                <span class="dot w-3 h-3 rounded-full"></span>
-                <span class="dot w-3 h-3 rounded-full"></span>
-                <span class="dot w-3 h-3 rounded-full"></span>
-                <span class="dot w-3 h-3 rounded-full"></span>
-            </div>
-            <div class="flex space-x-2">
-                <span class="dot w-3 h-3 rounded-full"></span>
-                <span class="dot w-3 h-3 rounded-full"></span>
-                <span class="dot w-3 h-3 rounded-full"></span>
-                <span class="dot w-3 h-3 rounded-full"></span>
-            </div>
+      class="w-full max-w-5xl mx-auto my-8 md:my-16 flex flex-col md:flex-row items-center bg-white rounded-lg shadow-xl p-4 md:p-8 relative"
+      data-aos="fade-up"
+    >
+      <div
+        class="dot-pattern hidden md:block"
+        data-aos="fade-right"
+        data-aos-delay="200"
+      >
+        <div class="flex space-x-2 mb-2">
+          <span class="dot w-3 h-3 rounded-full"></span>
+          <span class="dot w-3 h-3 rounded-full"></span>
+          <span class="dot w-3 h-3 rounded-full"></span>
+          <span class="dot w-3 h-3 rounded-full"></span>
         </div>
+        <div class="flex space-x-2">
+          <span class="dot w-3 h-3 rounded-full"></span>
+          <span class="dot w-3 h-3 rounded-full"></span>
+          <span class="dot w-3 h-3 rounded-full"></span>
+          <span class="dot w-3 h-3 rounded-full"></span>
+        </div>
+      </div>
 
-        <div class="w-full md:w-1/2 p-2 md:p-4 md:pr-8 flex-shrink-0" data-aos="fade-right" data-aos-delay="400">
-            <div
-                class="relative rounded-lg overflow-hidden shadow-md transition-all duration-300 hover:shadow-xl transform hover:-translate-y-1">
-                <img src="assets/kepala sekolah.png" alt="Foto Kepala Sekolah KB Al-Fath"
-                    class="w-full h-auto object-cover transition-transform duration-500 hover:scale-105">
-                <div class="absolute bottom-0 left-0 right-0 bg-orange-500 bg-opacity-80 text-white p-3 text-center">
-                    <p class="font-semibold">Kepala Sekolah KB Al-Fath</p>
-                </div>
-            </div>
+      <div
+        class="w-full md:w-1/2 p-2 md:p-4 md:pr-8 flex-shrink-0"
+        data-aos="fade-right"
+        data-aos-delay="400"
+      >
+        <div
+          class="relative rounded-lg overflow-hidden shadow-md transition-all duration-300 hover:shadow-xl transform hover:-translate-y-1"
+        >
+          <img
+            src="assets/kepala sekolah.png"
+            alt="Foto Kepala Sekolah TK ISLAM AL FATH"
+            class="w-full h-auto object-cover transition-transform duration-500 hover:scale-105"
+          />
+          <div
+            class="absolute bottom-0 left-0 right-0 bg-orange-500 bg-opacity-80 text-white p-3 text-center"
+          >
+            <p class="font-semibold">Kepala Sekolah TK ISLAM AL FATH</p>
+          </div>
         </div>
+      </div>
 
-        <div class="w-full md:w-1/2 p-2 md:p-4" data-aos="fade-left" data-aos-delay="600">
-            <div class="relative">
-                <h2 class="text-2xl md:text-3xl font-bold text-gray-800 inline-block">Sambutan Kepala Sekolah</h2>
-                <div class="absolute -bottom-2 left-0 w-1/3 h-1 bg-orange-500 rounded-full"></div>
-            </div>
-            <h3 class="text-xl md:text-2xl font-semibold text-red-500 mt-4">Ibu, S.Pd</h3>
-            <div class="border-l-4 border-orange-500 pl-4 my-6" data-aos="fade-up" data-aos-delay="800">
-                <p class="text-gray-600 italic">
-                    Assalamu'alaikum Warahmatullahi Wabarakatuh.
-                    Puji dan syukur mari kita panjatkan ke hadirat Allah SWT, yang senantiasa dengan kasih sayang-Nya
-                    memberikan kesehatan dan nikmat kepada kita semua.
-                </p>
-            </div>
-            <p class="text-gray-700 mt-4" data-aos="fade-up" data-aos-delay="1000">
-                KB Al Fath hadir untuk mendampingi langkah awal tumbuh kembang anak dalam suasana yang hangat, aman, dan
-                menyenangkan. Kami percaya, masa usia dini adalah pondasi penting untuk membentuk karakter dan
-                kemandirian anak. Di sini, kami tidak hanya fokus pada aspek akademis, tetapi juga menanamkan
-                nilai-nilai
-                islami dan akhlak mulia sejak dini.
-            </p>
-            <p class="text-gray-700 mt-4" data-aos="fade-up" data-aos-delay="1200">
-                Terima kasih atas kepercayaan Ayah dan Bunda yang telah mempercayakan pendidikan buah hati kepada kami.
-                Semoga Allah SWT meridhai setiap ikhtiar kita dalam mendidik generasi penerus bangsa yang berakhlak
-                mulia.
-            </p>
-            <div class="text-right mt-6" data-aos="fade-up" data-aos-delay="1400">
-                <p class="text-gray-700 font-semibold inline-block">
-                    Wassalamu'alaikum Warahmatullahi Wabarakatuh
-                </p>
-            </div>
+      <div
+        class="w-full md:w-1/2 p-2 md:p-4"
+        data-aos="fade-left"
+        data-aos-delay="600"
+      >
+        <div class="relative">
+          <h2 class="text-2xl md:text-3xl font-bold text-gray-800 inline-block">
+            Sambutan Kepala Sekolah
+          </h2>
+          <div
+            class="absolute -bottom-2 left-0 w-1/3 h-1 bg-orange-500 rounded-full"
+          ></div>
         </div>
+        <h3 class="text-xl md:text-2xl font-semibold text-red-500 mt-4">
+          Ibu, S.Pd
+        </h3>
+        <div
+          class="border-l-4 border-orange-500 pl-4 my-6"
+          data-aos="fade-up"
+          data-aos-delay="800"
+        >
+          <p class="text-gray-600 italic">
+            Assalamu'alaikum Warahmatullahi Wabarakatuh. Puji dan syukur mari
+            kita panjatkan ke hadirat Allah SWT, yang senantiasa dengan kasih
+            sayang-Nya memberikan kesehatan dan nikmat kepada kita semua.
+          </p>
+        </div>
+        <p class="text-gray-700 mt-4" data-aos="fade-up" data-aos-delay="1000">
+          TK ISLAM AL FATH hadir untuk mendampingi langkah awal tumbuh kembang
+          anak dalam suasana yang hangat, aman, dan menyenangkan. Kami percaya,
+          masa usia dini adalah pondasi penting untuk membentuk karakter dan
+          kemandirian anak. Di sini, kami tidak hanya fokus pada aspek akademis,
+          tetapi juga menanamkan nilai-nilai islami dan akhlak mulia sejak dini.
+        </p>
+        <p class="text-gray-700 mt-4" data-aos="fade-up" data-aos-delay="1200">
+          Terima kasih atas kepercayaan Ayah dan Bunda yang telah mempercayakan
+          pendidikan buah hati kepada kami. Semoga Allah SWT meridhai setiap
+          ikhtiar kita dalam mendidik generasi penerus bangsa yang berakhlak
+          mulia.
+        </p>
+        <div class="text-right mt-6" data-aos="fade-up" data-aos-delay="1400">
+          <p class="text-gray-700 font-semibold inline-block">
+            Wassalamu'alaikum Warahmatullahi Wabarakatuh
+          </p>
+        </div>
+      </div>
     </section>
 
     <script>
-        document.addEventListener('DOMContentLoaded', function() {
-            // Staff Slider Functionality
-            const staffSlider = document.querySelector('.staff-slider-track');
-            const staffSlides = document.querySelectorAll('.staff-slide');
-            const staffDots = document.querySelectorAll('.staff-dot');
-            const prevStaffBtn = document.getElementById('prevStaffBtn');
-            const nextStaffBtn = document.getElementById('nextStaffBtn');
-            
-            let staffCurrentIndex = 0;
-            let staffSlidesPerView = 3;
-            
-            // Responsive slides per view
-            function updateSlidesPerView() {
-                if (window.innerWidth < 640) {
-                    staffSlidesPerView = 1;
-                } else if (window.innerWidth < 768) {
-                    staffSlidesPerView = 2;
-                } else {
-                    staffSlidesPerView = 3;
-                }
-                updateStaffSlider();
-            }
-            
-            function updateStaffSlider() {
-                const slideWidth = 100 / staffSlidesPerView;
-                staffSlides.forEach(slide => {
-                    slide.style.width = `${slideWidth}%`;
-                });
-                
-                const translateValue = -staffCurrentIndex * (100 / staffSlidesPerView);
-                staffSlider.style.transform = `translateX(${translateValue}%)`;
-                
-                // Update dots
-                staffDots.forEach((dot, index) => {
-                    dot.classList.toggle('bg-orange-500', index === Math.floor(staffCurrentIndex / staffSlidesPerView));
-                    dot.classList.toggle('bg-gray-300', index !== Math.floor(staffCurrentIndex / staffSlidesPerView));
-                });
-            }
-            
-            // Event listeners
-            prevStaffBtn.addEventListener('click', () => {
-                if (staffCurrentIndex > 0) {
-                    staffCurrentIndex--;
-                    updateStaffSlider();
-                }
-            });
-            
-            nextStaffBtn.addEventListener('click', () => {
-                if (staffCurrentIndex < staffSlides.length - staffSlidesPerView) {
-                    staffCurrentIndex++;
-                    updateStaffSlider();
-                }
-            });
-            
-            staffDots.forEach((dot, index) => {
-                dot.addEventListener('click', () => {
-                    staffCurrentIndex = index * staffSlidesPerView;
-                    if (staffCurrentIndex > staffSlides.length - staffSlidesPerView) {
-                        staffCurrentIndex = staffSlides.length - staffSlidesPerView;
-                    }
-                    updateStaffSlider();
-                });
-            });
-            
-            // Initial setup
-            updateSlidesPerView();
-            
-            // Update on resize
-            window.addEventListener('resize', updateSlidesPerView);
+      document.addEventListener("DOMContentLoaded", function () {
+        // Staff Slider Functionality
+        const staffSlider = document.querySelector(".staff-slider-track");
+        const staffSlides = document.querySelectorAll(".staff-slide");
+        const staffDots = document.querySelectorAll(".staff-dot");
+        const prevStaffBtn = document.getElementById("prevStaffBtn");
+        const nextStaffBtn = document.getElementById("nextStaffBtn");
+
+        let staffCurrentIndex = 0;
+        let staffSlidesPerView = 3;
+
+        // Responsive slides per view
+        function updateSlidesPerView() {
+          if (window.innerWidth < 640) {
+            staffSlidesPerView = 1;
+          } else if (window.innerWidth < 768) {
+            staffSlidesPerView = 2;
+          } else {
+            staffSlidesPerView = 3;
+          }
+          updateStaffSlider();
+        }
+
+        function updateStaffSlider() {
+          const slideWidth = 100 / staffSlidesPerView;
+          staffSlides.forEach((slide) => {
+            slide.style.width = `${slideWidth}%`;
+          });
+
+          const translateValue =
+            -staffCurrentIndex * (100 / staffSlidesPerView);
+          staffSlider.style.transform = `translateX(${translateValue}%)`;
+
+          // Update dots
+          staffDots.forEach((dot, index) => {
+            dot.classList.toggle(
+              "bg-orange-500",
+              index === Math.floor(staffCurrentIndex / staffSlidesPerView)
+            );
+            dot.classList.toggle(
+              "bg-gray-300",
+              index !== Math.floor(staffCurrentIndex / staffSlidesPerView)
+            );
+          });
+        }
+
+        // Event listeners
+        prevStaffBtn.addEventListener("click", () => {
+          if (staffCurrentIndex > 0) {
+            staffCurrentIndex--;
+            updateStaffSlider();
+          }
         });
+
+        nextStaffBtn.addEventListener("click", () => {
+          if (staffCurrentIndex < staffSlides.length - staffSlidesPerView) {
+            staffCurrentIndex++;
+            updateStaffSlider();
+          }
+        });
+
+        staffDots.forEach((dot, index) => {
+          dot.addEventListener("click", () => {
+            staffCurrentIndex = index * staffSlidesPerView;
+            if (staffCurrentIndex > staffSlides.length - staffSlidesPerView) {
+              staffCurrentIndex = staffSlides.length - staffSlidesPerView;
+            }
+            updateStaffSlider();
+          });
+        });
+
+        // Initial setup
+        updateSlidesPerView();
+
+        // Update on resize
+        window.addEventListener("resize", updateSlidesPerView);
+      });
     </script>
 
     <!-- STAFF SECTION -->
     <section class="py-16 bg-orange-50/50 pattern-bg" data-aos="fade-up">
-        <div class="container mx-auto px-6">
-            <div class="text-center mb-16" data-aos="fade-up" data-aos-delay="200">
-                <h2 class="inline-block text-3xl md:text-4xl font-extrabold text-gray-800"><span class="wavy-underline">Staf
-                        Pengajar KB Al-Fath</span></h2>
-                <p class="text-gray-600 mt-4 text-base md:text-lg">Kenali para pendidik hebat yang mendampingi putra-putri Anda</p>
-            </div>
-
-            <div class="relative max-w-5xl mx-auto" data-aos="fade-up" data-aos-delay="300">
-                <!-- Staff Slider Container -->
-                <div class="staff-slider overflow-hidden">
-                    <div class="staff-slider-track flex transition-transform duration-500"
-                        style="transform: translateX(0)">
-                        <!-- Staff Card 1 -->
-                        <div class="staff-slide w-full sm:w-1/2 md:w-1/3 flex-shrink-0 px-2 md:px-4" data-aos="fade-up" data-aos-delay="400">
-                            <div
-                                class="bg-white rounded-xl shadow-md overflow-hidden hover:shadow-lg transition-all duration-300 transform hover:-translate-y-2">
-                                <div class="relative">
-                                    <img src="assets/kepala sekolah.png" alt="Ibu Siti Nurjanah"
-                                        class="w-full h-64 object-cover object-center">
-                                    <div
-                                        class="absolute top-0 right-0 bg-orange-500 text-white px-4 py-2 rounded-bl-lg font-semibold">
-                                        Kepala Sekolah</div>
-                                </div>
-                                <div class="p-6">
-                                    <h3 class="text-xl font-bold text-gray-800">Ibu Siti Nurjanah, S.Pd</h3>
-                                    <p class="text-gray-600 mt-2">Memimpin KB Al-Fath dengan visi pendidikan holistik
-                                        yang mengintegrasikan nilai-nilai islami dan perkembangan anak.</p>
-                                </div>
-                            </div>
-                        </div>
-
-                        <!-- Staff Card 2 -->
-                        <div class="staff-slide w-full sm:w-1/2 md:w-1/3 flex-shrink-0 px-2 md:px-4" data-aos="fade-up" data-aos-delay="500">
-                            <div
-                                class="bg-white rounded-xl shadow-md overflow-hidden hover:shadow-lg transition-all duration-300 transform hover:-translate-y-2">
-                                <div class="relative">
-                                    <img src="assets/mb.png" alt="Ibu Fatimah"
-                                        class="w-full h-64 object-cover object-center">
-                                    <div
-                                        class="absolute top-0 right-0 bg-orange-500 text-white px-4 py-2 rounded-bl-lg font-semibold">
-                                        Guru Kelas</div>
-                                </div>
-                                <div class="p-6">
-                                    <h3 class="text-xl font-bold text-gray-800">Ibu Fatimah, S.Pd</h3>
-                                    <p class="text-gray-600 mt-2">Spesialis dalam pengembangan motorik halus dan
-                                        kreativitas anak dengan pendekatan bermain sambil belajar.</p>
-                                </div>
-                            </div>
-                        </div>
-
-                        <!-- Staff Card 3 -->
-                        <div class="staff-slide w-full sm:w-1/2 md:w-1/3 flex-shrink-0 px-2 md:px-4" data-aos="fade-up" data-aos-delay="600">
-                            <div
-                                class="bg-white rounded-xl shadow-md overflow-hidden hover:shadow-lg transition-all duration-300 transform hover:-translate-y-2">
-                                <div class="relative">
-                                    <img src="assets/mb.png" alt="Ibu Aisyah"
-                                        class="w-full h-64 object-cover object-center">
-                                    <div
-                                        class="absolute top-0 right-0 bg-orange-500 text-white px-4 py-2 rounded-bl-lg font-semibold">
-                                        Guru Pendamping</div>
-                                </div>
-                                <div class="p-6">
-                                    <h3 class="text-xl font-bold text-gray-800">Ibu Aisyah, S.Pd.I</h3>
-                                    <p class="text-gray-600 mt-2">Fokus pada pendidikan agama dan akhlak mulia dengan
-                                        metode bercerita dan praktik langsung.</p>
-                                </div>
-                            </div>
-                        </div>
-
-                        <!-- Staff Card 4 -->
-                        <div class="staff-slide w-full sm:w-1/2 md:w-1/3 flex-shrink-0 px-2 md:px-4" data-aos="fade-up" data-aos-delay="700">
-                            <div
-                                class="bg-white rounded-xl shadow-md overflow-hidden hover:shadow-lg transition-all duration-300 transform hover:-translate-y-2">
-                                <div class="relative">
-                                    <img src="assets/mb.png" alt="Bapak Ahmad"
-                                        class="w-full h-64 object-cover object-center">
-                                    <div
-                                        class="absolute top-0 right-0 bg-orange-500 text-white px-4 py-2 rounded-bl-lg font-semibold">
-                                        Guru Ekstrakurikuler</div>
-                                </div>
-                                <div class="p-6">
-                                    <h3 class="text-xl font-bold text-gray-800">Bapak Ahmad, S.Pd</h3>
-                                    <p class="text-gray-600 mt-2">Mengajar kegiatan ekstrakurikuler dengan fokus pada
-                                        pengembangan fisik dan keterampilan sosial anak.</p>
-                                </div>
-                            </div>
-                        </div>
-                    </div>
-                </div>
-
-                <!-- Navigation Buttons -->
-                <button id="prevStaffBtn"
-                    class="absolute left-0 top-1/2 -translate-y-1/2 z-10 bg-orange-500 text-white p-2 md:p-3 rounded-full shadow-lg hover:bg-orange-600 transition-colors duration-300">
-                    <svg xmlns="http://www.w3.org/2000/svg" class="h-6 w-6" fill="none" viewBox="0 0 24 24"
-                        stroke="currentColor">
-                        <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M15 19l-7-7 7-7" />
-                    </svg>
-                </button>
-                <button id="nextStaffBtn"
-                    class="absolute right-0 top-1/2 -translate-y-1/2 z-10 bg-orange-500 text-white p-2 md:p-3 rounded-full shadow-lg hover:bg-orange-600 transition-colors duration-300">
-                    <svg xmlns="http://www.w3.org/2000/svg" class="h-6 w-6" fill="none" viewBox="0 0 24 24"
-                        stroke="currentColor">
-                        <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 5l7 7-7 7" />
-                    </svg>
-                </button>
-            </div>
-
-            <!-- Dots Indicator -->
-            <div class="flex justify-center mt-8 space-x-2">
-                <span
-                    class="staff-dot w-3 h-3 bg-orange-500 rounded-full cursor-pointer transition-colors duration-300"></span>
-                <span
-                    class="staff-dot w-3 h-3 bg-gray-300 rounded-full cursor-pointer transition-colors duration-300"></span>
-                <span
-                    class="staff-dot w-3 h-3 bg-gray-300 rounded-full cursor-pointer transition-colors duration-300"></span>
-                <span
-                    class="staff-dot w-3 h-3 bg-gray-300 rounded-full cursor-pointer transition-colors duration-300"></span>
-            </div>
+      <div class="container mx-auto px-6">
+        <div class="text-center mb-16" data-aos="fade-up" data-aos-delay="200">
+          <h2
+            class="inline-block text-3xl md:text-4xl font-extrabold text-gray-800"
+          >
+            <span class="wavy-underline">Staf Pengajar TK ISLAM AL FATH</span>
+          </h2>
+          <p class="text-gray-600 mt-4 text-base md:text-lg">
+            Kenali para pendidik hebat yang mendampingi putra-putri Anda
+          </p>
         </div>
+
+        <div
+          class="relative max-w-5xl mx-auto"
+          data-aos="fade-up"
+          data-aos-delay="300"
+        >
+          <!-- Staff Slider Container -->
+          <div class="staff-slider overflow-hidden">
+            <div
+              class="staff-slider-track flex transition-transform duration-500"
+              style="transform: translateX(0)"
+            >
+              <!-- Staff Card 1 -->
+              <div
+                class="staff-slide w-full sm:w-1/2 md:w-1/3 flex-shrink-0 px-2 md:px-4"
+                data-aos="fade-up"
+                data-aos-delay="400"
+              >
+                <div
+                  class="bg-white rounded-xl shadow-md overflow-hidden hover:shadow-lg transition-all duration-300 transform hover:-translate-y-2"
+                >
+                  <div class="relative">
+                    <img
+                      src="assets/kepala sekolah.png"
+                      alt="Ibu Siti Nurjanah"
+                      class="w-full h-64 object-cover object-center"
+                    />
+                    <div
+                      class="absolute top-0 right-0 bg-orange-500 text-white px-4 py-2 rounded-bl-lg font-semibold"
+                    >
+                      Kepala Sekolah
+                    </div>
+                  </div>
+                  <div class="p-6">
+                    <h3 class="text-xl font-bold text-gray-800">
+                      Ibu Siti Nurjanah, S.Pd
+                    </h3>
+                    <p class="text-gray-600 mt-2">
+                      Memimpin TK ISLAM AL FATH dengan visi pendidikan holistik
+                      yang mengintegrasikan nilai-nilai islami dan perkembangan
+                      anak.
+                    </p>
+                  </div>
+                </div>
+              </div>
+
+              <!-- Staff Card 2 -->
+              <div
+                class="staff-slide w-full sm:w-1/2 md:w-1/3 flex-shrink-0 px-2 md:px-4"
+                data-aos="fade-up"
+                data-aos-delay="500"
+              >
+                <div
+                  class="bg-white rounded-xl shadow-md overflow-hidden hover:shadow-lg transition-all duration-300 transform hover:-translate-y-2"
+                >
+                  <div class="relative">
+                    <img
+                      src="assets/mb.png"
+                      alt="Ibu Fatimah"
+                      class="w-full h-64 object-cover object-center"
+                    />
+                    <div
+                      class="absolute top-0 right-0 bg-orange-500 text-white px-4 py-2 rounded-bl-lg font-semibold"
+                    >
+                      Guru Kelas
+                    </div>
+                  </div>
+                  <div class="p-6">
+                    <h3 class="text-xl font-bold text-gray-800">
+                      Ibu Fatimah, S.Pd
+                    </h3>
+                    <p class="text-gray-600 mt-2">
+                      Spesialis dalam pengembangan motorik halus dan kreativitas
+                      anak dengan pendekatan bermain sambil belajar.
+                    </p>
+                  </div>
+                </div>
+              </div>
+
+              <!-- Staff Card 3 -->
+              <div
+                class="staff-slide w-full sm:w-1/2 md:w-1/3 flex-shrink-0 px-2 md:px-4"
+                data-aos="fade-up"
+                data-aos-delay="600"
+              >
+                <div
+                  class="bg-white rounded-xl shadow-md overflow-hidden hover:shadow-lg transition-all duration-300 transform hover:-translate-y-2"
+                >
+                  <div class="relative">
+                    <img
+                      src="assets/mb.png"
+                      alt="Ibu Aisyah"
+                      class="w-full h-64 object-cover object-center"
+                    />
+                    <div
+                      class="absolute top-0 right-0 bg-orange-500 text-white px-4 py-2 rounded-bl-lg font-semibold"
+                    >
+                      Guru Pendamping
+                    </div>
+                  </div>
+                  <div class="p-6">
+                    <h3 class="text-xl font-bold text-gray-800">
+                      Ibu Aisyah, S.Pd.I
+                    </h3>
+                    <p class="text-gray-600 mt-2">
+                      Fokus pada pendidikan agama dan akhlak mulia dengan metode
+                      bercerita dan praktik langsung.
+                    </p>
+                  </div>
+                </div>
+              </div>
+
+              <!-- Staff Card 4 -->
+              <div
+                class="staff-slide w-full sm:w-1/2 md:w-1/3 flex-shrink-0 px-2 md:px-4"
+                data-aos="fade-up"
+                data-aos-delay="700"
+              >
+                <div
+                  class="bg-white rounded-xl shadow-md overflow-hidden hover:shadow-lg transition-all duration-300 transform hover:-translate-y-2"
+                >
+                  <div class="relative">
+                    <img
+                      src="assets/mb.png"
+                      alt="Bapak Ahmad"
+                      class="w-full h-64 object-cover object-center"
+                    />
+                    <div
+                      class="absolute top-0 right-0 bg-orange-500 text-white px-4 py-2 rounded-bl-lg font-semibold"
+                    >
+                      Guru Ekstrakurikuler
+                    </div>
+                  </div>
+                  <div class="p-6">
+                    <h3 class="text-xl font-bold text-gray-800">
+                      Bapak Ahmad, S.Pd
+                    </h3>
+                    <p class="text-gray-600 mt-2">
+                      Mengajar kegiatan ekstrakurikuler dengan fokus pada
+                      pengembangan fisik dan keterampilan sosial anak.
+                    </p>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+
+          <!-- Navigation Buttons -->
+          <button
+            id="prevStaffBtn"
+            class="absolute left-0 top-1/2 -translate-y-1/2 z-10 bg-orange-500 text-white p-2 md:p-3 rounded-full shadow-lg hover:bg-orange-600 transition-colors duration-300"
+          >
+            <svg
+              xmlns="http://www.w3.org/2000/svg"
+              class="h-6 w-6"
+              fill="none"
+              viewBox="0 0 24 24"
+              stroke="currentColor"
+            >
+              <path
+                stroke-linecap="round"
+                stroke-linejoin="round"
+                stroke-width="2"
+                d="M15 19l-7-7 7-7"
+              />
+            </svg>
+          </button>
+          <button
+            id="nextStaffBtn"
+            class="absolute right-0 top-1/2 -translate-y-1/2 z-10 bg-orange-500 text-white p-2 md:p-3 rounded-full shadow-lg hover:bg-orange-600 transition-colors duration-300"
+          >
+            <svg
+              xmlns="http://www.w3.org/2000/svg"
+              class="h-6 w-6"
+              fill="none"
+              viewBox="0 0 24 24"
+              stroke="currentColor"
+            >
+              <path
+                stroke-linecap="round"
+                stroke-linejoin="round"
+                stroke-width="2"
+                d="M9 5l7 7-7 7"
+              />
+            </svg>
+          </button>
+        </div>
+
+        <!-- Dots Indicator -->
+        <div class="flex justify-center mt-8 space-x-2">
+          <span
+            class="staff-dot w-3 h-3 bg-orange-500 rounded-full cursor-pointer transition-colors duration-300"
+          ></span>
+          <span
+            class="staff-dot w-3 h-3 bg-gray-300 rounded-full cursor-pointer transition-colors duration-300"
+          ></span>
+          <span
+            class="staff-dot w-3 h-3 bg-gray-300 rounded-full cursor-pointer transition-colors duration-300"
+          ></span>
+          <span
+            class="staff-dot w-3 h-3 bg-gray-300 rounded-full cursor-pointer transition-colors duration-300"
+          ></span>
+        </div>
+      </div>
     </section>
 
     <!-- SERAGAM SECTION -->
-    <section class="py-16 bg-gradient-to-b from-white to-orange-50 relative overflow-hidden" data-aos="fade-up">
-        <!-- Decorative Elements -->
+    <section
+      class="py-16 bg-gradient-to-b from-white to-orange-50 relative overflow-hidden"
+      data-aos="fade-up"
+    >
+      <!-- Decorative Elements -->
+      <div
+        class="absolute top-0 left-0 w-32 h-32 bg-orange-100 rounded-full opacity-50 -translate-x-1/2 -translate-y-1/2"
+      ></div>
+      <div
+        class="absolute bottom-0 right-0 w-40 h-40 bg-orange-100 rounded-full opacity-50 translate-x-1/3 translate-y-1/3"
+      ></div>
+
+      <div class="container mx-auto px-6 relative z-10">
+        <div class="text-center mb-12" data-aos="fade-up" data-aos-delay="200">
+          <h2
+            class="text-4xl font-extrabold text-gray-800 wavy-underline inline-block"
+          >
+            Jadwal Seragam <span class="text-orange-600">TK ISLAM AL FATH</span>
+          </h2>
+          <p class="text-gray-600 mt-4 max-w-2xl mx-auto">
+            Kenali jadwal pemakaian seragam untuk putra-putri Anda di TK ISLAM
+            AL FATH
+          </p>
+        </div>
+
         <div
-            class="absolute top-0 left-0 w-32 h-32 bg-orange-100 rounded-full opacity-50 -translate-x-1/2 -translate-y-1/2">
+          class="flex flex-col md:flex-row justify-center items-stretch gap-8 flex-wrap"
+          data-aos="fade-up"
+          data-aos-delay="300"
+        >
+          <!-- Seragam 1 -->
+          <div
+            class="relative overflow-hidden rounded-xl shadow-lg transition-all duration-300 hover:-translate-y-2 hover:shadow-xl group max-w-xs w-full md:w-auto"
+            data-aos="fade-up"
+            data-aos-delay="400"
+          >
+            <img
+              src="assets/image 7.png"
+              alt="Seragam 1"
+              class="w-full h-64 object-cover transition-transform duration-500 group-hover:scale-105"
+            />
+            <div
+              class="absolute bottom-0 left-0 right-0 bg-gradient-to-t from-orange-600 to-orange-600/80 text-white p-4 font-semibold"
+            >
+              <div class="flex justify-between items-center">
+                <span
+                  class="bg-white text-orange-600 text-xs px-2 py-1 rounded-full"
+                  >Senin-Selasa</span
+                >
+              </div>
+            </div>
+          </div>
+
+          <!-- Seragam 2 -->
+          <div
+            class="relative overflow-hidden rounded-xl shadow-lg transition-all duration-300 hover:-translate-y-2 hover:shadow-xl group max-w-xs w-full md:w-auto"
+            data-aos="fade-up"
+            data-aos-delay="500"
+          >
+            <img
+              src="assets/image 7.png"
+              alt="Seragam 2"
+              class="w-full h-64 object-cover transition-transform duration-500 group-hover:scale-105"
+            />
+            <div
+              class="absolute bottom-0 left-0 right-0 bg-gradient-to-t from-orange-600 to-orange-600/80 text-white p-4 font-semibold"
+            >
+              <div class="flex justify-between items-center">
+                <span
+                  class="bg-white text-orange-600 text-xs px-2 py-1 rounded-full"
+                  >Rabu-Kamis</span
+                >
+              </div>
+            </div>
+          </div>
+
+          <!-- Seragam 3 -->
+          <div
+            class="relative overflow-hidden rounded-xl shadow-lg transition-all duration-300 hover:-translate-y-2 hover:shadow-xl group max-w-xs w-full md:w-auto"
+            data-aos="fade-up"
+            data-aos-delay="600"
+          >
+            <img
+              src="assets/image 7.png"
+              alt="Seragam 3"
+              class="w-full h-64 object-cover transition-transform duration-500 group-hover:scale-105"
+            />
+            <div
+              class="absolute bottom-0 left-0 right-0 bg-gradient-to-t from-orange-600 to-orange-600/80 text-white p-4 font-semibold"
+            >
+              <div class="flex justify-between items-center">
+                <span
+                  class="bg-white text-orange-600 text-xs px-2 py-1 rounded-full"
+                  >Jumat</span
+                >
+              </div>
+            </div>
+          </div>
         </div>
+
         <div
-            class="absolute bottom-0 right-0 w-40 h-40 bg-orange-100 rounded-full opacity-50 translate-x-1/3 translate-y-1/3">
+          class="text-center mt-12 max-w-3xl mx-auto bg-white p-6 rounded-xl shadow-md"
+          data-aos="fade-up"
+          data-aos-delay="700"
+        >
+          <h3 class="text-3xl font-bold mb-4 leading-tight">
+            <span class="text-orange-600">Seragam</span> rapi,
+            <span class="text-orange-600">hati</span> senang,
+            <span class="text-orange-600">belajar</span> pun jadi
+            <span class="text-orange-600">menyenangkan!</span>
+          </h3>
+          <p class="text-gray-600">
+            Seragam yang bersih dan rapi mencerminkan kedisiplinan dan kesiapan
+            anak dalam mengikuti pembelajaran
+          </p>
         </div>
-
-        <div class="container mx-auto px-6 relative z-10">
-            <div class="text-center mb-12" data-aos="fade-up" data-aos-delay="200">
-                <h2 class="text-4xl font-extrabold text-gray-800 wavy-underline inline-block">Jadwal Seragam <span
-                        class="text-orange-600">KB AL FATH</span></h2>
-                <p class="text-gray-600 mt-4 max-w-2xl mx-auto">Kenali jadwal pemakaian seragam untuk putra-putri Anda
-                    di KB Al-Fath</p>
-            </div>
-
-            <div class="flex flex-col md:flex-row justify-center items-stretch gap-8 flex-wrap" data-aos="fade-up" data-aos-delay="300">
-                <!-- Seragam 1 -->
-                <div
-                    class="relative overflow-hidden rounded-xl shadow-lg transition-all duration-300 hover:-translate-y-2 hover:shadow-xl group max-w-xs w-full md:w-auto" data-aos="fade-up" data-aos-delay="400">
-                    <img src="assets/image 7.png" alt="Seragam 1"
-                        class="w-full h-64 object-cover transition-transform duration-500 group-hover:scale-105">
-                    <div
-                        class="absolute bottom-0 left-0 right-0 bg-gradient-to-t from-orange-600 to-orange-600/80 text-white p-4 font-semibold">
-                        <div class="flex justify-between items-center">
-                            <span class="bg-white text-orange-600 text-xs px-2 py-1 rounded-full">Senin-Selasa</span>
-                        </div>
-                    </div>
-                </div>
-
-                <!-- Seragam 2 -->
-                <div
-                    class="relative overflow-hidden rounded-xl shadow-lg transition-all duration-300 hover:-translate-y-2 hover:shadow-xl group max-w-xs w-full md:w-auto" data-aos="fade-up" data-aos-delay="500">
-                    <img src="assets/image 7.png" alt="Seragam 2"
-                        class="w-full h-64 object-cover transition-transform duration-500 group-hover:scale-105">
-                    <div
-                        class="absolute bottom-0 left-0 right-0 bg-gradient-to-t from-orange-600 to-orange-600/80 text-white p-4 font-semibold">
-                        <div class="flex justify-between items-center">
-                            <span class="bg-white text-orange-600 text-xs px-2 py-1 rounded-full">Rabu-Kamis</span>
-                        </div>
-                    </div>
-                </div>
-
-                <!-- Seragam 3 -->
-                <div
-                    class="relative overflow-hidden rounded-xl shadow-lg transition-all duration-300 hover:-translate-y-2 hover:shadow-xl group max-w-xs w-full md:w-auto" data-aos="fade-up" data-aos-delay="600">
-                    <img src="assets/image 7.png" alt="Seragam 3"
-                        class="w-full h-64 object-cover transition-transform duration-500 group-hover:scale-105">
-                    <div
-                        class="absolute bottom-0 left-0 right-0 bg-gradient-to-t from-orange-600 to-orange-600/80 text-white p-4 font-semibold">
-                        <div class="flex justify-between items-center">
-                            <span class="bg-white text-orange-600 text-xs px-2 py-1 rounded-full">Jumat</span>
-                        </div>
-                    </div>
-                </div>
-            </div>
-
-            <div class="text-center mt-12 max-w-3xl mx-auto bg-white p-6 rounded-xl shadow-md" data-aos="fade-up" data-aos-delay="700">
-                <h3 class="text-3xl font-bold mb-4 leading-tight">
-                    <span class="text-orange-600">Seragam</span> rapi, <span class="text-orange-600">hati</span> senang,
-                    <span class="text-orange-600">belajar</span> pun jadi <span
-                        class="text-orange-600">menyenangkan!</span>
-                </h3>
-                <p class="text-gray-600">Seragam yang bersih dan rapi mencerminkan kedisiplinan dan kesiapan anak dalam
-                    mengikuti pembelajaran</p>
-            </div>
-        </div>
+      </div>
     </section>
 
     <main class="container mx-auto px-4 py-12">
-        <!-- Header Section -->
-        <section class="text-center mb-8 md:mb-16" data-aos="fade-up">
-            <header class="mb-3 md:mb-4">
-                <h1 class="text-3xl md:text-4xl font-bold text-gray-800">
-                    Kurikulum <span class="text-orange-500">KB AL FATH</span>
-                </h1>
-            </header>
-            <p class="text-gray-600 max-w-3xl mx-auto px-4 md:px-0 text-sm md:text-base leading-relaxed">
-                Kurikulum kami dirancang untuk mengembangkan seluruh aspek perkembangan anak
-                dengan pendekatan yang menyenangkan dan sesuai dengan tahap perkembangan.
-            </p>
-        </section>
+      <!-- Header Section -->
+      <section class="text-center mb-8 md:mb-16" data-aos="fade-up">
+        <header class="mb-3 md:mb-4">
+          <h1 class="text-3xl md:text-4xl font-bold text-gray-800">
+            Kurikulum <span class="text-orange-500">TK ISLAM AL FATH</span>
+          </h1>
+        </header>
+        <p
+          class="text-gray-600 max-w-3xl mx-auto px-4 md:px-0 text-sm md:text-base leading-relaxed"
+        >
+          Kurikulum kami dirancang untuk mengembangkan seluruh aspek
+          perkembangan anak dengan pendekatan yang menyenangkan dan sesuai
+          dengan tahap perkembangan.
+        </p>
+      </section>
 
-        <!-- Timeline Section -->
-        <section class="relative max-w-4xl mx-auto" aria-label="Timeline Kurikulum" data-aos="fade-up" data-aos-delay="200">
-            <!-- Vertical Timeline Line - Hidden on mobile, visible on larger screens -->
-            <div class="hidden md:block absolute left-1/2 transform -translate-x-1/2 w-1 bg-orange-500 h-full" aria-hidden="true"></div>
+      <!-- Timeline Section -->
+      <section
+        class="relative max-w-4xl mx-auto"
+        aria-label="Timeline Kurikulum"
+        data-aos="fade-up"
+        data-aos-delay="200"
+      >
+        <!-- Vertical Timeline Line - Hidden on mobile, visible on larger screens -->
+        <div
+          class="hidden md:block absolute left-1/2 transform -translate-x-1/2 w-1 bg-orange-500 h-full"
+          aria-hidden="true"
+        ></div>
 
-            <!-- Timeline Items Container -->
-            <article class="space-y-8 md:space-y-12">
-                <!-- Cognitive Development Section -->
-                <section class="flex flex-col md:flex-row md:items-center" data-aos="fade-right" data-aos-delay="300">
-                    <div class="w-full md:w-1/2 md:pr-8 mb-4 md:mb-0">
-                        <article class="bg-white rounded-lg shadow-md p-4 md:p-6 relative">
-                            <!-- Arrow pointing right - Hidden on mobile, visible on larger screens -->
-                            <div class="hidden md:block absolute -right-3 top-1/2 transform -translate-y-1/2 w-0 h-0 border-l-[12px] border-l-white border-t-[12px] border-t-transparent border-b-[12px] border-b-transparent"
-                                aria-hidden="true"></div>
+        <!-- Timeline Items Container -->
+        <article class="space-y-8 md:space-y-12">
+          <!-- Cognitive Development Section -->
+          <section
+            class="flex flex-col md:flex-row md:items-center"
+            data-aos="fade-right"
+            data-aos-delay="300"
+          >
+            <div class="w-full md:w-1/2 md:pr-8 mb-4 md:mb-0">
+              <article
+                class="bg-white rounded-lg shadow-md p-4 md:p-6 relative"
+              >
+                <!-- Arrow pointing right - Hidden on mobile, visible on larger screens -->
+                <div
+                  class="hidden md:block absolute -right-3 top-1/2 transform -translate-y-1/2 w-0 h-0 border-l-[12px] border-l-white border-t-[12px] border-t-transparent border-b-[12px] border-b-transparent"
+                  aria-hidden="true"
+                ></div>
 
-                            <header>
-                                <h3 class="text-lg md:text-xl font-semibold text-orange-500 mb-2 md:mb-3">Perkembangan Kognitif</h3>
-                            </header>
-                            <p class="text-gray-600 text-sm leading-relaxed">
-                                Mengembangkan kemampuan berpikir logis, pemecahan masalah, dan kreativitas melalui
-                                kegiatan eksplorasi dan eksperimen yang menyenangkan sesuai dengan tahap perkembangan
-                                anak.
-                            </p>
-                        </article>
-                    </div>
-
-                    <!-- Timeline Dot - Hidden on mobile, visible on larger screens -->
-                    <div class="hidden md:block w-4 h-4 bg-orange-500 rounded-full border-4 border-white shadow-md z-10"
-                        aria-hidden="true" data-aos="fade-up" data-aos-delay="400"></div>
-
-                    <div class="hidden md:block md:w-1/2 md:pl-8"></div>
-                </section>
-
-                <!-- Social-Emotional Development Section -->
-                <section class="flex flex-col md:flex-row md:items-center" data-aos="fade-left" data-aos-delay="400">
-                    <div class="hidden md:block md:w-1/2 md:pr-8"></div>
-
-                    <!-- Timeline Dot - Hidden on mobile, visible on larger screens -->
-                    <div class="hidden md:block w-4 h-4 bg-orange-500 rounded-full border-4 border-white shadow-md z-10"
-                        aria-hidden="true" data-aos="fade-up" data-aos-delay="400"></div>
-
-                    <div class="w-full md:w-1/2 md:pl-8">
-                        <article class="bg-white rounded-lg shadow-md p-4 md:p-6 relative" data-aos="fade-left" data-aos-delay="500">
-                            <!-- Arrow pointing left - Hidden on mobile, visible on larger screens -->
-                            <div class="hidden md:block absolute -left-3 top-1/2 transform -translate-y-1/2 w-0 h-0 border-r-[12px] border-r-white border-t-[12px] border-t-transparent border-b-[12px] border-b-transparent"
-                                aria-hidden="true"></div>
-
-                            <header>
-                                <h3 class="text-lg md:text-xl font-semibold text-orange-500 mb-2 md:mb-3" data-aos="fade-up" data-aos-delay="600">Perkembangan Sosial-Emosional
-                                </h3>
-                            </header>
-                            <p class="text-gray-600 text-sm leading-relaxed" data-aos="fade-up" data-aos-delay="700">
-                                Membangun kemampuan berinteraksi dengan orang lain, mengelola emosi, dan
-                                mengembangkan empati melalui kegiatan bermain bersama dan pembelajaran kooperatif.
-                            </p>
-                        </article>
-                    </div>
-                </section>
-
-                <!-- Physical-Motor Development Section -->
-                <section class="flex flex-col md:flex-row md:items-center">
-                    <div class="w-full md:w-1/2 md:pr-8 mb-4 md:mb-0">
-                        <article class="bg-white rounded-lg shadow-md p-4 md:p-6 relative" data-aos="fade-right" data-aos-delay="300">
-                            <!-- Arrow pointing right - Hidden on mobile, visible on larger screens -->
-                            <div class="hidden md:block absolute -right-3 top-1/2 transform -translate-y-1/2 w-0 h-0 border-l-[12px] border-l-white border-t-[12px] border-t-transparent border-b-[12px] border-b-transparent"
-                                aria-hidden="true"></div>
-
-                            <header>
-                                <h3 class="text-lg md:text-xl font-semibold text-orange-500 mb-2 md:mb-3" data-aos="fade-up" data-aos-delay="400">Perkembangan Fisik-Motorik</h3>
-                            </header>
-                            <p class="text-gray-600 text-sm leading-relaxed" data-aos="fade-up" data-aos-delay="500">
-                                Mengoptimalkan perkembangan motorik kasar dan halus melalui berbagai aktivitas fisik,
-                                olahraga, dan kegiatan seni yang melatih koordinasi dan keterampilan motorik anak.
-                            </p>
-                        </article>
-                    </div>
-
-                    <!-- Timeline Dot - Hidden on mobile, visible on larger screens -->
-                    <div class="hidden md:block w-4 h-4 bg-orange-500 rounded-full border-4 border-white shadow-md z-10"
-                        aria-hidden="true" data-aos="fade-up" data-aos-delay="400"></div>
-
-                    <div class="hidden md:block md:w-1/2 md:pl-8"></div>
-                </section>
-
-                <!-- Language Development Section -->
-                <section class="flex flex-col md:flex-row md:items-center">
-                    <div class="hidden md:block md:w-1/2 md:pr-8"></div>
-
-                    <!-- Timeline Dot - Hidden on mobile, visible on larger screens -->
-                    <div class="hidden md:block w-4 h-4 bg-orange-500 rounded-full border-4 border-white shadow-md z-10"
-                        aria-hidden="true" data-aos="fade-up" data-aos-delay="400"></div>
-
-                    <div class="w-full md:w-1/2 md:pl-8">
-                        <article class="bg-white rounded-lg shadow-md p-4 md:p-6 relative" data-aos="fade-left" data-aos-delay="300">
-                            <!-- Arrow pointing left - Hidden on mobile, visible on larger screens -->
-                            <div class="hidden md:block absolute -left-3 top-1/2 transform -translate-y-1/2 w-0 h-0 border-r-[12px] border-r-white border-t-[12px] border-t-transparent border-b-[12px] border-b-transparent"
-                                aria-hidden="true"></div>
-
-                            <header>
-                                <h3 class="text-lg md:text-xl font-semibold text-orange-500 mb-2 md:mb-3" data-aos="fade-up" data-aos-delay="400">Perkembangan Bahasa</h3>
-                            </header>
-                            <p class="text-gray-600 text-sm leading-relaxed" data-aos="fade-up" data-aos-delay="500">
-                                Mengembangkan kemampuan komunikasi verbal dan non-verbal, memperkaya kosakata,
-                                dan memperkenalkan literasi dasar melalui cerita, lagu, dan permainan bahasa.
-                            </p>
-                        </article>
-                    </div>
-                </section>
-
-                <!-- Religious & Moral Development Section -->
-                <section class="flex flex-col md:flex-row md:items-center">
-                    <div class="w-full md:w-1/2 md:pr-8 mb-4 md:mb-0">
-                        <article class="bg-white rounded-lg shadow-md p-4 md:p-6 relative" data-aos="fade-right" data-aos-delay="300">
-                            <!-- Arrow pointing right - Hidden on mobile, visible on larger screens -->
-                            <div class="hidden md:block absolute -right-3 top-1/2 transform -translate-y-1/2 w-0 h-0 border-l-[12px] border-l-white border-t-[12px] border-t-transparent border-b-[12px] border-b-transparent"
-                                aria-hidden="true"></div>
-
-                            <header>
-                                <h3 class="text-lg md:text-xl font-semibold text-orange-500 mb-2 md:mb-3" data-aos="fade-up" data-aos-delay="400">Perkembangan Nilai Agama dan
-                                    Moral</h3>
-                            </header>
-                            <p class="text-gray-600 text-sm leading-relaxed" data-aos="fade-up" data-aos-delay="500">
-                                Menanamkan nilai-nilai agama Islam dan akhlak mulia, mengembangkan karakter positif,
-                                dan membangun fondasi spiritual yang kuat melalui pembelajaran yang menyenangkan.
-                            </p>
-                        </article>
-                    </div>
-
-                    <!-- Timeline Dot - Hidden on mobile, visible on larger screens -->
-                    <div class="hidden md:block w-4 h-4 bg-orange-500 rounded-full border-4 border-white shadow-md z-10"
-                        aria-hidden="true"></div>
-
-                    <div class="hidden md:block md:w-1/2 md:pl-8"></div>
-                </section>
-            </article>
-        </section>
-
-        <!-- Commitment Section -->
-        <section class="text-center mt-12 md:mt-16 px-4 md:px-0" data-aos="fade-up" data-aos-delay="200">
-            <article class="bg-white rounded-lg shadow-md p-6 md:p-8 max-w-2xl mx-auto" data-aos="fade-up" data-aos-delay="300">
                 <header>
-                    <h3 class="text-xl md:text-2xl font-semibold text-gray-800 mb-3 md:mb-4" data-aos="fade-up" data-aos-delay="400">Komitmen Kami</h3>
+                  <h3
+                    class="text-lg md:text-xl font-semibold text-orange-500 mb-2 md:mb-3"
+                  >
+                    Perkembangan Kognitif
+                  </h3>
                 </header>
-                <p class="text-gray-600 text-sm md:text-base leading-relaxed" data-aos="fade-up" data-aos-delay="500">
-                    KB AL FATH berkomitmen memberikan pendidikan berkualitas yang holistik,
-                    mengembangkan seluruh potensi anak dengan pendekatan yang Islami, kreatif, dan menyenangkan.
+                <p class="text-gray-600 text-sm leading-relaxed">
+                  Mengembangkan kemampuan berpikir logis, pemecahan masalah, dan
+                  kreativitas melalui kegiatan eksplorasi dan eksperimen yang
+                  menyenangkan sesuai dengan tahap perkembangan anak.
                 </p>
-            </article>
-        </section>
+              </article>
+            </div>
+
+            <!-- Timeline Dot - Hidden on mobile, visible on larger screens -->
+            <div
+              class="hidden md:block w-4 h-4 bg-orange-500 rounded-full border-4 border-white shadow-md z-10"
+              aria-hidden="true"
+              data-aos="fade-up"
+              data-aos-delay="400"
+            ></div>
+
+            <div class="hidden md:block md:w-1/2 md:pl-8"></div>
+          </section>
+
+          <!-- Social-Emotional Development Section -->
+          <section
+            class="flex flex-col md:flex-row md:items-center"
+            data-aos="fade-left"
+            data-aos-delay="400"
+          >
+            <div class="hidden md:block md:w-1/2 md:pr-8"></div>
+
+            <!-- Timeline Dot - Hidden on mobile, visible on larger screens -->
+            <div
+              class="hidden md:block w-4 h-4 bg-orange-500 rounded-full border-4 border-white shadow-md z-10"
+              aria-hidden="true"
+              data-aos="fade-up"
+              data-aos-delay="400"
+            ></div>
+
+            <div class="w-full md:w-1/2 md:pl-8">
+              <article
+                class="bg-white rounded-lg shadow-md p-4 md:p-6 relative"
+                data-aos="fade-left"
+                data-aos-delay="500"
+              >
+                <!-- Arrow pointing left - Hidden on mobile, visible on larger screens -->
+                <div
+                  class="hidden md:block absolute -left-3 top-1/2 transform -translate-y-1/2 w-0 h-0 border-r-[12px] border-r-white border-t-[12px] border-t-transparent border-b-[12px] border-b-transparent"
+                  aria-hidden="true"
+                ></div>
+
+                <header>
+                  <h3
+                    class="text-lg md:text-xl font-semibold text-orange-500 mb-2 md:mb-3"
+                    data-aos="fade-up"
+                    data-aos-delay="600"
+                  >
+                    Perkembangan Sosial-Emosional
+                  </h3>
+                </header>
+                <p
+                  class="text-gray-600 text-sm leading-relaxed"
+                  data-aos="fade-up"
+                  data-aos-delay="700"
+                >
+                  Membangun kemampuan berinteraksi dengan orang lain, mengelola
+                  emosi, dan mengembangkan empati melalui kegiatan bermain
+                  bersama dan pembelajaran kooperatif.
+                </p>
+              </article>
+            </div>
+          </section>
+
+          <!-- Physical-Motor Development Section -->
+          <section class="flex flex-col md:flex-row md:items-center">
+            <div class="w-full md:w-1/2 md:pr-8 mb-4 md:mb-0">
+              <article
+                class="bg-white rounded-lg shadow-md p-4 md:p-6 relative"
+                data-aos="fade-right"
+                data-aos-delay="300"
+              >
+                <!-- Arrow pointing right - Hidden on mobile, visible on larger screens -->
+                <div
+                  class="hidden md:block absolute -right-3 top-1/2 transform -translate-y-1/2 w-0 h-0 border-l-[12px] border-l-white border-t-[12px] border-t-transparent border-b-[12px] border-b-transparent"
+                  aria-hidden="true"
+                ></div>
+
+                <header>
+                  <h3
+                    class="text-lg md:text-xl font-semibold text-orange-500 mb-2 md:mb-3"
+                    data-aos="fade-up"
+                    data-aos-delay="400"
+                  >
+                    Perkembangan Fisik-Motorik
+                  </h3>
+                </header>
+                <p
+                  class="text-gray-600 text-sm leading-relaxed"
+                  data-aos="fade-up"
+                  data-aos-delay="500"
+                >
+                  Mengoptimalkan perkembangan motorik kasar dan halus melalui
+                  berbagai aktivitas fisik, olahraga, dan kegiatan seni yang
+                  melatih koordinasi dan keterampilan motorik anak.
+                </p>
+              </article>
+            </div>
+
+            <!-- Timeline Dot - Hidden on mobile, visible on larger screens -->
+            <div
+              class="hidden md:block w-4 h-4 bg-orange-500 rounded-full border-4 border-white shadow-md z-10"
+              aria-hidden="true"
+              data-aos="fade-up"
+              data-aos-delay="400"
+            ></div>
+
+            <div class="hidden md:block md:w-1/2 md:pl-8"></div>
+          </section>
+
+          <!-- Language Development Section -->
+          <section class="flex flex-col md:flex-row md:items-center">
+            <div class="hidden md:block md:w-1/2 md:pr-8"></div>
+
+            <!-- Timeline Dot - Hidden on mobile, visible on larger screens -->
+            <div
+              class="hidden md:block w-4 h-4 bg-orange-500 rounded-full border-4 border-white shadow-md z-10"
+              aria-hidden="true"
+              data-aos="fade-up"
+              data-aos-delay="400"
+            ></div>
+
+            <div class="w-full md:w-1/2 md:pl-8">
+              <article
+                class="bg-white rounded-lg shadow-md p-4 md:p-6 relative"
+                data-aos="fade-left"
+                data-aos-delay="300"
+              >
+                <!-- Arrow pointing left - Hidden on mobile, visible on larger screens -->
+                <div
+                  class="hidden md:block absolute -left-3 top-1/2 transform -translate-y-1/2 w-0 h-0 border-r-[12px] border-r-white border-t-[12px] border-t-transparent border-b-[12px] border-b-transparent"
+                  aria-hidden="true"
+                ></div>
+
+                <header>
+                  <h3
+                    class="text-lg md:text-xl font-semibold text-orange-500 mb-2 md:mb-3"
+                    data-aos="fade-up"
+                    data-aos-delay="400"
+                  >
+                    Perkembangan Bahasa
+                  </h3>
+                </header>
+                <p
+                  class="text-gray-600 text-sm leading-relaxed"
+                  data-aos="fade-up"
+                  data-aos-delay="500"
+                >
+                  Mengembangkan kemampuan komunikasi verbal dan non-verbal,
+                  memperkaya kosakata, dan memperkenalkan literasi dasar melalui
+                  cerita, lagu, dan permainan bahasa.
+                </p>
+              </article>
+            </div>
+          </section>
+
+          <!-- Religious & Moral Development Section -->
+          <section class="flex flex-col md:flex-row md:items-center">
+            <div class="w-full md:w-1/2 md:pr-8 mb-4 md:mb-0">
+              <article
+                class="bg-white rounded-lg shadow-md p-4 md:p-6 relative"
+                data-aos="fade-right"
+                data-aos-delay="300"
+              >
+                <!-- Arrow pointing right - Hidden on mobile, visible on larger screens -->
+                <div
+                  class="hidden md:block absolute -right-3 top-1/2 transform -translate-y-1/2 w-0 h-0 border-l-[12px] border-l-white border-t-[12px] border-t-transparent border-b-[12px] border-b-transparent"
+                  aria-hidden="true"
+                ></div>
+
+                <header>
+                  <h3
+                    class="text-lg md:text-xl font-semibold text-orange-500 mb-2 md:mb-3"
+                    data-aos="fade-up"
+                    data-aos-delay="400"
+                  >
+                    Perkembangan Nilai Agama dan Moral
+                  </h3>
+                </header>
+                <p
+                  class="text-gray-600 text-sm leading-relaxed"
+                  data-aos="fade-up"
+                  data-aos-delay="500"
+                >
+                  Menanamkan nilai-nilai agama Islam dan akhlak mulia,
+                  mengembangkan karakter positif, dan membangun fondasi
+                  spiritual yang kuat melalui pembelajaran yang menyenangkan.
+                </p>
+              </article>
+            </div>
+
+            <!-- Timeline Dot - Hidden on mobile, visible on larger screens -->
+            <div
+              class="hidden md:block w-4 h-4 bg-orange-500 rounded-full border-4 border-white shadow-md z-10"
+              aria-hidden="true"
+            ></div>
+
+            <div class="hidden md:block md:w-1/2 md:pl-8"></div>
+          </section>
+        </article>
+      </section>
+
+      <!-- Commitment Section -->
+      <section
+        class="text-center mt-12 md:mt-16 px-4 md:px-0"
+        data-aos="fade-up"
+        data-aos-delay="200"
+      >
+        <article
+          class="bg-white rounded-lg shadow-md p-6 md:p-8 max-w-2xl mx-auto"
+          data-aos="fade-up"
+          data-aos-delay="300"
+        >
+          <header>
+            <h3
+              class="text-xl md:text-2xl font-semibold text-gray-800 mb-3 md:mb-4"
+              data-aos="fade-up"
+              data-aos-delay="400"
+            >
+              Komitmen Kami
+            </h3>
+          </header>
+          <p
+            class="text-gray-600 text-sm md:text-base leading-relaxed"
+            data-aos="fade-up"
+            data-aos-delay="500"
+          >
+            TK ISLAM AL FATH berkomitmen memberikan pendidikan berkualitas yang
+            holistik, mengembangkan seluruh potensi anak dengan pendekatan yang
+            Islami, kreatif, dan menyenangkan.
+          </p>
+        </article>
+      </section>
     </main>
     <!-- JavaScript for Staff Slider -->
     <script>
-        document.addEventListener('DOMContentLoaded', function () {
-            const staffTrack = document.querySelector('.staff-slider-track');
-            const staffSlides = document.querySelectorAll('.staff-slide');
-            const prevStaffBtn = document.getElementById('prevStaffBtn');
-            const nextStaffBtn = document.getElementById('nextStaffBtn');
-            const staffDots = document.querySelectorAll('.staff-dot');
+      document.addEventListener("DOMContentLoaded", function () {
+        const staffTrack = document.querySelector(".staff-slider-track");
+        const staffSlides = document.querySelectorAll(".staff-slide");
+        const prevStaffBtn = document.getElementById("prevStaffBtn");
+        const nextStaffBtn = document.getElementById("nextStaffBtn");
+        const staffDots = document.querySelectorAll(".staff-dot");
 
-            let staffCurrentIndex = 0;
-            const staffSlidesPerView = window.innerWidth < 768 ? 1 : 3;
-            const staffTotalSlides = staffSlides.length;
-            const staffMaxIndex = Math.ceil(staffTotalSlides / staffSlidesPerView) - 1;
+        let staffCurrentIndex = 0;
+        const staffSlidesPerView = window.innerWidth < 768 ? 1 : 3;
+        const staffTotalSlides = staffSlides.length;
+        const staffMaxIndex =
+          Math.ceil(staffTotalSlides / staffSlidesPerView) - 1;
 
-            // Initialize dots
-            updateStaffDots(0);
+        // Initialize dots
+        updateStaffDots(0);
 
-            // Update slider position
-            function updateStaffSlider() {
-                const slideWidth = 100 / staffSlidesPerView;
-                const offset = -staffCurrentIndex * slideWidth * staffSlidesPerView;
-                staffTrack.style.transform = `translateX(${offset}%)`;
-                updateStaffDots(staffCurrentIndex);
-            }
+        // Update slider position
+        function updateStaffSlider() {
+          const slideWidth = 100 / staffSlidesPerView;
+          const offset = -staffCurrentIndex * slideWidth * staffSlidesPerView;
+          staffTrack.style.transform = `translateX(${offset}%)`;
+          updateStaffDots(staffCurrentIndex);
+        }
 
-            // Update dots indicator
-            function updateStaffDots(index) {
-                staffDots.forEach((dot, i) => {
-                    dot.classList.toggle('bg-orange-500', i === index);
-                    dot.classList.toggle('bg-gray-300', i !== index);
-                });
-            }
+        // Update dots indicator
+        function updateStaffDots(index) {
+          staffDots.forEach((dot, i) => {
+            dot.classList.toggle("bg-orange-500", i === index);
+            dot.classList.toggle("bg-gray-300", i !== index);
+          });
+        }
 
-            // Event listeners for buttons
-            prevStaffBtn.addEventListener('click', () => {
-                if (staffCurrentIndex > 0) {
-                    staffCurrentIndex--;
-                    updateStaffSlider();
-                }
-            });
-
-            nextStaffBtn.addEventListener('click', () => {
-                if (staffCurrentIndex < staffMaxIndex) {
-                    staffCurrentIndex++;
-                    updateStaffSlider();
-                }
-            });
-
-            // Event listeners for dots
-            staffDots.forEach((dot, i) => {
-                dot.addEventListener('click', () => {
-                    staffCurrentIndex = i;
-                    updateStaffSlider();
-                });
-            });
-
-            // Handle window resize
-            window.addEventListener('resize', () => {
-                const newSlidesPerView = window.innerWidth < 768 ? 1 : 3;
-                if (newSlidesPerView !== staffSlidesPerView) {
-                    staffSlidesPerView = newSlidesPerView;
-                    staffCurrentIndex = 0;
-                    updateStaffSlider();
-                }
-            });
+        // Event listeners for buttons
+        prevStaffBtn.addEventListener("click", () => {
+          if (staffCurrentIndex > 0) {
+            staffCurrentIndex--;
+            updateStaffSlider();
+          }
         });
+
+        nextStaffBtn.addEventListener("click", () => {
+          if (staffCurrentIndex < staffMaxIndex) {
+            staffCurrentIndex++;
+            updateStaffSlider();
+          }
+        });
+
+        // Event listeners for dots
+        staffDots.forEach((dot, i) => {
+          dot.addEventListener("click", () => {
+            staffCurrentIndex = i;
+            updateStaffSlider();
+          });
+        });
+
+        // Handle window resize
+        window.addEventListener("resize", () => {
+          const newSlidesPerView = window.innerWidth < 768 ? 1 : 3;
+          if (newSlidesPerView !== staffSlidesPerView) {
+            staffSlidesPerView = newSlidesPerView;
+            staffCurrentIndex = 0;
+            updateStaffSlider();
+          }
+        });
+      });
     </script>
 
     <!-- Footer akan dimasukkan oleh footer.js -->
     <script>
-        AOS.init({
-            duration: 800,
-            once: true,
-            offset: 100
-        });
+      AOS.init({
+        duration: 800,
+        once: true,
+        offset: 100,
+      });
     </script>
-</body>
-
+  </body>
 </html>
