@@ -2,8 +2,8 @@
     <div class="container mx-auto px-4">
         <div class="flex justify-between items-center py-4">
             <!-- Logo -->
-            <a href="/kbtkalfathsemarang/index.php" class="flex items-center">
-                <img src="/kbtkalfathsemarang/assets/images/logo.png" alt="KB-TK Islam Al Fath" class="h-12">
+            <a href="<?php echo (strpos($_SERVER['PHP_SELF'], 'pages/') !== false) ? '../index.php' : 'index.php'; ?>" class="flex items-center">
+                <img src="<?php echo (strpos($_SERVER['PHP_SELF'], 'pages/') !== false) ? '../assets/images/logo.png' : 'assets/images/logo.png'; ?>" alt="KB-TK Islam Al Fath" class="h-12">
                 <div class="ml-3 hidden md:block">
                     <h1 class="text-xl font-bold brand-orange">KB-TK Islam Al Fath</h1>
                     <p class="text-xs text-gray-600">Semarang</p>
@@ -12,12 +12,12 @@
 
             <!-- Navigation - Desktop -->
             <nav class="hidden md:flex items-center space-x-1">
-                <a href="/kbtkalfathsemarang/index.php" class="nav-link px-4 py-2 rounded-md text-gray-700 hover:text-brand-orange transition duration-300">Beranda</a>
-                <a href="/kbtkalfathsemarang/kb.php" class="nav-link px-4 py-2 rounded-md text-gray-700 hover:text-brand-orange transition duration-300">KB</a>
-                <a href="/kbtkalfathsemarang/tk.php" class="nav-link px-4 py-2 rounded-md text-gray-700 hover:text-brand-orange transition duration-300">TK</a>
-                <a href="/kbtkalfathsemarang/galeri.php" class="nav-link px-4 py-2 rounded-md text-gray-700 hover:text-brand-orange transition duration-300">Galeri</a>
-                <a href="/kbtkalfathsemarang/berita.php" class="nav-link px-4 py-2 rounded-md text-gray-700 hover:text-brand-orange transition duration-300">Berita</a>
-                <a href="#" class="ml-2 px-5 py-2 bg-brand-orange text-white rounded-md hover:bg-orange-700 transition duration-300">Daftar</a>
+                <a href="<?php echo (strpos($_SERVER['PHP_SELF'], 'pages/') !== false) ? '../index.php' : 'index.php'; ?>" class="nav-link px-4 py-2 rounded-md text-gray-700 hover:text-brand-orange transition duration-300">Beranda</a>
+                <a href="<?php echo (strpos($_SERVER['PHP_SELF'], 'pages/') !== false) ? '../kb.php' : 'kb.php'; ?>" class="nav-link px-4 py-2 rounded-md text-gray-700 hover:text-brand-orange transition duration-300">KB</a>
+                <a href="<?php echo (strpos($_SERVER['PHP_SELF'], 'pages/') !== false) ? '../tk.php' : 'tk.php'; ?>" class="nav-link px-4 py-2 rounded-md text-gray-700 hover:text-brand-orange transition duration-300">TK</a>
+                <a href="<?php echo (strpos($_SERVER['PHP_SELF'], 'pages/') !== false) ? '../pages/galeri.php' : 'pages/galeri.php'; ?>" class="nav-link px-4 py-2 rounded-md text-gray-700 hover:text-brand-orange transition duration-300">Galeri</a>
+                <a href="<?php echo (strpos($_SERVER['PHP_SELF'], 'pages/') !== false) ? '../pages/berita.php' : 'pages/berita.php'; ?>" class="nav-link px-4 py-2 rounded-md text-gray-700 hover:text-brand-orange transition duration-300">Berita</a>
+                <a href="<?php echo (strpos($_SERVER['PHP_SELF'], 'pages/') !== false) ? '../kontak.php' : 'kontak.php'; ?>" class="nav-link px-4 py-2 rounded-md text-gray-700 hover:text-brand-orange transition duration-300">Kontak</a>
             </nav>
 
             <!-- Mobile Menu Button -->
@@ -30,12 +30,12 @@
 
         <!-- Mobile Menu -->
         <div id="mobile-menu" class="md:hidden hidden pb-4">
-            <a href="/kbtkalfathsemarang/index.php" class="block py-2 px-4 text-gray-700 hover:text-brand-orange transition duration-300">Beranda</a>
-            <a href="/kbtkalfathsemarang/kb.php" class="block py-2 px-4 text-gray-700 hover:text-brand-orange transition duration-300">KB</a>
-            <a href="/kbtkalfathsemarang/tk.php" class="block py-2 px-4 text-gray-700 hover:text-brand-orange transition duration-300">TK</a>
-            <a href="/kbtkalfathsemarang/galeri.php" class="block py-2 px-4 text-gray-700 hover:text-brand-orange transition duration-300">Galeri</a>
-            <a href="/kbtkalfathsemarang/berita.php" class="block py-2 px-4 text-gray-700 hover:text-brand-orange transition duration-300">Berita</a>
-            <a href="#" class="block mt-2 px-4 py-2 bg-brand-orange text-white rounded-md hover:bg-orange-700 transition duration-300 w-full text-center">Daftar</a>
+            <a href="<?php echo (strpos($_SERVER['PHP_SELF'], 'pages/') !== false) ? '../index.php' : 'index.php'; ?>" class="block py-2 px-4 text-gray-700 hover:text-brand-orange transition duration-300">Beranda</a>
+            <a href="<?php echo (strpos($_SERVER['PHP_SELF'], 'pages/') !== false) ? '../kb.php' : 'kb.php'; ?>" class="block py-2 px-4 text-gray-700 hover:text-brand-orange transition duration-300">KB</a>
+            <a href="<?php echo (strpos($_SERVER['PHP_SELF'], 'pages/') !== false) ? '../tk.php' : 'tk.php'; ?>" class="block py-2 px-4 text-gray-700 hover:text-brand-orange transition duration-300">TK</a>
+            <a href="<?php echo (strpos($_SERVER['PHP_SELF'], 'pages/') !== false) ? '../pages/galeri.php' : 'pages/galeri.php'; ?>" class="block py-2 px-4 text-gray-700 hover:text-brand-orange transition duration-300">Galeri</a>
+            <a href="<?php echo (strpos($_SERVER['PHP_SELF'], 'pages/') !== false) ? '../pages/berita.php' : 'pages/berita.php'; ?>" class="block py-2 px-4 text-gray-700 hover:text-brand-orange transition duration-300">Berita</a>
+            <a href="<?php echo (strpos($_SERVER['PHP_SELF'], 'pages/') !== false) ? '../kontak.php' : 'kontak.php'; ?>" class="block py-2 px-4 text-gray-700 hover:text-brand-orange transition duration-300">Kontak</a>
         </div>
     </div>
 </header>

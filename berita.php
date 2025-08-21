@@ -81,6 +81,12 @@ $total_pages = ceil($total_items / $items_per_page);
     <!-- AOS Library -->
     <link rel="stylesheet" href="https://unpkg.com/aos@next/dist/aos.css" />
 
+    <!-- Navbar.js Script -->
+    <script src="js/navbar.js" defer></script>
+    
+    <!-- Footer.js Script -->
+    <script src="js/footer.js" defer></script>
+
     <!-- Custom Styles -->
     <style>
         body {
@@ -113,8 +119,12 @@ $total_pages = ceil($total_items / $items_per_page);
 </head>
 
 <body>
-    <!-- Navbar -->
-    <?php include 'components/navbar.php'; ?>
+    <!-- Navbar akan dimasukkan oleh navbar.js -->
+    <script>
+        document.addEventListener('DOMContentLoaded', function() {
+            createNavbar();
+        });
+    </script>
 
     <!-- Banner -->
     <section class="relative bg-gray-900 text-white">
@@ -193,7 +203,7 @@ $total_pages = ceil($total_items / $items_per_page);
                             <span class="text-sm text-gray-500">
                                 <i class="far fa-calendar-alt mr-1"></i> <?php echo date('d M Y', strtotime($item['tanggal'])); ?>
                             </span>
-                            <a href="/kbtkalfathsemarang/berita-detail.php?id=<?php echo $item['id']; ?>" class="text-brand-orange hover:text-orange-700 font-medium transition duration-300">
+                            <a href="berita-detail.php?id=<?php echo $item['id']; ?>" class="text-brand-orange hover:text-orange-700 font-medium transition duration-300">
                                 Baca Selengkapnya <i class="fas fa-arrow-right ml-1"></i>
                             </a>
                         </div>
@@ -239,8 +249,8 @@ $total_pages = ceil($total_items / $items_per_page);
         </div>
     </section>
 
-    <!-- Footer -->
-    <?php include 'components/footer.php'; ?>
+    <!-- Footer akan dimasukkan oleh footer.js -->
+    <div id="kontak"></div>
 
     <!-- AOS Init -->
     <script src="https://unpkg.com/aos@next/dist/aos.js"></script>

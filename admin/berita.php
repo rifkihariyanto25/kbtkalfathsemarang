@@ -542,65 +542,22 @@ if (isset($_GET['message'])) {
             }
         });
         
-        // Validasi form sebelum submit
-        function validateForm() {
-            // Pastikan TinyMCE menyimpan konten ke textarea
-            if (typeof tinymce !== 'undefined') {
-                tinymce.triggerSave();
-            }
-            
-            // Ambil nilai dari form
-            const form = document.getElementById('beritaForm');
-            const judul = form.querySelector('[name="judul"]').value.trim();
-            const kategori = form.querySelector('[name="kategori"]').value.trim();
-            const tanggal = form.querySelector('[name="tanggal"]').value.trim();
-            const konten = form.querySelector('[name="konten"]').value.trim();
-            const thumbnailInput = form.querySelector('[name="thumbnail"]');
-            const action = new URLSearchParams(window.location.search).get('action');
-            
-            // Validasi field
-            if (judul === '') {
-                alert('Judul berita harus diisi');
-                return false;
-            }
-            
-            if (kategori === '') {
-                alert('Kategori berita harus dipilih');
-                return false;
-            }
-            
-            if (tanggal === '') {
-                alert('Tanggal publikasi harus diisi');
-                return false;
-            }
-            
-            if (konten === '') {
-                alert('Konten berita harus diisi');
-                return false;
-            }
-            
-            // Validasi thumbnail untuk tambah berita baru
-            if (action === 'add' && (!thumbnailInput.files || thumbnailInput.files.length === 0)) {
-                alert('Thumbnail harus diupload');
-                return false;
-            }
-            
-            console.log('Form divalidasi dan disubmit');
-            console.log('Judul:', judul);
-            console.log('Kategori:', kategori);
-            console.log('Tanggal:', tanggal);
-            console.log('Konten length:', konten.length);
-            
-            return true;
-        }
-        
         // Form submission handler
         document.addEventListener('DOMContentLoaded', function() {
-            const beritaForm = document.getElementById('beritaForm');
+            const beritaForm = document.querySelector('form[enctype="multipart/form-data"]');
             if (beritaForm) {
-                console.log('Form berita ditemukan');
-            } else {
-                console.log('Form berita tidak ditemukan');
+                beritaForm.addEventListener('submit', function(e) {
+                    // Pastikan TinyMCE menyimpan konten ke textarea sebelum submit
+                    if (typeof tinymce !== 'undefined') {
+                        tinymce.triggerSave();
+                    }
+                    
+                    console.log('Form disubmit');
+                    console.log('Judul:', this.querySelector('[name="judul"]').value);
+                    console.log('Kategori:', this.querySelector('[name="kategori"]').value);
+                    console.log('Tanggal:', this.querySelector('[name="tanggal"]').value);
+                    console.log('Konten length:', this.querySelector('[name="konten"]').value.length);
+                });
             }
         });
     </script>

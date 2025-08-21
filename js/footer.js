@@ -4,6 +4,7 @@ function createFooter() {
     // Detect if we're in the root directory or in a subdirectory
     const isRoot = window.location.pathname.split('/').filter(Boolean).length === 1 ||
         window.location.pathname.endsWith('index.html') ||
+        window.location.pathname.endsWith('index.php') ||
         window.location.pathname.endsWith('/');
 
     // Set the correct path prefix based on location
@@ -24,7 +25,7 @@ function createFooter() {
                 <div class="mb-8 md:mb-0">
                     <h4 class="text-lg font-semibold mb-4">Navigasi</h4>
                     <ul>
-                        <li class="mb-2"><a href="${pathPrefix}index.html" class="hover:text-yellow-200 transition-colors">Beranda</a></li>
+                        <li class="mb-2"><a href="http://localhost/kbtkalfathsemarang/" class="hover:text-yellow-200 transition-colors">Beranda</a></li>
                         <li class="mb-2"><a href="${pagesPrefix}kb.html" class="hover:text-yellow-200 transition-colors">KB AL FATH</a></li>
                         <li class="mb-2"><a href="${pagesPrefix}tk.html" class="hover:text-yellow-200 transition-colors">TK ISLAM AL-FATH</a></li>
                         <li class="mb-2"><a href="${pagesPrefix}galeri.php" class="hover:text-yellow-200 transition-colors">Galeri</a></li>

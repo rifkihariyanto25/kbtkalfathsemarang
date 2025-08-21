@@ -266,8 +266,14 @@ foreach ($galeri_items as $item) {
     </style>
 </head>
 
-<body class="text-dark-gray">
-    <!-- Navbar akan dimasukkan oleh navbar.js -->
+<body class="pattern-bg">
+
+    <!-- Navbar will be inserted by navbar.js -->
+    <!-- <script>
+        document.addEventListener('DOMContentLoaded', function() {
+            createNavbar();
+        });
+    </script> -->
 
     <main class="container mx-auto px-6 py-16">
         <!-- ===== PAGE HEADER ===== -->

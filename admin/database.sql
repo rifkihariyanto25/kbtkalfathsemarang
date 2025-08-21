@@ -20,16 +20,12 @@ CREATE TABLE IF NOT EXISTS berita (
     id INT AUTO_INCREMENT PRIMARY KEY,
     judul VARCHAR(255) NOT NULL,
     konten TEXT NOT NULL,
-    excerpt TEXT,
     thumbnail VARCHAR(255) NOT NULL,
     kategori ENUM('pengumuman', 'kegiatan', 'prestasi') NOT NULL,
     tanggal DATE NOT NULL,
     created_at TIMESTAMP DEFAULT CURRENT_TIMESTAMP,
     updated_at TIMESTAMP DEFAULT CURRENT_TIMESTAMP ON UPDATE CURRENT_TIMESTAMP
 );
-
--- Menambahkan kolom excerpt jika belum ada
-ALTER TABLE berita ADD COLUMN IF NOT EXISTS excerpt TEXT AFTER konten;
 
 -- Membuat tabel admin
 CREATE TABLE IF NOT EXISTS admin (

@@ -1,0 +1,371 @@
+<!DOCTYPE html>
+<html lang="id">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Preview Berita - KB - TK ISLAM AL FATH</title>
+
+    <!-- Tailwind CSS -->
+    <script src="https://cdn.tailwindcss.com"></script>
+
+    <!-- Google Fonts: Poppins -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;500;600;700;800&display=swap"
+        rel="stylesheet">
+
+    <!-- Font Awesome -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
+    
+    <!-- Navbar.js and Footer.js Scripts -->
+    <script src="../js/navbar.js" defer></script>
+    <script src="../js/footer.js" defer></script>
+
+    <style>
+        body {
+            font-family: 'Poppins', sans-serif;
+            /* Removed overflow-x: hidden that was causing scroll issues */
+        }
+
+        /* Pola latar belakang yang lucu */
+        .pattern-bg {
+            background-color: #fffaf0;
+            background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='28' height='49' viewBox='0 0 28 49'%3E%3Cg fill-rule='evenodd'%3E%3Cg id='hexagons' fill='%23fef3c7' fill-opacity='0.4' fill-rule='nonzero'%3E%3Cpath d='M13.99 9.25l13 7.5v15l-13 7.5L1 31.75v-15l12.99-7.5zM3 17.9v12.7l10.99 6.34 11-6.35V17.9l-11-6.34L3 17.9zM0 15l12.99 7.5V30L0 22.5zM28 15L15 22.5V30l13-7.5z'/%3E%3C/g%3E%3C/g%3E%3C/svg%3E");
+            position: relative;
+        }
+
+        /* Ripple effect for buttons */
+        .ripple {
+            position: absolute;
+            border-radius: 50%;
+            background-color: rgba(255, 255, 255, 0.6);
+            transform: scale(0);
+            animation: ripple-animation 0.6s linear;
+            pointer-events: none;
+        }
+
+        @keyframes ripple-animation {
+            to {
+                transform: scale(4);
+                opacity: 0;
+            }
+        }
+
+        /* Ensure buttons have relative positioning for ripple effect */
+        button,
+        .ripple-btn {
+            position: relative;
+            overflow: hidden;
+        }
+    </style>
+</head>
+
+<body class="pattern-bg">
+    <!-- Navbar will be inserted by navbar.js -->
+    <!-- Banner Section (setelah navbar) -->
+    <div class="relative h-72 bg-cover bg-center mt-16"
+        style="background-image: linear-gradient(rgba(0,0,0,0.6), rgba(0,0,0,0.6)), url('https://images.unsplash.com/photo-1544717297-fa95b6ee9643?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=1469&q=80');">
+        <div class="absolute inset-0 flex items-center justify-center">
+            <div class="text-center text-white">
+                <h1 class="text-4xl font-bold mb-4">Detail Berita</h1>
+                <nav aria-label="breadcrumb">
+                    <ol class="flex justify-center space-x-2 text-sm">
+                        <li><a href="index.html" class="text-gray-300 hover:text-white">Beranda</a></li>
+                        <li><span class="text-gray-500 mx-2">/</span></li>
+                        <li><a href="berita.html" class="text-gray-300 hover:text-white">Berita</a></li>
+                        <li><span class="text-gray-500 mx-2">/</span></li>
+                        <li class="text-white">Detail Berita</li>
+                    </ol>
+                </nav>
+            </div>
+        </div>
+    </div>
+
+    <!-- Main Content -->
+    <main class="container mx-auto px-4 py-8 mt-8 max-w-5xl">
+        <div class="bg-white rounded-xl shadow-lg overflow-hidden p-6 mb-8">
+            <!-- Article Header -->
+            <div class="mb-6">
+                <h2 class="text-3xl font-bold text-gray-800 mb-4">Pendaftaran KB TK ISLAM AL FATH Tahun Ajaran 2023/2024
+                    Dibuka!</h2>
+                <div class="flex items-center text-sm text-orange-500 mb-4">
+                    <i class="far fa-calendar-alt mr-2"></i>
+                    <time datetime="2023-01-15">15 Januari 2023</time>
+                    <span class="mx-3">|</span>
+                    <i class="far fa-user mr-2"></i>
+                    <span>Admin</span>
+                </div>
+            </div>
+
+            <!-- Featured Image -->
+            <div class="mb-8 rounded-xl overflow-hidden">
+                <img src="https://images.unsplash.com/photo-1544717297-fa95b6ee9643?ixlib=rb-4.0.3&auto=format&fit=crop&w=1200&q=80"
+                    alt="Pendaftaran KB TK ISLAM AL FATH" class="w-full h-auto object-cover">
+            </div>
+
+            <!-- Article Content -->
+            <div class="prose max-w-none text-gray-700">
+                <p class="mb-4">KB TK ISLAM AL FATH dengan bangga mengumumkan pembukaan pendaftaran untuk tahun ajaran
+                    baru 2023/2024. Kami mengundang para orang tua untuk mendaftarkan putra-putri mereka ke lembaga
+                    pendidikan yang berkomitmen memberikan pendidikan berkualitas dengan nilai-nilai Islam yang kuat.
+                </p>
+
+                <h3 class="text-xl font-bold text-gray-800 mt-6 mb-3">Mengapa Memilih KB TK ISLAM AL FATH?</h3>
+                <p class="mb-4">KB TK ISLAM AL FATH menawarkan lingkungan belajar yang aman, nyaman, dan menyenangkan
+                    bagi anak-anak. Dengan kurikulum yang komprehensif, kami memadukan pendidikan umum dengan
+                    nilai-nilai Islam untuk membentuk karakter anak yang berakhlak mulia dan cerdas.</p>
+
+                <p class="mb-4">Beberapa keunggulan KB TK ISLAM AL FATH:</p>
+                <ul class="list-disc pl-6 mb-4">
+                    <li class="mb-2">Kurikulum terintegrasi yang memadukan pendidikan nasional dengan nilai-nilai Islam
+                    </li>
+                    <li class="mb-2">Tenaga pengajar yang profesional dan berpengalaman</li>
+                    <li class="mb-2">Fasilitas belajar yang lengkap dan modern</li>
+                    <li class="mb-2">Program ekstrakurikuler yang beragam untuk mengembangkan bakat dan minat anak</li>
+                    <li class="mb-2">Lingkungan sekolah yang aman, nyaman, dan islami</li>
+                </ul>
+
+                <h3 class="text-xl font-bold text-gray-800 mt-6 mb-3">Informasi Pendaftaran</h3>
+                <p class="mb-4">Pendaftaran dibuka mulai tanggal 15 Januari 2023 hingga 30 April 2023. Kuota terbatas,
+                    segera daftarkan putra-putri Anda untuk mendapatkan kesempatan belajar di KB-TK Islam Al Fath.</p>
+
+                <p class="mb-4">Persyaratan pendaftaran:</p>
+                <ul class="list-disc pl-6 mb-4">
+                    <li class="mb-2">Fotokopi akta kelahiran</li>
+                    <li class="mb-2">Fotokopi Kartu Keluarga</li>
+                    <li class="mb-2">Pas foto berwarna ukuran 3x4 (4 lembar)</li>
+                    <li class="mb-2">Mengisi formulir pendaftaran</li>
+                    <li class="mb-2">Membayar biaya pendaftaran</li>
+                </ul>
+
+                <p class="mb-4">Untuk informasi lebih lanjut, silakan hubungi kami di nomor telepon (024) 1234567 atau
+                    kunjungi kantor kami di Jl. Pendidikan No. 123, Semarang.</p>
+
+                <div class="bg-orange-50 border-l-4 border-orange-500 p-4 my-6">
+                    <p class="font-medium">Catatan Penting:</p>
+                    <p>Pendaftaran akan ditutup lebih awal jika kuota sudah terpenuhi. Segera daftarkan putra-putri Anda
+                        untuk mendapatkan kesempatan belajar di KB-TK Islam Al Fath.</p>
+                </div>
+
+                <h3 class="text-xl font-bold text-gray-800 mt-6 mb-3">Jadwal Kegiatan</h3>
+                <div class="overflow-x-auto mb-6">
+                    <table class="min-w-full border-collapse border border-gray-300">
+                        <thead>
+                            <tr class="bg-gray-100">
+                                <th class="border border-gray-300 px-4 py-2">Kegiatan</th>
+                                <th class="border border-gray-300 px-4 py-2">Tanggal</th>
+                            </tr>
+                        </thead>
+                        <tbody>
+                            <tr>
+                                <td class="border border-gray-300 px-4 py-2">Pembukaan Pendaftaran</td>
+                                <td class="border border-gray-300 px-4 py-2">15 Januari 2023</td>
+                            </tr>
+                            <tr class="bg-gray-50">
+                                <td class="border border-gray-300 px-4 py-2">Penutupan Pendaftaran</td>
+                                <td class="border border-gray-300 px-4 py-2">30 April 2023</td>
+                            </tr>
+                            <tr>
+                                <td class="border border-gray-300 px-4 py-2">Pengumuman Hasil Seleksi</td>
+                                <td class="border border-gray-300 px-4 py-2">15 Mei 2023</td>
+                            </tr>
+                            <tr class="bg-gray-50">
+                                <td class="border border-gray-300 px-4 py-2">Masa Orientasi Siswa</td>
+                                <td class="border border-gray-300 px-4 py-2">17-19 Juli 2023</td>
+                            </tr>
+                            <tr>
+                                <td class="border border-gray-300 px-4 py-2">Awal Tahun Ajaran Baru</td>
+                                <td class="border border-gray-300 px-4 py-2">24 Juli 2023</td>
+                            </tr>
+                        </tbody>
+                    </table>
+                </div>
+
+                <p class="mb-4">Kami mengundang Anda untuk menghadiri sesi Open House pada tanggal 28 Januari 2023 pukul
+                    09.00-12.00 WIB untuk mengenal lebih dekat tentang KB-TK Islam Al Fath. Acara ini akan memberikan
+                    kesempatan bagi Anda untuk bertemu dengan para guru, melihat fasilitas sekolah, dan mendapatkan
+                    informasi lebih lanjut tentang program pendidikan kami.</p>
+
+                <p class="font-medium">Mari bergabung dengan KB-TK Islam Al Fath dan berikan pendidikan terbaik untuk
+                    buah hati Anda!</p>
+            </div>
+
+            <!-- Share Buttons -->
+            <div class="mt-8 pt-6 border-t border-gray-200">
+                <h4 class="text-lg font-semibold mb-4">Bagikan:</h4>
+                <div class="flex space-x-4">
+                    <a href="#"
+                        class="bg-blue-600 hover:bg-blue-700 text-white px-4 py-2 rounded-md transition duration-300 flex items-center ripple-btn">
+                        <i class="fab fa-facebook-f mr-2"></i> Facebook
+                    </a>
+                    <a href="#"
+                        class="bg-sky-500 hover:bg-sky-600 text-white px-4 py-2 rounded-md transition duration-300 flex items-center ripple-btn">
+                        <i class="fab fa-twitter mr-2"></i> Twitter
+                    </a>
+                    <a href="#"
+                        class="bg-green-600 hover:bg-green-700 text-white px-4 py-2 rounded-md transition duration-300 flex items-center ripple-btn">
+                        <i class="fab fa-whatsapp mr-2"></i> WhatsApp
+                    </a>
+                </div>
+            </div>
+        </div>
+
+        <!-- Related News Section -->
+        <section class="mb-12">
+            <h2 class="text-2xl font-bold text-gray-800 mb-6">Berita Terkait</h2>
+            <div class="grid grid-cols-1 md:grid-cols-3 gap-6">
+                <!-- Related News Item 1 -->
+                <article
+                    class="bg-white rounded-xl shadow-lg overflow-hidden hover:shadow-xl transition-shadow duration-300">
+                    <div class="h-48 overflow-hidden">
+                        <img src="https://images.unsplash.com/photo-1503676260728-1c00da094a0b?ixlib=rb-4.0.3&auto=format&fit=crop&w=500&q=60"
+                            alt="Kegiatan Belajar Menyenangkan di KB-TK Islam Al Fath"
+                            class="w-full h-full object-cover hover:scale-105 transition-transform duration-300">
+                    </div>
+                    <div class="p-4">
+                        <header>
+                            <h3 class="font-bold text-gray-800 mb-2 line-clamp-2">
+                                Kegiatan Belajar Menyenangkan di KB-TK Islam Al Fath
+                            </h3>
+                        </header>
+                        <p class="text-sm text-gray-600 mb-3 line-clamp-2">
+                            Berbagai kegiatan belajar yang menyenangkan untuk mengembangkan potensi anak...
+                        </p>
+                        <div class="text-xs text-orange-500 flex items-center">
+                            <i class="far fa-calendar-alt mr-1"></i>
+                            <time datetime="2023-02-10">10 Februari 2023</time>
+                        </div>
+                        <div class="mt-2">
+                            <a href="berita.html"
+                                class="text-xs text-white bg-red-500 hover:bg-red-600 font-medium px-3 py-1 rounded-md transition duration-300 ease-in-out flex items-center inline-block ripple-btn">
+                                Baca Selengkapnya
+                                <svg xmlns="http://www.w3.org/2000/svg" class="h-3 w-3 ml-1" fill="none"
+                                    viewBox="0 0 24 24" stroke="currentColor">
+                                    <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
+                                        d="M9 5l7 7-7 7" />
+                                </svg>
+                            </a>
+                        </div>
+                    </div>
+                </article>
+
+                <!-- Related News Item 2 -->
+                <article
+                    class="bg-white rounded-xl shadow-lg overflow-hidden hover:shadow-xl transition-shadow duration-300">
+                    <div class="h-48 overflow-hidden">
+                        <img src="https://images.unsplash.com/photo-1567057419565-4349c49d8a04?ixlib=rb-4.0.3&auto=format&fit=crop&w=500&q=60"
+                            alt="Lomba Mewarnai Di KB TK Islam Alfath 2023"
+                            class="w-full h-full object-cover hover:scale-105 transition-transform duration-300">
+                    </div>
+                    <div class="p-4">
+                        <header>
+                            <h3 class="font-bold text-gray-800 mb-2 line-clamp-2">
+                                Lomba Mewarnai Di KB TK Islam Alfath 2023
+                            </h3>
+                        </header>
+                        <p class="text-sm text-gray-600 mb-3 line-clamp-2">
+                            Event lomba mewarnai untuk anak-anak dengan hadiah menarik...
+                        </p>
+                        <div class="text-xs text-orange-500 flex items-center">
+                            <i class="far fa-calendar-alt mr-1"></i>
+                            <time datetime="2023-03-05">5 Maret 2023</time>
+                        </div>
+                        <div class="mt-2">
+                            <a href="berita.html"
+                                class="text-xs text-white bg-red-500 hover:bg-red-600 font-medium px-3 py-1 rounded-md transition duration-300 ease-in-out flex items-center inline-block ripple-btn">
+                                Baca Selengkapnya
+                                <svg xmlns="http://www.w3.org/2000/svg" class="h-3 w-3 ml-1" fill="none"
+                                    viewBox="0 0 24 24" stroke="currentColor">
+                                    <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
+                                        d="M9 5l7 7-7 7" />
+                                </svg>
+                            </a>
+                        </div>
+                    </div>
+                </article>
+
+                <!-- Related News Item 3 -->
+                <article
+                    class="bg-white rounded-xl shadow-lg overflow-hidden hover:shadow-xl transition-shadow duration-300">
+                    <div class="h-48 overflow-hidden">
+                        <img src="https://images.unsplash.com/photo-1606092195730-5d7b9af1efc5?ixlib=rb-4.0.3&auto=format&fit=crop&w=500&q=60"
+                            alt="Prestasi Siswa KB-TK Islam Al Fath di Lomba Tingkat Kota"
+                            class="w-full h-full object-cover hover:scale-105 transition-transform duration-300">
+                    </div>
+                    <div class="p-4">
+                        <header>
+                            <h3 class="font-bold text-gray-800 mb-2 line-clamp-2">
+                                Prestasi Siswa KB-TK Islam Al Fath di Lomba Tingkat Kota
+                            </h3>
+                        </header>
+                        <p class="text-sm text-gray-600 mb-3 line-clamp-2">
+                            Siswa-siswi KB-TK Islam Al Fath berhasil meraih juara dalam lomba tingkat kota...
+                        </p>
+                        <div class="text-xs text-orange-500 flex items-center">
+                            <i class="far fa-calendar-alt mr-1"></i>
+                            <time datetime="2023-04-12">12 April 2023</time>
+                        </div>
+                        <div class="mt-2">
+                            <a href="berita.html"
+                                class="text-xs text-white bg-red-500 hover:bg-red-600 font-medium px-3 py-1 rounded-md transition duration-300 ease-in-out flex items-center inline-block ripple-btn">
+                                Baca Selengkapnya
+                                <svg xmlns="http://www.w3.org/2000/svg" class="h-3 w-3 ml-1" fill="none"
+                                    viewBox="0 0 24 24" stroke="currentColor">
+                                    <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
+                                        d="M9 5l7 7-7 7" />
+                                </svg>
+                            </a>
+                        </div>
+                    </div>
+                </article>
+            </div>
+        </section>
+
+        <!-- Back to News Button -->
+        <div class="text-center mb-12">
+            <a href="berita.html"
+                class="inline-block bg-red-500 hover:bg-red-600 text-white font-medium px-6 py-3 rounded-md transition duration-300 ease-in-out ripple-btn">
+                <i class="fas fa-arrow-left mr-2"></i> Kembali ke Halaman Berita
+            </a>
+        </div>
+    </main>
+
+    <!-- Animation Script -->
+    <!-- Container for footer -->
+    <div id="kontak"></div>
+    
+    <script>
+        document.addEventListener('DOMContentLoaded', function () {
+            // Initialize navbar
+            if (typeof createNavbar === 'function') {
+                createNavbar();
+            }
+            
+            // Add click animation to buttons
+            const buttons = document.querySelectorAll('.ripple-btn');
+            buttons.forEach(button => {
+                button.addEventListener('click', function (e) {
+                    const ripple = document.createElement('span');
+                    ripple.classList.add('ripple');
+                    this.appendChild(ripple);
+
+                    const rect = this.getBoundingClientRect();
+                    const size = Math.max(rect.width, rect.height);
+                    const x = e.clientX - rect.left - size / 2;
+                    const y = e.clientY - rect.top - size / 2;
+
+                    ripple.style.width = ripple.style.height = size + 'px';
+                    ripple.style.left = x + 'px';
+                    ripple.style.top = y + 'px';
+
+                    setTimeout(() => {
+                        ripple.remove();
+                    }, 600);
+                });
+            });
+        });
+    </script>
+</body>
+
+</html>

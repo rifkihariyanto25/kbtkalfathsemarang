@@ -79,10 +79,8 @@ while ($row = $result_terkait->fetch_assoc()) {
     <!-- Font Awesome -->
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
 
-    <!-- Navbar.js Script -->
+    <!-- Navbar.js and Footer.js Scripts -->
     <script src="../js/navbar.js" defer></script>
-
-    <!-- Footer.js Script -->
     <script src="../js/footer.js" defer></script>
 
     <style>
@@ -114,6 +112,8 @@ while ($row = $result_terkait->fetch_assoc()) {
 </head>
 
 <body class="bg-gray-50">
+    <!-- Navbar will be inserted by navbar.js -->
+    
     <!-- Header Banner Section -->
     <header class="relative h-64 bg-cover bg-center"
         style="background-image: linear-gradient(rgba(0,0,0,0.6), rgba(0,0,0,0.6)), url('https://images.unsplash.com/photo-1544717297-fa95b6ee9643?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=1469&q=80');">
@@ -296,6 +296,36 @@ while ($row = $result_terkait->fetch_assoc()) {
     <button id="back-to-top" class="fixed bottom-6 right-6 bg-orange-500 text-white p-3 rounded-full shadow-lg opacity-0 transition-opacity duration-300">
         <i class="fas fa-arrow-up"></i>
     </button>
+
+    <!-- Container for footer -->
+    <div id="kontak"></div>
+
+    <script>
+        document.addEventListener('DOMContentLoaded', function() {
+            // Initialize navbar
+            // if (typeof createNavbar === 'function') {
+            //     createNavbar();
+            // }
+            
+            // Back to top button functionality
+            const backToTopButton = document.getElementById('back-to-top');
+            
+            window.addEventListener('scroll', function() {
+                if (window.pageYOffset > 300) {
+                    backToTopButton.classList.add('opacity-100');
+                } else {
+                    backToTopButton.classList.remove('opacity-100');
+                }
+            });
+            
+            backToTopButton.addEventListener('click', function() {
+                window.scrollTo({
+                    top: 0,
+                    behavior: 'smooth'
+                });
+            });
+        });
+    </script>
 </body>
 
 </html>

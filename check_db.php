@@ -1,58 +1,53 @@
 <?php
-// Konfigurasi database
-$host = 'localhost';
-$username = 'root';
-$password = '';
-$database = 'kbtk_alfath';
+require_once 'admin/config.php';
 
-// Membuat koneksi ke database
-try {
-    $conn = new mysqli($host, $username, $password, $database);
+// Query untuk memeriksa data di tabel berita
+$query = "SELECT * FROM berita ORDER BY tanggal DESC";
+$result = $conn->query($query);
+
+echo "<h2>Checking Database Connection and Data</h2>";
+
+if ($result) {
+    echo "<p>Database connection successful!</p>";
     
-    // Cek koneksi
-    if ($conn->connect_error) {
-        throw new Exception("Koneksi database gagal: " . $conn->connect_error);
-    }
-    
-    echo "<h2>Koneksi database berhasil</h2>";
-    
-    // Cek tabel berita
-    $result = $conn->query("SHOW TABLES LIKE 'berita'");
     if ($result->num_rows > 0) {
-        echo "<p>Tabel berita ditemukan</p>";
-        
-        // Cek struktur tabel berita
-        $result = $conn->query("DESCRIBE berita");
-        echo "<h3>Struktur tabel berita:</h3>";
+        echo "<p>Found {$result->num_rows} news articles in database:</p>";
         echo "<ul>";
-        $has_excerpt = false;
-        while ($row = $result->fetch_assoc()) {
-            echo "<li>" . $row['Field'] . " - " . $row['Type'] . " - " . ($row['Null'] === 'YES' ? 'NULL' : 'NOT NULL') . "</li>";
-            if ($row['Field'] === 'excerpt') {
-                $has_excerpt = true;
-            }
-        }
-        echo "</ul>";
         
-        if (!$has_excerpt) {
-            echo "<p style='color: red;'><strong>Kolom 'excerpt' tidak ditemukan dalam tabel berita!</strong></p>";
-            echo "<p>Menambahkan kolom excerpt ke tabel berita...</p>";
-            
-            // Tambahkan kolom excerpt jika belum ada
-            $alter_query = "ALTER TABLE berita ADD COLUMN excerpt TEXT AFTER konten";
-            if ($conn->query($alter_query) === TRUE) {
-                echo "<p style='color: green;'>Kolom excerpt berhasil ditambahkan!</p>";
-            } else {
-                echo "<p style='color: red;'>Error menambahkan kolom excerpt: " . $conn->error . "</p>";
-            }
-        } else {
-            echo "<p style='color: green;'>Kolom excerpt sudah ada dalam tabel berita.</p>";
+        while ($row = $result->fetch_assoc()) {
+            echo "<li>ID: {$row['id']} - Title: {$row['judul']} - Date: {$row['tanggal']} - Category: {$row['kategori']}</li>";
         }
+        
+        echo "</ul>";
     } else {
-        echo "<p>Tabel berita tidak ditemukan</p>";
+        echo "<p>No news articles found in the database. Please add some news first.</p>";
+    }
+} else {
+    echo "<p>Error querying database: " . $conn->error . "</p>";
+}
+
+// Cek struktur tabel
+echo "<h3>Table Structure:</h3>";
+$tableQuery = "DESCRIBE berita";
+$tableResult = $conn->query($tableQuery);
+
+if ($tableResult) {
+    echo "<table border='1'>";
+    echo "<tr><th>Field</th><th>Type</th><th>Null</th><th>Key</th><th>Default</th><th>Extra</th></tr>";
+    
+    while ($row = $tableResult->fetch_assoc()) {
+        echo "<tr>";
+        echo "<td>{$row['Field']}</td>";
+        echo "<td>{$row['Type']}</td>";
+        echo "<td>{$row['Null']}</td>";
+        echo "<td>{$row['Key']}</td>";
+        echo "<td>{$row['Default']}</td>";
+        echo "<td>{$row['Extra']}</td>";
+        echo "</tr>";
     }
     
-} catch (Exception $e) {
-    die("Error: " . $e->getMessage());
+    echo "</table>";
+} else {
+    echo "<p>Error getting table structure: " . $conn->error . "</p>";
 }
 ?>

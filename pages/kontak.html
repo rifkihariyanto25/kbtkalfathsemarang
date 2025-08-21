@@ -1,0 +1,278 @@
+<!DOCTYPE html>
+<html lang="id">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Kontak - KB TK ISLAM AL FATH</title>
+
+    <!-- Tailwind CSS -->
+    <script src="https://cdn.tailwindcss.com"></script>
+
+    <!-- Google Fonts: Poppins -->
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;500;600;700;800&display=swap"
+      rel="stylesheet"
+    />
+
+    <!-- Font Awesome -->
+    <link
+      href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css"
+      rel="stylesheet"
+    />
+
+    <!-- Animate On Scroll (AOS) Library -->
+    <link href="https://unpkg.com/aos@2.3.1/dist/aos.css" rel="stylesheet" />
+    <script src="https://unpkg.com/aos@2.3.1/dist/aos.js"></script>
+
+    <!-- Navbar.js Script -->
+    <script src="../js/navbar.js" defer></script>
+
+    <!-- Footer.js Script -->
+    <script src="../js/footer.js" defer></script>
+
+    <style>
+      body {
+        font-family: "Poppins", sans-serif;
+      }
+
+      .contact-card {
+        transition: all 0.3s ease;
+      }
+
+      .contact-card:hover {
+        transform: translateY(-10px);
+        box-shadow: 0 20px 25px -5px rgba(0, 0, 0, 0.1),
+          0 10px 10px -5px rgba(0, 0, 0, 0.04);
+      }
+
+      .contact-icon {
+        transition: all 0.3s ease;
+      }
+
+      .contact-card:hover .contact-icon {
+        transform: scale(1.2);
+      }
+    </style>
+  </head>
+
+  <body class="bg-gray-50">
+    <!-- Navbar will be inserted by navbar.js -->
+
+    <!-- Hero Section -->
+    <section
+      class="bg-gradient-to-r from-orange-500 to-red-600 text-white py-20"
+    >
+      <div class="container mx-auto px-6 text-center">
+        <h1 class="text-4xl md:text-5xl font-bold mb-4" data-aos="fade-up">
+          Hubungi Kami
+        </h1>
+        <p
+          class="text-xl max-w-2xl mx-auto"
+          data-aos="fade-up"
+          data-aos-delay="100"
+        >
+          Kami siap membantu Anda dengan informasi lebih lanjut tentang KB TK
+          ISLAM AL FATH
+        </p>
+      </div>
+    </section>
+
+    <!-- Contact Cards Section -->
+    <section class="py-16">
+      <div class="container mx-auto px-6">
+        <div class="grid grid-cols-1 md:grid-cols-2 gap-8 max-w-5xl mx-auto">
+          <!-- TK Contact Card -->
+          <div
+            class="bg-white rounded-xl shadow-lg p-8 contact-card"
+            data-aos="fade-up"
+          >
+            <div class="flex items-center mb-6">
+              <div class="bg-orange-100 p-4 rounded-full mr-4">
+                <img
+                  src="../assets/WhatsApp Image 2025-07-30 at 09.47.34_ce7ed10a 1.png"
+                  alt="TK Logo"
+                  class="h-16 w-16 rounded-full contact-icon"
+                />
+              </div>
+              <div>
+                <h3 class="text-2xl font-bold text-gray-800">
+                  TK ISLAM AL FATH
+                </h3>
+                <p class="text-gray-600">Taman Kanak-Kanak</p>
+              </div>
+            </div>
+            <div class="space-y-4">
+              <div class="flex items-start">
+                <div class="text-orange-500 mr-4 mt-1">
+                  <i class="fas fa-envelope text-xl contact-icon"></i>
+                </div>
+                <div>
+                  <p class="text-gray-700 font-medium">Email:</p>
+                  <a
+                    href="mailto:alfath99tk@gmail.com"
+                    class="text-blue-600 hover:underline"
+                    >alfath99tk@gmail.com</a
+                  >
+                </div>
+              </div>
+              <div class="flex items-start">
+                <div class="text-green-500 mr-4 mt-1">
+                  <i class="fab fa-whatsapp text-xl contact-icon"></i>
+                </div>
+                <div>
+                  <p class="text-gray-700 font-medium">WhatsApp:</p>
+                  <a
+                    href="https://wa.me/6283877835070"
+                    class="text-blue-600 hover:underline"
+                    >083877835070</a
+                  >
+                </div>
+              </div>
+              <div class="flex items-start">
+                <div class="text-red-500 mr-4 mt-1">
+                  <i class="fas fa-clock text-xl contact-icon"></i>
+                </div>
+                <div>
+                  <p class="text-gray-700 font-medium">Jam Operasional:</p>
+                  <p class="text-gray-600">Senin - Jumat: 07.00 - 15.00</p>
+                </div>
+              </div>
+              <a
+                href="https://wa.me/6283877835070"
+                class="inline-block mt-4 bg-green-500 hover:bg-green-600 text-white font-bold py-3 px-6 rounded-full transition duration-300 transform hover:scale-105"
+              >
+                <i class="fab fa-whatsapp mr-2"></i> Hubungi via WhatsApp
+              </a>
+            </div>
+          </div>
+
+          <!-- KB Contact Card -->
+          <div
+            class="bg-white rounded-xl shadow-lg p-8 contact-card"
+            data-aos="fade-up"
+            data-aos-delay="100"
+          >
+            <div class="flex items-center mb-6">
+              <div class="bg-blue-100 p-4 rounded-full mr-4">
+                <img
+                  src="../assets/WhatsApp Image 2025-07-30 at 09.47.34_ce7ed10a 1.png"
+                  alt="KB Logo"
+                  class="h-16 w-16 rounded-full contact-icon"
+                />
+              </div>
+              <div>
+                <h3 class="text-2xl font-bold text-gray-800">
+                  KB ISLAM AL FATH
+                </h3>
+                <p class="text-gray-600">Kelompok Bermain</p>
+              </div>
+            </div>
+            <div class="space-y-4">
+              <div class="flex items-start">
+                <div class="text-orange-500 mr-4 mt-1">
+                  <i class="fas fa-envelope text-xl contact-icon"></i>
+                </div>
+                <div>
+                  <p class="text-gray-700 font-medium">Email:</p>
+                  <a
+                    href="mailto:al-fatg.kb99@gmail.com"
+                    class="text-blue-600 hover:underline"
+                    >al-fatg.kb99@gmail.com</a
+                  >
+                </div>
+              </div>
+              <div class="flex items-start">
+                <div class="text-green-500 mr-4 mt-1">
+                  <i class="fab fa-whatsapp text-xl contact-icon"></i>
+                </div>
+                <div>
+                  <p class="text-gray-700 font-medium">WhatsApp:</p>
+                  <a
+                    href="https://wa.me/628156574832"
+                    class="text-blue-600 hover:underline"
+                    >08156574832</a
+                  >
+                </div>
+              </div>
+              <div class="flex items-start">
+                <div class="text-red-500 mr-4 mt-1">
+                  <i class="fas fa-clock text-xl contact-icon"></i>
+                </div>
+                <div>
+                  <p class="text-gray-700 font-medium">Jam Operasional:</p>
+                  <p class="text-gray-600">Senin - Jumat: 07.00 - 15.00</p>
+                </div>
+              </div>
+              <a
+                href="https://wa.me/628156574832"
+                class="inline-block mt-4 bg-green-500 hover:bg-green-600 text-white font-bold py-3 px-6 rounded-full transition duration-300 transform hover:scale-105"
+              >
+                <i class="fab fa-whatsapp mr-2"></i> Hubungi via WhatsApp
+              </a>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- Location Section -->
+    <section class="py-16 bg-gray-100">
+      <div class="container mx-auto px-6">
+        <div class="text-center mb-12" data-aos="fade-up">
+          <h2 class="text-3xl font-bold text-gray-800 mb-4">Lokasi Kami</h2>
+          <p class="text-gray-600 max-w-2xl mx-auto">
+            Kunjungi KB TK ISLAM AL FATH di lokasi kami yang strategis dan
+            nyaman untuk anak-anak
+          </p>
+        </div>
+
+        <div
+          class="bg-white rounded-xl shadow-lg overflow-hidden"
+          data-aos="zoom-in"
+        >
+          <div class="aspect-w-16 aspect-h-9">
+            <div id="map-container">
+              <iframe
+                id="google-map"
+                src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d674.9760141216485!2d110.47391260819322!3d-6.99498488476745!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x2e708d310cceedf5%3A0x2fd7f4ae89c257f2!2sKB%20TK%20ISLAM%20AL%20FATH!5e0!3m2!1sen!2sid!4v1755669977167!5m2!1sen!2sid"
+                width="100%"
+                height="450"
+                style="border: 0"
+                allowfullscreen=""
+                loading="lazy"
+                referrerpolicy="no-referrer-when-downgrade"
+              ></iframe>
+            </div>
+          </div>
+          <div class="p-6">
+            <h3 class="text-xl font-bold text-gray-800 mb-2">Alamat</h3>
+            <p class="text-gray-600 mb-4">
+              Jl. Kedungmundu Raya No.22, Sendangmulyo, Kec. Tembalang, Kota
+              Semarang, Jawa Tengah 50273
+            </p>
+            <div class="flex items-center text-gray-500">
+              <i class="fas fa-bus mr-2"></i>
+              <span>Akses mudah dengan transportasi umum</span>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- Footer will be inserted by footer.js -->
+
+    <script>
+      // Initialize AOS
+      AOS.init({
+        duration: 800,
+        easing: "ease-in-out",
+        once: true,
+      });
+
+      // Peta menampilkan lokasi tetap KB TK ISLAM AL FATH
+      // Koordinat: -6.99498488476745, 110.47391260819322
+    </script>
+  </body>
+</html>

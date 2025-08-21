@@ -250,7 +250,7 @@ if (isset($_GET['logout'])) {
                             </div>
                             <span>Tambah Berita Baru</span>
                         </a>
-                        <a href="../index.html" target="_blank"
+                        <a href="../index.php" target="_blank"
                             class="flex items-center p-4 border border-gray-200 rounded-lg hover:bg-green-50 transition duration-300">
                             <div class="p-2 rounded-full bg-green-100 text-green-500 mr-3">
                                 <i class="fas fa-globe"></i>

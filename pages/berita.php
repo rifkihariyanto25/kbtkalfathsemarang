@@ -103,7 +103,7 @@ $total_pages = ceil($total_items / $items_per_page);
 
     <!-- Navbar.js Script -->
     <script src="../js/navbar.js" defer></script>
-
+    
     <!-- Footer.js Script -->
     <script src="../js/footer.js" defer></script>
 
@@ -139,6 +139,13 @@ $total_pages = ceil($total_items / $items_per_page);
 </head>
 
 <body>
+    <!-- Navbar will be inserted by navbar.js -->
+    <!-- <script>
+        document.addEventListener('DOMContentLoaded', function() {
+            createNavbar();
+        });
+    </script> -->
+    
     <!-- Banner -->
     <section class="relative bg-gray-900 text-white">
         <div class="absolute inset-0 bg-cover bg-center" style="background-image: url('https://images.unsplash.com/photo-1544717297-fa95b6ee9643?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=1469&q=80');"></div>
