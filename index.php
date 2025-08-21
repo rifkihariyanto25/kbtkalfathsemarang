@@ -35,14 +35,11 @@ if ($result && $result->num_rows > 0) {
     <script src="https://unpkg.com/aos@2.3.1/dist/aos.js"></script> 
      
     <!-- Font Awesome --> 
-    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css"> 
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.2/css/all.min.css"> 
  
     <!-- Navbar.js Script --> 
     <script src="js/navbar.js" defer></script> 
      
-    <!-- Footer.js Script --> 
-    <script src="js/footer.js" defer></script>
-    
     <style> 
         /* Menggunakan font Poppins yang lebih ramah anak */ 
         body { 
@@ -140,13 +137,13 @@ if ($result && $result->num_rows > 0) {
             <div class="container mx-auto px-6">
                 <div class="grid grid-cols-1 md:grid-cols-2 gap-8 items-center">
                     <div class="relative w-full h-[50vh] md:h-[70vh] order-2 md:order-1" data-aos="fade-right" data-aos-duration="1000">
-                        <img src="https://images.pexels.com/photos/3662843/pexels-photo-3662843.jpeg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=1"
+                        <img src="assets/hero-cover2.jpg"
                             alt="[Anak-anak bermain]"
                             class="absolute top-0 left-0 w-3/5 h-3/5 object-cover rounded-3xl shadow-2xl transform hover:scale-105 transition-transform duration-300 -rotate-6">
-                        <img src="https://images.pexels.com/photos/8613089/pexels-photo-8613089.jpeg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=1"
+                        <img src="assets/hero-cover3.jpg"
                             alt="[Anak-anak belajar]"
                             class="absolute bottom-0 right-0 w-1/2 h-1/2 object-cover rounded-3xl shadow-2xl transform hover:scale-105 transition-transform duration-300 rotate-6 border-4 border-white">
-                        <img src="/assets/image 7.png" alt="[Anak-anak membaca]"
+                        <img src="assets/hero-cover1.jpg" alt="[Anak menyapa]"
                             class="absolute bottom-1/4 left-1/4 w-2/5 h-2/5 object-cover rounded-full shadow-2xl transform hover:scale-105 transition-transform duration-300 border-4 border-white">
                     </div>
                     <div class="text-center md:text-left order-1 md:order-2" data-aos="fade-left" data-aos-duration="1000">
@@ -376,12 +373,12 @@ if ($result && $result->num_rows > 0) {
                             <!-- Fasilitas 1: Ruang Kelas -->
                             <div class="facility-card flex-shrink-0 w-full md:w-1/2 lg:w-1/3 p-2">
                                 <div
-                                    class="bg-white rounded-xl shadow-lg overflow-hidden transform hover:scale-105 transition-transform duration-300">
+                                    class="bg-white rounded-xl shadow-lg overflow-hidden transform hover:scale-105 transition-transform duration-300 h-full flex flex-col">
                                     <div class="h-48 overflow-hidden">
                                         <img src="assets/kelas.jpg"
                                             alt="Ruang Kelas" class="w-full h-full object-cover">
                                     </div>
-                                    <div class="p-6">
+                                    <div class="p-6 flex-grow">
                                         <h3 class="text-xl font-bold text-orange-600 mb-2">Ruang Kelas Nyaman</h3>
                                         <p class="text-gray-600">Ruang kelas yang luas, bersih, dan dilengkapi dengan
                                             peralatan belajar modern untuk mendukung proses pembelajaran.</p>
@@ -392,12 +389,12 @@ if ($result && $result->num_rows > 0) {
                             <!-- Fasilitas 2: Taman Bermain -->
                             <div class="facility-card flex-shrink-0 w-full md:w-1/2 lg:w-1/3 p-2">
                                 <div
-                                    class="bg-white rounded-xl shadow-lg overflow-hidden transform hover:scale-105 transition-transform duration-300">
+                                    class="bg-white rounded-xl shadow-lg overflow-hidden transform hover:scale-105 transition-transform duration-300 h-full flex flex-col">
                                     <div class="h-48 overflow-hidden">
                                         <img src="assets/taman-bermain.jpg"
                                             alt="Taman Bermain" class="w-full h-full object-cover">
                                     </div>
-                                    <div class="p-6">
+                                    <div class="p-6 flex-grow">
                                         <h3 class="text-xl font-bold text-red-600 mb-2">Taman Bermain</h3>
                                         <p class="text-gray-600">Area bermain outdoor yang aman dengan berbagai
                                             permainan untuk mengembangkan motorik kasar anak.</p>
@@ -408,12 +405,12 @@ if ($result && $result->num_rows > 0) {
                             <!-- Fasilitas 3: Aula -->
                             <div class="facility-card flex-shrink-0 w-full md:w-1/2 lg:w-1/3 p-2">
                                 <div
-                                    class="bg-white rounded-xl shadow-lg overflow-hidden transform hover:scale-105 transition-transform duration-300">
+                                    class="bg-white rounded-xl shadow-lg overflow-hidden transform hover:scale-105 transition-transform duration-300 h-full flex flex-col">
                                     <div class="h-48 overflow-hidden">
                                         <img src="assets/aula.jpg"
                                             alt="Aula" class="w-full h-full object-cover">
                                     </div>
-                                    <div class="p-6">
+                                    <div class="p-6 flex-grow">
                                         <h3 class="text-xl font-bold text-orange-600 mb-2">Aula</h3>
                                         <p class="text-gray-600">Ruang aula yang luas dan nyaman menjadi pusat berbagai kegiatan anak. Selain digunakan untuk acara sekolah, 
                                             pertunjukan, dan kegiatan bersama, aula ini juga menjadi tempat latihan ekstrakurikuler drumband.</p>
@@ -424,11 +421,11 @@ if ($result && $result->num_rows > 0) {
                             <!-- Fasilitas 4: Kelas Sempoa -->
                             <div class="facility-card flex-shrink-0 w-full md:w-1/2 lg:w-1/3 p-2">
                                 <div
-                                    class="bg-white rounded-xl shadow-lg overflow-hidden transform hover:scale-105 transition-transform duration-300">
+                                    class="bg-white rounded-xl shadow-lg overflow-hidden transform hover:scale-105 transition-transform duration-300 h-full flex flex-col">
                                     <div class="h-48 overflow-hidden">
                                         <img src="assets/kelas-sempoa.jpg" alt="Kelas Sempoa" class="w-full h-full object-cover">
                                     </div>
-                                    <div class="p-6">
+                                    <div class="p-6 flex-grow">
                                         <h3 class="text-xl font-bold text-orange-600 mb-2">Kelas Sempoa</h3>
                                         <p class="text-gray-600">Pembelajaran sempoa untuk mengembangkan kemampuan
                                             berhitung dan konsentrasi anak sejak dini.</p>
@@ -439,12 +436,12 @@ if ($result && $result->num_rows > 0) {
                             <!-- Fasilitas 5: Mushola -->
                             <div class="facility-card flex-shrink-0 w-full md:w-1/2 lg:w-1/3 p-2">
                                 <div
-                                    class="bg-white rounded-xl shadow-lg overflow-hidden transform hover:scale-105 transition-transform duration-300">
+                                    class="bg-white rounded-xl shadow-lg overflow-hidden transform hover:scale-105 transition-transform duration-300 h-full flex flex-col">
                                     <div class="h-48 overflow-hidden">
                                         <img src="assets/mushola.jpg" alt="Mushola"
                                             class="w-full h-full object-cover">
                                     </div>
-                                    <div class="p-6">
+                                    <div class="p-6 flex-grow">
                                         <h3 class="text-xl font-bold text-orange-600 mb-2">Mushola</h3>
                                         <p class="text-gray-600">Ruang mushola yang bersih, rapi, dan nyaman membuat kegiatan doa bersama maupun pengenalan ibadah harian menjadi lebih menyenangkan.</p>
                                     </div>
@@ -454,11 +451,11 @@ if ($result && $result->num_rows > 0) {
                             <!-- Fasilitas 6: Tempat Wudhu -->
                             <div class="facility-card flex-shrink-0 w-full md:w-1/2 lg:w-1/3 p-2">
                                 <div
-                                    class="bg-white rounded-xl shadow-lg overflow-hidden transform hover:scale-105 transition-transform duration-300">
+                                    class="bg-white rounded-xl shadow-lg overflow-hidden transform hover:scale-105 transition-transform duration-300 h-full flex flex-col">
                                     <div class="h-48 overflow-hidden">
                                         <img src="assets/tempat-wudlu.jpg" alt="Tempat Wudhu" class="w-full h-full object-cover">
                                     </div>
-                                    <div class="p-6">
+                                    <div class="p-6 flex-grow">
                                         <h3 class="text-xl font-bold text-orange-600 mb-2">Tempat Wudhu</h3>
                                         <p class="text-gray-600">Membantu membiasakan siswa menjaga kebersihan diri sekaligus menanamkan kedisiplinan beribadah sejak dini.</p>
                                     </div>
@@ -467,28 +464,28 @@ if ($result && $result->num_rows > 0) {
 
 
                             <!-- Fasilitas 7: alat bermain dan belajar -->
-                            <div class="facility-card flex-shrink-0 w-full md:w-1/2 lg:w-1/3 p-2">
-                                <div
-                                    class="bg-white rounded-xl shadow-lg overflow-hidden transform hover:scale-105 transition-transform duration-300">
-                                    <div class="h-48 overflow-hidden">
-                                        <img src="assets/alat-bermain-dan-belajar.jpg" alt="Alat bermain dan Belajar"
-                                            class="w-full h-full object-cover">
-                                    </div>
-                                    <div class="p-6">
-                                        <h3 class="text-xl font-bold text-orange-600 mb-2">Alat Bermain dan Belajar</h3>
-                                        <p class="text-gray-600">Fasilitas bermain edukatif yang membuat anak tak hanya belajar membaca, menulis, dan berhitung, tapi juga berani mencoba hal baru dengan cara menyenangkan.</p>
-                                    </div>
-                                </div>
-                            </div>
+            <div class="facility-card flex-shrink-0 w-full md:w-1/2 lg:w-1/3 p-2">
+                <div
+                    class="bg-white rounded-xl shadow-lg overflow-hidden transform hover:scale-105 transition-transform duration-300 h-full flex flex-col">
+                    <div class="h-48 overflow-hidden">
+                        <img src="assets/alat-bermain-dan-belajar.jpg" alt="Alat bermain dan Belajar"
+                            class="w-full h-full object-cover">
+                    </div>
+                    <div class="p-6 flex-grow">
+                        <h3 class="text-xl font-bold text-orange-600 mb-2">Alat Bermain dan Belajar</h3>
+                        <p class="text-gray-600">Fasilitas bermain edukatif yang membuat anak tak hanya belajar membaca, menulis, dan berhitung, tapi juga berani mencoba hal baru dengan cara menyenangkan.</p>
+                    </div>
+                </div>
+            </div>
 
                             <!-- Fasilitas 8: alat drumband -->
                             <div class="facility-card flex-shrink-0 w-full md:w-1/2 lg:w-1/3 p-2">
                                 <div
-                                    class="bg-white rounded-xl shadow-lg overflow-hidden transform hover:scale-105 transition-transform duration-300">
+                                    class="bg-white rounded-xl shadow-lg overflow-hidden transform hover:scale-105 transition-transform duration-300 h-full flex flex-col">
                                     <div class="h-48 overflow-hidden">
                                         <img src="assets/alat-drumband.jpg" alt="Alat drumband" class="w-full h-full object-cover">
                                     </div>
-                                    <div class="p-6">
+                                    <div class="p-6 flex-grow">
                                         <h3 class="text-xl font-bold text-orange-600 mb-2">Alat Drumband</h3>
                                         <p class="text-gray-600">Berbagai alat drumband mulai dari bass drum, snare, cymbal, hingga marching bell.
 Dengan fasilitas ini, siswa dapat mengasah bakat bermusik, melatih kekompakan, disiplin, dan percaya diri melalui kegiatan ekstrakurikuler drumband.</p>
@@ -499,12 +496,12 @@ Dengan fasilitas ini, siswa dapat mengasah bakat bermusik, melatih kekompakan, d
                             <!-- Fasilitas 9: toilet -->
                             <div class="facility-card flex-shrink-0 w-full md:w-1/2 lg:w-1/3 p-2">
                                 <div
-                                    class="bg-white rounded-xl shadow-lg overflow-hidden transform hover:scale-105 transition-transform duration-300">
+                                    class="bg-white rounded-xl shadow-lg overflow-hidden transform hover:scale-105 transition-transform duration-300 h-full flex flex-col">
                                     <div class="h-48 overflow-hidden">
                                         <img src="assets/toilet.jpg" alt="Toilet"
                                             class="w-full h-full object-cover">
                                     </div>
-                                    <div class="p-6">
+                                    <div class="p-6 flex-grow">
                                         <h3 class="text-xl font-bold text-orange-600 mb-2">Toilet Bersih dan Terawat</h3>
                                         <p class="text-gray-600">Toilet yang selalu dijaga kebersihannya demi kenyamanan dan kesehatan anak-anak.
 Dengan fasilitas ramah anak, toilet ini membantu siswa belajar menjaga kebersihan diri sekaligus menciptakan lingkungan belajar yang sehat.</p>
@@ -547,37 +544,62 @@ Dengan fasilitas ramah anak, toilet ini membantu siswa belajar menjaga kebersiha
         </section>
     </main>
 
-    <!-- EKSTRAKURIKULER SECTION -->
-    <section id="ekstrakurikuler" class="py-20 bg-white">
-        <div class="container mx-auto px-6">
-            <div class="text-center mb-16" data-aos="fade-up" data-aos-duration="800">
-                <h2 class="inline-block text-4xl md:text-5xl font-extrabold text-gray-800"><span
-                        class="wavy-underline">Ekstrakulikuler Di KB TK ISLAM AL FATH</span></h2>
-                <p class="text-gray-600 mt-4 text-lg">Mengasah bakat dan kreativitas si kecil di luar jam belajar!
-                </p>
-            </div>
-            <div class="max-w-4xl mx-auto grid grid-cols-1 md:grid-cols-2 gap-10" data-aos="fade-up" data-aos-delay="100">
-                <div
-                    class="bg-gradient-to-br from-orange-100 to-red-100 p-8 rounded-3xl shadow-lg hover:shadow-2xl transition-all duration-300 text-center group transform hover:-translate-y-2" data-aos="fade-right" data-aos-delay="200">
-                    <img src="assets/Drumband 1.jpg"
-                        class="h-28 w-28 mx-auto mb-4 transition-transform duration-500 group-hover:scale-110"
-                        alt="Ikon Terompet">
-                    <h3 class="text-2xl font-bold text-gray-800 mb-2">Marching Band</h3>
-                    <p class="text-gray-600">Belajar memainkan alat musik, kekompakan tim, dan disiplin sambil
-                        berbaris mengikuti irama yang semangat.</p>
-                </div>
-                <div
-                    class="bg-gradient-to-br from-orange-100 to-red-100 p-8 rounded-3xl shadow-lg hover:shadow-2xl transition-all duration-300 text-center group transform hover:-translate-y-2" data-aos="fade-left" data-aos-delay="300">
-                    <img src="assets/sempoa 1.jpg"
-                        class="h-28 w-28 mx-auto mb-4 transition-transform duration-500 group-hover:scale-110"
-                        alt="Ikon Sempoa">
-                    <h3 class="text-2xl font-bold text-gray-800 mb-2">Sempoa</h3>
-                    <p class="text-gray-600">Metode berhitung cepat yang seru untuk melatih konsentrasi, daya ingat,
-                        dan kecerdasan otak kanan dan kiri.</p>
-                </div>
-            </div>
+<!-- EKSTRAKURIKULER SECTION -->
+<section id="ekstrakurikuler" class="py-20 bg-white">
+  <div class="container mx-auto px-6">
+    <div class="text-center mb-16" data-aos="fade-up" data-aos-duration="800">
+      <h2 class="inline-block text-4xl md:text-5xl font-extrabold text-gray-800">
+        <span class="wavy-underline">Ekstrakulikuler Di KB TK ISLAM AL FATH</span>
+      </h2>
+      <p class="text-gray-600 mt-4 text-lg">
+        Mengasah bakat dan kreativitas si kecil di luar jam belajar!
+      </p>
+    </div>
+
+    <div class="max-w-4xl mx-auto grid grid-cols-1 md:grid-cols-2 gap-10" data-aos="fade-up" data-aos-delay="100">
+      <!-- Card 1 -->
+      <div
+        class="bg-gradient-to-br from-orange-100 to-red-100 rounded-3xl shadow-lg hover:shadow-2xl overflow-hidden transition-all duration-300 group transform hover:-translate-y-2"
+        data-aos="fade-right" data-aos-delay="200">
+        
+        <!-- Gambar Cover -->
+        <img src="assets/Drumband 1.jpg"
+          class="w-full h-48 object-cover transition-transform duration-500 group-hover:scale-105"
+          alt="Marching Band">
+
+        <!-- Konten Card -->
+        <div class="p-6 text-center">
+          <h3 class="text-2xl font-bold text-gray-800 mb-2">Marching Band</h3>
+          <p class="text-gray-600">
+            Belajar memainkan alat musik, kekompakan tim, dan disiplin sambil
+            berbaris mengikuti irama yang semangat.
+          </p>
         </div>
-    </section>
+      </div>
+
+      <!-- Card 2 -->
+      <div
+        class="bg-gradient-to-br from-orange-100 to-red-100 rounded-3xl shadow-lg hover:shadow-2xl overflow-hidden transition-all duration-300 group transform hover:-translate-y-2"
+        data-aos="fade-left" data-aos-delay="300">
+        
+        <!-- Gambar Cover -->
+        <img src="assets/sempoa 1.jpg"
+          class="w-full h-48 object-cover transition-transform duration-500 group-hover:scale-105"
+          alt="Sempoa">
+
+        <!-- Konten Card -->
+        <div class="p-6 text-center">
+          <h3 class="text-2xl font-bold text-gray-800 mb-2">Sempoa</h3>
+          <p class="text-gray-600">
+            Metode berhitung cepat yang seru untuk melatih konsentrasi, daya ingat,
+            dan kecerdasan otak kanan dan kiri.
+          </p>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
 
         <!-- berita SECTION -->
         <section id="berita" class="py-20 bg-white">
@@ -812,6 +834,9 @@ Dengan fasilitas ramah anak, toilet ini membantu siswa belajar menjaga kebersiha
             });
         }
     </script>
+    
+    <!-- Footer.js Script --> 
+    <script src="js/footer.js"></script>
 </body>
 
 </html>

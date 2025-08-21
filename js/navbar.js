@@ -3,33 +3,26 @@
 function createNavbar() {
   // Create the navbar HTML structure
   // Detect if we're in the root directory or in a subdirectory
-  const isRoot =
-    window.location.pathname.split("/").filter(Boolean).length === 1 ||
-    window.location.pathname.endsWith("index.html") ||
-    window.location.pathname.endsWith("/");
-
-  // Set the correct path prefix based on location
-  const pathPrefix = isRoot ? "" : "../";
-  const assetsPrefix = isRoot ? "assets/" : "../assets/";
-  const pagesPrefix = isRoot ? "pages/" : "../pages/";
+  const isLocalhost8000 = window.location.port === '8000';
+  const baseURL = isLocalhost8000 ? '/' : '/kbtkalfathsemarang/';
 
   const navbarHTML = `
     <header class="bg-white/80 backdrop-blur-lg sticky top-0 left-0 right-0 z-50 shadow-sm">
         <div class="container mx-auto px-6 py-3 flex justify-between items-center">
-            <a href="http://localhost/kbtkalfathsemarang/" class="flex items-center space-x-3">
-                <img src="${assetsPrefix}WhatsApp Image 2025-07-30 at 09.47.34_ce7ed10a 1.png" alt="Logo Al-Fath"
+            <a href="${baseURL}" class="flex items-center space-x-3">
+                <img src="${baseURL}assets/WhatsApp Image 2025-07-30 at 09.47.34_ce7ed10a 1.png" alt="Logo Al-Fath"
                     class="h-12 w-12 rounded-full transform hover:rotate-12 transition-transform duration-300">
                 <span class="text-xl font-bold text-gray-800">KB TK ISLAM AL FATH</span>
             </a>
             <nav class="hidden md:flex space-x-8 items-center">
-                <a href="http://localhost/kbtkalfathsemarang/"
+                <a href="${baseURL}"
                     class="text-gray-600 hover:text-orange-500 font-semibold transition-colors">Beranda</a>
-                <a href="${pagesPrefix}kb.html" class="text-gray-600 hover:text-orange-500 font-semibold transition-colors">KB</a>
-                <a href="${pagesPrefix}tk.html" class="text-gray-600 hover:text-orange-500 font-semibold transition-colors">TK</a>
-                <a href="${pagesPrefix}galeri.php"
+                <a href="${baseURL}pages/kb.html" class="text-gray-600 hover:text-orange-500 font-semibold transition-colors">KB</a>
+                <a href="${baseURL}pages/tk.html" class="text-gray-600 hover:text-orange-500 font-semibold transition-colors">TK</a>
+                <a href="${baseURL}pages/galeri.php"
                     class="text-gray-600 hover:text-orange-500 font-semibold transition-colors">Galeri</a>
-                <a href="${pagesPrefix}berita.php" class="text-gray-600 hover:text-orange-500 active:text-orange-500 font-semibold transition-colors">Berita</a>
-                <a href="${pagesPrefix}kontak.html"
+                <a href="${baseURL}pages/berita.php" class="text-gray-600 hover:text-orange-500 active:text-orange-500 font-semibold transition-colors">Berita</a>
+                <a href="${baseURL}pages/kontak.html"
                     class="bg-orange-500 text-white px-4 py-2 rounded-[18px] hover:bg-orange-600 font-semibold transition-colors">Kontak</a>
             </nav>
             <button id="mobile-menu-button" class="md:hidden text-orange-500 focus:outline-none">
@@ -41,12 +34,12 @@ function createNavbar() {
             </button>
         </div>
         <div id="mobile-menu" class="hidden md:hidden bg-white border-t">
-            <a href="http://localhost/kbtkalfathsemarang/" class="block py-3 px-6 text-gray-600 hover:bg-orange-50 font-medium">Beranda</a>
-            <a href="${pagesPrefix}kb.html" class="block py-3 px-6 text-gray-600 hover:bg-orange-50 font-medium">KB</a>
-            <a href="${pagesPrefix}tk.html" class="block py-3 px-6 text-gray-600 hover:bg-orange-50 font-medium">TK</a>
-            <a href="${pagesPrefix}galeri.php" class="block py-3 px-6 text-gray-600 hover:bg-orange-50 font-medium">Galeri</a>
-            <a href="${pagesPrefix}berita.php" class="block py-3 px-6 text-gray-600 hover:bg-orange-50 active:text-orange-500 font-medium">Berita</a>
-            <a href="${pagesPrefix}kontak.html" class="block py-3 px-6 bg-orange-500 text-white hover:bg-orange-600 font-medium mx-6 my-2 rounded-[18px]">Kontak</a>
+            <a href="${baseURL}" class="block py-3 px-6 text-gray-600 hover:bg-orange-50 font-medium">Beranda</a>
+            <a href="${baseURL}pages/kb.html" class="block py-3 px-6 text-gray-600 hover:bg-orange-50 font-medium">KB</a>
+            <a href="${baseURL}pages/tk.html" class="block py-3 px-6 text-gray-600 hover:bg-orange-50 font-medium">TK</a>
+            <a href="${baseURL}pages/galeri.php" class="block py-3 px-6 text-gray-600 hover:bg-orange-50 font-medium">Galeri</a>
+            <a href="${baseURL}pages/berita.php" class="block py-3 px-6 text-gray-600 hover:bg-orange-50 active:text-orange-500 font-medium">Berita</a>
+            <a href="${baseURL}pages/kontak.html" class="block py-3 px-6 bg-orange-500 text-white hover:bg-orange-600 font-medium mx-6 my-2 rounded-[18px]">Kontak</a>
         </div>
     </header>
     `;
@@ -73,47 +66,46 @@ function createNavbar() {
   const isActivePage = (link) => {
     const linkPath = link.getAttribute("href");
 
-    // Cek halaman beranda
+    // Beranda
     if (
-      (currentPath.includes("index.html") ||
-        currentPath.includes("index.php") ||
-        currentPath === "/kbtkalfathsemarang/" ||
-        currentPath === "/kbtkalfathsemarang") &&
-      (linkPath.endsWith("index.php") ||
-        linkPath === "http://localhost/kbtkalfathsemarang/")
+      currentPath === "/kbtkalfathsemarang/" ||
+      currentPath === "/kbtkalfathsemarang" ||
+      currentPath === "/" ||
+      currentPath.endsWith("index.php") ||
+      currentPath.endsWith("index.html")
     ) {
-      return true;
+      return (
+        linkPath === baseURL ||
+        linkPath === "/" ||
+        linkPath === `${baseURL}index.php` ||
+        linkPath === `${baseURL}index.html`
+      );
     }
-    // Cek halaman KB
-    else if (currentPath.includes("kb.html") && linkPath.includes("kb.html")) {
+
+    // KB
+    if (currentPath.includes("kb.html") && linkPath.includes("kb.html"))
       return true;
-    }
-    // Cek halaman TK
-    else if (currentPath.includes("tk.html") && linkPath.includes("tk.html")) {
+
+    // TK
+    if (currentPath.includes("tk.html") && linkPath.includes("tk.html"))
       return true;
-    }
-    // Cek halaman Galeri
-    else if (
-      currentPath.includes("galeri.php") &&
-      linkPath.includes("galeri.php")
-    ) {
+
+    // Galeri
+    if (currentPath.includes("galeri.php") && linkPath.includes("galeri.php"))
       return true;
-    }
-    // Cek halaman Berita
-    else if (
+
+    // Berita
+    if (
       (currentPath.includes("berita.php") ||
         currentPath.includes("/pages/berita")) &&
       linkPath.includes("berita.php")
-    ) {
+    )
       return true;
-    }
-    // Cek halaman Kontak
-    else if (
-      currentPath.includes("index.html") &&
-      linkPath.includes("#kontak")
-    ) {
-      return window.location.hash === "#kontak";
-    }
+
+    // Kontak
+    if (currentPath.includes("kontak.html") && linkPath.includes("kontak.html"))
+      return true;
+
     return false;
   };
 
@@ -124,7 +116,7 @@ function createNavbar() {
       link.classList.remove("text-gray-600");
       link.classList.add("text-orange-500");
 
-      // Khusus untuk link berita, tambahkan style agar tetap oranye
+      // Khusus untuk link berita di navbar, tambahkan style agar tetap oranye
       if (link.getAttribute("href").includes("berita.php")) {
         link.style.color = "#f97316"; // Warna orange-500 di Tailwind
       }
@@ -139,7 +131,7 @@ function createNavbar() {
       link.classList.add("text-orange-500");
       link.classList.add("bg-orange-50");
 
-      // Khusus untuk link berita, tambahkan style agar tetap oranye
+      // Khusus untuk link berita di mobile navbar, tambahkan style agar tetap oranye
       if (link.getAttribute("href").includes("berita.php")) {
         link.style.color = "#f97316"; // Warna orange-500 di Tailwind
       }
@@ -158,7 +150,8 @@ document.addEventListener("DOMContentLoaded", () => {
       currentPath.includes("berita.php") ||
       currentPath.includes("/pages/berita")
     ) {
-      const beritaLinks = document.querySelectorAll('a[href*="berita.php"]');
+      // Hanya pilih link berita yang ada di navbar, bukan di footer
+      const beritaLinks = document.querySelectorAll('#navbar a[href*="berita.php"], #mobile-menu a[href*="berita.php"]');
       beritaLinks.forEach((link) => {
         link.style.color = "#f97316"; // Warna orange-500 di Tailwind
         link.classList.remove("text-gray-600");

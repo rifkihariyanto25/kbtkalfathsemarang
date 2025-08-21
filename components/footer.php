@@ -12,14 +12,17 @@
                 </div>
                 <p class="text-gray-400 mb-4">Lembaga pendidikan anak usia dini yang mengintegrasikan nilai-nilai Islam dalam setiap aspek pembelajaran.</p>
                 <div class="flex space-x-4">
-                    <a href="#" class="text-gray-400 hover:text-white transition duration-300">
+                    <a href="https://www.facebook.com/profile.php?id=61563999790817&rdid=hNy8sy7wVjCoAnty&share_url=https%3A%2F%2Fwww.facebook.com%2Fshare%2F15poNf9tH2#" target="_blank" class="text-gray-400 hover:text-white transition duration-300">
                         <i class="fab fa-facebook-f"></i>
                     </a>
-                    <a href="#" class="text-gray-400 hover:text-white transition duration-300">
+                    <a href="https://www.instagram.com/kbtkislamalfath?utm_source=qr&igsh=MW9hNGxrOGVzcGh5ZA%3D%3D" target="_blank" class="text-gray-400 hover:text-white transition duration-300">
                         <i class="fab fa-instagram"></i>
                     </a>
-                    <a href="#" class="text-gray-400 hover:text-white transition duration-300">
+                    <a href="https://www.youtube.com/@kbal-fath7452" target="_blank" class="text-gray-400 hover:text-white transition duration-300">
                         <i class="fab fa-youtube"></i>
+                    </a>
+                    <a href="https://www.tiktok.com/@kbtkislamalfath2" target="_blank" class="text-gray-400 hover:text-white transition duration-300">
+                        <i class="fab fa-tiktok"></i>
                     </a>
                 </div>
             </div>
